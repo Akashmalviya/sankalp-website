@@ -330,13 +330,16 @@
   }
 
   .hero::before {
-    content: 'ॐ';
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(200px, 30vw, 400px);
-    color: rgba(139, 92, 159, 0.04);
+    width: clamp(250px, 35vw, 500px);
+    height: clamp(250px, 35vw, 500px);
+    background: url('images/buddha-silhouette.png') no-repeat center / contain;
+    filter: invert(1);
+    opacity: 0.03;
     z-index: 0;
     pointer-events: none;
   }
@@ -346,44 +349,43 @@
     z-index: 1;
   }
 
+  .hero-logo-outer {
+    width: 90px;
+    height: 90px;
+    border: 1px solid rgba(201, 168, 124, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: cosmic-pulse 4s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(139, 92, 159, 0.15), 0 0 60px rgba(201, 168, 124, 0.05);
+  }
+
   .hero-logo {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border: 2px solid var(--gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 12px;
     position: relative;
   }
 
   .hero-logo::before {
     content: '';
-    width: 50px;
-    height: 50px;
-    border: 1px solid rgba(201, 168, 124, 0.5);
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(201, 168, 124, 0.4);
     border-radius: 50%;
     position: absolute;
   }
 
   .hero-logo::after {
     content: '✦';
-    font-size: 18px;
+    font-size: 16px;
     color: var(--gold);
-  }
-
-  .hero-logo-outer {
-    width: 96px;
-    height: 96px;
-    border: 1px solid rgba(201, 168, 124, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    animation: cosmic-pulse 4s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(139, 92, 159, 0.15), 0 0 60px rgba(201, 168, 124, 0.05);
   }
 
   @keyframes cosmic-pulse {
@@ -410,10 +412,13 @@
   }
 
   .hero-om {
-    font-size: 48px;
-    color: rgba(180, 130, 160, 0.2);
-    line-height: 1;
     margin-bottom: 16px;
+  }
+
+  .hero-om-img {
+    width: 48px;
+    height: auto;
+    opacity: 0.25;
   }
 
   .hero-tagline {
@@ -955,7 +960,7 @@
 
     .hero-title { letter-spacing: 6px; }
     .hero-logo-outer { width: 76px; height: 76px; }
-    .hero-logo { width: 64px; height: 64px; }
+    .hero-logo { width: 60px; height: 60px; }
 
     .cta-btn-outline { margin-left: 0; }
 
@@ -1006,7 +1011,7 @@
     </div>
     <div class="hero-hindi">संकल्प</div>
     <h1 class="hero-title">SANKALP</h1>
-    <div class="hero-om">ॐ</div>
+    <div class="hero-om"><img src="images/om-symbol.svg" alt="Om" class="hero-om-img"></div>
     <p class="hero-tagline">Dhyan for Mind, Body & a Better Life</p>
     <div class="hero-audience">
       <span class="hero-audience-text">Heal Naturally &middot; Live Fully</span>
@@ -1072,7 +1077,7 @@
       </div>
     </div>
 
-    <div class="section-label" style="margin-top:50px;">People Come to Us For</div>
+    <div class="section-label" style="margin-top:50px;">We Spread Awareness About</div>
     <div class="challenges-list">
       <span class="challenge-item">Migraines</span>
       <span class="challenge-item">PCOD / PCOS</span>
