@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prakriti Assessment — Discover Your Body Constitution | Sankalp</title>
+<meta name="description" content="Find your Ayurvedic body type — Vata, Pitta, or Kapha. A simple questionnaire based on ancient Ayurvedic wisdom to understand your natural constitution and current imbalance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --vata: #7ab8d4;
+    --pitta: #d4917a;
+    --kapha: #8bbd7a;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 6, 24, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+  .nav-brand span {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: var(--gold);
+    font-size: 11px;
+    margin-right: 8px;
+    font-weight: 300;
+  }
+  .nav-back {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-back:hover { color: var(--text-white); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 20px 60px;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    position: relative;
+  }
+  .hero::before {
+    content: 'प्रकृति';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 200px;
+    color: rgba(139, 92, 159, 0.03);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-stone);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+  .hero-sub {
+    color: var(--gold);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto 8px;
+  }
+  .hero-note {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 12px auto 0;
+  }
+
+  /* QUIZ CONTAINER */
+  .quiz-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+  }
+
+  /* PROGRESS */
+  .progress-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(201, 168, 124, 0.1);
+    border-radius: 3px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--pink-stone));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  /* CATEGORY HEADER */
+  .category-header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+  .category-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .category-header h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .category-header p {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* QUESTION */
+  .question-block {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  .question-block.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-text {
+    font-size: 20px;
+    color: var(--text-white);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .question-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(45, 27, 78, 0.15);
+    border: 1px solid rgba(201, 168, 124, 0.06);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .option:hover {
+    background: rgba(45, 27, 78, 0.3);
+    border-color: rgba(201, 168, 124, 0.15);
+  }
+  .option.selected {
+    background: rgba(201, 168, 124, 0.08);
+    border-color: rgba(201, 168, 124, 0.3);
+  }
+
+  .option-marker {
+    width: 20px; height: 20px;
+    border: 1.5px solid rgba(201, 168, 124, 0.25);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+  }
+  .option.selected .option-marker {
+    border-color: var(--gold);
+    background: var(--gold);
+  }
+  .option.selected .option-marker::after {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--bg-deep);
+    border-radius: 50%;
+  }
+
+  .option-label {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    transition: color 0.25s;
+  }
+  .option.selected .option-label { color: var(--text-light); }
+
+  .dosha-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: auto;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    display: none;
+  }
+
+  /* NAVIGATION BUTTONS */
+  .quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    gap: 12px;
+  }
+
+  .btn-prev, .btn-next {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-prev {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 124, 0.15);
+    color: var(--gold-dim);
+  }
+  .btn-prev:hover {
+    border-color: rgba(201, 168, 124, 0.3);
+    color: var(--gold);
+  }
+  .btn-next {
+    background: linear-gradient(135deg, var(--gold), #b8956a);
+    color: var(--bg-deep);
+    font-weight: 600;
+    margin-left: auto;
+  }
+  .btn-next:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201, 168, 124, 0.25); }
+  .btn-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* RESULTS */
+  .results {
+    display: none;
+    animation: fadeIn 0.6s ease;
+  }
+  .results.active { display: block; }
+
+  .results-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .results-header h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .results-header p {
+    font-size: 17px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* DOSHA BARS */
+  .dosha-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .dosha-result {
+    padding: 20px 24px;
+    border-radius: 10px;
+    border: 1px solid rgba(201, 168, 124, 0.08);
+  }
+  .dosha-result.vata-bg { background: linear-gradient(160deg, rgba(122, 184, 212, 0.08), rgba(26, 10, 46, 0.3)); border-color: rgba(122, 184, 212, 0.15); }
+  .dosha-result.pitta-bg { background: linear-gradient(160deg, rgba(212, 145, 122, 0.08), rgba(26, 10, 46, 0.3)); border-color: rgba(212, 145, 122, 0.15); }
+  .dosha-result.kapha-bg { background: linear-gradient(160deg, rgba(139, 189, 122, 0.08), rgba(26, 10, 46, 0.3)); border-color: rgba(139, 189, 122, 0.15); }
+
+  .dosha-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .dosha-name {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  .dosha-name.vata-text { color: var(--vata); }
+  .dosha-name.pitta-text { color: var(--pitta); }
+  .dosha-name.kapha-text { color: var(--kapha); }
+
+  .dosha-percent {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .dosha-percent.vata-text { color: var(--vata); }
+  .dosha-percent.pitta-text { color: var(--pitta); }
+  .dosha-percent.kapha-text { color: var(--kapha); }
+
+  .dosha-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(201, 168, 124, 0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .dosha-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s ease;
+    width: 0%;
+  }
+  .dosha-bar-fill.vata-fill { background: linear-gradient(90deg, var(--vata), rgba(122, 184, 212, 0.5)); }
+  .dosha-bar-fill.pitta-fill { background: linear-gradient(90deg, var(--pitta), rgba(212, 145, 122, 0.5)); }
+  .dosha-bar-fill.kapha-fill { background: linear-gradient(90deg, var(--kapha), rgba(139, 189, 122, 0.5)); }
+
+  .dosha-elements {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* PROFILE CARD */
+  .profile-card {
+    background: rgba(45, 27, 78, 0.15);
+    border: 1px solid rgba(201, 168, 124, 0.1);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .profile-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .profile-card p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .profile-card p:last-child { margin-bottom: 0; }
+
+  .trait-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .trait {
+    padding: 12px 16px;
+    background: rgba(15, 6, 24, 0.3);
+    border-radius: 6px;
+  }
+  .trait-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .trait-value {
+    font-size: 15px;
+    color: var(--text-light);
+  }
+
+  /* RECOMMENDATIONS */
+  .reco-section { margin-bottom: 32px; }
+  .reco-section h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+  .reco-list { list-style: none; }
+  .reco-list li {
+    font-size: 16px;
+    color: var(--text-muted);
+    padding: 8px 0 8px 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .reco-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold-faint);
+    border: 1px solid var(--gold-dim);
+  }
+
+  /* CTA */
+  .results-cta {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(201, 168, 124, 0.08);
+    margin-top: 40px;
+  }
+  .results-cta p {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--gold), #b8956a);
+    color: var(--bg-deep);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin: 0 6px;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(201, 168, 124, 0.25); }
+  .cta-btn.outline {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 124, 0.3);
+    color: var(--gold);
+  }
+
+  /* SHARE */
+  .share-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(201, 168, 124, 0.15);
+    color: var(--gold-dim);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 16px;
+  }
+  .share-btn:hover { border-color: rgba(201, 168, 124, 0.3); color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(201, 168, 124, 0.05);
+  }
+  footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  footer a { color: var(--gold-dim); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav { padding: 12px 20px; }
+    .hero { padding: 120px 16px 48px; }
+    .quiz-wrapper { padding: 30px 16px 80px; }
+    .trait-grid { grid-template-columns: 1fr; }
+    .quiz-nav { flex-direction: column; }
+    .btn-next { margin-left: 0; }
+    .option { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span>संकल्प</span>SANKALP</a>
+  <a href="index.html" class="nav-back">&larr; Back to Home</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Ayurvedic Self-Assessment</span>
+    <h1>Discover Your Prakriti</h1>
+    <p class="hero-sub">Your body has a natural constitution. Knowing it is the first step to healing.</p>
+    <p class="hero-note">15 simple questions. No sign-up. Instant results with personalized guidance.</p>
+  </div>
+</section>
+
+<div class="quiz-wrapper">
+
+  <!-- QUIZ SECTION -->
+  <div id="quiz">
+    <div class="progress-text"><span id="progress-label">Question 1 of 15</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+    <div id="questions-container"></div>
+
+    <div class="quiz-nav">
+      <button class="btn-prev" id="btn-prev" onclick="prevQuestion()">&larr; Previous</button>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled>Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- RESULTS SECTION -->
+  <div class="results" id="results"></div>
+
+</div>
+
+<footer>
+  <p>"Health is not a luxury. It is a lifestyle." &mdash; <a href="index.html">Sankalp</a></p>
+</footer>
+
+<script>
+const questions = [
+  // BODY FRAME (1-3)
+  {
+    category: "Body Frame",
+    categoryIcon: "&#9775;",
+    categoryDesc: "How your body is naturally built",
+    text: "What best describes your body frame?",
+    options: [
+      { label: "Thin, light frame. Hard to gain weight. Narrow shoulders and hips.", dosha: "vata" },
+      { label: "Medium, athletic build. Moderate frame. Well-proportioned.", dosha: "pitta" },
+      { label: "Large, sturdy frame. Gains weight easily. Broad shoulders and hips.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Body Frame",
+    text: "How is your skin naturally?",
+    options: [
+      { label: "Dry, rough, cool to touch. Cracks easily in winter.", dosha: "vata" },
+      { label: "Warm, oily, sensitive. Prone to rashes, acne, or redness.", dosha: "pitta" },
+      { label: "Thick, soft, moist. Smooth and clear. Cool to touch.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Body Frame",
+    text: "How would you describe your hair?",
+    options: [
+      { label: "Dry, thin, frizzy. Tends to be dark. Tangles easily.", dosha: "vata" },
+      { label: "Fine, straight, oily. Light-coloured or premature greying. Thinning early.", dosha: "pitta" },
+      { label: "Thick, wavy, shiny. Dark and lustrous. Grows slowly but strong.", dosha: "kapha" }
+    ]
+  },
+
+  // DIGESTION (4-6)
+  {
+    category: "Digestion & Appetite",
+    categoryIcon: "&#127860;",
+    categoryDesc: "How your body processes food",
+    text: "How is your appetite?",
+    options: [
+      { label: "Irregular. Sometimes ravenous, sometimes no hunger at all.", dosha: "vata" },
+      { label: "Strong and sharp. I get irritable or dizzy if I miss a meal.", dosha: "pitta" },
+      { label: "Steady but slow. I can skip meals without much discomfort.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Digestion & Appetite",
+    text: "How is your digestion?",
+    options: [
+      { label: "Irregular. Bloating, gas, constipation. Changes day to day.", dosha: "vata" },
+      { label: "Strong but sensitive. Acidity, heartburn, loose stools when stressed.", dosha: "pitta" },
+      { label: "Slow and heavy. Feel full for long. Sluggish after meals.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Digestion & Appetite",
+    text: "What kind of food do you naturally crave?",
+    options: [
+      { label: "Warm, comforting food. Soups, chai, cooked meals. Dislike cold food.", dosha: "vata" },
+      { label: "Cold food, salads, sweet things. Dislike spicy or oily food.", dosha: "pitta" },
+      { label: "Spicy, stimulating food. Crunchy snacks. Comfort eating when bored.", dosha: "kapha" }
+    ]
+  },
+
+  // SLEEP (7-9)
+  {
+    category: "Sleep & Energy",
+    categoryIcon: "&#127769;",
+    categoryDesc: "How your body rests and recovers",
+    text: "How do you sleep?",
+    options: [
+      { label: "Light, interrupted. Wake up in the night. Hard to fall asleep. Mind races.", dosha: "vata" },
+      { label: "Moderate. Fall asleep okay but may wake from heat or vivid dreams.", dosha: "pitta" },
+      { label: "Deep and heavy. Sleep long. Hard to wake up. Love sleeping in.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Sleep & Energy",
+    text: "How are your energy levels through the day?",
+    options: [
+      { label: "Comes in bursts. High energy then sudden crashes. Inconsistent.", dosha: "vata" },
+      { label: "Strong and focused until I burn out. Pushes hard then collapses.", dosha: "pitta" },
+      { label: "Steady and slow. Takes time to start but once moving, lasts long.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Sleep & Energy",
+    text: "When do you feel most tired?",
+    options: [
+      { label: "Late afternoon. Energy dips around 3-4 PM. Restless evenings.", dosha: "vata" },
+      { label: "Midday or when overworked. Heat and sun drain me.", dosha: "pitta" },
+      { label: "Morning. Sluggish after waking. Takes time to get going.", dosha: "kapha" }
+    ]
+  },
+
+  // MIND & EMOTIONS (10-12)
+  {
+    category: "Mind & Emotions",
+    categoryIcon: "&#128161;",
+    categoryDesc: "How your mind naturally works",
+    text: "How does your mind work under normal conditions?",
+    options: [
+      { label: "Fast, creative, jumps between ideas. Hard to stay on one thing.", dosha: "vata" },
+      { label: "Sharp, analytical, focused. I organize and solve problems quickly.", dosha: "pitta" },
+      { label: "Calm, steady, thoughtful. Takes time to decide but decisions stick.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Mind & Emotions",
+    text: "When stressed, how do you typically react?",
+    options: [
+      { label: "Anxiety, fear, overthinking. I worry about everything. Mind spirals.", dosha: "vata" },
+      { label: "Irritation, anger, frustration. I become sharp-tongued or controlling.", dosha: "pitta" },
+      { label: "Withdrawal, avoidance, emotional eating. I shut down and go quiet.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Mind & Emotions",
+    text: "How do you learn new things?",
+    options: [
+      { label: "Grasp quickly but forget quickly. Need to revisit multiple times.", dosha: "vata" },
+      { label: "Learn well through logic and structured study. Good with concepts.", dosha: "pitta" },
+      { label: "Learn slowly but once learned, never forget. Deep, lasting memory.", dosha: "kapha" }
+    ]
+  },
+
+  // LIFESTYLE PATTERNS (13-15)
+  {
+    category: "Lifestyle Patterns",
+    categoryIcon: "&#9752;",
+    categoryDesc: "Your daily habits and tendencies",
+    text: "How do you handle cold weather?",
+    options: [
+      { label: "Hate it. Always cold. My hands and feet are usually cold.", dosha: "vata" },
+      { label: "I tolerate cold well. Actually prefer cool weather.", dosha: "pitta" },
+      { label: "Don't mind cold but it makes me more sluggish and heavy.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Lifestyle Patterns",
+    text: "How would your close friends describe you?",
+    options: [
+      { label: "Energetic, talkative, spontaneous, unpredictable. Full of ideas.", dosha: "vata" },
+      { label: "Ambitious, focused, intense, opinionated. Gets things done.", dosha: "pitta" },
+      { label: "Calm, caring, patient, loyal. The stable one in the group.", dosha: "kapha" }
+    ]
+  },
+  {
+    category: "Lifestyle Patterns",
+    text: "What is your biggest health struggle right now?",
+    options: [
+      { label: "Anxiety, poor sleep, bloating, dry skin, joint pain, restlessness.", dosha: "vata" },
+      { label: "Acidity, inflammation, skin issues, anger, burnout, headaches.", dosha: "pitta" },
+      { label: "Weight gain, laziness, congestion, oversleeping, low motivation.", dosha: "kapha" }
+    ]
+  }
+];
+
+// Dosha profile data
+const doshaProfiles = {
+  vata: {
+    name: "Vata",
+    sanskrit: "वात",
+    elements: "Air + Space (Vayu + Akasha)",
+    color: "var(--vata)",
+    qualities: "Light, Cold, Dry, Mobile, Subtle",
+    strengths: ["Creative and imaginative", "Quick learner", "Energetic and enthusiastic", "Adaptable and flexible", "Natural communicator"],
+    imbalanceSigns: ["Anxiety and overthinking", "Insomnia or restless sleep", "Dry skin, constipation, bloating", "Joint pain and stiffness", "Irregular appetite and energy"],
+    food: ["Warm, cooked, grounding foods", "Ghee, sesame oil, warm milk", "Sweet, sour, and salty tastes", "Root vegetables, grains, soups", "Avoid raw, cold, and dry foods"],
+    lifestyle: ["Follow a regular daily routine", "Warm oil self-massage (Abhyanga)", "Gentle yoga, not intense workouts", "Early bedtime, warm bath before sleep", "Anulom Vilom pranayama to calm the mind"],
+    meditation: "Breath watching meditation is especially helpful for you. Your mind moves fast — watching the breath without trying to control it teaches the mind to settle naturally."
+  },
+  pitta: {
+    name: "Pitta",
+    sanskrit: "पित्त",
+    elements: "Fire + Water (Agni + Jala)",
+    color: "var(--pitta)",
+    qualities: "Hot, Sharp, Light, Oily, Intense",
+    strengths: ["Strong intellect and focus", "Natural leader", "Good digestion and metabolism", "Courageous and determined", "Organized and goal-oriented"],
+    imbalanceSigns: ["Acidity and heartburn", "Skin rashes, acne, inflammation", "Irritability and anger", "Burnout and overwork", "Sensitivity to heat"],
+    food: ["Cooling, calming foods", "Coconut, cucumber, mint, coriander", "Sweet, bitter, and astringent tastes", "Fresh fruits, salads, milk, ghee", "Avoid spicy, fried, sour, and fermented foods"],
+    lifestyle: ["Avoid overworking and overheating", "Moonlight walks, time in nature", "Swimming or cooling exercise", "Don't skip meals — eat on time", "Sheetali or Bhramari pranayama to cool down"],
+    meditation: "You tend to approach meditation like a goal. Instead, just sit and watch the breath. No target. No achievement. Let the fire of the mind soften on its own."
+  },
+  kapha: {
+    name: "Kapha",
+    sanskrit: "कफ",
+    elements: "Water + Earth (Jala + Prithvi)",
+    color: "var(--kapha)",
+    qualities: "Heavy, Slow, Cool, Oily, Stable",
+    strengths: ["Naturally calm and grounded", "Strong stamina and immunity", "Loyal, compassionate, patient", "Excellent long-term memory", "Steady and reliable"],
+    imbalanceSigns: ["Weight gain and water retention", "Lethargy and oversleeping", "Congestion, sinus, mucus", "Emotional attachment and possessiveness", "Lack of motivation"],
+    food: ["Light, warm, stimulating foods", "Ginger, turmeric, black pepper, honey", "Pungent, bitter, and astringent tastes", "Leafy greens, lentils, millet", "Avoid heavy, oily, sweet, and cold foods"],
+    lifestyle: ["Wake up early — no sleeping past sunrise", "Vigorous exercise daily", "Dry brushing before bath", "Avoid daytime napping", "Kapalbhati and Bhastrika pranayama for energy"],
+    meditation: "Your challenge is staying awake and alert during meditation. Sit upright. Mornings are best. The stillness you already have — meditation will add clarity to it."
+  }
+};
+
+
+let currentQuestion = 0;
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const q = questions[currentQuestion];
+  const container = document.getElementById('questions-container');
+
+  // Check if new category
+  let categoryHTML = '';
+  if (q.categoryIcon && (currentQuestion === 0 || questions[currentQuestion - 1].category !== q.category)) {
+    categoryHTML = `
+      <div class="category-header">
+        <span class="category-icon">${q.categoryIcon}</span>
+        <h2>${q.category}</h2>
+        <p>${q.categoryDesc}</p>
+      </div>
+    `;
+  }
+
+  let optionsHTML = q.options.map((opt, i) => `
+    <div class="option ${answers[currentQuestion] === i ? 'selected' : ''}" onclick="selectOption(${i})">
+      <div class="option-marker"></div>
+      <span class="option-label">${opt.label}</span>
+    </div>
+  `).join('');
+
+  container.innerHTML = `
+    <div class="question-block active">
+      ${categoryHTML}
+      <span class="question-num">Question ${currentQuestion + 1} of ${questions.length}</span>
+      <div class="question-text">${q.text}</div>
+      <div class="options">${optionsHTML}</div>
+    </div>
+  `;
+
+  // Update progress
+  const pct = ((currentQuestion) / questions.length) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+
+  // Update buttons
+  document.getElementById('btn-prev').style.visibility = currentQuestion === 0 ? 'hidden' : 'visible';
+  const nextBtn = document.getElementById('btn-next');
+  nextBtn.disabled = answers[currentQuestion] === null;
+  nextBtn.textContent = currentQuestion === questions.length - 1 ? 'See My Prakriti →' : 'Next →';
+}
+
+function selectOption(index) {
+  answers[currentQuestion] = index;
+  document.querySelectorAll('.option').forEach((el, i) => {
+    el.classList.toggle('selected', i === index);
+  });
+  document.getElementById('btn-next').disabled = false;
+}
+
+function nextQuestion() {
+  if (answers[currentQuestion] === null) return;
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+    window.scrollTo({ top: document.querySelector('.quiz-wrapper').offsetTop - 80, behavior: 'smooth' });
+  } else {
+    showResults();
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  let scores = { vata: 0, pitta: 0, kapha: 0 };
+  answers.forEach((ans, i) => {
+    if (ans !== null) {
+      scores[questions[i].options[ans].dosha]++;
+    }
+  });
+
+  const total = questions.length;
+  const pctV = Math.round((scores.vata / total) * 100);
+  const pctP = Math.round((scores.pitta / total) * 100);
+  const pctK = Math.round((scores.kapha / total) * 100);
+
+  // Determine dominant and secondary
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const dominant = sorted[0][0];
+  const secondary = sorted[1][0];
+  const isDual = sorted[0][1] - sorted[1][1] <= 2;
+
+  const d = doshaProfiles[dominant];
+  const s = doshaProfiles[secondary];
+  const prakritiLabel = isDual
+    ? `${doshaProfiles[sorted[0][0]].name}-${doshaProfiles[sorted[1][0]].name}`
+    : d.name;
+
+  document.getElementById('quiz').style.display = 'none';
+
+  const resultsHTML = `
+    <div class="results-header">
+      <span class="hero-tag">Your Prakriti</span>
+      <h2>${prakritiLabel}</h2>
+      <p>${isDual
+        ? `Your constitution is a blend of ${doshaProfiles[sorted[0][0]].name} and ${doshaProfiles[sorted[1][0]].name}. Both shape your body and mind.`
+        : `Your dominant constitution is ${d.name} — shaped by ${d.elements}.`
+      }</p>
+    </div>
+
+    <div class="dosha-results">
+      <div class="dosha-result vata-bg">
+        <div class="dosha-result-header">
+          <span class="dosha-name vata-text">Vata (वात)</span>
+          <span class="dosha-percent vata-text">${pctV}%</span>
+        </div>
+        <div class="dosha-bar"><div class="dosha-bar-fill vata-fill" id="bar-vata"></div></div>
+        <span class="dosha-elements">Air + Space &mdash; Movement, creativity, change</span>
+      </div>
+      <div class="dosha-result pitta-bg">
+        <div class="dosha-result-header">
+          <span class="dosha-name pitta-text">Pitta (पित्त)</span>
+          <span class="dosha-percent pitta-text">${pctP}%</span>
+        </div>
+        <div class="dosha-bar"><div class="dosha-bar-fill pitta-fill" id="bar-pitta"></div></div>
+        <span class="dosha-elements">Fire + Water &mdash; Transformation, intellect, digestion</span>
+      </div>
+      <div class="dosha-result kapha-bg">
+        <div class="dosha-result-header">
+          <span class="dosha-name kapha-text">Kapha (कफ)</span>
+          <span class="dosha-percent kapha-text">${pctK}%</span>
+        </div>
+        <div class="dosha-bar"><div class="dosha-bar-fill kapha-fill" id="bar-kapha"></div></div>
+        <span class="dosha-elements">Water + Earth &mdash; Stability, strength, endurance</span>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h3>Your ${d.name} Nature</h3>
+      <p><strong>Elements:</strong> ${d.elements}</p>
+      <p><strong>Qualities:</strong> ${d.qualities}</p>
+      <div class="trait-grid">
+        ${d.strengths.map(s => `<div class="trait"><div class="trait-label">Strength</div><div class="trait-value">${s}</div></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h3>Signs Your ${d.name} is Imbalanced</h3>
+      <p>When ${d.name} goes out of balance, you may notice:</p>
+      <div class="trait-grid">
+        ${d.imbalanceSigns.map(s => `<div class="trait"><div class="trait-label">Watch For</div><div class="trait-value">${s}</div></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="reco-section">
+      <h3>Food for Your ${d.name} Constitution</h3>
+      <ul class="reco-list">
+        ${d.food.map(f => `<li>${f}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="reco-section">
+      <h3>Lifestyle Guidance</h3>
+      <ul class="reco-list">
+        ${d.lifestyle.map(l => `<li>${l}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="profile-card">
+      <h3>Meditation for ${d.name}</h3>
+      <p>${d.meditation}</p>
+    </div>
+
+    ${isDual ? `
+    <div class="profile-card">
+      <h3>Your Secondary Nature: ${s.name}</h3>
+      <p><strong>Elements:</strong> ${s.elements}</p>
+      <p>Since you also have strong ${s.name}, watch for ${s.name} imbalance signs too: ${s.imbalanceSigns.slice(0, 3).join(', ')}.</p>
+      <p>Balance both by following your dominant ${d.name} routine, but also include: ${s.lifestyle[3]} and ${s.lifestyle[4]}.</p>
+    </div>
+    ` : ''}
+
+    <div class="results-cta">
+      <p>"Knowing your Prakriti is the first step. Living in alignment with it is the journey."</p>
+      <a href="https://wa.me/918359011231?text=I%20just%20took%20the%20Prakriti%20assessment%20on%20Sankalp.%20My%20constitution%20is%20${encodeURIComponent(prakritiLabel)}.%20I'd%20like%20to%20learn%20more." class="cta-btn">Talk to Us on WhatsApp</a>
+      <a href="blog/ayurveda-three-doshas-five-elements.html" class="cta-btn outline">Read: Doshas in Depth</a>
+      <div style="margin-top: 20px;">
+        <button class="share-btn" onclick="retakeQuiz()">Retake Assessment</button>
+      </div>
+    </div>
+  `;
+
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = resultsHTML;
+  resultsDiv.classList.add('active');
+
+  // Animate bars
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    document.getElementById('bar-vata').style.width = pctV + '%';
+    document.getElementById('bar-pitta').style.width = pctP + '%';
+    document.getElementById('bar-kapha').style.width = pctK + '%';
+  }, 300);
+}
+
+function retakeQuiz() {
+  answers = new Array(questions.length).fill(null);
+  currentQuestion = 0;
+  document.getElementById('quiz').style.display = 'block';
+  document.getElementById('results').classList.remove('active');
+  document.getElementById('results').innerHTML = '';
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Init
+renderQuestion();
+</script>
+
+</body>
+</html>

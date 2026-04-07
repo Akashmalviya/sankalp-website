@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sattva, Rajas, Tamas: How the Three Gunas Shape Your Mind & Life — Sankalp</title>
+<meta name="description" content="Understand the three Gunas — Sattva, Rajas, and Tamas. Learn how they influence your thoughts, perception, personality, and health through the lens of Bhagavad Gita and modern psychology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --sattva: #d4c878;
+    --rajas: #d4917a;
+    --tamas: #8888a8;
+  }
+
+  body { font-family: 'Cormorant Garamond', serif; background: var(--bg-deep); color: var(--text-light); line-height: 1.8; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(15, 6, 24, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201, 168, 124, 0.08); }
+  .nav-brand { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 16px; letter-spacing: 5px; text-decoration: none; }
+  .nav-brand span { font-family: 'Noto Sans Devanagari', sans-serif; color: var(--gold); font-size: 11px; margin-right: 8px; font-weight: 300; }
+  .nav-back { font-family: 'Cinzel', serif; color: var(--gold); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-back:hover { color: var(--text-white); }
+
+  .blog-hero { padding: 140px 20px 80px; text-align: center; background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%); position: relative; }
+  .blog-hero::before { content: 'ॐ'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300px; color: rgba(139, 92, 159, 0.03); pointer-events: none; }
+  .blog-hero-content { position: relative; z-index: 1; }
+  .blog-tag { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--pink-stone); margin-bottom: 16px; display: block; }
+  .blog-hero h1 { font-family: 'Cinzel', serif; color: var(--text-white); font-size: clamp(28px, 5vw, 40px); font-weight: 600; letter-spacing: 2px; line-height: 1.3; max-width: 720px; margin: 0 auto 16px; }
+  .blog-hero-sub { color: var(--gold); font-size: 18px; font-style: italic; font-weight: 300; max-width: 580px; margin: 0 auto; }
+
+  .article { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
+  .article h2 { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 26px; font-weight: 600; letter-spacing: 1.5px; margin: 60px 0 16px; line-height: 1.3; }
+  .article h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18px; font-weight: 500; letter-spacing: 1px; margin: 40px 0 12px; }
+  .article p { font-size: 18px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
+  .article strong { color: var(--text-light); font-weight: 500; }
+  .article em.gold { color: var(--gold); font-weight: 400; }
+
+  .divider { width: 50px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin: 40px 0; }
+
+  .quote { margin: 40px 0; padding: 24px 30px; border-left: 2px solid var(--gold-faint); background: rgba(45, 27, 78, 0.15); border-radius: 0 6px 6px 0; }
+  .quote p { font-size: 19px; font-style: italic; color: var(--gold-dim); line-height: 1.6; margin-bottom: 0; }
+  .quote .source { font-size: 13px; color: var(--text-muted); font-style: normal; margin-top: 8px; display: block; }
+
+  .verse { margin: 30px 0; padding: 24px 28px; background: rgba(45, 27, 78, 0.2); border: 1px solid rgba(201, 168, 124, 0.08); border-radius: 8px; text-align: center; }
+  .verse .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 17px; color: var(--gold); font-weight: 400; line-height: 1.8; margin-bottom: 12px; display: block; }
+  .verse .translation { font-size: 15px; font-style: italic; color: var(--text-muted); line-height: 1.7; margin-bottom: 0; }
+  .verse .ref { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold-dim); margin-top: 10px; display: block; }
+
+  .highlight-box { background: rgba(201, 168, 124, 0.06); border: 1px solid rgba(201, 168, 124, 0.12); border-radius: 8px; padding: 28px; margin: 30px 0; text-align: center; }
+  .highlight-box h4 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 10px; }
+  .highlight-box p { font-size: 16px; color: var(--text-muted); margin-bottom: 0; line-height: 1.7; }
+
+  /* GUNA SECTIONS */
+  .guna-section { margin: 40px 0; padding: 32px; border-radius: 10px; border: 1px solid rgba(201, 168, 124, 0.08); }
+
+  .guna-sattva { background: linear-gradient(160deg, rgba(212, 200, 120, 0.06), rgba(26, 10, 46, 0.3)); border-color: rgba(212, 200, 120, 0.12); }
+  .guna-rajas { background: linear-gradient(160deg, rgba(212, 145, 122, 0.06), rgba(26, 10, 46, 0.3)); border-color: rgba(212, 145, 122, 0.12); }
+  .guna-tamas { background: linear-gradient(160deg, rgba(136, 136, 168, 0.06), rgba(26, 10, 46, 0.3)); border-color: rgba(136, 136, 168, 0.12); }
+
+  .guna-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .guna-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .guna-sattva .guna-icon { border: 1px solid rgba(212, 200, 120, 0.3); color: var(--sattva); }
+  .guna-rajas .guna-icon { border: 1px solid rgba(212, 145, 122, 0.3); color: var(--rajas); }
+  .guna-tamas .guna-icon { border: 1px solid rgba(136, 136, 168, 0.3); color: var(--tamas); }
+
+  .guna-header h3 { margin: 0; font-family: 'Cinzel', serif; font-size: 22px; letter-spacing: 2px; }
+  .guna-sattva .guna-header h3 { color: var(--sattva); }
+  .guna-rajas .guna-header h3 { color: var(--rajas); }
+  .guna-tamas .guna-header h3 { color: var(--tamas); }
+
+  .guna-subtitle { font-size: 13px; font-style: italic; font-weight: 300; margin-top: 2px; }
+  .guna-sattva .guna-subtitle { color: rgba(212, 200, 120, 0.6); }
+  .guna-rajas .guna-subtitle { color: rgba(212, 145, 122, 0.6); }
+  .guna-tamas .guna-subtitle { color: rgba(136, 136, 168, 0.6); }
+
+  .guna-body p { font-size: 16px; margin-bottom: 14px; }
+
+  .influence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .influence-block { padding: 16px; background: rgba(15, 6, 24, 0.3); border-radius: 6px; }
+  .influence-block h5 { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px; }
+  .influence-list { list-style: none; }
+  .influence-list li { font-size: 14px; color: var(--text-muted); padding: 3px 0 3px 16px; position: relative; line-height: 1.5; }
+  .influence-list li::before { content: '—'; position: absolute; left: 0; color: rgba(201, 168, 124, 0.25); }
+
+  .guna-verse { margin: 16px 0; padding: 16px 20px; border-left: 2px solid rgba(201, 168, 124, 0.1); }
+  .guna-verse .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 14px; color: var(--gold-dim); line-height: 1.7; display: block; margin-bottom: 6px; }
+  .guna-verse .meaning { font-size: 14px; font-style: italic; color: var(--text-muted); }
+  .guna-verse .ref { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: rgba(201, 168, 124, 0.4); margin-top: 6px; display: block; }
+
+  .dual-lens { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .lens-card { padding: 22px; border-radius: 6px; border: 1px solid rgba(201, 168, 124, 0.06); }
+  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
+  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
+  .lens-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+  .lens-card.modern .lens-label { color: #7ab8d4; }
+  .lens-card.yogic .lens-label { color: var(--gold); }
+  .lens-card p { font-size: 15px; margin-bottom: 0; }
+
+  /* COMPARISON TABLE */
+  .guna-compare { margin: 30px 0; border: 1px solid rgba(201, 168, 124, 0.1); border-radius: 8px; overflow: hidden; }
+  .compare-row { display: grid; grid-template-columns: 120px 1fr 1fr 1fr; border-bottom: 1px solid rgba(201, 168, 124, 0.06); }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-header { background: rgba(45, 27, 78, 0.3); }
+  .compare-cell { padding: 12px 14px; font-size: 13px; color: var(--text-muted); line-height: 1.5; border-right: 1px solid rgba(201, 168, 124, 0.04); }
+  .compare-cell:last-child { border-right: none; }
+  .compare-header .compare-cell { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); }
+  .compare-cell.label { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1px; color: var(--gold-dim); background: rgba(26, 10, 46, 0.3); }
+
+  .blog-cta { text-align: center; margin: 60px 0; padding: 40px; border-top: 1px solid rgba(201, 168, 124, 0.1); border-bottom: 1px solid rgba(201, 168, 124, 0.1); }
+  .blog-cta p { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; }
+  .cta-btn { display: inline-block; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--bg-deep); background: linear-gradient(135deg, var(--gold), #dfc299); padding: 13px 32px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3); }
+
+  footer { background: var(--bg-deep); border-top: 1px solid rgba(201, 168, 124, 0.08); padding: 40px 20px 24px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 16px; letter-spacing: 5px; margin-bottom: 4px; }
+  .footer-tagline { color: var(--gold-dim); font-style: italic; font-size: 13px; margin-bottom: 16px; }
+  .footer-quote { font-family: 'Cinzel', serif; color: rgba(201, 168, 124, 0.25); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .article { padding: 40px 16px 80px; }
+    .influence-grid { grid-template-columns: 1fr; }
+    .dual-lens { grid-template-columns: 1fr; }
+    .compare-row { grid-template-columns: 80px 1fr 1fr 1fr; }
+    .compare-cell { padding: 8px; font-size: 11px; }
+    .blog-hero { padding: 120px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand"><span>संकल्प</span> SANKALP</a>
+  <a href="../index.html#blog" class="nav-back">&larr; All Articles</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">Bhagavad Gita + Modern Psychology</span>
+    <h1>Sattva, Rajas, Tamas: The Three Forces That Shape Your Mind, Personality & Life</h1>
+    <p class="blog-hero-sub">Why you think the way you think. Why you react the way you react. The Gunas explain everything.</p>
+  </div>
+</header>
+
+<article class="article">
+
+  <h2>What Are the Gunas?</h2>
+  <div class="divider"></div>
+
+  <p>
+    According to Sankhya philosophy and the Bhagavad Gita, all of nature (Prakriti) is made of three fundamental qualities called <strong>Gunas</strong>. These are not substances &mdash; they are <em class="gold">tendencies</em>, forces, qualities that exist in everything: your food, your thoughts, your actions, your relationships, even the time of day.
+  </p>
+
+  <p>
+    The three Gunas are:
+  </p>
+
+  <p>
+    <strong>Sattva</strong> &mdash; the quality of harmony, clarity, and balance.<br>
+    <strong>Rajas</strong> &mdash; the quality of activity, passion, and restlessness.<br>
+    <strong>Tamas</strong> &mdash; the quality of inertia, darkness, and heaviness.
+  </p>
+
+  <p>
+    Every moment of your life, all three Gunas are present. But one is always dominant. And <strong>whichever Guna is dominant determines your state of mind, your perception of reality, your decisions, and eventually &mdash; your life.</strong>
+  </p>
+
+  <div class="verse">
+    <span class="devanagari">सत्त्वं रजस्तम इति गुणाः प्रकृतिसम्भवाः।<br>निबध्नन्ति महाबाहो देहे देहिनमव्ययम्॥</span>
+    <span class="translation">"Sattva, Rajas, and Tamas &mdash; these three Gunas born of Prakriti bind the imperishable soul to the body, O mighty-armed Arjuna."</span>
+    <span class="ref">Bhagavad Gita 14.5</span>
+  </div>
+
+  <h2>How the Gunas Are Born</h2>
+  <div class="divider"></div>
+
+  <p>
+    In Sankhya Darshan, the Gunas are not created &mdash; they are <strong>eternal qualities of Prakriti itself</strong>. Before creation, the three Gunas exist in perfect equilibrium. Nothing moves. Nothing manifests. This is the unmanifest state (Avyakta).
+  </p>
+
+  <p>
+    When the equilibrium is disturbed &mdash; when Purusha (consciousness) comes into proximity with Prakriti &mdash; the Gunas begin to interact. Rajas stirs first, setting things in motion. This disturbance causes Sattva and Tamas to become active. From this interplay, the entire universe unfolds.
+  </p>
+
+  <div class="highlight-box">
+    <h4>The Analogy</h4>
+    <p>Think of a still lake. The water (Prakriti) has the potential for waves (Rajas), stillness (Tamas), and clarity (Sattva). When wind (the proximity of Purusha) blows, waves arise. The same water can be turbulent, stagnant, or crystal clear &mdash; depending on which quality dominates at any moment.</p>
+  </div>
+
+  <p>
+    The Bhagavad Gita explains that the Gunas don't just exist "out there" in nature &mdash; they bind the soul to the body. They are the mechanism through which consciousness gets entangled with matter. Understanding them is the first step toward freedom.
+  </p>
+
+  <div class="verse">
+    <span class="devanagari">न तदस्ति पृथिव्यां वा दिवि देवेषु वा पुनः।<br>सत्त्वं प्रकृतिजैर्मुक्तं यदेभिः स्यात्त्रिभिर्गुणैः॥</span>
+    <span class="translation">"There is no being on earth, or among the gods in heaven, that is free from the three Gunas born of Prakriti."</span>
+    <span class="ref">Bhagavad Gita 18.40</span>
+  </div>
+
+  <!-- SATTVA -->
+  <h2>The Three Gunas In Depth</h2>
+  <div class="divider"></div>
+
+  <div class="guna-section guna-sattva">
+    <div class="guna-header">
+      <div class="guna-icon">&#10022;</div>
+      <div>
+        <h3>Sattva</h3>
+        <div class="guna-subtitle">Harmony &middot; Clarity &middot; Light &middot; Balance</div>
+      </div>
+    </div>
+    <div class="guna-body">
+      <p>
+        Sattva is the quality of purity, wisdom, and harmony. When Sattva is dominant, the mind is clear, calm, and perceptive. You see things as they are. You feel gratitude, compassion, and inner peace. Your decisions come from wisdom, not impulse.
+      </p>
+      <p>
+        Sattva does not mean passive or weak. A sattvic person can be intensely active &mdash; but their action comes from clarity, not compulsion. They work without anxiety. They love without attachment. They lead without ego.
+      </p>
+
+      <div class="guna-verse">
+        <span class="devanagari">सत्त्वं सुखे सञ्जयति</span>
+        <span class="meaning">"Sattva binds through attachment to happiness and knowledge."</span>
+        <span class="ref">Bhagavad Gita 14.6</span>
+      </div>
+
+      <div class="influence-grid">
+        <div class="influence-block">
+          <h5>How Sattva Shapes Your Mind</h5>
+          <ul class="influence-list">
+            <li>Thoughts are clear and purposeful</li>
+            <li>Perception is accurate and unbiased</li>
+            <li>Memory is sharp</li>
+            <li>Inner stillness even in chaos</li>
+            <li>Natural inclination toward truth</li>
+            <li>Wakes up feeling fresh and grateful</li>
+          </ul>
+        </div>
+        <div class="influence-block">
+          <h5>Personality Traits</h5>
+          <ul class="influence-list">
+            <li>Patient, forgiving, compassionate</li>
+            <li>Self-disciplined without rigidity</li>
+            <li>Speaks truthfully but gently</li>
+            <li>Content with what they have</li>
+            <li>Drawn to learning and growth</li>
+            <li>Radiates calm energy to others</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RAJAS -->
+  <div class="guna-section guna-rajas">
+    <div class="guna-header">
+      <div class="guna-icon">&#10038;</div>
+      <div>
+        <h3>Rajas</h3>
+        <div class="guna-subtitle">Activity &middot; Passion &middot; Desire &middot; Restlessness</div>
+      </div>
+    </div>
+    <div class="guna-body">
+      <p>
+        Rajas is the quality of movement, desire, and passion. It is the force that drives ambition, creativity, and action. Without Rajas, nothing would ever get done. But when Rajas dominates unchecked, the mind becomes a storm of desires, comparisons, and restless pursuit.
+      </p>
+      <p>
+        A rajasic mind is never satisfied. It achieves one goal and immediately chases the next. It compares constantly. It measures self-worth through external validation &mdash; money, status, likes, approval. The rajasic person is always <em>doing</em> but rarely <em>being</em>.
+      </p>
+
+      <div class="guna-verse">
+        <span class="devanagari">रजो रागात्मकं विद्धि तृष्णासङ्गसमुद्भवम्।<br>तन्निबध्नाति कौन्तेय कर्मसङ्गेन देहिनम्॥</span>
+        <span class="meaning">"Know Rajas to be of the nature of passion, giving rise to thirst and attachment. It binds the soul through attachment to action."</span>
+        <span class="ref">Bhagavad Gita 14.7</span>
+      </div>
+
+      <div class="influence-grid">
+        <div class="influence-block">
+          <h5>How Rajas Shapes Your Mind</h5>
+          <ul class="influence-list">
+            <li>Racing, planning, scheming thoughts</li>
+            <li>Perception colored by desire and ambition</li>
+            <li>Difficulty being present &mdash; always in future</li>
+            <li>Anxiety before outcomes</li>
+            <li>Judgmental and comparative</li>
+            <li>Sleeps late, mind won't shut off</li>
+          </ul>
+        </div>
+        <div class="influence-block">
+          <h5>Personality Traits</h5>
+          <ul class="influence-list">
+            <li>Ambitious, driven, competitive</li>
+            <li>Impatient, easily frustrated</li>
+            <li>Speaks to impress or persuade</li>
+            <li>Mood depends on results</li>
+            <li>Workaholic tendencies</li>
+            <li>Generous when it benefits them</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAMAS -->
+  <div class="guna-section guna-tamas">
+    <div class="guna-header">
+      <div class="guna-icon">&#9679;</div>
+      <div>
+        <h3>Tamas</h3>
+        <div class="guna-subtitle">Inertia &middot; Darkness &middot; Heaviness &middot; Ignorance</div>
+      </div>
+    </div>
+    <div class="guna-body">
+      <p>
+        Tamas is the quality of inertia, dullness, and darkness. It provides stability and rest &mdash; sleep is tamasic, and sleep is essential. But when Tamas dominates, it manifests as laziness, confusion, denial, depression, and resistance to change.
+      </p>
+      <p>
+        A tamasic mind avoids truth. It prefers comfort over growth. It procrastinates, oversleeps, overeats, and numbs itself through distractions. The tamasic state is not peace &mdash; it is unconsciousness pretending to be peace.
+      </p>
+
+      <div class="guna-verse">
+        <span class="devanagari">तमस्त्वज्ञानजं विद्धि मोहनं सर्वदेहिनाम्।<br>प्रमादालस्यनिद्राभिस्तन्निबध्नाति भारत॥</span>
+        <span class="meaning">"Know Tamas to be born of ignorance, deluding all embodied beings. It binds through negligence, laziness, and excess sleep, O Arjuna."</span>
+        <span class="ref">Bhagavad Gita 14.8</span>
+      </div>
+
+      <div class="influence-grid">
+        <div class="influence-block">
+          <h5>How Tamas Shapes Your Mind</h5>
+          <ul class="influence-list">
+            <li>Foggy, dull, confused thinking</li>
+            <li>Perception blocked &mdash; can't see clearly</li>
+            <li>Denial and avoidance of problems</li>
+            <li>No motivation, everything feels heavy</li>
+            <li>Living in the past, stuck in regret</li>
+            <li>Oversleeping but never feeling rested</li>
+          </ul>
+        </div>
+        <div class="influence-block">
+          <h5>Personality Traits</h5>
+          <ul class="influence-list">
+            <li>Lethargic, resistant to change</li>
+            <li>Procrastinates on important things</li>
+            <li>Avoids difficult conversations</li>
+            <li>Pessimistic, victim mentality</li>
+            <li>Attached to comfort and routine</li>
+            <li>May use substances to escape</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <h2>How Gunas Influence Everything</h2>
+  <div class="divider"></div>
+
+  <p>
+    The Bhagavad Gita (Chapters 14, 17, and 18) gives an extraordinary breakdown of how the three Gunas influence not just your personality but every aspect of life:
+  </p>
+
+  <div class="guna-compare">
+    <div class="compare-row compare-header">
+      <div class="compare-cell label"></div>
+      <div class="compare-cell">Sattva</div>
+      <div class="compare-cell">Rajas</div>
+      <div class="compare-cell">Tamas</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Food</div>
+      <div class="compare-cell">Fresh, juicy, nourishing, naturally flavored</div>
+      <div class="compare-cell">Spicy, sour, salty, stimulating, excessive</div>
+      <div class="compare-cell">Stale, reheated, processed, tasteless, leftover</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Action</div>
+      <div class="compare-cell">Done without attachment to result, with focus and duty</div>
+      <div class="compare-cell">Done with craving for reward, driven by ego</div>
+      <div class="compare-cell">Done carelessly, without thought, or avoided entirely</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Knowledge</div>
+      <div class="compare-cell">Sees the one in the many, understands unity</div>
+      <div class="compare-cell">Sees everything as separate and competing</div>
+      <div class="compare-cell">Clings to one fragment as if it were the whole truth</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Happiness</div>
+      <div class="compare-cell">Feels like poison at first (discipline), becomes nectar</div>
+      <div class="compare-cell">Feels like nectar at first (pleasure), becomes poison</div>
+      <div class="compare-cell">Dull from start to finish &mdash; sleep, laziness, distraction</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Worship</div>
+      <div class="compare-cell">Selfless, with faith and no expectation</div>
+      <div class="compare-cell">For show, for status, for results</div>
+      <div class="compare-cell">Superstitious, mechanical, without understanding</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-cell label">Speech</div>
+      <div class="compare-cell">Truthful, gentle, helpful, not agitating</div>
+      <div class="compare-cell">Boastful, argumentative, persuasive</div>
+      <div class="compare-cell">Hurtful, careless, gossip, complaints</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <span class="devanagari">यत्तदग्रे विषमिव परिणामेऽमृतोपमम्।<br>तत्सुखं सात्त्विकं प्रोक्तमात्मबुद्धिप्रसादजम्॥</span>
+    <span class="translation">"That which is like poison in the beginning but like nectar in the end &mdash; that happiness is declared to be Sattvic, born from the clarity of self-understanding."</span>
+    <span class="ref">Bhagavad Gita 18.37</span>
+  </div>
+
+  <p>
+    This verse captures something deeply practical. Waking up at 5 AM feels terrible at first. Meditation is boring in the beginning. Eating simple food seems bland compared to junk food. But over time, these sattvic choices become the source of deep, lasting happiness. Meanwhile, the rajasic pleasures &mdash; scrolling social media, binge eating, chasing approval &mdash; feel great initially but leave you empty.
+  </p>
+
+  <!-- MODERN SCIENCE -->
+  <h2>Modern Psychology & The Gunas</h2>
+  <div class="divider"></div>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Psychology</span>
+      <p>Psychology recognizes similar patterns: <strong>Flow state</strong> (clear, focused, effortless action) maps to Sattva. <strong>Type A personality</strong> (driven, anxious, competitive) maps to Rajas. <strong>Depression and learned helplessness</strong> (withdrawal, lack of motivation, numbness) maps to Tamas. The Gunas are not mystical &mdash; they are observable states of mind.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Yogic Insight</span>
+      <p>The key difference: modern psychology treats these as fixed traits or disorders. The Gita says they are <strong>fluid states</strong> that can be changed through conscious action. You are not "a depressed person" &mdash; you are experiencing tamasic dominance, and it can shift. This is profoundly empowering.</p>
+    </div>
+  </div>
+
+  <p>
+    Neuroscience adds another layer. A sattvic state corresponds to balanced neurotransmitters &mdash; healthy serotonin, dopamine, and GABA. A rajasic state shows elevated cortisol, excess dopamine-seeking behavior, and sympathetic nervous system dominance. A tamasic state correlates with low serotonin, low motivation pathways, and parasympathetic collapse (not healthy rest, but shutdown).
+  </p>
+
+  <h2>How to Shift Your Gunas</h2>
+  <div class="divider"></div>
+
+  <p>
+    The Gita's practical genius is this: <strong>you can change which Guna dominates by changing your inputs.</strong> Food, company, environment, habits, practices &mdash; these all feed specific Gunas.
+  </p>
+
+  <h3>From Tamas to Rajas (Getting Unstuck)</h3>
+  <p>
+    If you are stuck in Tamas &mdash; lazy, depressed, avoiding life &mdash; you need Rajas to get moving. Exercise. Wake up early. Change your environment. Eat lighter food. Put on energetic music. Start with small actions. Tamas cannot be dissolved by thinking &mdash; only by <strong>doing</strong>.
+  </p>
+
+  <h3>From Rajas to Sattva (Finding Peace)</h3>
+  <p>
+    If you are trapped in Rajas &mdash; anxious, competitive, always chasing &mdash; you need Sattva to calm down. Meditate. Eat sattvic food. Spend time in nature. Practice gratitude. Slow down. Reduce social media. Read wisdom literature. Be in the company of calm, wise people. Rajas cannot be calmed by more action &mdash; only by <strong>awareness</strong>.
+  </p>
+
+  <h3>Sustaining Sattva</h3>
+  <p>
+    Sattva is not permanent. It needs to be maintained through daily practice (Sadhana). The Bhagavad Gita warns that even Sattva can become a binding force if you become <em>attached</em> to being sattvic. The ultimate goal is to transcend all three Gunas &mdash; to become the witness (Purusha) who watches the play of the Gunas without being pulled by any of them.
+  </p>
+
+  <div class="verse">
+    <span class="devanagari">गुणानेतानतीत्य त्रीन्देही देहसमुद्भवान्।<br>जन्ममृत्युजरादुःखैर्विमुक्तोऽमृतमश्नुते॥</span>
+    <span class="translation">"When the embodied soul transcends these three Gunas that are the source of the body, it is freed from birth, death, old age, and suffering &mdash; and attains immortality."</span>
+    <span class="ref">Bhagavad Gita 14.20</span>
+  </div>
+
+  <h2>Watch Yourself, Without Judgment</h2>
+  <div class="divider"></div>
+
+  <p>
+    The most powerful practice is simply <strong>noticing</strong> which Guna is active in you right now. Not judging it. Not fighting it. Just observing.
+  </p>
+
+  <p>
+    "I notice my mind is dull and heavy &mdash; Tamas is dominant." That observation itself is Sattva. The moment you become aware of the pattern, you have already begun to shift it.
+  </p>
+
+  <p>
+    This is why the simplest meditation &mdash; just watching your breath, just being the observer &mdash; is the most direct path to Sattva. In that moment of watching without reacting, you are practicing what the Gita calls <em class="gold">Gunatita</em> &mdash; being beyond the Gunas.
+  </p>
+
+  <div class="quote">
+    <p>"You are not the Gunas. You are the one who sees them. And in that seeing, you are already free."</p>
+  </div>
+
+  <div class="blog-cta">
+    <p>Want to Explore the Gunas Through Practice?</p>
+    <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%20read%20the%20blog%20on%20Three%20Gunas.%20I%20want%20to%20learn%20more." class="cta-btn">Connect With Us on WhatsApp</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+</body>
+</html>

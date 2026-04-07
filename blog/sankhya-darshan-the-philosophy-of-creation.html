@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sankhya Darshan: The Philosophy Behind Yoga & Ayurveda — Sankalp</title>
+<meta name="description" content="Understand Sankhya Darshan — the ancient framework of Purusha, Prakriti, and 24 Tattvas that forms the foundation of Yoga, Ayurveda, and Indian philosophy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 14px 40px; display: flex; justify-content: space-between; align-items: center;
+    background: rgba(15, 6, 24, 0.92); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+  .nav-brand { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 16px; letter-spacing: 5px; text-decoration: none; }
+  .nav-brand span { font-family: 'Noto Sans Devanagari', sans-serif; color: var(--gold); font-size: 11px; margin-right: 8px; font-weight: 300; }
+  .nav-back { font-family: 'Cinzel', serif; color: var(--gold); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-back:hover { color: var(--text-white); }
+
+  .blog-hero {
+    padding: 140px 20px 80px; text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    position: relative;
+  }
+  .blog-hero::before { content: 'ॐ'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 300px; color: rgba(139, 92, 159, 0.03); pointer-events: none; }
+  .blog-hero-content { position: relative; z-index: 1; }
+  .blog-tag { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--pink-stone); margin-bottom: 16px; display: block; }
+  .blog-hero h1 { font-family: 'Cinzel', serif; color: var(--text-white); font-size: clamp(28px, 5vw, 40px); font-weight: 600; letter-spacing: 2px; line-height: 1.3; max-width: 700px; margin: 0 auto 16px; }
+  .blog-hero-sub { color: var(--gold); font-size: 18px; font-style: italic; font-weight: 300; max-width: 550px; margin: 0 auto; }
+
+  .article { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
+  .article h2 { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 26px; font-weight: 600; letter-spacing: 1.5px; margin: 60px 0 16px; line-height: 1.3; }
+  .article h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18px; font-weight: 500; letter-spacing: 1px; margin: 40px 0 12px; }
+  .article p { font-size: 18px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
+  .article strong { color: var(--text-light); font-weight: 500; }
+  .article em.gold { color: var(--gold); font-weight: 400; }
+
+  .divider { width: 50px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin: 40px 0; }
+
+  .quote { margin: 40px 0; padding: 24px 30px; border-left: 2px solid var(--gold-faint); background: rgba(45, 27, 78, 0.15); border-radius: 0 6px 6px 0; }
+  .quote p { font-size: 19px; font-style: italic; color: var(--gold-dim); line-height: 1.6; margin-bottom: 0; }
+  .quote .source { font-size: 13px; color: var(--text-muted); font-style: normal; margin-top: 8px; display: block; }
+
+  .sanskrit-verse { margin: 30px 0; padding: 24px 28px; background: rgba(45, 27, 78, 0.2); border: 1px solid rgba(201, 168, 124, 0.08); border-radius: 8px; text-align: center; }
+  .sanskrit-verse .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 18px; color: var(--gold); font-weight: 400; line-height: 1.8; margin-bottom: 10px; display: block; }
+  .sanskrit-verse .translation { font-size: 15px; font-style: italic; color: var(--text-muted); line-height: 1.6; }
+  .sanskrit-verse .ref { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold-dim); margin-top: 10px; display: block; }
+
+  .highlight-box { background: rgba(201, 168, 124, 0.06); border: 1px solid rgba(201, 168, 124, 0.12); border-radius: 8px; padding: 28px; margin: 30px 0; text-align: center; }
+  .highlight-box h4 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 10px; }
+  .highlight-box p { font-size: 16px; color: var(--text-muted); margin-bottom: 0; line-height: 1.7; }
+
+  .flow-diagram { margin: 30px 0; padding: 30px; background: rgba(26, 10, 46, 0.4); border: 1px solid rgba(201, 168, 124, 0.08); border-radius: 10px; }
+  .flow-step { text-align: center; margin: 12px 0; }
+  .flow-step .label { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px; color: var(--gold); display: block; margin-bottom: 2px; }
+  .flow-step .desc { font-size: 14px; color: var(--text-muted); }
+  .flow-step .sanskrit-small { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 12px; color: var(--gold-dim); display: block; margin-bottom: 2px; }
+  .flow-arrow { text-align: center; color: rgba(201, 168, 124, 0.25); font-size: 20px; margin: 4px 0; }
+
+  .tattva-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 24px 0; }
+  .tattva-item { padding: 14px 10px; background: rgba(45, 27, 78, 0.2); border: 1px solid rgba(201, 168, 124, 0.06); border-radius: 6px; text-align: center; }
+  .tattva-item .num { font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-dim); display: block; margin-bottom: 4px; }
+  .tattva-item .name { font-family: 'Cinzel', serif; font-size: 12px; color: var(--text-white); letter-spacing: 1px; display: block; margin-bottom: 2px; }
+  .tattva-item .detail { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+  .dual-lens { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .lens-card { padding: 22px; border-radius: 6px; border: 1px solid rgba(201, 168, 124, 0.06); }
+  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
+  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
+  .lens-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+  .lens-card.modern .lens-label { color: #7ab8d4; }
+  .lens-card.yogic .lens-label { color: var(--gold); }
+  .lens-card p { font-size: 15px; margin-bottom: 0; }
+
+  .blog-cta { text-align: center; margin: 60px 0; padding: 40px; border-top: 1px solid rgba(201, 168, 124, 0.1); border-bottom: 1px solid rgba(201, 168, 124, 0.1); }
+  .blog-cta p { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; }
+  .cta-btn { display: inline-block; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--bg-deep); background: linear-gradient(135deg, var(--gold), #dfc299); padding: 13px 32px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3); }
+
+  footer { background: var(--bg-deep); border-top: 1px solid rgba(201, 168, 124, 0.08); padding: 40px 20px 24px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; color: var(--text-white); font-size: 16px; letter-spacing: 5px; margin-bottom: 4px; }
+  .footer-tagline { color: var(--gold-dim); font-style: italic; font-size: 13px; margin-bottom: 16px; }
+  .footer-quote { font-family: 'Cinzel', serif; color: rgba(201, 168, 124, 0.25); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .article { padding: 40px 16px 80px; }
+    .dual-lens { grid-template-columns: 1fr; }
+    .tattva-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-hero { padding: 120px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand"><span>संकल्प</span> SANKALP</a>
+  <a href="../index.html#blog" class="nav-back">&larr; All Articles</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">Indian Philosophy + Modern Thought</span>
+    <h1>Sankhya Darshan: The Philosophy That Gave Birth to Yoga & Ayurveda</h1>
+    <p class="blog-hero-sub">The oldest map of reality. How consciousness and nature create everything you experience.</p>
+  </div>
+</header>
+
+<article class="article">
+
+  <h2>Why Sankhya Matters</h2>
+  <div class="divider"></div>
+
+  <p>
+    If Yoga is the practice, and Ayurveda is the medicine, then <strong>Sankhya is the philosophy</strong> underneath both. It is one of the six classical schools of Indian philosophy (<em class="gold">Shad Darshan</em>), and arguably the most foundational. Without understanding Sankhya, Yoga remains just exercise and Ayurveda remains just diet tips. With Sankhya, they become a complete science of life.
+  </p>
+
+  <p>
+    Sankhya was formalized by the sage <strong>Kapila Muni</strong>, considered one of the greatest thinkers in human history. His framework answers the deepest questions: What is this universe made of? What am I? Why do I suffer? And how do I become free?
+  </p>
+
+  <div class="quote">
+    <p>"The purpose of Sankhya is the complete cessation of the threefold suffering &mdash; physical, mental, and spiritual."</p>
+    <span class="source">&mdash; Sankhya Karika, Verse 1</span>
+  </div>
+
+  <h2>The Two Fundamental Realities</h2>
+  <div class="divider"></div>
+
+  <p>
+    Sankhya begins with a radical observation: <strong>everything that exists can be divided into two categories.</strong> Nothing falls outside these two.
+  </p>
+
+  <h3>1. Purusha &mdash; Pure Consciousness</h3>
+
+  <p>
+    Purusha is the observer. The witness. The awareness that knows "I exist." It does not think, act, or change. It simply <strong>watches</strong>. It is unchanging, eternal, beyond time and space. You can think of it as the screen on which the movie of life is projected &mdash; the screen itself is never affected by the movie.
+  </p>
+
+  <p>
+    <em class="gold">When you sit quietly and watch your breath without reacting &mdash; that silent awareness is a taste of Purusha. You are not your thoughts. You are the one watching them.</em>
+  </p>
+
+  <h3>2. Prakriti &mdash; Nature / Matter</h3>
+
+  <p>
+    Prakriti is everything else. Every thing you can see, touch, think, feel, or measure. Your body, your mind, your emotions, the trees, the planets, time itself &mdash; all of this is Prakriti. It is the field of experience, constantly moving, evolving, and transforming.
+  </p>
+
+  <p>
+    Prakriti has three fundamental qualities called <strong>Gunas</strong> &mdash; Sattva (balance), Rajas (activity), and Tamas (inertia). When these three are in perfect equilibrium, Prakriti is dormant, unmanifest. When the equilibrium is disturbed, creation begins.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Parallel</span>
+      <p>Modern physics also distinguishes between the <strong>observer</strong> and the <strong>observed</strong>. Quantum mechanics discovered that the act of observation affects reality. Consciousness and matter appear fundamentally linked &mdash; something Sankhya stated thousands of years ago.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Sankhya View</span>
+      <p>Purusha (consciousness) does not create anything. Prakriti (nature) does not know anything. But when Purusha <strong>reflects</strong> in Prakriti &mdash; like the sun reflected in water &mdash; the entire universe unfolds. This reflection is the birth of individual experience.</p>
+    </div>
+  </div>
+
+  <h2>How Creation Unfolds: The 24 Tattvas</h2>
+  <div class="divider"></div>
+
+  <p>
+    Sankhya maps the entire process of creation in <strong>24 stages called Tattvas</strong> (principles of reality). From the subtlest to the grossest, each tattva emerges from the one before it &mdash; like a seed unfolding into a tree.
+  </p>
+
+  <div class="flow-diagram">
+    <div class="flow-step">
+      <span class="label">Prakriti</span>
+      <span class="desc">Unmanifest nature &mdash; the womb of all creation (3 Gunas in equilibrium)</span>
+    </div>
+    <div class="flow-arrow">&darr;</div>
+    <div class="flow-step">
+      <span class="label">Mahat / Buddhi</span>
+      <span class="desc">Cosmic intelligence &mdash; the first spark. The faculty of discernment and wisdom.</span>
+    </div>
+    <div class="flow-arrow">&darr;</div>
+    <div class="flow-step">
+      <span class="label">Ahamkara</span>
+      <span class="desc">The sense of "I" &mdash; ego. This is where individual identity is born. "I am separate."</span>
+    </div>
+    <div class="flow-arrow">&darr;&darr;&darr;</div>
+    <div class="flow-step">
+      <span class="desc" style="color: var(--gold);">Ahamkara branches into three streams based on the Gunas:</span>
+    </div>
+    <div class="flow-step">
+      <span class="label">Sattvic Stream</span>
+      <span class="desc">Manas (mind) + 5 Jnanendriyas (senses of knowing) + 5 Karmendriyas (organs of action)</span>
+    </div>
+    <div class="flow-step">
+      <span class="label">Tamasic Stream</span>
+      <span class="desc">5 Tanmatras (subtle elements) &rarr; 5 Mahabhutas (gross elements: Space, Air, Fire, Water, Earth)</span>
+    </div>
+  </div>
+
+  <p>
+    Let's look at these 24 Tattvas organized:
+  </p>
+
+  <div class="tattva-grid">
+    <div class="tattva-item"><span class="num">1</span><span class="name">Prakriti</span><span class="detail">Unmanifest nature</span></div>
+    <div class="tattva-item"><span class="num">2</span><span class="name">Buddhi</span><span class="detail">Intelligence, discernment</span></div>
+    <div class="tattva-item"><span class="num">3</span><span class="name">Ahamkara</span><span class="detail">Ego, "I-ness"</span></div>
+    <div class="tattva-item"><span class="num">4</span><span class="name">Manas</span><span class="detail">Mind, processing</span></div>
+    <div class="tattva-item"><span class="num">5-9</span><span class="name">Jnanendriyas</span><span class="detail">Ears, skin, eyes, tongue, nose</span></div>
+    <div class="tattva-item"><span class="num">10-14</span><span class="name">Karmendriyas</span><span class="detail">Speech, hands, feet, reproduction, elimination</span></div>
+    <div class="tattva-item"><span class="num">15-19</span><span class="name">Tanmatras</span><span class="detail">Sound, touch, form, taste, smell</span></div>
+    <div class="tattva-item"><span class="num">20-24</span><span class="name">Mahabhutas</span><span class="detail">Space, Air, Fire, Water, Earth</span></div>
+  </div>
+
+  <p>
+    <strong>Purusha (consciousness)</strong> stands as the 25th principle &mdash; separate from all 24, watching the entire play of Prakriti.
+  </p>
+
+  <div class="highlight-box">
+    <h4>Why This Matters for Your Health</h4>
+    <p>Every level of the Tattvas is a level where imbalance can occur. Ayurveda works at the level of the gross body (Mahabhutas, Doshas). Yoga works at the level of mind and prana. Meditation works at the level of Buddhi and Ahamkara. Sankhya shows that <strong>all these practices are working on the same system, at different depths</strong>.</p>
+  </div>
+
+  <h2>Ahamkara: Where Suffering Begins</h2>
+  <div class="divider"></div>
+
+  <p>
+    Of all 24 Tattvas, <strong>Ahamkara</strong> (ego) is the most significant for understanding human suffering. It is the principle that creates the feeling of "I" and "mine." Without Ahamkara, there would be no individual experience &mdash; but there would also be no attachment, no fear, no jealousy.
+  </p>
+
+  <p>
+    Sankhya says that suffering arises from <strong>misidentification</strong>. The Purusha (your true self, pure awareness) gets identified with Prakriti (body, mind, emotions) through the lens of Ahamkara. You begin to believe: "I am this body. I am this thought. I am this pain." But you are not. You are the witness.
+  </p>
+
+  <div class="sanskrit-verse">
+    <span class="devanagari">पुरुषः प्रकृतिस्थो हि भुङ्क्ते प्रकृतिजान्गुणान्</span>
+    <span class="translation">"The Purusha, seated in Prakriti, experiences the qualities born of Prakriti. Attachment to these qualities is the cause of birth in good and evil wombs."</span>
+    <span class="ref">Bhagavad Gita 13.22</span>
+  </div>
+
+  <p>
+    <em class="gold">This is why meditation is so powerful. When you sit and watch your thoughts without reacting, you are practicing the separation of Purusha from Prakriti. You are remembering: I am the watcher, not the watched.</em>
+  </p>
+
+  <h2>Buddhi: Your Inner Compass</h2>
+  <div class="divider"></div>
+
+  <p>
+    Buddhi is the faculty of <strong>discrimination</strong> &mdash; the ability to tell real from unreal, helpful from harmful, true from false. In Sankhya, Buddhi is the first evolute of Prakriti, the closest thing to pure consciousness within nature.
+  </p>
+
+  <p>
+    When Buddhi is clear (sattvic), you make wise choices. You eat well, sleep well, choose well. When Buddhi is clouded by Rajas or Tamas, you make choices that lead to suffering &mdash; you know something is wrong but you do it anyway.
+  </p>
+
+  <p>
+    <strong>Every practice in Yoga and Ayurveda is ultimately about clearing the Buddhi.</strong> A clear Buddhi is the difference between knowing the truth and living the truth.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Science</span>
+      <p>Neuroscience identifies the <strong>prefrontal cortex</strong> as the seat of decision-making, impulse control, and long-term thinking. When stressed (high cortisol), the prefrontal cortex goes offline and the amygdala takes over &mdash; you react instead of respond. This maps directly to Buddhi being clouded by Rajas.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Sankhya View</span>
+      <p>Buddhi, when purified through Sattva, reflects Purusha clearly &mdash; like a still lake reflecting the moon. Meditation, sattvic food, and right living polish the Buddhi. When Buddhi is clear, liberation (Kaivalya) becomes possible &mdash; the Purusha recognizes itself.</p>
+    </div>
+  </div>
+
+  <h2>How Sankhya Connects Everything</h2>
+  <div class="divider"></div>
+
+  <p>
+    Now you can see the complete picture:
+  </p>
+
+  <p>
+    <strong>Ayurveda</strong> works with the 5 Mahabhutas and the 3 Doshas &mdash; the grossest level of Prakriti. It heals the physical body through food, herbs, and lifestyle.
+  </p>
+
+  <p>
+    <strong>Yoga</strong> works with the Karmendriyas (action), Jnanendriyas (senses), Manas (mind), and Prana (life force). It purifies the subtle body through asana, pranayama, and pratyahara (sense withdrawal).
+  </p>
+
+  <p>
+    <strong>Meditation (Dhyana)</strong> works with Buddhi and Ahamkara &mdash; the deepest layers. It dissolves misidentification and reveals the Purusha.
+  </p>
+
+  <p>
+    <strong>Sankhya</strong> is the map that shows how all of these connect. Without it, you are practicing blindly. With it, every practice has meaning, direction, and purpose.
+  </p>
+
+  <div class="quote">
+    <p>"Knowledge is the eye. Practice is the path. Together, they lead to freedom."</p>
+    <span class="source">&mdash; Sage Kapila</span>
+  </div>
+
+  <h2>The Goal: Kaivalya</h2>
+  <div class="divider"></div>
+
+  <p>
+    Sankhya says that all suffering comes from one mistake: confusing Purusha with Prakriti. Confusing the seer with the seen. Thinking you are your body, your job title, your emotions, your bank balance.
+  </p>
+
+  <p>
+    The moment Purusha recognizes itself as separate from Prakriti &mdash; not through intellectual understanding but through direct experience &mdash; suffering ends. This state is called <strong>Kaivalya</strong> (absolute freedom, independence).
+  </p>
+
+  <p>
+    You don't need to renounce the world. You don't need to stop living. You just need to stop confusing who you are with what you experience. The screen is not affected by the movie. You are not affected by life &mdash; unless you forget that you are the screen.
+  </p>
+
+  <p>
+    <em class="gold">This is why the simplest meditation &mdash; just watching your breath, being the observer &mdash; is also the most profound. In that moment of watching, you are Purusha. You are free.</em>
+  </p>
+
+  <div class="blog-cta">
+    <p>Want to Explore These Ideas Through Practice?</p>
+    <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%20read%20the%20blog%20on%20Sankhya%20Darshan.%20I%20want%20to%20learn%20more." class="cta-btn">Connect With Us on WhatsApp</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+</body>
+</html>
