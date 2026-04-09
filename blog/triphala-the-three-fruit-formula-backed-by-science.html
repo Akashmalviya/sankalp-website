@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>Triphala: The Three-Fruit Formula Backed by Science — Sankalp</title>
+<meta name="description" content="Triphala Churna — Ayurveda's most famous formulation of three fruits. Modern research proves its benefits for gut health, immunity, cancer prevention, oral health, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --herb-green: #8bbd7a;
+    --herb-amber: #d4a857;
+    --herb-brown: #c49a6c;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 6, 24, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: var(--gold);
+    font-size: 11px;
+    margin-right: 8px;
+    font-weight: 300;
+  }
+
+  .nav-back {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-back:hover { color: var(--text-white); }
+
+  /* HERO */
+  .blog-hero {
+    padding: 140px 20px 80px;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    position: relative;
+  }
+
+  .blog-hero::before {
+    content: '\1F343';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 250px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .blog-hero-content { position: relative; z-index: 1; }
+
+  .blog-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-stone);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .blog-hero h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+
+  .blog-hero-sub {
+    color: var(--gold);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* ARTICLE */
+  .article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .article h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 60px 0 16px;
+    line-height: 1.3;
+  }
+
+  .article h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 40px 0 12px;
+  }
+
+  .article p {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .article strong { color: var(--text-light); font-weight: 500; }
+  .article em.gold { color: var(--gold); font-weight: 400; }
+  .article em.green { color: var(--herb-green); font-weight: 400; }
+
+  .divider {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 40px 0;
+  }
+
+  .divider-center {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 40px auto;
+  }
+
+  /* QUOTE */
+  .quote {
+    margin: 40px 0;
+    padding: 24px 30px;
+    border-left: 2px solid var(--gold-faint);
+    background: rgba(45, 27, 78, 0.15);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .quote p {
+    font-size: 19px;
+    font-style: italic;
+    color: var(--gold-dim);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .quote .source {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: normal;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(201, 168, 124, 0.06);
+    border: 1px solid rgba(201, 168, 124, 0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .highlight-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* DUAL LENS */
+  .dual-lens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .lens-card {
+    padding: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(201, 168, 124, 0.06);
+  }
+
+  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
+  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
+
+  .lens-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .lens-card.modern .lens-label { color: #7ab8d4; }
+  .lens-card.yogic .lens-label { color: var(--gold); }
+  .lens-card p { font-size: 15px; margin-bottom: 0; }
+
+  /* THREE FRUITS GRID */
+  .fruits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .fruit-card {
+    padding: 24px 18px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(201, 168, 124, 0.08);
+    background: linear-gradient(160deg, rgba(45, 27, 78, 0.3), rgba(26, 10, 46, 0.5));
+  }
+
+  .fruit-card .fruit-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
+    opacity: 0.5;
+  }
+
+  .fruit-card .sanskrit {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 300;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .fruit-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .fruit-card .botanical {
+    font-size: 11px;
+    color: var(--herb-green);
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .fruit-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .fruit-card .dosha-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid rgba(201, 168, 124, 0.15);
+    color: var(--gold-dim);
+  }
+
+  /* BENEFIT CARDS */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .benefit-card {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 189, 122, 0.1);
+    background: linear-gradient(160deg, rgba(139, 189, 122, 0.04), rgba(26, 10, 46, 0.4));
+  }
+
+  .benefit-card .benefit-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+    opacity: 0.5;
+  }
+
+  .benefit-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--herb-green);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .benefit-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* RESEARCH PAPERS */
+  .paper-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .paper-list li {
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(201, 168, 124, 0.06);
+    background: rgba(45, 27, 78, 0.15);
+  }
+
+  .paper-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+    font-weight: 500;
+  }
+
+  .paper-journal {
+    font-size: 12px;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .paper-explain {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .paper-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--herb-green);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .paper-link:hover { color: var(--text-white); }
+
+  /* DOSAGE BOX */
+  .dosage-box {
+    background: rgba(139, 189, 122, 0.05);
+    border: 1px solid rgba(139, 189, 122, 0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 30px 0;
+  }
+
+  .dosage-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--herb-green);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+
+  .dosage-box p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+
+  .dosage-box p:last-child { margin-bottom: 0; }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: rgba(212, 145, 122, 0.05);
+    border: 1px solid rgba(212, 145, 122, 0.15);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 30px 0;
+  }
+
+  .warning-box h4 {
+    font-family: 'Cinzel', serif;
+    color: #d4917a;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .warning-box p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .blog-cta {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    border-top: 1px solid rgba(201, 168, 124, 0.1);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.1);
+  }
+
+  .blog-cta p {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: linear-gradient(135deg, var(--gold), #dfc299);
+    padding: 13px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-deep);
+    border-top: 1px solid rgba(201, 168, 124, 0.08);
+    padding: 40px 20px 24px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    color: var(--gold-dim);
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .footer-quote {
+    font-family: 'Cinzel', serif;
+    color: rgba(201, 168, 124, 0.25);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .article { padding: 40px 16px 80px; }
+    .dual-lens { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .fruits-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 120px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-brand"><span>&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span> SANKALP</a>
+  <a href="../index.html#blog" class="nav-back">&larr; All Articles</a>
+</nav>
+
+<!-- HERO -->
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">Ayurveda + Modern Research</span>
+    <h1>Triphala &mdash; The Three-Fruit Formula Backed by Science</h1>
+    <p class="blog-hero-sub">Ayurveda's most famous formulation. Three fruits that clean your gut, fight cancer cells, protect your brain, and heal your body from the inside out.</p>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <h2>The Formula Every Ayurvedic Doctor Knows</h2>
+  <div class="divider"></div>
+
+  <p>
+    If there is one formulation that defines Ayurveda, it is <em class="gold">Triphala</em>. Every Ayurvedic doctor knows it. Every traditional household in India has used it. It has been prescribed continuously for over 2,000 years &mdash; making it one of the oldest medicines still in active use anywhere in the world.
+  </p>
+
+  <p>
+    The name says it all: <strong>Tri</strong> means three. <strong>Phala</strong> means fruits. Triphala is simply a combination of three dried fruits, ground into a fine powder. That's it. No secret ingredients. No complex chemistry. Just three fruits that, when combined in equal parts, create something far more powerful than any of them alone.
+  </p>
+
+  <p>
+    For centuries, Ayurveda has claimed that Triphala cleans the digestive system, strengthens immunity, rejuvenates tissues, and promotes longevity. Modern science was skeptical. But over the last two decades, <strong>researchers have put Triphala through clinical trials, meta-analyses, and molecular studies</strong> &mdash; and the results confirm what the ancient Vaidyas always knew.
+  </p>
+
+  <div class="quote">
+    <p>"If a Vaidya does not know what medicine to prescribe, he prescribes Triphala."</p>
+    <span class="source">&mdash; Ancient Ayurvedic saying, reflecting Triphala's universal applicability</span>
+  </div>
+
+  <!-- THE THREE FRUITS -->
+  <h2>The Three Fruits</h2>
+  <div class="divider"></div>
+
+  <p>
+    Each fruit in Triphala has its own identity, its own powers, and its own dosha affinity. Together, they balance all three doshas &mdash; which is extraordinarily rare for any single formulation. This is why Ayurveda considers Triphala a <em class="gold">Tridoshic Rasayana</em> &mdash; a rejuvenator that works for everyone, regardless of body type.
+  </p>
+
+  <div class="fruits-grid">
+    <div class="fruit-card">
+      <span class="fruit-icon">&#9830;</span>
+      <span class="sanskrit">&#2361;&#2352;&#2368;&#2340;&#2325;&#2368;</span>
+      <h4>Haritaki</h4>
+      <span class="botanical">Terminalia chebula</span>
+      <p>Called the "King of Medicines" in Ayurveda. Powerful laxative and digestive cleanser. Detoxifies the colon, improves nutrient absorption, and supports brain function.</p>
+      <span class="dosha-tag">Balances Vata</span>
+    </div>
+    <div class="fruit-card">
+      <span class="fruit-icon">&#9679;</span>
+      <span class="sanskrit">&#2348;&#2367;&#2349;&#2368;&#2340;&#2325;&#2368;</span>
+      <h4>Bibhitaki</h4>
+      <span class="botanical">Terminalia bellerica</span>
+      <p>The "one who keeps you away from disease." Removes excess mucus and fat from the body. Supports respiratory health, cholesterol balance, and liver function.</p>
+      <span class="dosha-tag">Balances Kapha</span>
+    </div>
+    <div class="fruit-card">
+      <span class="fruit-icon">&#10047;</span>
+      <span class="sanskrit">&#2310;&#2350;&#2354;&#2325;&#2368;</span>
+      <h4>Amalaki</h4>
+      <span class="botanical">Emblica officinalis</span>
+      <p>Indian gooseberry (Amla). One of the richest natural sources of Vitamin C. Powerful antioxidant. Cools inflammation, nourishes tissues, and is the heart of Rasayana therapy.</p>
+      <span class="dosha-tag">Balances Pitta</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>Why Three Fruits Together?</h4>
+    <p>Each fruit balances one dosha. Haritaki for Vata, Bibhitaki for Kapha, Amalaki for Pitta. Combined, they create <strong>Tridoshic balance</strong> &mdash; something no single herb can achieve alone. This is the genius of Ayurvedic formulation: the whole is greater than the sum of its parts.</p>
+  </div>
+
+  <!-- BENEFITS -->
+  <h2>What Triphala Does to Your Body</h2>
+  <div class="divider"></div>
+
+  <p>
+    Triphala is not a one-trick herb. It works on multiple systems simultaneously. Here's what research has confirmed:
+  </p>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="benefit-icon">&#9752;</span>
+      <h4>Heals Your Gut</h4>
+      <p>A randomized clinical trial showed Triphala increases <em>Akkermansia muciniphila</em> &mdash; a bacterium that strengthens your gut lining. It improves the Firmicutes-to-Bacteroidetes ratio, which is linked to better metabolic health and reduced inflammation.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#10053;</span>
+      <h4>Fights Cancer Cells</h4>
+      <p>Multiple lab studies show Triphala induces apoptosis (programmed death) in colon, breast, and oral cancer cells &mdash; while leaving normal cells unharmed. Its compound chebulinic acid is a promising anti-tumor agent against colorectal carcinoma.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#9733;</span>
+      <h4>Powerful Antioxidant</h4>
+      <p>Triphala is packed with polyphenols &mdash; gallic acid, chebulagic acid, chebulinic acid, and ellagic acid. These neutralize free radicals that damage your cells, DNA, and accelerate aging. Clinical studies in long-COVID patients confirmed reduced oxidative stress markers.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#9707;</span>
+      <h4>Reduces Inflammation</h4>
+      <p>Chronic inflammation drives most modern diseases &mdash; heart disease, diabetes, cancer, autoimmune conditions. Triphala shows anti-inflammatory effects in clinical studies, including research on allergic rhinitis and post-COVID inflammation.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#9825;</span>
+      <h4>Protects Your Heart</h4>
+      <p>Research on Amalaki Rasayana (built on Triphala's Amla) showed it enhances cardiac mitochondrial function &mdash; literally improving how your heart cells produce energy and contract. Triphala has also shown cholesterol-lowering effects in clinical trials.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#9673;</span>
+      <h4>Sharpens Your Brain</h4>
+      <p>Triphala polyphenols show potential against stress-induced depression and cognitive impairment. Amalaki Rasayana improved memory in an Alzheimer's disease mouse model. The neuroprotective effects come from its powerful antioxidant activity in brain tissue.</p>
+    </div>
+  </div>
+
+  <h3>Oral Health &mdash; As Effective as Chlorhexidine</h3>
+
+  <p>
+    This is one of the most well-proven benefits. A <strong>meta-analysis of multiple randomized controlled trials</strong> concluded that Triphala mouthwash is as effective as chlorhexidine (the gold-standard medical mouthwash) for treating plaque-induced gingivitis.
+  </p>
+
+  <p>
+    Multiple RCTs on schoolchildren and adults confirmed that Triphala mouthwash reduces plaque, fights gingival inflammation, and has strong antibacterial activity against cavity-causing bacteria like <em>Streptococcus mutans</em>. Unlike chlorhexidine, Triphala doesn't stain teeth or alter taste.
+  </p>
+
+  <h3>Cholesterol &amp; Metabolic Health</h3>
+
+  <p>
+    A randomized controlled trial showed that Triphala powder has <strong>hypolipidemic and anti-hypercholesterolemia effects</strong> &mdash; meaning it can help lower bad cholesterol levels. Combined with its gut microbiome benefits, this makes Triphala relevant for metabolic syndrome and cardiovascular risk prevention.
+  </p>
+
+  <h3>Eye Health</h3>
+
+  <p>
+    Ayurveda has used Triphala for eye care for centuries &mdash; both as an eye wash (Triphala water) and as <em class="gold">Triphala Ghrita</em> (Triphala prepared in ghee) for a procedure called Tarpana. A clinical trial tested Triphala Ghrita Tarpana for dry eye syndrome and confirmed its effectiveness. The high Vitamin C content from Amalaki, combined with the antioxidant properties, protects the delicate tissues of the eye.
+  </p>
+
+  <!-- HOW IT WORKS -->
+  <h2>How Does Triphala Actually Work?</h2>
+  <div class="divider"></div>
+
+  <p>
+    Triphala's power comes from its rich chemistry. Scientists have identified the key compounds:
+  </p>
+
+  <p>
+    <strong>Gallic acid</strong> &mdash; A powerful antioxidant found abundantly in all three fruits. It scavenges free radicals and has anti-inflammatory, anti-bacterial, and anti-cancer properties.
+  </p>
+
+  <p>
+    <strong>Chebulagic acid &amp; Chebulinic acid</strong> &mdash; Found primarily in Haritaki. These show strong anti-tumor activity, especially against colon and oral cancer cells.
+  </p>
+
+  <p>
+    <strong>Ellagic acid</strong> &mdash; An antioxidant compound that protects cells from DNA damage and has been studied for cancer prevention.
+  </p>
+
+  <p>
+    <strong>Vitamin C</strong> &mdash; Amalaki is one of nature's richest sources. Unlike synthetic vitamin C, the form in Amla is more bioavailable and stable due to the presence of tannins.
+  </p>
+
+  <p>
+    <strong>Prebiotic polyphenols</strong> &mdash; Triphala's polyphenols act as food for beneficial gut bacteria, making it a natural prebiotic. This is how it improves the gut microbiome without adding any bacteria &mdash; it feeds the good ones you already have.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Science Says</span>
+      <p>Triphala is a polyphenol-rich formulation with antioxidant, anti-inflammatory, prebiotic, and cytotoxic (anti-cancer) properties. Its compounds modulate gut microbiota, reduce oxidative stress, and show selective toxicity against cancer cells while sparing normal cells.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Ayurveda Has Always Said</span>
+      <p>Triphala is a Tridoshic Rasayana that cleanses the body's channels (Srotas), strengthens Agni (digestive fire), removes Ama (toxins), nourishes all seven Dhatus (tissues), and promotes Ojas (vitality). It is both a cleanser and a rejuvenator &mdash; rare for any single formulation.</p>
+    </div>
+  </div>
+
+  <!-- SAFETY -->
+  <h2>Is Triphala Safe?</h2>
+  <div class="divider"></div>
+
+  <p>
+    Yes. A <strong>Phase I clinical trial</strong> (the first step in human drug safety testing) specifically tested oral Triphala aqueous extract on healthy volunteers and confirmed it is safe. This is important &mdash; Triphala has now passed formal safety testing, not just traditional-use claims.
+  </p>
+
+  <p>
+    Additionally, research by Dr. Pulok Mukherjee's group at Jadavpur University studied Triphala's <strong>CYP450 inhibitory potential</strong> &mdash; how it interacts with the liver enzymes that process drugs. This is critical information for anyone taking Triphala alongside modern medicines, and helps doctors make informed decisions about herb-drug combinations.
+  </p>
+
+  <div class="dosage-box">
+    <h4>Traditional Ways to Take Triphala</h4>
+    <p><strong>Churna (Powder):</strong> The classic form. Mix 3-5 grams of Triphala powder in warm water and drink on an empty stomach &mdash; either first thing in the morning or before bed.</p>
+    <p><strong>With Warm Water (Morning):</strong> Promotes bowel regularity, detoxification, and activates digestion for the day. This is the most common traditional use.</p>
+    <p><strong>With Honey &amp; Ghee (Rasayana):</strong> For rejuvenation rather than just cleansing. The combination of honey (scraping quality) and ghee (nourishing quality) makes Triphala work as a tissue builder.</p>
+    <p><strong>As Eye Wash:</strong> Soak Triphala powder in clean water overnight, strain through a fine cloth, and use the water to wash eyes. Traditional remedy for eye strain and dryness.</p>
+    <p><strong>As Mouthwash:</strong> Boil Triphala in water, cool, and use as a gargle. Research confirms this is as effective as chlorhexidine for gum health.</p>
+  </div>
+
+  <div class="warning-box">
+    <h4>Precautions</h4>
+    <p>Triphala is generally safe for most adults. However, it has a mild laxative effect &mdash; start with a lower dose and increase gradually. Pregnant women should avoid it as it has mild purgative properties. If you're on blood-thinning medications or diabetes drugs, consult your doctor, as Triphala may interact with these. The right dose depends on your Prakriti and current state of health &mdash; an Ayurvedic physician can guide you best.</p>
+  </div>
+
+  <!-- RESEARCH PAPERS -->
+  <h2>Research Papers &mdash; The Proof</h2>
+  <div class="divider"></div>
+
+  <p>
+    Here are the published, peer-reviewed studies. Every claim in this article is backed by real research that you can look up yourself.
+  </p>
+
+  <ul class="paper-list">
+    <li>
+      <span class="paper-title">Modulatory Effects of Triphala on Human Gut Microbiota: A Double-Blind, Randomized, Placebo-Controlled Pilot Study</span>
+      <span class="paper-journal">Journal of Alternative and Complementary Medicine, 2020 &bull; Peterson CT et al.</span>
+      <p class="paper-explain">Gold-standard RCT. Triphala increased Akkermansia muciniphila (gut-healing bacteria) and improved the Firmicutes-to-Bacteroidetes ratio. First clinical proof that Triphala acts as a prebiotic.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/32955913/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Triphala Extract Suppresses Proliferation and Induces Apoptosis in Human Colon Cancer Stem Cells</span>
+      <span class="paper-journal">BioMed Research International, 2015 &bull; Vadde R et al.</span>
+      <p class="paper-explain">Triphala killed colon cancer stem cells through programmed cell death (apoptosis) &mdash; without harming normal cells. Cancer stem cells are the hardest to eliminate, making this finding significant.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/26167492/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Potential of Traditional Ayurvedic Formulation, Triphala, as a Novel Anticancer Drug</span>
+      <span class="paper-journal">Cancer Letters, 2006 &bull; Sandhya T et al.</span>
+      <p class="paper-explain">Landmark early paper. Established Triphala as a potential anti-cancer agent with selective cytotoxicity &mdash; it kills cancer cells while leaving healthy cells intact.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/15899544/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Chebulinic Acid Derived from Triphala Is a Promising Antitumour Agent in Colorectal Carcinoma Cell Lines</span>
+      <span class="paper-journal">BMC Complementary and Alternative Medicine, 2018 &bull; Wang M et al.</span>
+      <p class="paper-explain">Identified chebulinic acid (from Haritaki) as the specific compound responsible for Triphala's anti-tumor activity against colorectal cancer.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/30587184/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Triphala Mouthrinse: Systematic Review &amp; Meta-Analysis</span>
+      <span class="paper-journal">International Journal of Dental Hygiene, 2020 &bull; AlJameel AH, Almalki SA</span>
+      <p class="paper-explain">Meta-analysis of multiple RCTs. Concluded that Triphala mouthwash is as effective as chlorhexidine for plaque-induced gingivitis. The strongest level of evidence for any Triphala benefit.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/32383334/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Ameliorative Effects of Triphala on Oxidative Stress and Inflammation in Post-COVID-19 Condition</span>
+      <span class="paper-journal">Global Advances in Integrative Medicine and Health, 2025 &bull; Intakhiao S et al.</span>
+      <p class="paper-explain">Clinical study showing Triphala reduced oxidative stress and inflammation markers in long-COVID patients. Demonstrates its relevance for modern health challenges.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41122087/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Triphala Powder for Hypercholesterolemia</span>
+      <span class="paper-journal">Pakistan Journal of Pharmaceutical Sciences, 2023 &bull; Sarosh I et al.</span>
+      <p class="paper-explain">Randomized controlled trial proving Triphala's cholesterol-lowering effects. Shows potential for cardiovascular risk prevention.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/37548212/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Safety of Oral Triphala Aqueous Extract &mdash; Phase I Clinical Trial</span>
+      <span class="paper-journal">Journal of Integrative Medicine, 2020 &bull; Phetkate P et al.</span>
+      <p class="paper-explain">First formal human safety trial. Confirmed that Triphala is safe for healthy adults. Moves Triphala from traditional-use claims to clinically verified safety.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/31680053/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Amalaki Rasayana Enhances Cardiac Mitochondrial and Contractile Functions</span>
+      <span class="paper-journal">Scientific Reports, 2017 &bull; Valiathan MS et al.</span>
+      <p class="paper-explain">Proved that Amalaki (Triphala's key component) improves heart cell energy production. Published in Nature's Scientific Reports &mdash; high credibility.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/28819266/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">Amalaki Rasayana Improved Memory in Alzheimer's Disease Mouse Model</span>
+      <span class="paper-journal">Journal of Biosciences, 2017 &bull; Lakhotia SC et al.</span>
+      <p class="paper-explain">Amalaki Rasayana improved memory and neuronal metabolism in an Alzheimer's model. Demonstrates that Triphala's brain benefits have real biological mechanisms.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/29358550/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+    <li>
+      <span class="paper-title">CYP450 Inhibitory Potential of Triphala</span>
+      <span class="paper-journal">Journal of Ethnopharmacology, 2011 &bull; Ponnusankar S et al. (Mukherjee PK group)</span>
+      <p class="paper-explain">Studied how Triphala interacts with liver enzymes that process drugs. Critical safety data for anyone taking Triphala alongside modern medicines.</p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/20883765/" class="paper-link" target="_blank" rel="noopener">PubMed &rarr;</a>
+    </li>
+  </ul>
+
+  <!-- CLOSING -->
+  <h2>Three Fruits. Thousands of Years. Now Proven.</h2>
+  <div class="divider"></div>
+
+  <p>
+    Triphala is not exotic. It is not a trend. It is not a supplement marketed with flashy packaging. It is three dried fruits &mdash; grown in India, ground into powder, and used by millions of people for thousands of years.
+  </p>
+
+  <p>
+    What makes it remarkable is that modern science keeps confirming what Ayurveda always said. It heals the gut. It fights cancer cells. It protects the heart and brain. It reduces inflammation. It is safe. And it works for all body types.
+  </p>
+
+  <p>
+    The ancient Vaidyas called it a Rasayana &mdash; something that renews you from the inside out. Modern scientists call it a polyphenol-rich prebiotic with antioxidant, anti-inflammatory, and cytotoxic properties. <strong>They are describing the same thing.</strong>
+  </p>
+
+  <div class="quote">
+    <p>"Triphala is the one formulation that every Ayurvedic physician trusts. It balances all three doshas, cleanses all channels, and nourishes all tissues. There is nothing else quite like it."</p>
+    <span class="source">&mdash; Traditional Ayurvedic teaching</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <p>Want Guidance on Using Triphala for Your Body Type?</p>
+    <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%20read%20the%20Triphala%20blog.%20I%20want%20to%20know%20how%20to%20use%20it%20for%20my%20Prakriti." class="cta-btn">Connect With Us on WhatsApp</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+</body>
+</html>
