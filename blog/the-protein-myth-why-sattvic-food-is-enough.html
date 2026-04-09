@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>The Protein Myth: Why Sattvic Food Is Enough — Sankalp</title>
+<meta name="description" content="Modern science says eat more protein — meat, eggs, whey. Yogic science says eat Sattvic. Who is right? The answer will change how you think about food forever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --sattva: #e8d48a;
+    --rajas: #d4917a;
+    --tamas: #8a8a9e;
+    --herb-green: #8bbd7a;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 6, 24, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: var(--gold);
+    font-size: 11px;
+    margin-right: 8px;
+    font-weight: 300;
+  }
+
+  .nav-back {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-back:hover { color: var(--text-white); }
+
+  /* HERO */
+  .blog-hero {
+    padding: 140px 20px 80px;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    position: relative;
+  }
+
+  .blog-hero::before {
+    content: '\1F33E';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 250px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .blog-hero-content { position: relative; z-index: 1; }
+
+  .blog-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-stone);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .blog-hero h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+
+  .blog-hero-sub {
+    color: var(--gold);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* ARTICLE */
+  .article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .article h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 60px 0 16px;
+    line-height: 1.3;
+  }
+
+  .article h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 40px 0 12px;
+  }
+
+  .article p {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .article strong { color: var(--text-light); font-weight: 500; }
+  .article em.gold { color: var(--gold); font-weight: 400; }
+  .article em.sattva { color: var(--sattva); font-weight: 400; }
+  .article em.rajas { color: var(--rajas); font-weight: 400; }
+  .article em.tamas { color: var(--tamas); font-weight: 400; }
+
+  .divider {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 40px 0;
+  }
+
+  .divider-center {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 40px auto;
+  }
+
+  /* QUOTE */
+  .quote {
+    margin: 40px 0;
+    padding: 24px 30px;
+    border-left: 2px solid var(--gold-faint);
+    background: rgba(45, 27, 78, 0.15);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .quote p {
+    font-size: 19px;
+    font-style: italic;
+    color: var(--gold-dim);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .quote .source {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: normal;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(201, 168, 124, 0.06);
+    border: 1px solid rgba(201, 168, 124, 0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .highlight-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* DUAL LENS */
+  .dual-lens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .lens-card {
+    padding: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(201, 168, 124, 0.06);
+  }
+
+  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
+  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
+
+  .lens-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .lens-card.modern .lens-label { color: #7ab8d4; }
+  .lens-card.yogic .lens-label { color: var(--gold); }
+  .lens-card p { font-size: 15px; margin-bottom: 0; }
+
+  /* FOOD COMPARISON TABLE */
+  .food-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+
+  .food-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.15);
+  }
+
+  .food-table td {
+    padding: 10px 14px;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.04);
+    vertical-align: top;
+  }
+
+  .food-table tr:hover td {
+    background: rgba(201, 168, 124, 0.03);
+  }
+
+  .guna-sattva { color: var(--sattva); font-weight: 500; }
+  .guna-rajas { color: var(--rajas); font-weight: 500; }
+  .guna-tamas { color: var(--tamas); font-weight: 500; }
+
+  /* SATTVIC FOODS GRID */
+  .sattvic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .sattvic-card {
+    padding: 22px;
+    border-radius: 8px;
+    border: 1px solid rgba(232, 212, 138, 0.1);
+    background: linear-gradient(160deg, rgba(232, 212, 138, 0.04), rgba(26, 10, 46, 0.4));
+  }
+
+  .sattvic-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--sattva);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
+  .sattvic-card .protein-info {
+    font-size: 12px;
+    color: var(--herb-green);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sattvic-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* DHATU CHAIN */
+  .dhatu-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 24px 0;
+    padding: 24px;
+    background: rgba(45, 27, 78, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(201, 168, 124, 0.08);
+  }
+
+  .dhatu-item {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text-white);
+    padding: 6px 14px;
+    border: 1px solid rgba(201, 168, 124, 0.15);
+    border-radius: 4px;
+    background: rgba(201, 168, 124, 0.05);
+  }
+
+  .dhatu-item.highlight {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .dhatu-arrow {
+    color: var(--gold-dim);
+    font-size: 14px;
+  }
+
+  /* PEHALWAN BOX */
+  .pehalwan-box {
+    background: rgba(139, 189, 122, 0.05);
+    border: 1px solid rgba(139, 189, 122, 0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 30px 0;
+  }
+
+  .pehalwan-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--herb-green);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+
+  .pehalwan-box p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+
+  .pehalwan-box p:last-child { margin-bottom: 0; }
+
+  /* CTA */
+  .blog-cta {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    border-top: 1px solid rgba(201, 168, 124, 0.1);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.1);
+  }
+
+  .blog-cta p {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: linear-gradient(135deg, var(--gold), #dfc299);
+    padding: 13px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-deep);
+    border-top: 1px solid rgba(201, 168, 124, 0.08);
+    padding: 40px 20px 24px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    color: var(--gold-dim);
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .footer-quote {
+    font-family: 'Cinzel', serif;
+    color: rgba(201, 168, 124, 0.25);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .article { padding: 40px 16px 80px; }
+    .dual-lens { grid-template-columns: 1fr; }
+    .sattvic-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 120px 16px 60px; }
+    .food-table { font-size: 13px; }
+    .food-table th, .food-table td { padding: 8px 10px; }
+    .dhatu-chain { gap: 4px; }
+    .dhatu-item { font-size: 10px; padding: 4px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-brand"><span>&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span> SANKALP</a>
+  <a href="../index.html#blog" class="nav-back">&larr; All Articles</a>
+</nav>
+
+<!-- HERO -->
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">Yogic Science + Nutrition</span>
+    <h1>The Protein Myth &mdash; Why Sattvic Food Is Enough</h1>
+    <p class="blog-hero-sub">Modern science says eat more protein &mdash; meat, eggs, whey. Yogic science says eat Sattvic. Who is right? The answer will change how you think about food.</p>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <h2>The Confusion Everyone Feels</h2>
+  <div class="divider"></div>
+
+  <p>
+    Open any fitness magazine or health website and you'll see the same advice: <strong>"Eat more protein."</strong> Chicken breast. Eggs. Whey protein shakes. Meat. The message is clear &mdash; if you want to be healthy and strong, you need high-protein food.
+  </p>
+
+  <p>
+    Now open any Yogic or Ayurvedic text and you'll read the opposite: eat <em class="sattva">Sattvic</em> food. Light, fresh, plant-based. Fruits, milk, dal, ghee, nuts. Avoid meat. Avoid eggs. Avoid heavy, processed food. The message is equally clear &mdash; Tamasic food dulls your mind and drags your consciousness down.
+  </p>
+
+  <p>
+    Here's the problem: <strong>most high-protein foods that modern science recommends are classified as Tamasic in Yogic science.</strong> Meat is Tamasic. Eggs are Tamasic. Whey protein powder is overly processed &mdash; stripped of Prana. So who is right? Should you listen to modern nutritionists or ancient Yogis?
+  </p>
+
+  <p>
+    The answer is not "one is right and the other is wrong." The answer is: <strong>they are measuring completely different things.</strong>
+  </p>
+
+  <div class="highlight-box">
+    <h4>The Core Insight</h4>
+    <p>Modern science measures <strong>quantity</strong> &mdash; grams of protein per serving. Yogic science measures <strong>quality</strong> &mdash; how food affects your mind, your consciousness, and your ability to digest and transform it into real nourishment. Both are valid. But they are answering different questions.</p>
+  </div>
+
+  <!-- WHAT MODERN SCIENCE SAYS -->
+  <h2>What Modern Science Says About Protein</h2>
+  <div class="divider"></div>
+
+  <p>
+    Let's be fair to modern science first. Protein is genuinely important. Your body uses it to:
+  </p>
+
+  <p>
+    <strong>Build and repair muscle.</strong> After exercise, your muscles need amino acids to recover and grow.<br>
+    <strong>Make enzymes and hormones.</strong> Insulin, thyroid hormones, digestive enzymes &mdash; all built from protein.<br>
+    <strong>Support immunity.</strong> Antibodies are proteins.<br>
+    <strong>Maintain structure.</strong> Hair, skin, nails, bones &mdash; all require protein.
+  </p>
+
+  <p>
+    This is real. This is not debatable. Your body absolutely needs protein.
+  </p>
+
+  <p>
+    But here's what modern science <strong>doesn't tell you</strong>:
+  </p>
+
+  <p>
+    <strong>You probably need far less protein than you think.</strong> The actual RDA (Recommended Dietary Allowance) is 0.8 grams per kilogram of body weight. For a 70 kg person, that's just 56 grams per day. Even for athletes, the recommended range is 1.2-1.6 g/kg &mdash; not the 2-3 g/kg that fitness influencers push.
+  </p>
+
+  <p>
+    <strong>The "more protein = better" narrative is largely driven by the supplement industry.</strong> Whey protein is a multi-billion dollar business. The more protein you think you need, the more supplements you buy. This is marketing, not medicine.
+  </p>
+
+  <p>
+    <strong>Excess protein doesn't make you healthier.</strong> Your body cannot store excess protein like it stores fat. Extra protein is either converted to glucose (defeating the purpose) or excreted through the kidneys, which over time can strain kidney function.
+  </p>
+
+  <!-- WHAT YOGIC SCIENCE SAYS -->
+  <h2>What Yogic Science Says About Food</h2>
+  <div class="divider"></div>
+
+  <p>
+    Yogic science doesn't think about food in terms of protein, carbs, and fats. It thinks about food in terms of its effect on your <strong>consciousness</strong>. The Bhagavad Gita (Chapter 17) classifies all food into three categories based on the three Gunas:
+  </p>
+
+  <div class="quote">
+    <p>"The foods which increase life, purity, strength, health, joy, and cheerfulness, which are savory, oleaginous, substantial, and agreeable &mdash; are dear to the Sattvic."</p>
+    <span class="source">&mdash; Bhagavad Gita, Chapter 17, Verse 8</span>
+  </div>
+
+  <p>
+    <em class="sattva">Sattvic food</em> &mdash; Fresh, light, nourishing. Promotes clarity, peace, and awareness. Fruits, vegetables, milk, ghee, honey, nuts, grains, dal. These foods give you energy without heaviness. Your mind stays sharp. Your meditation deepens. Your body heals naturally.
+  </p>
+
+  <p>
+    <em class="rajas">Rajasic food</em> &mdash; Stimulating, hot, intense. Promotes restlessness, ambition, and agitation. Very spicy food, coffee, onion, garlic, fermented food. These foods fire you up but scatter your attention.
+  </p>
+
+  <p>
+    <em class="tamas">Tamasic food</em> &mdash; Heavy, stale, dulling. Promotes laziness, confusion, and inertia. Meat, eggs, alcohol, overly processed food, leftover food, food that is overcooked or reheated. These foods make you feel heavy, sleepy, and mentally clouded.
+  </p>
+
+  <p>
+    <strong>Now look at the high-protein foods that modern science recommends:</strong>
+  </p>
+
+  <table class="food-table">
+    <tr>
+      <th>Food</th>
+      <th>Protein</th>
+      <th>Guna</th>
+      <th>Effect on Mind</th>
+    </tr>
+    <tr>
+      <td>Chicken breast</td>
+      <td>31g / 100g</td>
+      <td><span class="guna-tamas">Tamasic</span></td>
+      <td>Heavy, dulling, promotes lethargy</td>
+    </tr>
+    <tr>
+      <td>Eggs</td>
+      <td>13g / 100g</td>
+      <td><span class="guna-tamas">Tamasic</span></td>
+      <td>Heavy, heating, clouds awareness</td>
+    </tr>
+    <tr>
+      <td>Whey protein</td>
+      <td>80g / 100g</td>
+      <td><span class="guna-tamas">Tamasic</span></td>
+      <td>Processed, no Prana, artificial</td>
+    </tr>
+    <tr>
+      <td>Red meat</td>
+      <td>26g / 100g</td>
+      <td><span class="guna-tamas">Tamasic</span></td>
+      <td>Very heavy, increases anger, dullness</td>
+    </tr>
+    <tr>
+      <td>Fish</td>
+      <td>22g / 100g</td>
+      <td><span class="guna-tamas">Tamasic</span></td>
+      <td>Heavy, involves violence</td>
+    </tr>
+  </table>
+
+  <p>
+    See the pattern? <strong>Almost every food that scores high on the "grams of protein" scale scores low on the consciousness scale.</strong> They build your muscles, but they cloud your mind.
+  </p>
+
+  <p>
+    Now here is the question nobody asks: <strong>what is the point of a strong body if the mind inside it is dull?</strong>
+  </p>
+
+  <!-- THE REAL QUESTION -->
+  <h2>The Real Question: What Are You Optimizing For?</h2>
+  <div class="divider"></div>
+
+  <p>
+    This is where the confusion dissolves. Modern nutrition and Yogic science are not contradicting each other &mdash; they are <strong>answering different questions</strong>.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Science Asks</span>
+      <p>How do I maximize muscle mass, physical performance, and measurable body composition? How many grams of protein per serving? What is the amino acid profile?</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Yogic Science Asks</span>
+      <p>How does this food affect my mind, my awareness, and my ability to sit in meditation? Does it give me clarity or heaviness? Does it nourish my consciousness or dull it?</p>
+    </div>
+  </div>
+
+  <p>
+    If your goal is to win a bodybuilding competition, Tamasic food may serve that narrow purpose. But if your goal is <strong>overall health, mental clarity, good sleep, strong immunity, emotional balance, and spiritual growth</strong> &mdash; Sattvic food gives you everything you need. Including protein.
+  </p>
+
+  <!-- SATTVIC PROTEIN SOURCES -->
+  <h2>Sattvic Foods That Are Rich in Protein</h2>
+  <div class="divider"></div>
+
+  <p>
+    Ayurveda never said "avoid protein." It said: <strong>get your protein from sources that nourish your body without dulling your mind.</strong> And there are plenty of Sattvic foods that are high in protein. India's traditional diet was built on them.
+  </p>
+
+  <div class="sattvic-grid">
+    <div class="sattvic-card">
+      <h4>Moong Dal</h4>
+      <span class="protein-info">24g protein / 100g (dry)</span>
+      <p>The most Sattvic of all lentils. Light, easy to digest, doesn't create gas or heaviness. The go-to protein for Yogis, saints, and Ayurvedic healing diets. Khichdi made from moong dal and rice is considered a perfect Sattvic meal.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Fresh Milk</h4>
+      <span class="protein-info">3.4g protein / 100ml</span>
+      <p>Warm, fresh milk from well-cared cows is considered one of the most Sattvic foods. It is a complete protein &mdash; containing all essential amino acids. Ayurveda considers it a Rasayana (rejuvenator) when taken warm with a little turmeric or saffron.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Paneer (Fresh)</h4>
+      <span class="protein-info">18g protein / 100g</span>
+      <p>Homemade, fresh paneer is Sattvic. It is rich in casein protein, which digests slowly and nourishes the body steadily. Very different from processed cheese. Indian households have made fresh paneer for centuries.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Soaked Almonds</h4>
+      <span class="protein-info">21g protein / 100g</span>
+      <p>Almonds soaked overnight and peeled are deeply Sattvic. They nourish Ojas (vitality), sharpen the brain, and build strength without heaviness. Ayurveda considers them a Medhya (brain food).</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Ghee</h4>
+      <span class="protein-info">Carrier, not protein source</span>
+      <p>Ghee isn't high in protein itself, but it is the most Sattvic fat. It carries nutrients deep into your cells and tissues. When you eat dal or milk with ghee, the protein is absorbed far more effectively. Ghee is the ultimate Agni (digestive fire) enhancer.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Sesame Seeds</h4>
+      <span class="protein-info">18g protein / 100g</span>
+      <p>Til (sesame) is highly valued in Ayurveda. Rich in protein, calcium, and healthy fats. Sesame paste (tahini) or til chikki are traditional Indian protein sources. Balances Vata dosha.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Sprouts</h4>
+      <span class="protein-info">Varies, 3-9g / 100g</span>
+      <p>Sprouted moong, chana, or methi are alive with Prana (life force). Sprouting increases protein availability and adds enzymes that help digestion. One of the freshest, most living foods you can eat.</p>
+    </div>
+    <div class="sattvic-card">
+      <h4>Curd / Yogurt</h4>
+      <span class="protein-info">10g protein / 100g</span>
+      <p>Fresh, homemade curd is Sattvic (when not sour). A natural probiotic and excellent protein source. Buttermilk (chaas) is lighter and better for daily use. Sour, old curd becomes Rajasic.</p>
+    </div>
+  </div>
+
+  <p>
+    Look at this list carefully. <strong>A single meal of moong dal khichdi with ghee, a glass of warm milk, and a few soaked almonds gives you 30-40 grams of high-quality, fully Sattvic protein.</strong> That's comparable to a chicken breast &mdash; without any of the heaviness, mental dullness, or violence.
+  </p>
+
+  <!-- THE PEHALWAN PROOF -->
+  <div class="pehalwan-box">
+    <h4>The Pehalwan Proof</h4>
+    <p>Still not convinced that Sattvic food builds a strong body? Look at India's traditional wrestlers &mdash; the <strong>Pehalwans</strong>.</p>
+    <p>For centuries, Indian Pehalwans built massive, powerful bodies on a completely vegetarian diet: <strong>doodh (milk), ghee, badam (almonds), chana (chickpeas), and dal.</strong> No meat. No eggs. No whey protein. These men were lifting, wrestling, and training at elite athletic levels &mdash; fueled entirely by Sattvic food.</p>
+    <p>The Great Gama (Gama Pehalwan), widely considered one of the greatest wrestlers in history, was undefeated in a career spanning 50 years. His diet? <strong>10 litres of milk, half a kilogram of ghee, and several kilograms of fruit and almonds daily.</strong> Pure Sattvic. Pure strength.</p>
+  </div>
+
+  <!-- HOW AYURVEDA THINKS ABOUT PROTEIN -->
+  <h2>How Ayurveda Actually Thinks About Nourishment</h2>
+  <div class="divider"></div>
+
+  <p>
+    Ayurveda doesn't use the word "protein." It uses the concept of <em class="gold">Dhatus</em> &mdash; the seven tissue layers that make up your body. Your body builds these tissues in a specific sequence, each one nourishing the next:
+  </p>
+
+  <div class="dhatu-chain">
+    <span class="dhatu-item">Rasa<br><small>Plasma</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item">Rakta<br><small>Blood</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item highlight">Mamsa<br><small>Muscle</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item">Meda<br><small>Fat</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item">Asthi<br><small>Bone</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item">Majja<br><small>Marrow</small></span>
+    <span class="dhatu-arrow">&rarr;</span>
+    <span class="dhatu-item highlight">Shukra<br><small>Essence</small></span>
+  </div>
+
+  <p>
+    <strong>You don't need to eat muscle to build muscle.</strong> Your body builds Mamsa Dhatu (muscle tissue) by converting Rakta Dhatu (blood) through the power of Agni (digestive fire). It doesn't matter whether the original food was chicken or moong dal &mdash; what matters is how well your Agni transforms it.
+  </p>
+
+  <p>
+    Here is the critical insight that modern nutrition misses:
+  </p>
+
+  <p>
+    <strong>If your Agni (digestive fire) is strong, even simple food gives you complete nourishment across all seven Dhatus.</strong> If your Agni is weak, even 200 grams of chicken breast will create Ama (undigested toxins) instead of real nourishment. You'll get bloated, gassy, and sluggish &mdash; not stronger.
+  </p>
+
+  <p>
+    Sattvic food is easier to digest. It creates less Ama. It keeps your Agni burning clean. This means <strong>more of what you eat actually becomes useful tissue</strong> &mdash; not just waste that your body has to struggle to process.
+  </p>
+
+  <div class="highlight-box">
+    <h4>The Ayurvedic Equation</h4>
+    <p>Strong Agni + Simple Sattvic Food = Complete Nourishment of all 7 Dhatus<br>
+    Weak Agni + Heavy Tamasic Food = Ama (Toxins) + Incomplete Nourishment + Dull Mind</p>
+  </div>
+
+  <!-- WHAT MODERN SCIENCE IS SLOWLY DISCOVERING -->
+  <h2>What Modern Science Is Slowly Discovering</h2>
+  <div class="divider"></div>
+
+  <p>
+    Interestingly, modern research is starting to validate many of these ideas &mdash; just using different language:
+  </p>
+
+  <p>
+    <strong>Gut microbiome research</strong> shows that plant-based diets produce healthier, more diverse gut bacteria. High meat consumption is linked to increased TMAO (trimethylamine N-oxide) &mdash; a compound that increases heart disease risk. Sattvic food feeds your good bacteria. Tamasic food feeds the harmful ones.
+  </p>
+
+  <p>
+    <strong>Inflammation research</strong> shows that processed meat and red meat are classified as Group 1 and Group 2A carcinogens by WHO. Chronic inflammation &mdash; driven partly by heavy, Tamasic diets &mdash; is now understood to be the root of most modern diseases.
+  </p>
+
+  <p>
+    <strong>Blue Zone studies</strong> &mdash; research on the world's longest-living populations &mdash; found that they eat primarily plant-based diets with small amounts of animal protein at most. The people who live longest and healthiest eat closer to Sattvic than to the high-protein Western diet.
+  </p>
+
+  <p>
+    <strong>Bioavailability research</strong> shows that protein absorption depends heavily on digestion efficiency, not just grams consumed. Eating more protein than your body can process doesn't build more muscle &mdash; it just creates more metabolic waste. This is exactly what Ayurveda means by Agni and Ama.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Research Says</span>
+      <p>Plant-based diets reduce inflammation, improve gut bacteria, lower cancer risk, and are linked to longer lifespan. Excess protein beyond RDA shows no additional health benefit and may strain kidneys.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Yogic Science Has Always Said</span>
+      <p>Sattvic food keeps the body light, the mind clear, and the spirit elevated. Heavy Tamasic food creates Ama (toxins), dulls awareness, and shortens life. Eat to nourish, not to accumulate.</p>
+    </div>
+  </div>
+
+  <!-- THE DEEPER REASON -->
+  <h2>The Deeper Reason Yogis Choose Sattvic Food</h2>
+  <div class="divider"></div>
+
+  <p>
+    There is one more dimension that modern nutrition science doesn't even have a framework for: <strong>the effect of food on your consciousness.</strong>
+  </p>
+
+  <p>
+    A yogi doesn't eat to build the biggest body. A yogi eats to build the clearest mind. Food is fuel for meditation, not just for muscles. And anyone who has practiced deep meditation knows &mdash; <strong>what you ate last night determines how well you sit this morning.</strong>
+  </p>
+
+  <p>
+    After a heavy meat meal, try sitting in meditation. Your body will feel dense. Your mind will wander. You'll feel sleepy. There's a heaviness that settles in your consciousness like fog.
+  </p>
+
+  <p>
+    After a light Sattvic meal &mdash; some khichdi, warm milk, a little fruit &mdash; try sitting in meditation. The difference is immediate. Your body feels light. Your breath is natural. Your mind settles quickly. This is not imagination. This is direct experience that millions of practitioners have confirmed over thousands of years.
+  </p>
+
+  <div class="quote">
+    <p>"When the diet is pure, the mind becomes pure. When the mind is pure, memory becomes firm. When memory is firm, there is release from all knots of the heart."</p>
+    <span class="source">&mdash; Chandogya Upanishad (7.26.2)</span>
+  </div>
+
+  <p>
+    Yogic science is not anti-protein. It is anti-dullness. It chooses food that nourishes the body <strong>and</strong> elevates the mind. It refuses to trade mental clarity for a few extra grams of protein. Because what good is a strong body if the awareness inside it is asleep?
+  </p>
+
+  <!-- THE PRACTICAL ANSWER -->
+  <h2>The Practical Answer</h2>
+  <div class="divider"></div>
+
+  <p>
+    So what should you actually do? Here's the honest, practical answer:
+  </p>
+
+  <p>
+    <strong>If your goal is general health, mental clarity, good energy, strong immunity, and emotional balance</strong> &mdash; a Sattvic diet gives you everything you need. Including enough protein. Moong dal, milk, paneer, almonds, sesame seeds, sprouts, curd &mdash; these provide complete, high-quality protein that your body absorbs cleanly.
+  </p>
+
+  <p>
+    <strong>If you are an athlete or doing intense physical training</strong> &mdash; you need more protein, but you still don't need Tamasic sources. Increase your intake of Sattvic protein: more milk, more paneer, more nuts, more dal. Add chana (chickpeas) and rajma (kidney beans), which are slightly Rajasic but far better than meat.
+  </p>
+
+  <p>
+    <strong>If you practice meditation or yoga seriously</strong> &mdash; Sattvic food is not optional. It is essential. The effect on your practice is direct, immediate, and undeniable. Every serious practitioner throughout history has known this.
+  </p>
+
+  <p>
+    <strong>Strengthen your Agni first.</strong> Before worrying about how much protein to eat, focus on how well you digest. Eat at regular times. Avoid cold water during meals. Use digestive spices &mdash; cumin, ginger, black pepper. Eat your biggest meal at lunch when Agni is strongest. A strong Agni extracts maximum nourishment from even simple food.
+  </p>
+
+  <div class="highlight-box">
+    <h4>The Simple Rule</h4>
+    <p>Don't eat food that makes you sleepy, heavy, or mentally foggy &mdash; no matter how many grams of protein it contains. Eat food that makes you light, clear, and energized. Your body knows the difference. Trust it.</p>
+  </div>
+
+  <!-- CLOSING -->
+  <h2>The Ancient Answer to a Modern Question</h2>
+  <div class="divider"></div>
+
+  <p>
+    The protein obsession is a modern phenomenon, driven by the fitness industry and supplement marketing. For thousands of years before whey protein existed, civilizations built strong, healthy bodies on plant-based, Sattvic diets.
+  </p>
+
+  <p>
+    Indian wrestlers were undefeated on milk and almonds. Buddhist monks maintained lifelong health on simple vegetarian food. Yogis lived long, disease-free lives on diets that modern nutritionists would call "protein-deficient."
+  </p>
+
+  <p>
+    The truth is: <strong>your body doesn't need as much protein as you've been told, and it definitely doesn't need to come from Tamasic sources.</strong> What your body needs is clean fuel, strong digestion, and food that keeps your mind as clear as your body is strong.
+  </p>
+
+  <p>
+    Sattvic food gives you all three.
+  </p>
+
+  <div class="quote">
+    <p>"You are what you eat &mdash; not just in body, but in mind. Choose food that elevates your awareness, not just your muscles."</p>
+    <span class="source">&mdash; Sankalp</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <p>Want Diet Guidance Based on Your Prakriti?</p>
+    <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%20read%20the%20protein%20blog.%20I%20want%20to%20know%20what%20diet%20suits%20my%20body%20type." class="cta-btn">Connect With Us on WhatsApp</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+</body>
+</html>
