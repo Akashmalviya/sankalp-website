@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>Ayurgenomics: Your DNA Already Knows Your Prakriti — Sankalp</title>
+<meta name="description" content="Scientists have proven that Vata, Pitta, and Kapha are written in your genes. Discover Ayurgenomics — the field that connects ancient Ayurveda to modern genomics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --vata: #7ab8d4;
+    --pitta: #d4917a;
+    --kapha: #8bbd7a;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 6, 24, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+  }
+
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: var(--gold);
+    font-size: 11px;
+    margin-right: 8px;
+    font-weight: 300;
+  }
+
+  .nav-back {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-back:hover { color: var(--text-white); }
+
+  /* HERO */
+  .blog-hero {
+    padding: 140px 20px 80px;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    position: relative;
+  }
+
+  .blog-hero::before {
+    content: '\1F9EC';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 250px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .blog-hero-content { position: relative; z-index: 1; }
+
+  .blog-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-stone);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .blog-hero h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+
+  .blog-hero-sub {
+    color: var(--gold);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* ARTICLE */
+  .article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  .article h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin: 60px 0 16px;
+    line-height: 1.3;
+  }
+
+  .article h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 40px 0 12px;
+  }
+
+  .article p {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .article strong { color: var(--text-light); font-weight: 500; }
+  .article em.gold { color: var(--gold); font-weight: 400; }
+
+  .divider {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 40px 0;
+  }
+
+  .divider-center {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 40px auto;
+  }
+
+  /* QUOTE */
+  .quote {
+    margin: 40px 0;
+    padding: 24px 30px;
+    border-left: 2px solid var(--gold-faint);
+    background: rgba(45, 27, 78, 0.15);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .quote p {
+    font-size: 19px;
+    font-style: italic;
+    color: var(--gold-dim);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .quote .source {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: normal;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(201, 168, 124, 0.06);
+    border: 1px solid rgba(201, 168, 124, 0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .highlight-box h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* DUAL LENS */
+  .dual-lens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .lens-card {
+    padding: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(201, 168, 124, 0.06);
+  }
+
+  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
+  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
+
+  .lens-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .lens-card.modern .lens-label { color: var(--vata); }
+  .lens-card.yogic .lens-label { color: var(--gold); }
+  .lens-card p { font-size: 15px; margin-bottom: 0; }
+
+  /* SCIENTIST CARDS */
+  .scientists-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .scientist-card {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(201, 168, 124, 0.08);
+    background: linear-gradient(160deg, rgba(45, 27, 78, 0.3), rgba(26, 10, 46, 0.5));
+  }
+
+  .scientist-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .scientist-card .institution {
+    font-size: 12px;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .scientist-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* RESEARCH PAPER LIST */
+  .paper-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .paper-list li {
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(201, 168, 124, 0.06);
+    background: rgba(45, 27, 78, 0.15);
+  }
+
+  .paper-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+    font-weight: 500;
+  }
+
+  .paper-journal {
+    font-size: 12px;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .paper-explain {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 30px 0;
+    position: relative;
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold-faint), transparent);
+  }
+
+  .timeline-item {
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--bg-deep);
+  }
+
+  .timeline-year {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .timeline-item p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .blog-cta {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    border-top: 1px solid rgba(201, 168, 124, 0.1);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.1);
+  }
+
+  .blog-cta p {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: linear-gradient(135deg, var(--gold), #dfc299);
+    padding: 13px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-deep);
+    border-top: 1px solid rgba(201, 168, 124, 0.08);
+    padding: 40px 20px 24px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    color: var(--gold-dim);
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .footer-quote {
+    font-family: 'Cinzel', serif;
+    color: rgba(201, 168, 124, 0.25);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .article { padding: 40px 16px 80px; }
+    .dual-lens { grid-template-columns: 1fr; }
+    .scientists-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 120px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-brand"><span>&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span> SANKALP</a>
+  <a href="../index.html#blog" class="nav-back">&larr; All Articles</a>
+</nav>
+
+<!-- HERO -->
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">Ayurveda + Genomics</span>
+    <h1>Ayurgenomics &mdash; Your DNA Already Knows Your Prakriti</h1>
+    <p class="blog-hero-sub">Indian scientists have proven that Vata, Pitta, and Kapha are not just philosophy &mdash; they are written in your genes.</p>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <h2>What If Ancient Wisdom Was Right All Along?</h2>
+  <div class="divider"></div>
+
+  <p>
+    For thousands of years, Ayurveda has said that every person is born with a unique body type &mdash; a <em class="gold">Prakriti</em>. Some people are naturally thin and restless (Vata). Some run hot and have sharp digestion (Pitta). Some are calm, sturdy, and gain weight easily (Kapha).
+  </p>
+
+  <p>
+    Doctors trained in modern medicine used to dismiss this as unscientific. "Show us the proof," they said. "Where is the biology?"
+  </p>
+
+  <p>
+    <strong>Then a team of Indian scientists did exactly that.</strong> They looked into the DNA of people classified by Ayurvedic Prakriti types &mdash; and found real, measurable, genetic differences between Vata, Pitta, and Kapha individuals.
+  </p>
+
+  <p>
+    The field they created is called <em class="gold">Ayurgenomics</em> &mdash; and it may be one of the most important scientific breakthroughs to come out of India.
+  </p>
+
+  <div class="highlight-box">
+    <h4>The Big Idea</h4>
+    <p>Ayurgenomics proves that Ayurveda's 3,000-year-old classification of human body types has a real biological basis. Your Prakriti is not a guess &mdash; it's reflected in your genes, your gut bacteria, and your entire physiology.</p>
+  </div>
+
+  <!-- WHAT IS AYURGENOMICS -->
+  <h2>What Is Ayurgenomics?</h2>
+  <div class="divider"></div>
+
+  <p>
+    <strong>Ayurgenomics = Ayurveda + Genomics.</strong> It is the science of understanding your Ayurvedic constitution (Prakriti) through the lens of modern genetics.
+  </p>
+
+  <p>
+    The idea is simple: if Prakriti types are real, they should show up in your biology. Not just in how you look or feel, but deep inside &mdash; in your genes, in how those genes express themselves, in the bacteria that live in your gut, and in how your heart responds to stress.
+  </p>
+
+  <p>
+    This field was founded by <strong>Dr. Mitali Mukerji</strong> and <strong>Dr. Bhavana Prasher</strong> at CSIR-Institute of Genomics and Integrative Biology (IGIB) in New Delhi. They asked a question no one in modern science had seriously asked before: <em class="gold">Can we find the genomic signature of Prakriti?</em>
+  </p>
+
+  <p>
+    The answer was yes.
+  </p>
+
+  <!-- THE DISCOVERY -->
+  <h2>The Discovery That Changed Everything</h2>
+  <div class="divider"></div>
+
+  <p>
+    The story begins in 2008, when Dr. Mukerji and Dr. Prasher published a groundbreaking paper. They took healthy individuals who had been classified into extreme Prakriti types (pure Vata, pure Pitta, pure Kapha) by trained Ayurvedic physicians. Then they analyzed their entire genome expression &mdash; which genes are turned on and off in each type.
+  </p>
+
+  <p>
+    <strong>The result was stunning.</strong> They found significant differences in gene expression between the three Prakriti types. Genes related to the immune system, metabolism, and transport of molecules in the body were expressed differently depending on whether a person was Vata, Pitta, or Kapha.
+  </p>
+
+  <div class="quote">
+    <p>"For the first time, we showed that Ayurvedic classification of human constitution has a molecular basis."</p>
+    <span class="source">&mdash; From the 2008 foundational paper, Journal of Translational Medicine</span>
+  </div>
+
+  <p>
+    Two years later, in 2010, came the paper that shook the scientific world. Published in <strong>PNAS (Proceedings of the National Academy of Sciences)</strong> &mdash; one of the most prestigious science journals in the world &mdash; this study focused on a gene called <strong>EGLN1</strong>.
+  </p>
+
+  <p>
+    This gene is involved in how your body responds to low oxygen (like at high altitudes). The researchers found that people with Kapha Prakriti had specific variations in EGLN1 that were different from Vata and Pitta types. This was not a coincidence. It was a genetic signature that mapped to an Ayurvedic classification system created thousands of years ago.
+  </p>
+
+  <div class="highlight-box">
+    <h4>Why PNAS Matters</h4>
+    <p>PNAS publishes research that advances fundamental scientific understanding. The fact that they published an Ayurveda-genomics paper means the global scientific community acknowledged that Prakriti has a measurable biological basis. This was not folklore &mdash; it was validated science.</p>
+  </div>
+
+  <!-- TIMELINE -->
+  <h2>The Journey of Ayurgenomics</h2>
+  <div class="divider"></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-year">2008</span>
+      <p><strong>The Foundational Paper.</strong> First genome-wide study showing gene expression differences across Vata, Pitta, and Kapha types. Published in Journal of Translational Medicine.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2010</span>
+      <p><strong>PNAS Landmark.</strong> EGLN1 gene variants linked to Prakriti types. Published in the Proceedings of the National Academy of Sciences &mdash; global recognition for Ayurgenomics.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2015</span>
+      <p><strong>Deeper Genetics.</strong> Combined effects of EGLN1 and VWF genes shown to influence blood clotting risk differently by Prakriti type.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2017</span>
+      <p><strong>Machine Learning + Ayurveda.</strong> AI was used to classify Prakriti types from physical traits &mdash; and matched with Ayurvedic physician assessments. TRISUTRA consortium launched across diverse Indian populations.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2018</span>
+      <p><strong>Gut Microbiome.</strong> Study revealed that even your gut bacteria differ by Prakriti type. Vata, Pitta, and Kapha people have different signature microbes.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2022</span>
+      <p><strong>Whole Exome Sequencing.</strong> Complete protein-coding gene analysis revealed differential disease risks across Prakriti types &mdash; showing Prakriti may predict disease vulnerability.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2023</span>
+      <p><strong>Precision Medicine Framework.</strong> Ayurgenomics positioned as a translational framework for integrative and precision medicine in Cambridge Prisms journal.</p>
+    </div>
+  </div>
+
+  <!-- WHAT THIS MEANS -->
+  <h2>What Does This Mean For You?</h2>
+  <div class="divider"></div>
+
+  <p>
+    Let's make this practical. Here is what Ayurgenomics research has proven so far:
+  </p>
+
+  <p>
+    <strong>Your genes express differently based on your Prakriti.</strong> This means a Vata person's cells are literally doing different things than a Kapha person's cells &mdash; even when both people are healthy.
+  </p>
+
+  <p>
+    <strong>Your gut bacteria are different.</strong> Research shows that Vata, Pitta, and Kapha people have distinct gut microbiome signatures. Since gut health is connected to immunity, mood, weight, and chronic disease &mdash; this explains why Ayurveda has always emphasized different diets for different body types.
+  </p>
+
+  <p>
+    <strong>Your heart responds differently to stress.</strong> Studies on heart rate variability (HRV) showed that people of different Prakriti types have measurably different autonomic nervous system responses. This is your body's wiring &mdash; and it matches what Ayurveda predicted.
+  </p>
+
+  <p>
+    <strong>Your disease risk is different.</strong> Whole exome sequencing (reading all your protein-coding genes) revealed that Prakriti types have different vulnerabilities to disease. This means Prakriti could be used alongside modern diagnostics to predict and prevent illness.
+  </p>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Medicine Says</span>
+      <p>Precision medicine should tailor treatment based on a person's genetics, biomarkers, and microbiome. One-size-fits-all medicine is outdated. We need to stratify patients by their biological profiles.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Ayurveda Has Always Said</span>
+      <p>Every person has a unique Prakriti. Treatment, diet, and lifestyle should be tailored to their constitution. What heals one person may harm another. Personalized care is the foundation, not the frontier.</p>
+    </div>
+  </div>
+
+  <p>
+    Modern medicine calls it <strong>precision medicine</strong>. Ayurveda has been practicing it for 5,000 years. Ayurgenomics is the bridge between the two.
+  </p>
+
+  <!-- TRISUTRA -->
+  <h2>TRISUTRA &mdash; Studying All of India's Diversity</h2>
+  <div class="divider"></div>
+
+  <p>
+    India is one of the most genetically diverse countries on earth. To make sure Ayurgenomics findings hold true across this diversity, Dr. Mukerji launched the <strong>TRISUTRA Consortium</strong> in 2017.
+  </p>
+
+  <p>
+    TRISUTRA studies Prakriti-genome correlations across ethnically diverse Indian populations. The name itself is meaningful &mdash; in Ayurveda, the three sutras (threads) that weave health are: <em class="gold">Hetu</em> (cause), <em class="gold">Linga</em> (symptoms), and <em class="gold">Aushadha</em> (treatment). By studying all three across diverse groups, TRISUTRA aims to build a pan-Indian genomic map of Prakriti.
+  </p>
+
+  <p>
+    This is important because it tests whether Prakriti-genome links are universal or specific to certain populations. Early results suggest the connections are real across the board.
+  </p>
+
+  <!-- SCIENTISTS -->
+  <h2>The Scientists Behind This Revolution</h2>
+  <div class="divider"></div>
+
+  <p>
+    Ayurgenomics didn't happen by accident. It was built by dedicated Indian scientists who had the courage to ask uncomfortable questions and bridge two worlds that rarely talk to each other.
+  </p>
+
+  <div class="scientists-grid">
+    <div class="scientist-card">
+      <h4>Dr. Mitali Mukerji</h4>
+      <span class="institution">CSIR-IGIB, New Delhi / IISER Kolkata</span>
+      <p>Founded Ayurgenomics. Led the landmark 2008 and 2010 papers. Her work proved that Prakriti types have genomic correlates. She built TRISUTRA to study this across all of India.</p>
+    </div>
+    <div class="scientist-card">
+      <h4>Dr. Bhavana Prasher</h4>
+      <span class="institution">CSIR-IGIB, New Delhi</span>
+      <p>Co-founder of Ayurgenomics. Applied machine learning to classify Prakriti. Showed that heart rate variability differs by body type. Bridges AI and Ayurveda.</p>
+    </div>
+    <div class="scientist-card">
+      <h4>Dr. Bhushan Patwardhan</h4>
+      <span class="institution">Savitribai Phule Pune University</span>
+      <p>Pioneered "reverse pharmacology" &mdash; starting from traditional knowledge and validating it with modern labs. Led Ashwagandha from ancient remedy to clinical evidence. Lancet Commission member.</p>
+    </div>
+    <div class="scientist-card">
+      <h4>Dr. M.S. Valiathan</h4>
+      <span class="institution">Manipal Academy / IISc Bangalore</span>
+      <p>Coined the term "Ayurvedic Biology." A cardiac surgeon who turned to studying Rasayana formulations with modern biology. National Research Professor of India.</p>
+    </div>
+    <div class="scientist-card">
+      <h4>Dr. Rima Dada</h4>
+      <span class="institution">AIIMS, New Delhi</span>
+      <p>Proved that yoga and meditation can change gene expression. Her epigenetics research shows that ancient practices alter your biology at the cellular level.</p>
+    </div>
+    <div class="scientist-card">
+      <h4>Dr. Girish Tillu</h4>
+      <span class="institution">Savitribai Phule Pune University</span>
+      <p>Ashwagandha researcher and advocate for "evidence-informed healthcare." Helps set research methodology standards for Ayurveda clinical trials.</p>
+    </div>
+  </div>
+
+  <p>
+    These scientists represent a new generation of Indian researchers who refuse to choose between tradition and science. They are proving that both can walk together &mdash; and that India's ancient knowledge systems deserve serious scientific investigation.
+  </p>
+
+  <!-- KEY PAPERS -->
+  <h2>Key Research Papers &mdash; Simplified</h2>
+  <div class="divider"></div>
+
+  <p>
+    Here are the most important papers in this field. We've explained each one in simple language so anyone can understand what was discovered.
+  </p>
+
+  <ul class="paper-list">
+    <li>
+      <span class="paper-title">Whole Genome Expression and Biochemical Correlates of Extreme Constitutional Types Defined in Ayurveda</span>
+      <span class="paper-journal">Journal of Translational Medicine, 2008</span>
+      <p class="paper-explain">The paper that started it all. Scientists studied the complete gene expression of people with extreme Vata, Pitta, and Kapha constitutions. They found real molecular differences &mdash; proving for the first time that Prakriti has a genomic basis.</p>
+    </li>
+    <li>
+      <span class="paper-title">EGLN1 Involvement in High-Altitude Adaptation Revealed Through Genetic Analysis of Extreme Constitution Types Defined in Ayurveda</span>
+      <span class="paper-journal">PNAS (Proceedings of the National Academy of Sciences), 2010</span>
+      <p class="paper-explain">Published in one of the world's top science journals. Found that a gene called EGLN1 (involved in oxygen sensing) varies between Prakriti types. This gave global scientific credibility to Ayurvedic classification.</p>
+    </li>
+    <li>
+      <span class="paper-title">Western Indian Rural Gut Microbial Diversity in Extreme Prakriti Endo-Phenotypes Reveals Signature Microbes</span>
+      <span class="paper-journal">Frontiers in Microbiology, 2018</span>
+      <p class="paper-explain">Your gut bacteria are different based on your Prakriti. This study found distinct microbiome patterns in Vata, Pitta, and Kapha individuals &mdash; explaining why Ayurveda prescribes different diets for different body types.</p>
+    </li>
+    <li>
+      <span class="paper-title">Recapitulation of Ayurveda Constitution Types by Machine Learning of Phenotypic Traits</span>
+      <span class="paper-journal">PLoS One, 2017</span>
+      <p class="paper-explain">Can a computer figure out your Prakriti? Yes. Machine learning algorithms were trained on physical traits and successfully classified people into Prakriti types &mdash; matching what trained Ayurvedic doctors observed.</p>
+    </li>
+    <li>
+      <span class="paper-title">Whole Exome Sequencing in Healthy Individuals of Extreme Constitution Types Reveals Differential Disease Risk</span>
+      <span class="paper-journal">Journal of Personalized Medicine, 2022</span>
+      <p class="paper-explain">By reading all the protein-coding genes, researchers found that different Prakriti types have different disease vulnerabilities. This means your Prakriti might predict which diseases you're more likely to develop &mdash; and how to prevent them.</p>
+    </li>
+    <li>
+      <span class="paper-title">Ayurgenomics-Based Frameworks in Precision and Integrative Medicine: Translational Opportunities</span>
+      <span class="paper-journal">Cambridge Prisms: Precision Medicine, 2023</span>
+      <p class="paper-explain">This paper positions Ayurgenomics as a practical framework for modern precision medicine. It argues that Prakriti-based stratification can complement genomic medicine &mdash; bringing the best of both worlds together.</p>
+    </li>
+  </ul>
+
+  <!-- WHY IT MATTERS -->
+  <h2>Why This Matters for India &mdash; And the World</h2>
+  <div class="divider"></div>
+
+  <p>
+    India gave the world Ayurveda, yoga, and meditation. For centuries, these were dismissed as "traditional" or "alternative." Ayurgenomics changes that narrative. It shows that India's ancient knowledge wasn't just cultural heritage &mdash; it was science waiting for the right tools to be validated.
+  </p>
+
+  <p>
+    The implications are massive:
+  </p>
+
+  <p>
+    <strong>Personalized health at scale.</strong> India has 1.4 billion people. Most can't afford genetic testing. But every Ayurvedic physician can assess Prakriti. If Prakriti can predict disease risk, India already has the infrastructure for population-scale personalized medicine &mdash; no expensive lab required.
+  </p>
+
+  <p>
+    <strong>Preventive, not reactive.</strong> Modern medicine mostly treats disease after it appears. Ayurveda focuses on preventing imbalance before disease begins. Ayurgenomics validates this preventive approach with hard science.
+  </p>
+
+  <p>
+    <strong>Integration, not replacement.</strong> The goal is not to replace modern medicine. It's to combine the precision of genomics with the wisdom of Ayurveda. Use modern diagnostics for acute care. Use Prakriti-based guidance for prevention, diet, and lifestyle.
+  </p>
+
+  <div class="quote">
+    <p>"Ayurveda is not in conflict with modern medicine. It is a complementary lens &mdash; one that sees the whole person, not just the disease."</p>
+    <span class="source">&mdash; Sankalp</span>
+  </div>
+
+  <!-- CLOSING -->
+  <h2>Start With Your Own Body</h2>
+  <div class="divider"></div>
+
+  <p>
+    You don't need a genomics lab to benefit from this knowledge. Start by understanding your Prakriti. Notice which dosha is dominant in you. Observe how your body responds to different foods, seasons, and routines.
+  </p>
+
+  <p>
+    Ayurgenomics proves what Ayurveda always taught: <strong>your body is unique, and it deserves a unique approach to health.</strong> Not the same diet as everyone else. Not the same exercise plan. Not the same medicine. A path designed for you.
+  </p>
+
+  <p>
+    The science is real. The research is published. The proof is in your DNA.
+  </p>
+
+  <p>
+    All you have to do is listen to what your body has been telling you all along.
+  </p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <p>Want to Discover Your Prakriti?</p>
+    <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%20read%20the%20Ayurgenomics%20blog.%20I%20want%20to%20know%20more%20about%20my%20Prakriti." class="cta-btn">Connect With Us on WhatsApp</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+</body>
+</html>
