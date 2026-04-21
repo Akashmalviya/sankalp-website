@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Sankalp">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a87c" stroke-opacity="0.25" stroke-width="1"/>
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#c9a87c" stroke-width="2"/>
+  <circle cx="50" cy="50" r="20" fill="none" stroke="#c9a87c" stroke-opacity="0.4" stroke-width="1"/>
+  <path d="M50 41 L52 48 L59 50 L52 52 L50 59 L48 52 L41 50 L48 48 Z" fill="#c9a87c"/>
+</svg>
