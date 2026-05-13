@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Sankalp App &mdash; Your Personalized Healing Practice</title>
+<meta name="description" content="A living healing plan, personalized to your body&rsquo;s nature. Rooted in 5,000 years of Ayurvedic science and backed by modern neuroscience. Coming soon to iOS and Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* === RESET & BASE === */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg-deep: #0f0618;
+    --bg-dark: #1a0a2e;
+    --bg-mid: #2d1b4e;
+    --bg-light: #3a2360;
+    --gold: #c9a87c;
+    --gold-dim: rgba(201, 168, 124, 0.6);
+    --gold-faint: rgba(201, 168, 124, 0.15);
+    --rose: rgba(180, 130, 160, 0.25);
+    --text-light: #e8dff0;
+    --text-muted: #b8a8c8;
+    --text-white: #ffffff;
+    --pink-stone: #b87a8a;
+    --vata: #7ab8d4;
+    --pitta: #d4917a;
+    --kapha: #8bbd7a;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* === SPOTLIGHT CURSOR === */
+  .spotlight {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 159, 0.08) 0%, rgba(201, 168, 124, 0.04) 30%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    mix-blend-mode: screen;
+  }
+
+  /* === STARFIELD === */
+  .starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    opacity: 0;
+  }
+
+  .star.large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 6px 1px rgba(201, 168, 124, 0.3);
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: var(--max-opacity, 0.7); }
+  }
+
+  /* === COSMIC NEBULA LAYERS === */
+  .cosmic-nebula {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .nebula-layer {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.035;
+    animation: nebula-drift 20s ease-in-out infinite alternate;
+  }
+
+  .nebula-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #8b5c9f, transparent);
+    top: 10%;
+    right: -10%;
+    animation-duration: 25s;
+  }
+
+  .nebula-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #c9a87c, transparent);
+    bottom: 20%;
+    left: -5%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+  }
+
+  .nebula-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #b87a8a, transparent);
+    top: 50%;
+    left: 40%;
+    animation-duration: 22s;
+    animation-delay: -10s;
+  }
+
+  @keyframes nebula-drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -30px) scale(1.15); }
+  }
+
+  /* === SHOOTING STARS === */
+  .shooting-star {
+    position: fixed;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201, 168, 124, 0.7), transparent);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transform: rotate(-35deg);
+    animation: shoot 3s ease-in-out infinite;
+  }
+
+  .shooting-star:nth-child(1) { top: 15%; left: 70%; animation-delay: 1s; animation-duration: 4s; }
+  .shooting-star:nth-child(2) { top: 35%; left: 20%; animation-delay: 6s; animation-duration: 3.5s; }
+  .shooting-star:nth-child(3) { top: 60%; left: 80%; animation-delay: 11s; animation-duration: 3s; }
+
+  @keyframes shoot {
+    0% { opacity: 0; transform: rotate(-35deg) translateX(0); }
+    5% { opacity: 1; }
+    15% { opacity: 0; transform: rotate(-35deg) translateX(-200px); }
+    100% { opacity: 0; }
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 6, 24, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    padding: 10px 40px;
+    background: rgba(15, 6, 24, 0.95);
+  }
+
+  .nav-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    color: var(--gold);
+    font-size: 12px;
+    margin-right: 8px;
+    font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* === SHARED LAYOUT === */
+  section { position: relative; padding: 120px 20px; }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 560px;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 24px 0;
+  }
+
+  .divider-center {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 30px auto;
+  }
+
+  /* === FADE-IN === */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === CTA BUTTONS === */
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: linear-gradient(135deg, var(--gold), #dfc299);
+    padding: 14px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3);
+  }
+
+  .cta-btn-outline {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    background: transparent;
+    padding: 14px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn-outline:hover { background: rgba(201, 168, 124, 0.1); }
+
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ========================
+     HERO
+  ======================== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:
+      radial-gradient(ellipse at 20% 25%, rgba(139, 92, 159, 0.14) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 65%, rgba(201, 168, 124, 0.08) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    padding-top: 80px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-headline {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+
+  .hero-subcopy {
+    font-size: clamp(17px, 1.9vw, 21px);
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+
+  /* --- PHONE MOCKUP --- */
+  .phone-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+  }
+
+  .phone-frame {
+    position: relative;
+    width: 230px;
+    height: 468px;
+    border-radius: 38px;
+    background: linear-gradient(150deg, var(--gold) 0%, rgba(201, 168, 124, 0.25) 40%, var(--pink-stone) 100%);
+    padding: 2px;
+    box-shadow:
+      0 0 40px rgba(201, 168, 124, 0.14),
+      0 0 80px rgba(139, 92, 159, 0.1),
+      0 50px 90px rgba(0, 0, 0, 0.45);
+    animation: phone-float 6s ease-in-out infinite;
+  }
+
+  @keyframes phone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    background: var(--bg-deep);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(201, 168, 124, 0.18);
+    z-index: 5;
+  }
+
+  .phone-status {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .phone-status-time {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    color: rgba(201, 168, 124, 0.45);
+    letter-spacing: 1px;
+  }
+
+  .phone-status-dots {
+    display: flex;
+    gap: 3px;
+  }
+
+  .phone-status-dots span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(201, 168, 124, 0.3);
+  }
+
+  /* --- ANIMATED PHONE STAGES --- */
+  .phone-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+  }
+  .phone-stage.active { opacity: 1; pointer-events: auto; }
+
+  /* Stage 1 — Analysing */
+  .ph-star {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: twinkle var(--dur, 2s) ease-in-out infinite;
+    opacity: 0;
+  }
+  .ph-orb-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ph-ring-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px dashed rgba(201, 168, 124, 0.4);
+    animation: ph-spin 18s linear infinite;
+  }
+  .ph-ring-inner {
+    position: absolute;
+    inset: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 168, 124, 0.3);
+    animation: ph-spin 12s linear reverse infinite;
+  }
+  .ph-orb-core {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 168, 124, 0.55), rgba(201, 168, 124, 0.1) 60%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ph-breath 3s ease-in-out infinite;
+  }
+  .ph-om {
+    font-size: 26px;
+    color: var(--gold);
+    filter: drop-shadow(0 0 10px var(--gold));
+    font-family: serif;
+    line-height: 1;
+  }
+  .ph-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.35;
+    transition: all 0.5s ease;
+    margin-bottom: 5px;
+  }
+  .ph-step.done, .ph-step.active {
+    opacity: 1;
+    border-color: rgba(201, 168, 124, 0.3);
+    background: rgba(201, 168, 124, 0.07);
+  }
+  .ph-step-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 7px;
+    color: transparent;
+  }
+  .ph-step.done .ph-step-dot { border-color: var(--gold); color: var(--gold); }
+  .ph-step.active .ph-step-dot { border-color: var(--gold); }
+  .ph-step-pulse {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: ph-shimmer 1.2s ease-in-out infinite;
+  }
+  .ph-step-text { font-size: 9px; color: var(--text-muted); }
+  .ph-step.done .ph-step-text, .ph-step.active .ph-step-text { color: var(--text-light); }
+
+  /* Stage 2 — Home */
+  .ph-greeting-muted { font-size: 9px; color: var(--text-muted); margin-bottom: 2px; }
+  .ph-name-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--text-light); font-weight: 700; line-height: 1.1; }
+  .ph-dosha-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(122, 184, 212, 0.12);
+    border: 1px solid rgba(122, 184, 212, 0.4);
+    margin-top: 5px;
+  }
+  .ph-dosha-dot { width: 4px; height: 4px; border-radius: 50%; background: #7ab8d4; flex-shrink: 0; }
+  .ph-dosha-text { font-size: 8px; color: #7ab8d4; font-weight: 600; letter-spacing: 0.5px; }
+  .ph-practice-card {
+    border-radius: 14px;
+    background: linear-gradient(160deg, var(--bg-mid), var(--bg-dark));
+    border: 1px solid rgba(201, 168, 124, 0.18);
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .ph-practice-om {
+    position: absolute;
+    right: 8px;
+    top: 2px;
+    font-family: serif;
+    font-size: 44px;
+    color: rgba(201, 168, 124, 0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .ph-practice-label {
+    font-family: 'Cinzel', serif;
+    font-size: 6px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .ph-practice-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--text-light);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .ph-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
+  .ph-chip-s {
+    font-size: 7px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+  }
+  .ph-begin-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: var(--bg-deep);
+    background: var(--gold);
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+  .ph-streak-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .ph-streak-fire { font-size: 16px; line-height: 1; }
+  .ph-streak-count { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-light); font-weight: 700; line-height: 1; }
+  .ph-streak-label { font-size: 7px; color: var(--text-muted); }
+  .ph-day-dots { display: flex; gap: 3px; margin-left: auto; }
+  .ph-day-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 600;
+  }
+  .ph-day-dot.done { background: var(--gold); color: var(--bg-deep); border: 1.5px solid var(--gold); }
+  .ph-day-dot.empty { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1.5px solid rgba(255, 255, 255, 0.1); }
+  .ph-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(to top, var(--bg-dark) 80%, transparent);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 8px 12px;
+  }
+  .ph-nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; opacity: 0.45; }
+  .ph-nav-item.ph-nav-active { opacity: 1; }
+  .ph-nav-icon { font-size: 14px; line-height: 1; }
+  .ph-nav-label { font-size: 7px; color: var(--text-muted); font-family: 'Cinzel', serif; }
+  .ph-nav-item.ph-nav-active .ph-nav-label { color: var(--gold); }
+
+  /* Quick Practices (Stage 2 phone) */
+  .ph-qp-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--text-light); font-weight: 600; margin-top: 10px; margin-bottom: 6px; }
+  .ph-qp-scroll { display: flex; gap: 7px; overflow: hidden; }
+  .ph-qp-card { min-width: 70px; padding: 8px 8px; border-radius: 10px; background: var(--bg-dark); border: 1px solid rgba(201,168,124,0.12); flex-shrink: 0; }
+  .ph-qp-icon { width: 28px; height: 28px; border-radius: 7px; background: rgba(201,168,124,0.1); display: flex; align-items: center; justify-content: center; font-size: 13px; margin-bottom: 5px; }
+  .ph-qp-name { font-family: 'Cinzel', serif; font-size: 7.5px; color: var(--text-light); margin-bottom: 2px; line-height: 1.3; }
+  .ph-qp-dur { font-size: 7px; color: var(--text-muted); }
+
+  /* Phone stage animations */
+  @keyframes ph-spin { to { transform: rotate(360deg); } }
+  @keyframes ph-breath { 0%,100%{transform:scale(1);opacity:0.85} 50%{transform:scale(1.15);opacity:1} }
+  @keyframes ph-shimmer { 0%,100%{opacity:0.45} 50%{opacity:1} }
+  @keyframes ph-home-bar { 0%,100%{opacity:0.2} 50%{opacity:0.45} }
+
+  /* --- STORE BADGES --- */
+  .store-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .store-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 22px;
+    border-radius: 30px;
+    border: 1px solid rgba(201, 168, 124, 0.18);
+    background: rgba(201, 168, 124, 0.04);
+    opacity: 0.5;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .store-badge-icon { font-size: 13px; }
+
+  .store-badge-info { display: flex; flex-direction: column; align-items: flex-start; }
+
+  .store-badge-coming {
+    font-size: 6px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1.5px;
+    color: rgba(201, 168, 124, 0.5);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .store-badge-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .community-link {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+    margin-top: 2px;
+  }
+
+  .community-link:hover { border-color: var(--gold); }
+
+  /* ========================
+     PROBLEM
+  ======================== */
+  .problem {
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
+    text-align: center;
+  }
+
+  .gold-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 124, 0.2), transparent);
+    margin-bottom: 64px;
+  }
+
+  .gold-rule-bottom {
+    margin-bottom: 0;
+    margin-top: 64px;
+  }
+
+  .problem-hook {
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  .problem-line {
+    font-size: clamp(17px, 2.1vw, 22px);
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+
+  .problem-punchline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3.5vw, 34px);
+    color: var(--gold);
+    letter-spacing: 5px;
+    margin-top: 40px;
+    font-weight: 600;
+  }
+
+  /* ========================
+     HOW IT WORKS
+  ======================== */
+  .how-it-works {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .step-card {
+    padding: 36px 28px;
+    background: rgba(26, 10, 46, 0.65);
+    border: 1px solid var(--gold-faint);
+    border-radius: 8px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .step-card:hover {
+    border-color: rgba(201, 168, 124, 0.32);
+    transform: translateY(-4px);
+  }
+
+  .step-number {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 22px;
+    display: block;
+    opacity: 0.75;
+  }
+
+  .step-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .step-card p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 22px;
+  }
+
+  .step-link {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+    display: inline-block;
+  }
+
+  .step-link:hover { border-color: var(--gold); }
+
+  /* ========================
+     FEATURE SHOWCASE
+  ======================== */
+  .features {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-deep) 100%);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .feature-card {
+    padding: 36px 30px;
+    background: linear-gradient(160deg, rgba(45, 27, 78, 0.35), rgba(26, 10, 46, 0.55));
+    border: 1px solid rgba(201, 168, 124, 0.08);
+    border-radius: 8px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(201, 168, 124, 0.22);
+    transform: translateY(-3px);
+  }
+
+  .feature-icon {
+    font-size: 26px;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .feature-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  /* ========================
+     SCIENCE BRIDGE
+  ======================== */
+  .science-bridge {
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-dark) 50%, var(--bg-deep) 100%);
+  }
+
+  .science-table-wrap {
+    overflow-x: auto;
+    margin-top: 48px;
+  }
+
+  .science-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    min-width: 560px;
+  }
+
+  .science-table thead th {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 0 28px 20px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(201, 168, 124, 0.12);
+    font-weight: 400;
+  }
+
+  .science-table thead th:last-child { padding-right: 0; }
+
+  .science-table tbody tr {
+    border-bottom: 1px solid rgba(201, 168, 124, 0.05);
+    transition: background 0.2s;
+  }
+
+  .science-table tbody tr:nth-child(odd) {
+    background: rgba(201, 168, 124, 0.035);
+  }
+
+  .science-table tbody tr:hover {
+    background: rgba(201, 168, 124, 0.07);
+  }
+
+  .science-table td {
+    padding: 22px 28px 22px 0;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  .science-table td:last-child { padding-right: 0; }
+
+  .td-modern {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    padding-right: 32px !important;
+  }
+
+  .td-vedic {
+    color: var(--pink-stone);
+    padding-right: 32px !important;
+  }
+
+  .td-vedic-name {
+    font-style: italic;
+    font-size: 17px;
+    display: block;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .td-vedic-script {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(184, 122, 138, 0.55);
+    font-style: normal;
+    display: block;
+  }
+
+  .td-meaning {
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ========================
+     CTA SECTION
+  ======================== */
+  .cta-final {
+    background: radial-gradient(ellipse at 50% 60%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
+    text-align: center;
+    padding: 140px 20px;
+  }
+
+  .cta-headline {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+  }
+
+  .cta-sub {
+    font-size: clamp(17px, 2vw, 21px);
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 48px;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--bg-deep);
+    border-top: 1px solid rgba(201, 168, 124, 0.08);
+    padding: 60px 20px 30px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    color: var(--text-white);
+    font-size: 20px;
+    letter-spacing: 6px;
+    margin-bottom: 4px;
+  }
+
+  .footer-tagline {
+    color: var(--gold-dim);
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-quote {
+    font-family: 'Cinzel', serif;
+    color: rgba(201, 168, 124, 0.3);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding-top: 28px;
+    border-top: 1px solid rgba(201, 168, 124, 0.06);
+  }
+
+  /* ========================
+     SCREEN SHOWCASE
+  ======================== */
+  .screens-section {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 40%, var(--bg-dark) 80%, var(--bg-deep) 100%);
+  }
+
+  .screen-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 880px;
+    margin: 0 auto 88px;
+  }
+
+  .screen-row:last-child { margin-bottom: 0; }
+
+  .screen-row.flip { grid-template-columns: 1fr 220px; }
+  .screen-row.flip .screen-phone-lg { order: 2; }
+  .screen-row.flip .screen-copy { order: 1; }
+
+  .screen-phone-lg {
+    position: relative;
+    width: 220px;
+    height: 472px;
+    border-radius: 38px;
+    background: linear-gradient(150deg, var(--gold) 0%, rgba(201,168,124,0.2) 50%, var(--pink-stone) 100%);
+    padding: 2px;
+    box-shadow:
+      0 0 40px rgba(201,168,124,0.12),
+      0 0 80px rgba(139,92,159,0.08),
+      0 50px 80px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+  }
+
+  .screen-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    background: #0f0618;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .ph-notch {
+    position: absolute;
+    top: 10px; left: 50%;
+    transform: translateX(-50%);
+    width: 46px; height: 4px;
+    border-radius: 2px;
+    background: rgba(201,168,124,0.15);
+    z-index: 10;
+  }
+
+  /* --- AI Chat screen --- */
+  .ph-chat-header {
+    padding: 28px 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .ph-chat-av {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(201,168,124,0.1);
+    border: 1px solid rgba(201,168,124,0.28);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .ph-chat-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 1px;
+    color: var(--text-white); display: block; line-height: 1.2;
+  }
+
+  .ph-chat-online {
+    font-size: 7px; color: var(--kapha); display: block; letter-spacing: 0.3px;
+  }
+
+  .ph-chat-body {
+    flex: 1; overflow: hidden;
+    padding: 8px 10px 6px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+
+  .ph-msg-row {
+    display: flex; align-items: flex-end; gap: 5px;
+  }
+
+  .ph-msg-row.user { justify-content: flex-end; }
+
+  .ph-msg-av {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(201,168,124,0.1);
+    border: 1px solid rgba(201,168,124,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7px; color: var(--gold); flex-shrink: 0;
+  }
+
+  .ph-bubble {
+    padding: 7px 9px;
+    font-size: 9px;
+    line-height: 1.55;
+    max-width: 82%;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .ph-bubble.bot {
+    background: #1a0a2e;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 13px 13px 13px 3px;
+    color: var(--text-light);
+  }
+
+  .ph-bubble.user {
+    background: linear-gradient(135deg, #c9a87c, #a07840);
+    border-radius: 13px 13px 3px 13px;
+    color: #0f0618;
+    font-weight: 600;
+  }
+
+  .ph-ts {
+    font-size: 6.5px; color: rgba(144,128,176,0.5);
+    padding: 0 26px;
+  }
+
+  .ph-typing {
+    display: flex; align-items: center; gap: 4px;
+    padding: 2px 10px;
+  }
+
+  .ph-typing-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold); opacity: 0.4;
+    animation: typing-pulse 1.4s ease-in-out infinite;
+  }
+
+  .ph-typing-dot:nth-child(2) { animation-delay: 0.22s; }
+  .ph-typing-dot:nth-child(3) { animation-delay: 0.44s; }
+
+  @keyframes typing-pulse {
+    0%, 80%, 100% { transform: scale(0.75); opacity: 0.3; }
+    40% { transform: scale(1); opacity: 0.85; }
+  }
+
+  .ph-input-bar {
+    margin: 6px 10px 10px;
+    padding: 7px 12px;
+    background: #1a0a2e;
+    border: 1px solid rgba(201,168,124,0.2);
+    border-radius: 18px;
+    flex-shrink: 0;
+    font-size: 8px;
+    color: rgba(144,128,176,0.5);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* --- Daily plan screen --- */
+  .ph-daily-hd {
+    padding: 28px 12px 8px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  .ph-daily-title {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--text-white); font-weight: 600;
+    display: block; letter-spacing: 0.5px;
+  }
+
+  .ph-daily-sub {
+    font-size: 7.5px; color: rgba(144,128,176,0.7);
+    letter-spacing: 0.5px; display: block; margin-top: 2px;
+  }
+
+  .ph-ring {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: conic-gradient(var(--gold) 160deg, rgba(201,168,124,0.1) 160deg);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ph-ring-in {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #0f0618;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5.5px; font-family: 'Cinzel', serif; color: var(--gold);
+  }
+
+  .ph-week {
+    display: flex; justify-content: space-between;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    flex-shrink: 0;
+  }
+
+  .ph-wd {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+
+  .ph-wd-lbl {
+    font-size: 5.5px; font-family: 'Cinzel', serif;
+    color: rgba(184,168,200,0.55); letter-spacing: 0.5px;
+  }
+
+  .ph-wd-em { font-size: 10px; line-height: 1; }
+
+  .ph-wd.today .ph-wd-lbl { color: var(--gold); }
+  .ph-wd.today .ph-wd-em { filter: drop-shadow(0 0 4px rgba(201,168,124,0.6)); }
+  .ph-wd.done .ph-wd-lbl { color: var(--kapha); }
+
+  .ph-theme {
+    margin: 7px 10px;
+    padding: 8px 10px;
+    background: linear-gradient(135deg, rgba(26,58,90,0.8), rgba(26,10,46,0.6));
+    border: 1px solid rgba(122,184,212,0.22);
+    border-radius: 9px;
+    flex-shrink: 0;
+  }
+
+  .ph-theme-top {
+    display: flex; align-items: center; gap: 5px; margin-bottom: 3px;
+  }
+
+  .ph-theme-em { font-size: 13px; }
+
+  .ph-theme-dt {
+    font-size: 6.5px; color: rgba(122,184,212,0.65);
+    font-family: 'Cinzel', serif; letter-spacing: 1px;
+  }
+
+  .ph-theme-name {
+    font-family: 'Cinzel', serif; font-size: 10.5px;
+    color: var(--text-white); letter-spacing: 0.5px;
+    display: block; margin-bottom: 2px;
+  }
+
+  .ph-theme-focus {
+    font-size: 7px; color: rgba(122,184,212,0.6);
+    display: block; letter-spacing: 0.5px;
+  }
+
+  .ph-phases-lbl {
+    padding: 5px 10px 3px;
+    font-family: 'Cinzel', serif; font-size: 6.5px;
+    letter-spacing: 2px; color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .ph-phase-list {
+    flex: 1; padding: 0 10px;
+    display: flex; flex-direction: column; gap: 4px;
+    overflow: hidden;
+  }
+
+  .ph-phase-row {
+    display: flex; align-items: center; gap: 6px;
+    padding: 7px 8px;
+    background: #1a0a2e;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+  }
+
+  .ph-phase-row.done { opacity: 0.5; border-color: rgba(139,189,122,0.2); }
+  .ph-phase-row.active { border-color: rgba(201,168,124,0.25); background: rgba(45,27,78,0.5); }
+
+  .ph-phase-ic {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: #2d1b4e;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; flex-shrink: 0;
+  }
+
+  .ph-phase-name {
+    font-family: 'Cinzel', serif; font-size: 7.5px;
+    color: var(--text-white); letter-spacing: 0.3px; display: block;
+  }
+
+  .ph-phase-dur {
+    font-size: 6.5px; color: rgba(144,128,176,0.65); display: block;
+  }
+
+  .ph-check {
+    width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .ph-check.done {
+    background: var(--kapha);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6px; color: #0f0618;
+  }
+
+  .ph-check.pend { border: 1.5px solid rgba(255,255,255,0.15); }
+
+  .ph-gold-btn {
+    margin: 5px 10px 10px;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--gold), #a07840);
+    border-radius: 9px;
+    text-align: center;
+    font-family: 'Cinzel', serif; font-size: 7.5px;
+    letter-spacing: 1.5px; color: #0f0618;
+    flex-shrink: 0;
+  }
+
+  /* --- Result / Diagnosis screen --- */
+  .ph-result-hd {
+    padding: 26px 12px 7px; flex-shrink: 0;
+  }
+
+  .ph-result-lbl {
+    font-family: 'Cinzel', serif; font-size: 7px;
+    letter-spacing: 2px; color: var(--gold);
+    text-transform: uppercase; display: block;
+  }
+
+  .ph-result-ttl {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--text-white); font-weight: 600;
+    display: block; margin-top: 3px;
+  }
+
+  .ph-result-body {
+    padding: 0 10px;
+    display: flex; flex-direction: column; gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .ph-sns {
+    padding: 9px 11px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #2d1b4e, #1a0a2e);
+    border: 1px solid rgba(212,145,122,0.3);
+    position: relative; overflow: hidden;
+  }
+
+  .ph-sns::after {
+    content: '';
+    position: absolute; right: -10px; top: -10px;
+    width: 45px; height: 45px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,145,122,0.2), transparent);
+  }
+
+  .ph-sns-badge {
+    font-size: 6.5px; font-family: 'Cinzel', serif;
+    letter-spacing: 2px; color: var(--pitta);
+    display: block; margin-bottom: 4px;
+  }
+
+  .ph-sns-row { display: flex; align-items: center; gap: 6px; }
+
+  .ph-sns-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--pitta);
+    box-shadow: 0 0 8px var(--pitta);
+    animation: sns-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes sns-pulse {
+    0%, 100% { box-shadow: 0 0 5px var(--pitta); }
+    50% { box-shadow: 0 0 12px var(--pitta), 0 0 20px rgba(212,145,122,0.25); }
+  }
+
+  .ph-sns-title {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    color: var(--text-white); font-weight: 600;
+  }
+
+  .ph-sns-desc {
+    font-size: 7.5px; color: var(--text-muted);
+    margin-top: 4px; line-height: 1.5; display: block;
+  }
+
+  .ph-prakriti {
+    padding: 9px 11px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, rgba(122,184,212,0.07), #1a0a2e);
+    border: 1px solid rgba(122,184,212,0.28);
+    position: relative; overflow: hidden;
+  }
+
+  .ph-prakriti-bg {
+    position: absolute; right: 8px; top: 2px;
+    font-size: 46px; color: rgba(122,184,212,0.07);
+    line-height: 1; pointer-events: none;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+
+  .ph-prakriti-badge {
+    font-size: 6.5px; font-family: 'Cinzel', serif;
+    letter-spacing: 2px; color: var(--vata);
+    display: block; margin-bottom: 2px;
+  }
+
+  .ph-prakriti-name-row {
+    display: flex; align-items: baseline; gap: 5px; margin-bottom: 1px;
+  }
+
+  .ph-prakriti-name {
+    font-family: 'Cinzel', serif; font-size: 15px;
+    color: var(--text-white); font-weight: 700;
+  }
+
+  .ph-prakriti-dev {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 11px; color: rgba(232,223,240,0.55);
+  }
+
+  .ph-prakriti-els {
+    font-size: 7px; color: var(--vata);
+    letter-spacing: 0.3px; display: block; margin-bottom: 7px;
+  }
+
+  .ph-bar-row {
+    display: flex; align-items: center; gap: 5px; margin-bottom: 4px;
+  }
+
+  .ph-bar-lbl {
+    font-size: 6.5px; font-family: 'Cinzel', serif;
+    color: var(--text-muted); width: 28px; flex-shrink: 0;
+  }
+
+  .ph-bar-track {
+    flex: 1; height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px; overflow: hidden;
+  }
+
+  .ph-bar-fill {
+    height: 100%; border-radius: 2px;
+    width: 0;
+    transition: width 1.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .ph-bar-fill.vata { background: var(--vata); }
+  .ph-bar-fill.pitta { background: var(--pitta); }
+  .ph-bar-fill.kapha { background: var(--kapha); }
+
+  .ph-bar-pct {
+    font-size: 6.5px; color: var(--text-muted);
+    width: 22px; text-align: right; flex-shrink: 0;
+  }
+
+  .ph-sankalp-sec {
+    flex: 1; padding: 5px 10px 0;
+    display: flex; flex-direction: column;
+  }
+
+  .ph-sankalp-lbl {
+    font-family: 'Cinzel', serif; font-size: 6.5px;
+    letter-spacing: 2px; color: var(--gold);
+    display: block; margin-bottom: 5px;
+  }
+
+  .ph-action {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 8px;
+    background: #1a0a2e;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    border-radius: 9px;
+    margin-bottom: 4px;
+  }
+
+  .ph-action.sel {
+    background: rgba(201,168,124,0.08);
+    border-color: var(--gold);
+  }
+
+  .ph-action-ic {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: #2d1b4e;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; flex-shrink: 0;
+  }
+
+  .ph-action.sel .ph-action-ic { background: rgba(201,168,124,0.18); }
+
+  .ph-action-title {
+    font-family: 'Cinzel', serif; font-size: 7.5px;
+    color: var(--text-white); display: block; line-height: 1.3;
+  }
+
+  .ph-action-detail {
+    font-size: 6.5px; color: rgba(144,128,176,0.65);
+    display: block; line-height: 1.4;
+  }
+
+  .ph-radio {
+    width: 13px; height: 13px; border-radius: 50%;
+    flex-shrink: 0; margin-left: auto;
+  }
+
+  .ph-radio.sel {
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .ph-radio.sel::after {
+    content: '';
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #0f0618;
+  }
+
+  .ph-radio.emp { border: 1.5px solid rgba(255,255,255,0.17); }
+
+  .ph-result-footer {
+    margin: 5px 10px 10px;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--gold), #a07840);
+    border-radius: 9px;
+    text-align: center;
+    font-family: 'Cinzel', serif; font-size: 7.5px;
+    letter-spacing: 1.5px; color: #0f0618;
+    flex-shrink: 0;
+  }
+
+  /* --- Screen copy text --- */
+  .screen-copy .sc-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--pink-stone); margin-bottom: 14px;
+  }
+
+  .screen-copy h3 {
+    font-family: 'Cinzel', serif; color: var(--text-white);
+    font-size: clamp(20px, 2.8vw, 29px);
+    font-weight: 600; letter-spacing: 1.5px;
+    line-height: 1.3; margin-bottom: 16px;
+  }
+
+  .screen-copy p {
+    font-size: 17px; color: var(--text-muted);
+    font-style: italic; font-weight: 300;
+    line-height: 1.85; margin-bottom: 22px;
+  }
+
+  .feat-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .feat-bullets li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--text-muted); line-height: 1.6;
+  }
+
+  .feat-bullets li::before {
+    content: '✦'; color: var(--gold); font-size: 8px;
+    flex-shrink: 0; margin-top: 5px;
+  }
+
+  .feat-bullets li em { color: var(--text-light); font-style: normal; }
+
+  .screen-sep {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-faint), transparent);
+    margin: 80px auto;
+  }
+
+  /* ========================
+     TIMELINE
+  ======================== */
+  .timeline-section {
+    background: radial-gradient(ellipse at 50% 40%, rgba(45,27,78,0.45) 0%, var(--bg-deep) 65%);
+    text-align: center;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .timeline-grid::before {
+    content: '';
+    position: absolute;
+    top: 22px; left: 12%; right: 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,124,0.15), rgba(201,168,124,0.4), rgba(201,168,124,0.15), transparent);
+    pointer-events: none;
+  }
+
+  .timeline-item {
+    text-align: center;
+    padding: 0 8px;
+    position: relative;
+  }
+
+  .timeline-days {
+    font-family: 'Cinzel', serif;
+    font-size: 34px; font-weight: 700;
+    color: var(--gold); letter-spacing: 1px;
+    display: block; line-height: 1;
+    position: relative; z-index: 1;
+    text-shadow: 0 0 28px rgba(201,168,124,0.22);
+  }
+
+  .timeline-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(201,168,124,0.5);
+    margin: 10px auto;
+    position: relative; z-index: 1;
+  }
+
+  .timeline-name {
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-white);
+    display: block; margin-bottom: 10px;
+  }
+
+  .timeline-desc {
+    font-size: 14px; color: var(--text-muted);
+    font-style: italic; font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* === MOBILE === */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(15, 6, 24, 0.98);
+      padding: 20px;
+      gap: 16px;
+      border-bottom: 1px solid var(--gold-faint);
+    }
+    .nav-toggle { display: block; }
+
+    section { padding: 80px 16px; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .hero-subcopy { margin-left: auto; margin-right: auto; }
+
+    .cta-group { justify-content: center; }
+
+    .phone-col { order: -1; }
+
+    .phone-frame { width: 200px; height: 406px; }
+
+    .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .feature-grid { grid-template-columns: 1fr; }
+
+    .cta-btn-outline { margin-left: 0; }
+
+    .screen-row,
+    .screen-row.flip {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .screen-row .screen-phone-lg,
+    .screen-row.flip .screen-phone-lg { order: -1; margin: 0 auto; }
+
+    .screen-row .screen-copy,
+    .screen-row.flip .screen-copy { order: 1; }
+
+    .feat-bullets { text-align: left; }
+
+    .screen-sep { margin: 48px auto; }
+
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .phone-frame { width: 180px; height: 366px; }
+    .hero-headline { letter-spacing: 1px; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .timeline-days { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COSMIC ELEMENTS -->
+<div class="spotlight" id="spotlight"></div>
+<div class="starfield" id="starfield"></div>
+<div class="cosmic-nebula">
+  <div class="nebula-layer nebula-1"></div>
+  <div class="nebula-layer nebula-2"></div>
+  <div class="nebula-layer nebula-3"></div>
+</div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-brand"><span lang="hi">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span> SANKALP</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="prakriti-assessment.html">Prakriti</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="app.html" class="active">App</a></li>
+  </ul>
+</nav>
+
+<!-- ========================
+     HERO
+======================== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT: TEXT -->
+    <div class="hero-text fade-in">
+      <span class="section-label">The Sankalp App</span>
+      <h1 class="hero-headline">Your practice.<br>Personalized<br>to your nature.</h1>
+      <p class="hero-subcopy">Not another wellness app. A living kriya, rooted in 5,000 years of inner science &mdash; and written for your body, not everyone&rsquo;s.</p>
+      <div class="cta-group">
+        <a href="prakriti-assessment.html" class="cta-btn">Discover Your Prakriti</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: PHONE + BADGES -->
+    <div class="phone-col fade-in">
+      <div class="phone-frame">
+        <div class="phone-screen">
+
+          <!-- STAGE 1: Analysing -->
+          <div class="phone-stage active" id="ph-stage-1">
+            <!-- twinkling gold stars -->
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:10%;top:7%;--dur:2.1s;animation-delay:0.3s"></span>
+            <span class="ph-star" style="width:2px;height:2px;left:82%;top:11%;--dur:3.2s;animation-delay:1.1s"></span>
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:25%;top:19%;--dur:2.7s;animation-delay:0.7s"></span>
+            <span class="ph-star" style="width:2px;height:2px;left:68%;top:24%;--dur:1.9s;animation-delay:1.6s"></span>
+            <span class="ph-star" style="width:1px;height:1px;left:14%;top:35%;--dur:3.5s;animation-delay:0.2s"></span>
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:88%;top:40%;--dur:2.3s;animation-delay:0.9s"></span>
+            <span class="ph-star" style="width:2px;height:2px;left:44%;top:15%;--dur:2.8s;animation-delay:1.4s"></span>
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:75%;top:58%;--dur:3.1s;animation-delay:0.4s"></span>
+            <span class="ph-star" style="width:1px;height:1px;left:32%;top:72%;--dur:2.4s;animation-delay:1.8s"></span>
+            <span class="ph-star" style="width:2px;height:2px;left:58%;top:82%;--dur:1.8s;animation-delay:0.6s"></span>
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:6%;top:62%;--dur:3.3s;animation-delay:1.2s"></span>
+            <span class="ph-star" style="width:1px;height:1px;left:91%;top:76%;--dur:2.6s;animation-delay:0.8s"></span>
+            <span class="ph-star" style="width:2px;height:2px;left:20%;top:88%;--dur:2.0s;animation-delay:1.5s"></span>
+            <span class="ph-star" style="width:1.5px;height:1.5px;left:50%;top:5%;--dur:3.4s;animation-delay:0.1s"></span>
+            <span class="ph-star" style="width:1px;height:1px;left:37%;top:46%;--dur:2.9s;animation-delay:1.0s"></span>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 14px 20px;">
+              <div class="ph-orb-wrap" style="margin-bottom:14px;">
+                <div class="ph-ring-outer"></div>
+                <div class="ph-ring-inner"></div>
+                <div class="ph-orb-core"><span class="ph-om">ॐ</span></div>
+              </div>
+              <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:10px;color:var(--text-light);text-align:center;margin-bottom:14px;line-height:1.4;">Reading the patterns<br>of your body&hellip;</p>
+              <div style="width:100%;">
+                <div class="ph-step active" id="ph-step-0">
+                  <div class="ph-step-dot"><div class="ph-step-pulse"></div></div>
+                  <span class="ph-step-text">Reading your nervous system signals&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-1">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Mapping your Prakriti&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-2">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Identifying your current Vikriti&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-3">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Building your daily rhythm&hellip;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 2: Home Screen -->
+          <div class="phone-stage" id="ph-stage-2">
+            <div class="phone-notch"></div>
+            <div class="phone-status">
+              <span class="phone-status-time">9:41</span>
+              <div class="phone-status-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div style="padding:32px 14px 56px;flex:1;display:flex;flex-direction:column;overflow:hidden;">
+              <!-- Greeting -->
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;">
+                <div>
+                  <div class="ph-greeting-muted">Namaste &#127881;</div>
+                  <div class="ph-name-text">Akash</div>
+                  <div class="ph-dosha-badge">
+                    <div class="ph-dosha-dot"></div>
+                    <span class="ph-dosha-text">Vata &middot; &#2357;&#2366;&#2340;</span>
+                  </div>
+                </div>
+                <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--bg-light));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">&#129495;</div>
+              </div>
+              <!-- Today's Practice card -->
+              <div class="ph-practice-card">
+                <div class="ph-practice-om">&#2384;</div>
+                <div class="ph-practice-label">Today&rsquo;s Practice</div>
+                <div class="ph-practice-title">Vata Calming Sadhana</div>
+                <div class="ph-chips">
+                  <span class="ph-chip-s">&#9203; 30 min</span>
+                  <span class="ph-chip-s">&#127749; Morning</span>
+                  <span class="ph-chip-s">&#10022; For you</span>
+                </div>
+                <div class="ph-begin-btn">Begin Practice &rarr;</div>
+              </div>
+              <!-- Streak -->
+              <div class="ph-streak-row">
+                <span class="ph-streak-fire">&#128293;</span>
+                <div>
+                  <div class="ph-streak-count">4</div>
+                  <div class="ph-streak-label">Days</div>
+                </div>
+                <div class="ph-day-dots">
+                  <div class="ph-day-dot done">M</div>
+                  <div class="ph-day-dot done">T</div>
+                  <div class="ph-day-dot done">W</div>
+                  <div class="ph-day-dot done">T</div>
+                  <div class="ph-day-dot empty">F</div>
+                  <div class="ph-day-dot empty">S</div>
+                  <div class="ph-day-dot empty">S</div>
+                </div>
+              </div>
+              <!-- Quick Practices -->
+              <div class="ph-qp-label">Quick Practices</div>
+              <div class="ph-qp-scroll">
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon">&#127758;</div>
+                  <div class="ph-qp-name">Pranayama</div>
+                  <div class="ph-qp-dur">10 min</div>
+                </div>
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon">&#129479;</div>
+                  <div class="ph-qp-name">Meditation</div>
+                  <div class="ph-qp-dur">15 min</div>
+                </div>
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon" style="font-family:serif;font-size:14px;color:var(--gold);">&#2384;</div>
+                  <div class="ph-qp-name">Mantra Japa</div>
+                  <div class="ph-qp-dur">20 min</div>
+                </div>
+              </div>
+            </div>
+            <!-- Bottom nav -->
+            <div class="ph-bottom-nav">
+              <div class="ph-nav-item ph-nav-active">
+                <span class="ph-nav-icon">&#127968;</span>
+                <span class="ph-nav-label">Home</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#9654;&#65039;</span>
+                <span class="ph-nav-label">Videos</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#128197;</span>
+                <span class="ph-nav-label">Daily</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#128100;</span>
+                <span class="ph-nav-label">Profile</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="store-badges">
+        <div class="store-badge">
+          <span class="store-badge-icon">&#9201;</span>
+          <div class="store-badge-info">
+            <span class="store-badge-coming">Coming Soon</span>
+            <span class="store-badge-name">App Store</span>
+          </div>
+        </div>
+        <div class="store-badge">
+          <span class="store-badge-icon">&#9201;</span>
+          <div class="store-badge-info">
+            <span class="store-badge-coming">Coming Soon</span>
+            <span class="store-badge-name">Play Store</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="community-link">
+        Join the Community &rarr;
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================
+     THE PROBLEM
+======================== -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="gold-rule"></div>
+    <div class="fade-in">
+      <span class="section-label" style="text-align:center; display:block;">Why Sankalp</span>
+      <h2 class="section-title" style="text-align:center; max-width:680px; margin:0 auto 40px;">The apps you&rsquo;ve tried<br>didn&rsquo;t know your body.</h2>
+      <div class="problem-hook">
+        <p class="problem-line">You&rsquo;ve downloaded the meditation apps. Done the 7-day streaks. Tried the diets.</p>
+        <p class="problem-line">None of them asked what your body already knows &mdash; what you&rsquo;re made of, what you&rsquo;re running from, what your breath is telling you.</p>
+        <p class="problem-punchline">Sankalp does.</p>
+      </div>
+    </div>
+    <div class="gold-rule gold-rule-bottom"></div>
+  </div>
+</section>
+
+<!-- ========================
+     HOW IT WORKS
+======================== -->
+<section class="how-it-works" id="how">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">The Journey</span>
+      <h2 class="section-title">Three steps. One intention.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps-grid fade-in">
+
+      <div class="step-card">
+        <span class="step-number">01</span>
+        <h3>Discover your nature</h3>
+        <p>A 5-minute Prakriti assessment reveals your unique body constitution &mdash; Vata, Pitta, or Kapha &mdash; and the imbalance patterns your body is currently showing.</p>
+        <a href="prakriti-assessment.html" class="step-link">Take the assessment &rarr;</a>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">02</span>
+        <h3>Receive your path</h3>
+        <p>Sankalp reads your Prakriti and current state to build a daily healing plan &mdash; breath, movement, food, sleep &mdash; calibrated to your body, not a generic type.</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">03</span>
+        <h3>Practice daily</h3>
+        <p>Guided sadhana. Streaks that hold you. A companion that listens. Every day, a little more like yourself.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     FEATURE SHOWCASE
+======================== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Inside the App</span>
+      <h2 class="section-title">What&rsquo;s inside</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="feature-grid fade-in">
+
+      <div class="feature-card">
+        <span class="feature-icon">&#127749;</span>
+        <h3>Today&rsquo;s Sadhana</h3>
+        <p>Your personalized morning practice. Breathwork, asana, and meditation &mdash; sequenced for your dosha, your imbalance, and the season you&rsquo;re in.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#127758;</span>
+        <h3>Pranayama Library</h3>
+        <p>20+ breathing techniques. Each one mapped to a symptom, a nervous system state, and a healing outcome. Breath is the switch &mdash; we show you how to use it.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#10022;</span>
+        <h3>Streak &amp; Continuity</h3>
+        <p>Ancient wisdom knew: 40 days changes the body. Track your practice, honor your commitment, and build the habit that finally stays.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#129295;</span>
+        <h3>Sankalp AI Companion</h3>
+        <p>Ask anything about your health. Get answers rooted in both Ayurveda and modern science. Not generic advice &mdash; answers that know your Prakriti.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SCREEN SHOWCASE
+======================== -->
+<section class="screens-section" id="screens">
+  <div class="container">
+    <div class="fade-in" style="margin-bottom:64px;">
+      <span class="section-label">See It Working</span>
+      <h2 class="section-title">Built around your body,<br>not a template.</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- ── Row 1: Sankalp AI (phone left, copy right) ── -->
+    <div class="screen-row fade-in">
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-chat-header">
+            <div class="ph-chat-av">&#10022;</div>
+            <div>
+              <span class="ph-chat-name">Sankalp</span>
+              <span class="ph-chat-online">&#9679; Online</span>
+            </div>
+          </div>
+          <div class="ph-chat-body">
+            <div class="ph-msg-row user">
+              <div class="ph-bubble user">I've been bloated every evening and my sleep is broken. What's happening?</div>
+            </div>
+            <div class="ph-ts" style="text-align:right;">9:12 PM</div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot">Vata imbalance &mdash; Air in excess. Your Agni is irregular and your nervous system is stuck in stress mode. Evening bloating and broken sleep are the first signals.</div>
+            </div>
+            <div class="ph-ts" style="padding-left:28px;">9:12 PM</div>
+            <div class="ph-msg-row user">
+              <div class="ph-bubble user">What can I do tonight?</div>
+            </div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot">Nadi Shodhana &mdash; 5 rounds, 4&ndash;4&ndash;4 count. It directly activates your parasympathetic nervous system. Your body needs to feel safe before it can rest.</div>
+            </div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot" style="display:flex;align-items:center;gap:5px;padding:10px 14px;">
+                <div class="ph-typing-dot"></div>
+                <div class="ph-typing-dot"></div>
+                <div class="ph-typing-dot"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ph-input-bar">Ask about your health&hellip;</div>
+        </div>
+      </div>
+
+      <div class="screen-copy">
+        <span class="sc-tag">Sankalp AI</span>
+        <h3>Ask anything.<br>Get answers that<br>know your body.</h3>
+        <p>Sankalp doesn&rsquo;t give generic wellness tips. It knows your Prakriti, your current imbalance, and the season you&rsquo;re in. Every answer is calibrated to you &mdash; not a template.</p>
+        <ul class="feat-bullets">
+          <li>Explains <em>why</em> your symptom is happening &mdash; root cause, not surface relief</li>
+          <li>Recommends specific pranayama, food, and lifestyle shifts for your constitution</li>
+          <li>Bridges Ayurveda and modern neuroscience in plain, warm language</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="screen-sep"></div>
+
+    <!-- ── Row 2: Weekly Sadhana (copy left, phone right) ── -->
+    <div class="screen-row flip fade-in">
+
+      <div class="screen-copy">
+        <span class="sc-tag">Your Sadhana</span>
+        <h3>A 7-day healing arc.<br>Not a workout plan.</h3>
+        <p>Each day has a theme, an element, and a dosha focus. Monday grounds you. Wednesday releases you. Friday creates space. Your plan knows what day it is &mdash; and what your body needs right now.</p>
+        <ul class="feat-bullets">
+          <li>4-phase sessions: Suksham Vyayam &rarr; Asanas &rarr; Pranayama &rarr; Yoga Nidra</li>
+          <li><em>Element-mapped days</em> &mdash; Earth, Fire, Water, Air, Ether, Yin, Consciousness</li>
+          <li>Daily Sankalp note adapted to your dosha and any flagged conditions</li>
+        </ul>
+      </div>
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-daily-hd">
+            <div>
+              <span class="ph-daily-title">Weekly Sadhana</span>
+              <span class="ph-daily-sub">Healing arc &middot; 7 days</span>
+            </div>
+            <div class="ph-ring">
+              <div class="ph-ring-in">50%</div>
+            </div>
+          </div>
+          <div class="ph-week">
+            <div class="ph-wd done"><span class="ph-wd-lbl">M</span><span class="ph-wd-em">🌍</span></div>
+            <div class="ph-wd done"><span class="ph-wd-lbl">T</span><span class="ph-wd-em">🔥</span></div>
+            <div class="ph-wd today"><span class="ph-wd-lbl">W</span><span class="ph-wd-em">💧</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">T</span><span class="ph-wd-em">🌬️</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">F</span><span class="ph-wd-em">✨</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">S</span><span class="ph-wd-em">🌙</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">S</span><span class="ph-wd-em">🪬</span></div>
+          </div>
+          <div class="ph-theme">
+            <div class="ph-theme-top">
+              <span class="ph-theme-em">💧</span>
+              <span class="ph-theme-dt">Water &middot; Apr 23</span>
+            </div>
+            <span class="ph-theme-name">Flow &amp; Release</span>
+            <span class="ph-theme-focus">Emotional body &middot; Hips &middot; Sacral</span>
+          </div>
+          <div class="ph-phases-lbl">TODAY&rsquo;S 4-PHASE SESSION</div>
+          <div class="ph-phase-list">
+            <div class="ph-phase-row done">
+              <div class="ph-phase-ic">🔄</div>
+              <div>
+                <span class="ph-phase-name">Suksham Vyayam</span>
+                <span class="ph-phase-dur">8 min &middot; Neck, shoulders, spine</span>
+              </div>
+              <div class="ph-check done">✓</div>
+            </div>
+            <div class="ph-phase-row active">
+              <div class="ph-phase-ic">🧘</div>
+              <div>
+                <span class="ph-phase-name">Asanas</span>
+                <span class="ph-phase-dur">20 min &middot; Warrior I, Child&rsquo;s Pose&hellip;</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+            <div class="ph-phase-row">
+              <div class="ph-phase-ic">🌬️</div>
+              <div>
+                <span class="ph-phase-name">Pranayama</span>
+                <span class="ph-phase-dur">10 min &middot; Nadi Shodhana, Bhramari</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+            <div class="ph-phase-row">
+              <div class="ph-phase-ic">🌙</div>
+              <div>
+                <span class="ph-phase-name">Yoga Nidra</span>
+                <span class="ph-phase-dur">15 min &middot; Body scan, Sankalpa</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+          </div>
+          <div class="ph-gold-btn">&#9654; BEGIN TODAY&rsquo;S SESSION &middot; 53 MIN</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen-sep"></div>
+
+    <!-- ── Row 3: Prakriti Diagnosis (phone left, copy right) ── -->
+    <div class="screen-row fade-in">
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-result-hd">
+            <span class="ph-result-lbl">Your Diagnosis &middot; &#2344;&#2367;&#2342;&#2366;&#2344;</span>
+            <span class="ph-result-ttl">Here&rsquo;s what we found</span>
+          </div>
+          <div class="ph-result-body">
+            <div class="ph-sns">
+              <span class="ph-sns-badge">NERVOUS SYSTEM</span>
+              <div class="ph-sns-row">
+                <div class="ph-sns-dot"></div>
+                <span class="ph-sns-title">Sympathetic Dominant</span>
+              </div>
+              <span class="ph-sns-desc">Your body is running in stress mode. Healing is paused until this shifts.</span>
+            </div>
+            <div class="ph-prakriti" id="prakriti-card-screen">
+              <div class="ph-prakriti-bg">&#2357;&#2366;&#2340;</div>
+              <span class="ph-prakriti-badge">YOUR PRAKRITI</span>
+              <div class="ph-prakriti-name-row">
+                <span class="ph-prakriti-name">Vata</span>
+                <span class="ph-prakriti-dev">&#2357;&#2366;&#2340;</span>
+              </div>
+              <span class="ph-prakriti-els">Air + Space &middot; Mobile &middot; Light &middot; Dry</span>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Vata</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill vata" data-w="62"></div></div>
+                <span class="ph-bar-pct">62%</span>
+              </div>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Pitta</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill pitta" data-w="25"></div></div>
+                <span class="ph-bar-pct">25%</span>
+              </div>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Kapha</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill kapha" data-w="13"></div></div>
+                <span class="ph-bar-pct">13%</span>
+              </div>
+            </div>
+          </div>
+          <div class="ph-sankalp-sec">
+            <span class="ph-sankalp-lbl">PICK YOUR FIRST SANKALP &middot; &#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span>
+            <div class="ph-action sel">
+              <div class="ph-action-ic">🌅</div>
+              <div>
+                <span class="ph-action-title">Wake 30 min earlier + pranayama</span>
+                <span class="ph-action-detail">Before the world starts, before the mind races</span>
+              </div>
+              <div class="ph-radio sel"></div>
+            </div>
+            <div class="ph-action">
+              <div class="ph-action-ic">🌿</div>
+              <div>
+                <span class="ph-action-title">Warm sesame oil on feet tonight</span>
+                <span class="ph-action-detail">Grounds Vata, calms nervous system</span>
+              </div>
+              <div class="ph-radio emp"></div>
+            </div>
+          </div>
+          <div class="ph-result-footer">BEGIN MY DAY 1 &rarr;</div>
+        </div>
+      </div>
+
+      <div class="screen-copy">
+        <span class="sc-tag">Your Diagnosis</span>
+        <h3>Know what<br>you&rsquo;re made of.</h3>
+        <p>5 minutes of honest answers about your body &mdash; your frame, skin, sleep, digestion, mind, stress. The result: a clinical-grade constitution map, not a personality quiz. You see what you are, and what to do first.</p>
+        <ul class="feat-bullets">
+          <li>Your <em>Prakriti</em> (innate constitution) and <em>Vikriti</em> (current imbalance) mapped separately</li>
+          <li>Nervous system status &mdash; are you stuck in stress? The app tells you directly</li>
+          <li>One first Sankalp: a small, honest commitment to begin Day 1</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================
+     TRANSFORMATION TIMELINE
+======================== -->
+<section class="timeline-section" id="timeline">
+  <div class="container fade-in">
+    <span class="section-label" style="display:block; text-align:center;">What Changes</span>
+    <h2 class="section-title" style="text-align:center; max-width:640px; margin:0 auto 14px;">What 90 days looks like.</h2>
+    <p class="section-sub" style="text-align:center; max-width:520px; margin:0 auto 0;">Ancient texts named this threshold. Modern neuroscience confirmed it. Here is the arc.</p>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <span class="timeline-days">7</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">The Shift Begins</span>
+        <p class="timeline-desc">Sleep deepens. Breath slows. The nervous system starts to register that it&rsquo;s safe to heal.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">21</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">Body Regulates</span>
+        <p class="timeline-desc">Digestion stabilises. Energy evens out. Anxiety becomes less reactive. A new pattern is forming.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">40</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">The Rewire</span>
+        <p class="timeline-desc">Ancient wisdom named this threshold. Modern neuroscience confirms it &mdash; the brain physically changes with sustained practice.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">90</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">A New Baseline</span>
+        <p class="timeline-desc">Your Vikriti comes closer to your Prakriti. You know your body. You live differently &mdash; without trying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SCIENCE BRIDGE
+======================== -->
+<section class="science-bridge" id="science">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">The Evidence</span>
+      <h2 class="section-title">Ancient wisdom. Modern proof.</h2>
+      <p class="section-sub">Every practice in Sankalp is backed by both traditions. They were always saying the same thing.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="science-table-wrap fade-in">
+      <table class="science-table">
+        <thead>
+          <tr>
+            <th>Modern Science</th>
+            <th>Yogic Equivalent</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-modern">Neuroplasticity</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Chitta Vritti</span>
+              <span class="td-vedic-script">&#2330;&#2367;&#2340;&#2381;&#2340; &#2357;&#2371;&#2340;&#2381;&#2340;&#2367;</span>
+            </td>
+            <td class="td-meaning">8 weeks of meditation rewires your brain. Your mind is not fixed &mdash; it is a practice.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Parasympathetic Activation</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Ida Nadi</span>
+              <span class="td-vedic-script">&#2311;&#2337;&#2366; &#2344;&#2366;&#2334;&#2368;</span>
+            </td>
+            <td class="td-meaning">Slow breath directly flips the body from stress mode into healing mode. Pranayama is the master switch.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Gut&ndash;Brain Axis</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Agni</span>
+              <span class="td-vedic-script">&#2309;&#2327;&#2381;&#2344;&#2367;</span>
+            </td>
+            <td class="td-meaning">Your gut health drives your mental health. Agni &mdash; the digestive fire &mdash; is the root of everything.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Vagal Tone</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Sushumna Nadi</span>
+              <span class="td-vedic-script">&#2360;&#2369;&#2359;&#2369;&#2350;&#2381;&#2344;&#2366;</span>
+            </td>
+            <td class="td-meaning">The vagus nerve connects breath to calm to healing. Pranayama directly stimulates it, every time you exhale slowly.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     CTA FINAL
+======================== -->
+<section class="cta-final" id="coming-soon">
+  <div class="container fade-in">
+    <div class="section-label" style="text-align:center; display:block;">Launching Soon</div>
+    <div class="divider-center"></div>
+    <h2 class="cta-headline">Sankalp is coming.</h2>
+    <p class="cta-sub">We&rsquo;re in the final stages of bringing this to your hands. Until then &mdash; know your nature. Begin with your breath.</p>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="prakriti-assessment.html" class="cta-btn">Discover Your Prakriti &rarr;</a>
+      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="cta-btn-outline">Join the Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SANKALP</div>
+  <p class="footer-tagline">Dhyan for Mind, Body &amp; a Better Life</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="prakriti-assessment.html">Prakriti Test</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="app.html">App</a></li>
+  </ul>
+  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+
+  // Spotlight follows cursor
+  const spotlight = document.getElementById('spotlight');
+  document.addEventListener('mousemove', (e) => {
+    spotlight.style.left = e.clientX + 'px';
+    spotlight.style.top = e.clientY + 'px';
+  });
+
+  // Animate dosha bars when the card scrolls into view
+  const doshaObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ph-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        doshaObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.ph-prakriti').forEach(el => doshaObs.observe(el));
+
+  // Hero phone: 2-stage animated sequence (Analysing → Home → loop)
+  (function() {
+    const stages = document.querySelectorAll('.phone-stage');
+    const stepEls = document.querySelectorAll('.ph-step');
+    if (stages.length < 2 || stepEls.length < 4) return;
+
+    let stepTimer = null;
+    let stageTimer = null;
+
+    function resetSteps() {
+      stepEls.forEach(el => {
+        el.classList.remove('active', 'done');
+        const dot = el.querySelector('.ph-step-dot');
+        if (dot) dot.innerHTML = '';
+      });
+      activateStep(0);
+    }
+
+    function activateStep(i) {
+      const el = stepEls[i];
+      if (!el) return;
+      el.classList.add('active');
+      const dot = el.querySelector('.ph-step-dot');
+      if (dot) dot.innerHTML = '<div class="ph-step-pulse"></div>';
+    }
+
+    function completeStep(i) {
+      const el = stepEls[i];
+      if (!el) return;
+      el.classList.remove('active');
+      el.classList.add('done');
+      const dot = el.querySelector('.ph-step-dot');
+      if (dot) dot.innerHTML = '&#10003;';
+    }
+
+    function showStage(index) {
+      stages.forEach((s, i) => s.classList.toggle('active', i === index));
+    }
+
+    function runStage1() {
+      clearTimeout(stageTimer);
+      clearInterval(stepTimer);
+      resetSteps();
+      showStage(0);
+      let s = 0;
+      stepTimer = setInterval(function() {
+        completeStep(s);
+        s++;
+        if (s < stepEls.length) {
+          activateStep(s);
+        } else {
+          clearInterval(stepTimer);
+        }
+      }, 1400);
+      stageTimer = setTimeout(runStage2, 7200);
+    }
+
+    function runStage2() {
+      clearInterval(stepTimer);
+      showStage(1);
+      stageTimer = setTimeout(runStage1, 8500);
+    }
+
+    resetSteps();
+    showStage(0);
+    stageTimer = setTimeout(function() {
+      let s = 0;
+      stepTimer = setInterval(function() {
+        completeStep(s);
+        s++;
+        if (s < stepEls.length) activateStep(s);
+        else clearInterval(stepTimer);
+      }, 1400);
+      setTimeout(runStage2, 7200);
+    }, 600);
+  })();
+
+  // Generate starfield
+  const starfield = document.getElementById('starfield');
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star' + (Math.random() > 0.9 ? ' large' : '');
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.setProperty('--duration', (3 + Math.random() * 5) + 's');
+    star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.5).toString());
+    star.style.animationDelay = (Math.random() * 5) + 's';
+    starfield.appendChild(star);
+  }
+</script>
+</body>
+</html>
