@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sankalphealth.in/sitemap.xml
