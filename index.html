@@ -106,9 +106,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:20px 48px;
   backdrop-filter:blur(0px);transition:padding .4s var(--ease),background .4s,backdrop-filter .4s,border-color .4s;
   border-bottom:1px solid transparent}
 nav.scrolled{padding:13px 48px;background:rgba(13,5,21,.86);backdrop-filter:blur(22px);border-bottom-color:var(--gold08)}
-.brand{font-family:'Cinzel',serif;color:#fff;font-size:15px;letter-spacing:5px;text-decoration:none;display:flex;align-items:center;gap:9px;transition:opacity .3s}
+.brand{font-family:'Cinzel',serif;color:#fff;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;transition:opacity .3s}
 .brand:hover{opacity:.82}
-.brand .dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:12px;font-weight:300}
+.brand .word{letter-spacing:5px}
+.brand .dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:13px;font-weight:400;letter-spacing:normal}
 .brand .om{width:22px;height:22px;border:1px solid var(--gold30);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold)}
 .nav-links{display:flex;gap:34px;list-style:none;align-items:center}
 .nav-links a{font-family:'Cinzel',serif;color:var(--muted);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
@@ -160,51 +161,93 @@ section{position:relative;z-index:2}
 /* ═══════════════════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════════════════ */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:120px 24px 90px;overflow:hidden;
-  background:radial-gradient(ellipse at 50% 38%,rgba(45,27,78,.55) 0%,transparent 60%),
-            radial-gradient(ellipse at 18% 16%,rgba(139,92,159,.12),transparent 50%),
-            radial-gradient(ellipse at 82% 78%,rgba(122,184,212,.06),transparent 45%)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:120px 40px 84px;overflow:hidden;
+  background:radial-gradient(ellipse at 78% 42%,rgba(45,27,78,.5) 0%,transparent 58%),
+            radial-gradient(ellipse at 12% 18%,rgba(139,92,159,.1),transparent 50%),
+            radial-gradient(ellipse at 88% 82%,rgba(122,184,212,.06),transparent 45%)}
 
-.yantra-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:min(92vw,680px);height:min(92vw,680px);z-index:0;
-  animation:breathe 11s ease-in-out infinite}
-@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.97)}50%{transform:translate(-50%,-50%) scale(1.03)}}
-.yantra-wrap svg{width:100%;height:100%;overflow:visible}
-.yantra-wrap .y-stroke{fill:none;stroke:var(--gold);stroke-width:.8;
-  stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 3.4s var(--ease) forwards}
-.y-tri-up{stroke:rgba(201,168,124,.55)}
-.y-tri-dn{stroke:rgba(184,122,138,.42)}
-.y-circle{stroke:rgba(201,168,124,.28)}
-.y-square{stroke:rgba(201,168,124,.22)}
+/* light rays sweeping from the top */
+.hero-rays{position:absolute;top:-12%;left:50%;width:150%;height:95%;z-index:0;pointer-events:none;opacity:.55;
+  transform:translateX(-50%);transform-origin:50% 0;
+  background:conic-gradient(from 180deg at 50% 0%,transparent 0deg,rgba(201,168,124,.05) 13deg,transparent 26deg,rgba(201,168,124,.04) 40deg,transparent 54deg,rgba(122,184,212,.035) 70deg,transparent 86deg,rgba(212,145,122,.03) 104deg,transparent 120deg);
+  -webkit-mask:linear-gradient(#000,transparent 68%);mask:linear-gradient(#000,transparent 68%);
+  animation:rays 26s ease-in-out infinite alternate}
+@keyframes rays{0%{transform:translateX(-50%) rotate(-5deg)}100%{transform:translateX(-50%) rotate(5deg)}}
+
+.hero-embers{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ember{position:absolute;bottom:-12px;width:3px;height:3px;border-radius:50%;background:var(--gold-lt);
+  box-shadow:0 0 7px 1px rgba(201,168,124,.7);opacity:0;animation:ember var(--ed) linear infinite;animation-delay:var(--edl)}
+@keyframes ember{0%{opacity:0;transform:translate(0,0) scale(.5)}8%{opacity:.85}88%{opacity:.5}100%{opacity:0;transform:translate(var(--ex),-92vh) scale(1.1)}}
+
+.hero-stack{position:relative;z-index:2;width:100%;max-width:1160px;display:grid;
+  grid-template-columns:1fr clamp(260px,34vw,400px);gap:clamp(40px,6vw,96px);align-items:center}
+
+/* ── THE SEAL (medallion) ── */
+.medallion{position:relative;width:clamp(240px,32vw,380px);height:clamp(240px,32vw,380px);justify-self:center;
+  display:flex;align-items:center;justify-content:center;animation:medIn 1.5s var(--ease) both}
+@keyframes medIn{0%{opacity:0;transform:scale(.55) translateY(24px)}100%{opacity:1;transform:none}}
+
+.med-aura{position:absolute;inset:-20%;border-radius:50%;filter:blur(6px);
+  background:radial-gradient(circle,rgba(201,168,124,.24),rgba(139,92,159,.08) 46%,transparent 70%);
+  animation:medBreath 11s ease-in-out infinite}
+@keyframes medBreath{0%,100%{transform:scale(.9);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+
+.med-halo{position:absolute;inset:-3%;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(201,168,124,.6) 38deg,transparent 105deg,rgba(122,184,212,.35) 195deg,transparent 250deg,rgba(212,145,122,.32) 320deg,transparent 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 60%,#000 62%,#000 70%,transparent 72%);
+  mask:radial-gradient(circle,transparent 60%,#000 62%,#000 70%,transparent 72%);
+  animation:spin 15s linear infinite}
+
+.med-yantra{position:relative;width:76%;height:76%;overflow:visible;z-index:1}
+.med-yantra .y-stroke{fill:none;stroke:var(--gold);stroke-width:.9;stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 2.4s var(--ease) forwards}
+.med-yantra .y-square{stroke:rgba(201,168,124,.3);animation-delay:.3s}
+.med-yantra .y-circle{stroke:rgba(201,168,124,.34);animation-delay:.65s}
+.med-yantra .y-tri-up{stroke:rgba(201,168,124,.55);animation-delay:1s}
+.med-yantra .y-tri-dn{stroke:rgba(184,122,138,.45);animation-delay:1.25s}
 @keyframes draw{to{stroke-dashoffset:0}}
-.y-petals{transform-origin:200px 200px;animation:spin 90s linear infinite}
-.y-petals-in{transform-origin:200px 200px;animation:spin 70s linear infinite reverse}
-.y-petal{fill:rgba(201,168,124,.05);stroke:rgba(201,168,124,.3);stroke-width:.6;opacity:0;animation:petalIn .8s var(--ease) forwards}
-.y-ticks{transform-origin:200px 200px;animation:spin 140s linear infinite}
+.y-petals{transform-origin:200px 200px;animation:spin 80s linear infinite}
+.y-petals-in{transform-origin:200px 200px;animation:spin 60s linear infinite reverse}
+.y-petal{fill:rgba(201,168,124,.06);stroke:rgba(201,168,124,.32);stroke-width:.6;opacity:0;animation:petalIn .7s var(--ease) forwards}
+.y-ticks{transform-origin:200px 200px;animation:spin 130s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes petalIn{to{opacity:1}}
-.y-bindu{fill:var(--gold);animation:binduGlow 11s ease-in-out infinite}
 @keyframes binduGlow{0%,100%{filter:drop-shadow(0 0 6px rgba(201,168,124,.7))}50%{filter:drop-shadow(0 0 18px rgba(201,168,124,1))}}
-.y-om{font-family:'Noto Sans Devanagari',sans-serif;font-size:34px;fill:var(--gold-lt);text-anchor:middle;
-  filter:drop-shadow(0 0 14px rgba(201,168,124,.6));opacity:0;animation:fadeIn 1s ease 2.6s forwards}
+.med-om{position:absolute;top:50%;left:50%;z-index:2;pointer-events:none;
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(34px,4.4vw,50px);color:var(--gold-lt);line-height:1;
+  transform:translate(-50%,-50%) scale(.3);opacity:0;
+  animation:omIgnite 1s var(--ease) 2.1s both,omGlow 11s ease-in-out 3.1s infinite}
+@keyframes omIgnite{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.16)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes omGlow{0%,100%{filter:drop-shadow(0 0 12px rgba(201,168,124,.55))}50%{filter:drop-shadow(0 0 22px rgba(201,168,124,.95))}}
 @keyframes fadeIn{to{opacity:1}}
 
-.hero-scrim{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:min(90vw,760px);height:min(90vw,560px);z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at center,rgba(15,6,24,.86) 0%,rgba(15,6,24,.5) 45%,transparent 72%)}
+/* ── orbiting dosha planets ── */
+.orbit{position:absolute;border:1px solid rgba(201,168,124,.1);border-radius:50%;animation:spin linear infinite}
+.orbit-v{inset:4%;animation-duration:17s}
+.orbit-p{inset:15%;animation-duration:12s;animation-direction:reverse}
+.orbit-k{inset:-9%;animation-duration:25s}
+.planet{position:absolute;top:-5px;left:50%;width:9px;height:9px;border-radius:50%;transform:translateX(-50%)}
+.planet.v{background:var(--vata);box-shadow:0 0 10px 2px rgba(122,184,212,.85)}
+.planet.p{background:var(--pitta);box-shadow:0 0 10px 2px rgba(212,145,122,.85)}
+.planet.k{background:var(--kapha);box-shadow:0 0 10px 2px rgba(139,189,122,.85)}
 
-.hero-content{position:relative;z-index:2;max-width:720px}
-.hero-kick{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:26px;opacity:0;animation:up .9s var(--ease) .2s forwards}
-.hero-dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:17px;letter-spacing:7px;font-weight:300;margin-bottom:8px;opacity:0;animation:up .9s var(--ease) .35s forwards}
-.hero-title{font-family:'Cinzel',serif;color:#fff;font-size:clamp(40px,8vw,84px);font-weight:600;letter-spacing:8px;line-height:1;margin-bottom:22px;opacity:0;animation:up 1s var(--ease) .5s forwards;
-  text-shadow:0 0 40px rgba(201,168,124,.15)}
-.hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);color:var(--gold-lt);font-weight:300;letter-spacing:1px;margin-bottom:14px;opacity:0;animation:up 1s var(--ease) .68s forwards}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:300;line-height:1.7;max-width:540px;margin:0 auto 38px;opacity:0;animation:up 1s var(--ease) .82s forwards}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:up 1s var(--ease) .96s forwards}
+/* ── hero text (clean, fully readable) ── */
+.hero-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.hero-kick{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;animation:blurUp .9s var(--ease) .4s both}
+.hero-dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:17px;letter-spacing:4px;font-weight:400;margin-bottom:4px;animation:blurUp .9s var(--ease) .55s both}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(38px,7vw,72px);font-weight:600;letter-spacing:9px;line-height:1;margin-bottom:18px;
+  background:linear-gradient(100deg,#fff 0%,var(--gold-lt) 22%,#fff 38%,var(--gold) 58%,#fff 78%,var(--gold-lt) 100%);
+  background-size:230% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 2px 30px rgba(201,168,124,.22));
+  animation:up 1s var(--ease) .7s both,shimmer 7s linear 1.7s infinite}
+@keyframes shimmer{to{background-position:-230% center}}
+.hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);color:var(--gold-lt);font-weight:300;letter-spacing:1px;margin-bottom:14px;animation:blurUp 1s var(--ease) .9s both}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:300;line-height:1.7;max-width:520px;margin:0 0 34px;animation:blurUp 1s var(--ease) 1.05s both}
+.hero-ctas{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;animation:blurUp 1s var(--ease) 1.2s both}
 @keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes blurUp{from{opacity:0;transform:translateY(22px);filter:blur(9px)}to{opacity:1;transform:none;filter:blur(0)}}
 
-.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s ease 1.6s forwards}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s ease 1.9s forwards}
 .scroll-cue span{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
 .scroll-mouse{width:20px;height:32px;border:1px solid var(--gold30);border-radius:12px;position:relative}
 .scroll-mouse::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:var(--gold);border-radius:2px;animation:scrolldot 1.8s ease-in-out infinite}
@@ -518,7 +561,7 @@ section{position:relative;z-index:2}
 ═══════════════════════════════════════════════════════════ */
 footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px 34px;text-align:center}
 .f-logo{font-family:'Cinzel',serif;color:#fff;font-size:18px;letter-spacing:6px;margin-bottom:8px}
-.f-logo .dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:13px;margin-right:6px}
+.f-logo .dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:14px;margin-right:8px;letter-spacing:normal}
 .f-tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold60);font-size:14px;margin-bottom:26px}
 .f-links{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .f-links a{font-family:'Cinzel',serif;color:rgba(201,168,124,.4);font-size:9px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:color .3s}
@@ -529,6 +572,12 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
 @media(max-width:980px){
+  .hero{padding:120px 24px 72px}
+  .hero-stack{grid-template-columns:1fr;gap:44px;justify-items:center;text-align:center}
+  .medallion{order:-1}
+  .hero-text{align-items:center;text-align:center}
+  .hero-sub{margin:0 auto 34px}
+  .hero-ctas{justify-content:center}
   .modes-inner{grid-template-columns:1fr;gap:50px}
   .nadi-vis{order:-1}
   .dosha-layout{grid-template-columns:1fr;gap:50px}
@@ -581,7 +630,7 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="brand"><span class="om">&#10047;</span><span class="dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span> SANKALP</a>
+  <a href="#hero" class="brand"><span class="om">&#10047;</span><span class="dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span><span class="word">SANKALP</span></a>
   <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
   <ul class="nav-links">
     <li><a href="#modes">The Body</a></li>
@@ -596,46 +645,49 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <!-- Sri Yantra -->
-  <div class="yantra-wrap">
-    <svg viewBox="0 0 400 400" aria-hidden="true">
-      <!-- square gate -->
-      <rect class="y-stroke y-square" x="30" y="30" width="340" height="340"/>
-      <rect class="y-stroke y-square" x="42" y="42" width="316" height="316"/>
-      <!-- lotus rings (JS injects petals into these) -->
-      <g class="y-petals" id="lotusOuter"></g>
-      <g class="y-petals-in" id="lotusInner"></g>
-      <!-- guide circles -->
-      <circle class="y-stroke y-circle" cx="200" cy="200" r="150"/>
-      <circle class="y-stroke y-circle" cx="200" cy="200" r="112"/>
-      <circle class="y-stroke y-circle" cx="200" cy="200" r="96"/>
-      <!-- interlocking triangles -->
-      <polygon class="y-stroke y-tri-up" points="200,110 120,290 280,290"/>
-      <polygon class="y-stroke y-tri-up" points="200,140 140,275 260,275"/>
-      <polygon class="y-stroke y-tri-up" points="200,166 158,258 242,258"/>
-      <polygon class="y-stroke y-tri-up" points="200,190 172,245 228,245"/>
-      <polygon class="y-stroke y-tri-dn" points="200,290 120,110 280,110"/>
-      <polygon class="y-stroke y-tri-dn" points="200,262 140,128 260,128"/>
-      <polygon class="y-stroke y-tri-dn" points="200,238 158,145 242,145"/>
-      <polygon class="y-stroke y-tri-dn" points="200,212 172,158 228,158"/>
-      <!-- tick ring -->
-      <g class="y-ticks" id="tickRing"></g>
-      <!-- bindu + om -->
-      <circle class="y-bindu" cx="200" cy="200" r="4.5"/>
-      <text class="y-om" x="200" y="150">&#2384;</text>
-    </svg>
-  </div>
-  <div class="hero-scrim"></div>
+  <div class="hero-rays"></div>
+  <div class="hero-embers" id="embers"></div>
 
-  <div class="hero-content">
-    <div class="hero-kick">Your body has been speaking to you</div>
-    <div class="hero-dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</div>
-    <h1 class="hero-title">SANKALP</h1>
-    <p class="hero-tag">A sacred vow to your own healing.</p>
-    <p class="hero-sub">Not another wellness app. Sankalp reads your body's original design &mdash; your Prakriti &mdash; and writes a living daily practice for you, not everyone.</p>
-    <div class="hero-ctas">
-      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="btn btn-gold">Create Your Free Profile <span class="arr">&rarr;</span></a>
-      <a href="prakriti-assessment.html" class="btn btn-ghost">Take the Prakriti Test</a>
+  <div class="hero-stack">
+    <!-- TEXT (left) -->
+    <div class="hero-text">
+      <div class="hero-kick">Your body has been speaking to you</div>
+      <div class="hero-dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</div>
+      <h1 class="hero-title">SANKALP</h1>
+      <p class="hero-tag">A sacred vow to your own healing.</p>
+      <p class="hero-sub">Not another wellness app. Sankalp reads your body's original design &mdash; your Prakriti &mdash; and writes a living daily practice for you, not everyone.</p>
+      <div class="hero-ctas">
+        <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="btn btn-gold">Create Your Free Profile <span class="arr">&rarr;</span></a>
+        <a href="prakriti-assessment.html" class="btn btn-ghost">Take the Prakriti Test</a>
+      </div>
+    </div>
+
+    <!-- THE SEAL (right) -->
+    <div class="medallion">
+      <div class="med-aura"></div>
+      <div class="med-halo"></div>
+      <div class="orbit orbit-k"><span class="planet k"></span></div>
+      <div class="orbit orbit-v"><span class="planet v"></span></div>
+      <div class="orbit orbit-p"><span class="planet p"></span></div>
+      <svg class="med-yantra" viewBox="0 0 400 400" aria-hidden="true">
+        <rect class="y-stroke y-square" x="30" y="30" width="340" height="340"/>
+        <rect class="y-stroke y-square" x="42" y="42" width="316" height="316"/>
+        <g class="y-petals" id="lotusOuter"></g>
+        <g class="y-petals-in" id="lotusInner"></g>
+        <circle class="y-stroke y-circle" cx="200" cy="200" r="150"/>
+        <circle class="y-stroke y-circle" cx="200" cy="200" r="112"/>
+        <circle class="y-stroke y-circle" cx="200" cy="200" r="96"/>
+        <polygon class="y-stroke y-tri-up" points="200,110 120,290 280,290"/>
+        <polygon class="y-stroke y-tri-up" points="200,140 140,275 260,275"/>
+        <polygon class="y-stroke y-tri-up" points="200,166 158,258 242,258"/>
+        <polygon class="y-stroke y-tri-up" points="200,190 172,245 228,245"/>
+        <polygon class="y-stroke y-tri-dn" points="200,290 120,110 280,110"/>
+        <polygon class="y-stroke y-tri-dn" points="200,262 140,128 260,128"/>
+        <polygon class="y-stroke y-tri-dn" points="200,238 158,145 242,145"/>
+        <polygon class="y-stroke y-tri-dn" points="200,212 172,158 228,158"/>
+        <g class="y-ticks" id="tickRing"></g>
+      </svg>
+      <div class="med-om">&#2384;</div>
     </div>
   </div>
 
@@ -1130,12 +1182,30 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   }, {threshold:.6});
   document.querySelectorAll('.stat-num').forEach(function(el){ statIO.observe(el); });
 
-  // Subtle parallax on hero yantra
+  // Rising hero embers
+  var em=document.getElementById('embers');
+  if(em && !reduce){
+    var ec = window.innerWidth < 700 ? 10 : 18, ef=document.createDocumentFragment();
+    for(var k=0;k<ec;k++){
+      var e=document.createElement('div'); e.className='ember';
+      e.style.left=Math.random()*100+'%';
+      e.style.setProperty('--ed',(7+Math.random()*7)+'s');
+      e.style.setProperty('--edl',(Math.random()*9)+'s');
+      e.style.setProperty('--ex',((Math.random()*120-60))+'px');
+      ef.appendChild(e);
+    }
+    em.appendChild(ef);
+  }
+
+  // Gentle parallax — medallion drifts as you scroll out of the hero
   if(!reduce){
-    var yantra=document.querySelector('.yantra-wrap');
+    var med=document.querySelector('.medallion'), htext=document.querySelector('.hero-text');
     window.addEventListener('scroll', function(){
-      var y=window.scrollY;
-      if(y<window.innerHeight && yantra){ yantra.style.opacity = Math.max(0, 1 - y/(window.innerHeight*0.9)); }
+      var y=window.scrollY, vh=window.innerHeight;
+      if(y<vh){
+        if(med) med.style.transform='translateY('+(y*0.18)+'px) scale('+(1-y/vh*0.06)+')';
+        if(htext){ htext.style.transform='translateY('+(y*0.06)+'px)'; htext.style.opacity=Math.max(0,1-y/(vh*0.85)); }
+      }
     }, {passive:true});
   }
 })();
