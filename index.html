@@ -248,6 +248,8 @@ section{position:relative;z-index:2}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s ease 1.9s forwards}
 .scroll-cue span{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
 .scroll-mouse{width:20px;height:32px;border:1px solid var(--gold30);border-radius:12px;position:relative}
+.scroll-3d{width:46px;height:74px}
+.scroll-3d canvas{width:100%;height:100%;display:block}
 .scroll-mouse::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;background:var(--gold);border-radius:2px;animation:scrolldot 1.8s ease-in-out infinite}
 @keyframes scrolldot{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}80%{opacity:0;transform:translate(-50%,10px)}100%{opacity:0}}
 
@@ -638,6 +640,9 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 .b-desc{font-family:'Cormorant Garamond',serif;font-size:13.5px;fill:var(--muted)}
 .b-num{font-family:'Cinzel',serif;font-size:19px;font-weight:600}
 .connector{stroke-width:1.4;opacity:.5;fill:none}
+/* rising prana motes behind the road */
+.journey-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.arc .container{position:relative;z-index:1}
 /* ida & pingala nadi caduceus */
 .nadi-stage{position:relative;display:inline-block}
 .nadi-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
@@ -735,7 +740,7 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     </div>
   </div>
 
-  <div class="scroll-cue"><div class="scroll-mouse"></div><span>Scroll</span></div>
+  <div class="scroll-cue"><div class="scroll-3d"><canvas id="scrollCanvas" aria-hidden="true"></canvas></div><span>Scroll</span></div>
 </section>
 
 <!-- ═══ STATS ═══ -->
@@ -1048,6 +1053,7 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 
 <!-- ═══ 90-DAY ARC ═══ -->
 <section class="arc" id="arc">
+  <canvas id="journeyCanvas" class="journey-canvas" aria-hidden="true"></canvas>
   <div class="container reveal">
     <div class="kicker c" style="display:flex;justify-content:center">What 90 days looks like</div>
     <h2 class="h2">A healing arc, <em>not a workout plan.</em></h2>
@@ -1890,6 +1896,88 @@ import * as THREE from 'three';
     return {update:update, resize:resize};
   }
 
+  /* ─────────── 90-DAY JOURNEY: rising prana motes behind the road ─────────── */
+  function initJourney(canvas){
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
+    renderer.setPixelRatio(PR);
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 300); camera.position.z = 34;
+    var pal = [new THREE.Color('#c9a87c'), new THREE.Color('#e6cfa6'), new THREE.Color('#8bbd7a'), new THREE.Color('#7ab8d4'), new THREE.Color('#d4917a')];
+
+    function field(count, size, opacity, sx, sy, sz){
+      var pos=new Float32Array(count*3), col=new Float32Array(count*3), spd=new Float32Array(count);
+      for(var i=0;i<count;i++){
+        pos[i*3]=(Math.random()-0.5)*sx; pos[i*3+1]=(Math.random()-0.5)*sy; pos[i*3+2]=(Math.random()-0.5)*sz;
+        spd[i]=0.5+Math.random()*1.3;
+        var c=Math.random()<0.62 ? pal[0] : pal[1+(Math.random()*4|0)];
+        col[i*3]=c.r; col[i*3+1]=c.g; col[i*3+2]=c.b;
+      }
+      var g=new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+      g.setAttribute('color', new THREE.BufferAttribute(col,3));
+      scene.add(new THREE.Points(g, new THREE.PointsMaterial({size:size, map:softTex, vertexColors:true, transparent:true, opacity:opacity, blending:THREE.AdditiveBlending, depthWrite:false})));
+      return {pos:pos, spd:spd, top:sy/2, sx:sx, geo:g};
+    }
+    var near = field(isMobile?70:150, 1.1, 0.85, 92, 120, 30);
+    var far  = field(isMobile?40:90,  0.5, 0.5,  120, 134, 60);
+
+    function resize(){ var w=canvas.clientWidth||1, h=canvas.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+    resize();
+    function rise(f, step){ for(var i=0;i<f.spd.length;i++){ f.pos[i*3+1]+=f.spd[i]*step; if(f.pos[i*3+1]>f.top){ f.pos[i*3+1]=-f.top; f.pos[i*3]=(Math.random()-0.5)*f.sx; } } f.geo.attributes.position.needsUpdate=true; }
+    function update(t){
+      rise(near, 0.05); rise(far, 0.025);
+      camera.position.x += (ptr.x*6 - camera.position.x)*0.03;
+      camera.position.y += (-ptr.y*4 - camera.position.y)*0.03;
+      camera.lookAt(0,0,0);
+      renderer.render(scene, camera);
+    }
+    return {update:update, resize:resize};
+  }
+
+  /* ─────────── SCROLL CUE: a light bead descending a glowing capsule ─────────── */
+  function initScroll(canvas){
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
+    renderer.setPixelRatio(PR);
+    var scene = new THREE.Scene();
+    var fh = 2.6, camera = new THREE.OrthographicCamera(-1, 1, fh/2, -fh/2, -10, 10); camera.position.z = 5;
+    var gold = new THREE.Color('#c9a87c'), goldLt = new THREE.Color('#e6cfa6');
+    var group = new THREE.Group(); scene.add(group);
+
+    // capsule (the mouse body) as a glowing stadium outline
+    var r=0.30, h=0.95, yTop=h/2-r, yBot=-h/2+r, seg=24, pts=[], a;
+    for(a=0;a<=Math.PI;a+=Math.PI/seg) pts.push(new THREE.Vector3(Math.cos(a)*r, yTop+Math.sin(a)*r, 0));
+    pts.push(new THREE.Vector3(-r, yBot, 0));
+    for(a=Math.PI;a<=2*Math.PI+0.001;a+=Math.PI/seg) pts.push(new THREE.Vector3(Math.cos(a)*r, yBot+Math.sin(a)*r, 0));
+    group.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:0.7})));
+
+    var aura = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:gold, transparent:true, opacity:0.22, blending:THREE.AdditiveBlending, depthWrite:false}));
+    aura.scale.set(1.5,1.9,1); group.add(aura);
+    var bead = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:goldLt, transparent:true, opacity:1, blending:THREE.AdditiveBlending, depthWrite:false}));
+    group.add(bead);
+
+    var MN=10, mp=new Float32Array(MN*3), msp=new Float32Array(MN);
+    for(var i=0;i<MN;i++){ mp[i*3]=(Math.random()-0.5)*0.7; mp[i*3+1]=-0.7-Math.random()*0.8; mp[i*3+2]=0; msp[i]=0.3+Math.random()*0.5; }
+    var mgeo=new THREE.BufferGeometry(); mgeo.setAttribute('position', new THREE.BufferAttribute(mp,3));
+    group.add(new THREE.Points(mgeo, new THREE.PointsMaterial({size:0.12, map:softTex, color:gold, transparent:true, opacity:0.6, blending:THREE.AdditiveBlending, depthWrite:false})));
+
+    function resize(){ var w=canvas.clientWidth||1, hh=canvas.clientHeight||1; renderer.setSize(w,hh,false); var asp=w/hh; camera.left=-fh*asp/2; camera.right=fh*asp/2; camera.updateProjectionMatrix(); }
+    resize();
+    function update(t){
+      var p=(t%2.0)/2.0;                                  // 2s descent loop
+      bead.position.y = (yTop+r*0.5) - p*(h*0.62);
+      bead.material.opacity = Math.max(0, 1 - Math.pow(p,1.6));
+      var bs=0.30+0.06*Math.sin(t*3); bead.scale.set(bs,bs,1);
+      aura.material.opacity = 0.18 + 0.10*Math.sin(t*1.6);
+      var arr=mgeo.attributes.position.array;
+      for(var k=0;k<MN;k++){ arr[k*3+1]-=msp[k]*0.01; if(arr[k*3+1]<-1.5){ arr[k*3+1]=-0.6; arr[k*3]=(Math.random()-0.5)*0.7; } }
+      mgeo.attributes.position.needsUpdate=true;
+      group.position.y = Math.sin(t*1.1)*0.03;
+      renderer.render(scene, camera);
+    }
+    return {update:update, resize:resize};
+  }
+
   /* ─────────── boot & shared render loop ─────────── */
   var scenes = [], resizers = [];
 
@@ -1916,6 +2004,8 @@ import * as THREE from 'three';
   register(initTrinity, 'trinityCanvas', { observe:'.trinity',  onReady:function(c){ c.closest('.trinity').classList.add('has-3d'); } });
   register(initHelix,   'helixCanvas',   { observe:'.science' });
   register(initNadi,    'nadiCanvas',    { observe:'.modes', onReady:function(c){ c.closest('.nadi-vis').classList.add('has-3d'); } });
+  register(initJourney, 'journeyCanvas', { observe:'.arc' });
+  register(initScroll,  'scrollCanvas',  { observe:'.hero' });
 
   if(!scenes.length) return;
 
