@@ -606,58 +606,6 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .stat:not(:last-child)::after{display:none}
   .voice-q{display:none}
 }
-
-/* ═══════════════════════════════════════════════════════════
-   WEBGL COSMIC LAYER (Three.js)
-═══════════════════════════════════════════════════════════ */
-#bgCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-/* When the WebGL starfield is live, retire the flat CSS one */
-body.webgl .starfield,body.webgl .nebula{display:none}
-/* 3D yantra fills the medallion box; CSS aura/halo/Om stay layered around it */
-.med-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.medallion.has-3d .med-yantra{opacity:0;pointer-events:none}
-/* breath visualizer */
-.breath-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:none;animation:none}
-/* tridosha trinity */
-.trinity{position:relative}
-.trinity-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.trinity.has-3d svg{opacity:0}
-/* science DNA helix */
-.helix-wrap{position:relative;height:200px;max-width:540px;margin:34px auto 0;pointer-events:none}
-#helixCanvas{position:absolute;inset:0;width:100%;height:100%}
-/* 90-day journey road (crisp SVG, cosmic gold) */
-.road-wrap{max-width:600px;margin:46px auto 0}
-.road-wrap svg{width:100%;height:auto;overflow:visible;display:block}
-.r-glow{fill:none;stroke:var(--gold);stroke-width:15;opacity:.10;stroke-linecap:round;filter:blur(5px)}
-.r-body{fill:none;stroke:url(#roadGrad);stroke-width:5;opacity:.5;stroke-linecap:round}
-.r-dash{fill:none;stroke:var(--gold-lt);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:2 17;opacity:.9;animation:roadflow 1.3s linear infinite}
-@keyframes roadflow{to{stroke-dashoffset:-19}}
-.b-kick{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase}
-.b-title{font-family:'Cinzel',serif;font-size:16px;font-weight:600;fill:#fff}
-.b-desc{font-family:'Cormorant Garamond',serif;font-size:13.5px;fill:var(--muted)}
-.b-num{font-family:'Cinzel',serif;font-size:19px;font-weight:600}
-.connector{stroke-width:1.4;opacity:.5;fill:none}
-/* ida & pingala nadi caduceus */
-.nadi-stage{position:relative;display:inline-block}
-.nadi-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.nadi-vis.has-3d svg{opacity:0}
-/* tridosha labels & caption */
-.trinity{flex-direction:column}
-.trinity-stage{position:relative;width:100%;max-width:420px}
-.trinity-stage svg{display:block;width:100%;height:auto}
-.trinity-labels{position:absolute;inset:0;z-index:2;pointer-events:none;display:none}
-.trinity.has-3d .trinity-labels{display:block}
-.t-label{position:absolute;top:0;left:0;text-align:center;white-space:nowrap;will-change:transform}
-.t-label b{display:block;font-family:'Noto Sans Devanagari',sans-serif;font-size:14px;font-weight:500;line-height:1.15}
-.t-label em{display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-style:normal;line-height:1.4}
-.t-label i{display:block;font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.5px;color:var(--dim);font-style:normal;margin-top:1px}
-.t-label.v b,.t-label.v em{color:var(--vata)}
-.t-label.p b,.t-label.p em{color:var(--pitta)}
-.t-label.k b,.t-label.k em{color:var(--kapha)}
-.t-label.you{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
-.trinity-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--dim);text-align:center;margin-top:20px;max-width:340px;line-height:1.55}
-.trinity-cap b{color:var(--gold);font-style:normal;font-weight:500}
 </style>
 <!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6SVRXGV2Q"></script>
@@ -669,7 +617,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 
 <!-- AMBIENT BG -->
 <div class="bg-fx">
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <div class="starfield" id="starfield"></div>
   <div class="nebula neb-1"></div>
   <div class="nebula neb-2"></div>
@@ -717,8 +664,9 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="medallion">
       <div class="med-aura"></div>
       <div class="med-halo"></div>
-      <canvas class="med-canvas" id="medCanvas" aria-hidden="true"></canvas>
-      <!-- SVG yantra below stays as a no-WebGL fallback (hidden once 3D boots) -->
+      <div class="orbit orbit-k"><span class="planet k"></span></div>
+      <div class="orbit orbit-v"><span class="planet v"></span></div>
+      <div class="orbit orbit-p"><span class="planet p"></span></div>
       <svg class="med-yantra" viewBox="0 0 400 400" aria-hidden="true">
         <!-- Subtle guide circles -->
         <circle class="lotus-guide" cx="200" cy="200" r="168"/>
@@ -780,8 +728,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 
       <!-- Nadi visual -->
       <div class="nadi-vis reveal" data-d="2">
-        <div class="nadi-stage">
-        <canvas class="nadi-canvas" id="nadiCanvas" aria-hidden="true"></canvas>
         <svg viewBox="0 0 140 420" aria-hidden="true">
           <line class="nadi-sushumna" x1="70" y1="18" x2="70" y2="402"/>
           <path class="nadi-ida" d="M70,18 C20,70 20,90 70,120 C120,150 120,170 70,210 C20,250 20,270 70,300 C120,330 120,350 70,402"/>
@@ -793,7 +739,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
           <circle class="chakra" cx="70" cy="300" r="3"/>
           <circle class="chakra" cx="70" cy="360" r="3"/>
         </svg>
-        </div>
         <p class="nadi-cap">Ida &amp; Pingala &mdash; the two channels of breath. Pranayama balances them, and the body remembers how to rest.</p>
       </div>
     </div>
@@ -842,14 +787,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="dosha-layout">
       <!-- Trinity SVG -->
       <div class="trinity reveal" id="trinity">
-        <div class="trinity-stage">
-        <canvas class="trinity-canvas" id="trinityCanvas" aria-hidden="true"></canvas>
-        <div class="trinity-labels">
-          <span class="t-label v" data-node="0"><b>&#2357;&#2366;&#2340;</b><em>Vata</em><i>Air &middot; Space</i></span>
-          <span class="t-label p" data-node="1"><b>&#2346;&#2367;&#2340;&#2381;&#2340;</b><em>Pitta</em><i>Fire &middot; Water</i></span>
-          <span class="t-label k" data-node="2"><b>&#2325;&#2347;</b><em>Kapha</em><i>Earth &middot; Water</i></span>
-          <span class="t-label you" data-node="c">You</span>
-        </div>
         <svg viewBox="0 0 420 380" aria-hidden="true">
           <polygon class="tri-edge" points="210,54 372,336 48,336"/>
           <polygon class="tri-edge" points="210,300 90,108 330,108" style="stroke:rgba(201,168,124,.12)"/>
@@ -880,8 +817,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
             <text class="en" x="48" y="348" fill="#8bbd7a">Kapha</text>
           </g>
         </svg>
-        </div>
-        <p class="trinity-cap">You are all three at once. The <b>gold centre is you</b> &mdash; your living balance of Vata, Pitta &amp; Kapha. The drifting spark is prana, the breath that moves between them. Knowing your mix is the first step to knowing yourself.</p>
       </div>
 
       <!-- Dosha cards -->
@@ -981,7 +916,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="kicker c">Try it now</div>
     <h2 class="h2">Breathe with us for one minute.</h2>
     <div class="breath-orb-wrap">
-      <canvas class="breath-canvas" id="breathCanvas" aria-hidden="true"></canvas>
       <div class="breath-ring r1"></div>
       <div class="breath-ring r2"></div>
       <div class="breath-orb"><span class="dev">&#2384;</span></div>
@@ -1001,7 +935,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="kicker c" style="display:flex;justify-content:center">Ancient wisdom. Modern proof.</div>
     <h2 class="h2" style="text-align:center">Your brain can rewire itself.</h2>
     <p class="lead" style="text-align:center;margin:0 auto">Modern science confirms what yogis discovered 5,000 years ago. Two traditions, one truth: the body heals itself when you stop fighting it.</p>
-    <div class="helix-wrap"><canvas id="helixCanvas" aria-hidden="true"></canvas></div>
     <div class="sci-grid">
       <div class="sci reveal" data-d="1"><div class="sci-bridge"><span class="sci-anc">&#2311;&#2337;&#2364;&#2366; &#2344;&#2366;&#2337;&#2364;&#2368;</span><span class="sci-sep">&harr;</span><span class="sci-mod">Parasympathetic NS</span></div><h3>The Healing Channel</h3><p>Slow, left-nostril breathing activates Ida Nadi &mdash; the cooling channel. Science calls it the parasympathetic response: rest, digest, repair.</p></div>
       <div class="sci reveal" data-d="2"><div class="sci-bridge"><span class="sci-anc">&#2309;&#2327;&#2381;&#2344;&#2367;</span><span class="sci-sep">&harr;</span><span class="sci-mod">Gut-Brain Axis</span></div><h3>The Digestive Fire</h3><p>Agni is your metabolic intelligence. Science now confirms 90% of serotonin is made in the gut. Weak digestion, weak mind.</p></div>
@@ -1052,63 +985,11 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="kicker c" style="display:flex;justify-content:center">What 90 days looks like</div>
     <h2 class="h2">A healing arc, <em>not a workout plan.</em></h2>
     <p class="lead" style="text-align:center;margin:0 auto">Most people feel the shift within two weeks. By month three, the body remembers how to be well.</p>
-    <div class="road-wrap">
-    <svg viewBox="0 0 760 1140" aria-hidden="true">
-      <defs>
-        <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#c9a87c"/><stop offset="0.6" stop-color="#c9b07c"/><stop offset="1" stop-color="#8bbd7a"/>
-        </linearGradient>
-        <filter id="roadGlow" x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-
-      <!-- the winding road -->
-      <path id="roadPath" class="r-glow" d="M380 20 C380 80 530 80 530 150 C530 270 230 270 230 390 C230 510 530 510 530 630 C530 750 230 750 230 870 C230 940 380 940 380 1010 L380 1070"/>
-      <path class="r-body" d="M380 20 C380 80 530 80 530 150 C530 270 230 270 230 390 C230 510 530 510 530 630 C530 750 230 750 230 870 C230 940 380 940 380 1010 L380 1070"/>
-      <path class="r-dash" d="M380 20 C380 80 530 80 530 150 C530 270 230 270 230 390 C230 510 530 510 530 630 C530 750 230 750 230 870 C230 940 380 940 380 1010 L380 1070"/>
-
-      <!-- a light travelling the journey -->
-      <circle r="4.5" fill="#fff" filter="url(#roadGlow)"><animateMotion dur="13s" repeatCount="indefinite"><mpath href="#roadPath"/></animateMotion></circle>
-      <!-- arrival arrow -->
-      <path d="M364 1058 L380 1086 L396 1058 Z" fill="#8bbd7a" filter="url(#roadGlow)" opacity=".9"/>
-
-      <!-- 1 · DAY 1 (badge right, text left) -->
-      <line class="connector" x1="506" y1="150" x2="462" y2="150" stroke="#c9a87c"/>
-      <text class="b-kick" x="450" y="120" text-anchor="end" fill="#c9a87c" letter-spacing="3">Day 1</text>
-      <text class="b-title" x="450" y="144" text-anchor="end">Prakriti Diagnosed</text>
-      <text class="b-desc" x="450" y="166" text-anchor="end">Your constitution and current drift</text>
-      <text class="b-desc" x="450" y="184" text-anchor="end">revealed. Your first practice begins tonight.</text>
-      <circle cx="530" cy="150" r="23" fill="#160a26" stroke="#c9a87c" stroke-width="1.6" filter="url(#roadGlow)"/>
-      <text class="b-num" x="530" y="157" text-anchor="middle" fill="#c9a87c">1</text>
-
-      <!-- 2 · WEEK 1-2 (badge left, text right) -->
-      <line class="connector" x1="254" y1="390" x2="298" y2="390" stroke="#c9b07c"/>
-      <text class="b-kick" x="310" y="360" text-anchor="start" fill="#c9b07c" letter-spacing="3">Week 1&ndash;2</text>
-      <text class="b-title" x="310" y="384" text-anchor="start">Patterns Emerge</text>
-      <text class="b-desc" x="310" y="406" text-anchor="start">Sleep settles. The racing mind quiets.</text>
-      <text class="b-desc" x="310" y="424" text-anchor="start">Energy returns earlier in the day.</text>
-      <circle cx="230" cy="390" r="23" fill="#160a26" stroke="#c9b07c" stroke-width="1.6" filter="url(#roadGlow)"/>
-      <text class="b-num" x="230" y="397" text-anchor="middle" fill="#c9b07c">2</text>
-
-      <!-- 3 · MONTH 2 (badge right, text left) -->
-      <line class="connector" x1="506" y1="630" x2="462" y2="630" stroke="#a7bd86"/>
-      <text class="b-kick" x="450" y="600" text-anchor="end" fill="#a7bd86" letter-spacing="3">Month 2</text>
-      <text class="b-title" x="450" y="624" text-anchor="end">Body Shifting</text>
-      <text class="b-desc" x="450" y="646" text-anchor="end">Digestion normalizes. Skin clears.</text>
-      <text class="b-desc" x="450" y="664" text-anchor="end">Symptoms that seemed permanent soften.</text>
-      <circle cx="530" cy="630" r="23" fill="#160a26" stroke="#a7bd86" stroke-width="1.6" filter="url(#roadGlow)"/>
-      <text class="b-num" x="530" y="637" text-anchor="middle" fill="#a7bd86">3</text>
-
-      <!-- 4 · MONTH 3 (badge left, text right) -->
-      <line class="connector" x1="254" y1="870" x2="298" y2="870" stroke="#8bbd7a"/>
-      <text class="b-kick" x="310" y="840" text-anchor="start" fill="#8bbd7a" letter-spacing="3">Month 3</text>
-      <text class="b-title" x="310" y="864" text-anchor="start">Natural Rhythm</text>
-      <text class="b-desc" x="310" y="886" text-anchor="start">Your body&rsquo;s own intelligence is back.</text>
-      <text class="b-desc" x="310" y="904" text-anchor="start">Not a fix &mdash; a life you can sustain.</text>
-      <circle cx="230" cy="870" r="23" fill="#160a26" stroke="#8bbd7a" stroke-width="1.6" filter="url(#roadGlow)"/>
-      <text class="b-num" x="230" y="877" text-anchor="middle" fill="#8bbd7a">4</text>
-    </svg>
+    <div class="arc-line">
+      <div class="arc-item"><div class="arc-dot"><span>Day<br>1</span></div><div class="arc-title">Prakriti Diagnosed</div><p class="arc-desc">Your constitution and current drift revealed. Your first personalized practice begins tonight.</p></div>
+      <div class="arc-item"><div class="arc-dot"><span>Week<br>1&ndash;2</span></div><div class="arc-title">Patterns Emerge</div><p class="arc-desc">Sleep settles. The racing mind quiets. Energy returns earlier in the day.</p></div>
+      <div class="arc-item"><div class="arc-dot"><span>Month<br>2</span></div><div class="arc-title">Body Shifting</div><p class="arc-desc">Digestion normalizes. Skin clears. Symptoms that seemed permanent begin to soften.</p></div>
+      <div class="arc-item"><div class="arc-dot"><span>Month<br>3</span></div><div class="arc-title">Natural Rhythm</div><p class="arc-desc">Your body&rsquo;s own intelligence is back. Not a fix &mdash; a life you can sustain.</p></div>
     </div>
   </div>
 </section>
@@ -1313,639 +1194,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
       }
     }, {passive:true});
   }
-})();
-</script>
-
-<!-- ═══════════════════════════════════════════════════════════
-     THREE.JS COSMIC LAYER
-     · full-screen starfield + drifting nebula (replaces CSS bg)
-     · 3D Sri-Yantra medallion with dosha planets orbiting in depth
-     Degrades to the CSS/SVG originals if WebGL is unavailable.
-═══════════════════════════════════════════════════════════ -->
-<script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-</script>
-<script type="module">
-import * as THREE from 'three';
-
-(function(){
-  'use strict';
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var PR = Math.min(window.devicePixelRatio || 1, 2);
-  var isMobile = window.innerWidth < 760;
-
-  // soft radial texture — used for stars, nebula clouds and planet glows
-  function glowTex(size, stops){
-    var c = document.createElement('canvas'); c.width = c.height = size;
-    var g = c.getContext('2d');
-    var grd = g.createRadialGradient(size/2,size/2,0, size/2,size/2,size/2);
-    stops.forEach(function(s){ grd.addColorStop(s[0], s[1]); });
-    g.fillStyle = grd; g.fillRect(0,0,size,size);
-    var t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    return t;
-  }
-  var softTex = glowTex(256, [[0,'rgba(255,255,255,1)'],[0.25,'rgba(255,255,255,0.6)'],[1,'rgba(255,255,255,0)']]);
-
-  // shared pointer state, normalized to -1..1 and eased
-  var ptr = { x:0, y:0, tx:0, ty:0 };
-  if(matchMedia('(pointer:fine)').matches){
-    window.addEventListener('mousemove', function(e){
-      ptr.tx = (e.clientX/window.innerWidth)*2 - 1;
-      ptr.ty = (e.clientY/window.innerHeight)*2 - 1;
-    }, {passive:true});
-  }
-
-  /* ─────────── BACKGROUND: starfield + nebula ─────────── */
-  function initBG(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(60, 1, 1, 3000);
-    camera.position.z = 600;
-
-    var COUNT = isMobile ? 900 : 2400;
-    var pos = new Float32Array(COUNT*3), siz = new Float32Array(COUNT), pha = new Float32Array(COUNT), col = new Float32Array(COUNT*3);
-    var pal = [new THREE.Color('#ffffff'), new THREE.Color('#e6cfa6'), new THREE.Color('#c9a87c'), new THREE.Color('#7ab8d4'), new THREE.Color('#d4917a')];
-    for(var i=0;i<COUNT;i++){
-      pos[i*3]   = (Math.random()-0.5)*2200;
-      pos[i*3+1] = (Math.random()-0.5)*1400;
-      pos[i*3+2] = (Math.random()-0.5)*1200 - 300;
-      siz[i] = Math.pow(Math.random(),2)*15 + 1.5;
-      pha[i] = Math.random()*Math.PI*2;
-      var c = Math.random()<0.74 ? pal[0] : pal[1 + (Math.random()*4|0)];
-      col[i*3]=c.r; col[i*3+1]=c.g; col[i*3+2]=c.b;
-    }
-    var geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
-    geo.setAttribute('aSize',  new THREE.BufferAttribute(siz,1));
-    geo.setAttribute('aPhase', new THREE.BufferAttribute(pha,1));
-    geo.setAttribute('aColor', new THREE.BufferAttribute(col,3));
-    var mat = new THREE.ShaderMaterial({
-      transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
-      uniforms:{ uTime:{value:0}, uPR:{value:PR} },
-      vertexShader:
-        'attribute float aSize; attribute float aPhase; attribute vec3 aColor;'+
-        'uniform float uTime; uniform float uPR;'+
-        'varying vec3 vColor; varying float vTw;'+
-        'void main(){'+
-        '  vColor = aColor;'+
-        '  vTw = 0.45 + 0.55*sin(uTime*1.3 + aPhase);'+
-        '  vec4 mv = modelViewMatrix * vec4(position,1.0);'+
-        '  gl_PointSize = aSize * uPR * (320.0 / -mv.z);'+
-        '  gl_Position = projectionMatrix * mv;'+
-        '}',
-      fragmentShader:
-        'varying vec3 vColor; varying float vTw;'+
-        'void main(){'+
-        '  float d = length(gl_PointCoord - vec2(0.5));'+
-        '  float a = smoothstep(0.5, 0.0, d);'+
-        '  gl_FragColor = vec4(vColor, a*a*vTw);'+
-        '}'
-    });
-    scene.add(new THREE.Points(geo, mat));
-    var stars = scene.children[0];
-
-    function neb(color,x,y,z,s,op){
-      var m = new THREE.SpriteMaterial({map:softTex, color:new THREE.Color(color), transparent:true, opacity:op, blending:THREE.AdditiveBlending, depthWrite:false});
-      var sp = new THREE.Sprite(m); sp.position.set(x,y,z); sp.scale.set(s,s,1); scene.add(sp);
-    }
-    neb('#8b5c9f',  520, 240,-500, 1300, 0.22);
-    neb('#c9a87c', -520,-300,-440, 1150, 0.13);
-    neb('#7ab8d4',  160, 360,-560, 1000, 0.10);
-
-    function resize(){
-      var w = window.innerWidth, h = window.innerHeight;
-      renderer.setSize(w,h,false);
-      camera.aspect = w/h; camera.updateProjectionMatrix();
-    }
-    resize();
-
-    function update(t){
-      mat.uniforms.uTime.value = t;
-      stars.rotation.y = t*0.012;
-      stars.rotation.x = Math.sin(t*0.05)*0.04;
-      var sc = Math.min(window.scrollY || 0, 1800);
-      camera.position.x += (ptr.x*60 - camera.position.x)*0.04;
-      camera.position.y += (-ptr.y*40 + sc*0.025 - camera.position.y)*0.04;
-      camera.lookAt(0,0,-200);
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── HERO MEDALLION: 3D yantra + dosha planets ─────────── */
-  function initMed(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 7.4;
-
-    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    var l1 = new THREE.PointLight(0xffe6b8, 60, 60); l1.position.set(5,6,7); scene.add(l1);
-    var l2 = new THREE.PointLight(0x7ab8d4, 22, 60); l2.position.set(-6,-4,5); scene.add(l2);
-
-    var group = new THREE.Group(); scene.add(group);
-    var gold = new THREE.Color('#c9a87c');
-
-    // outer sacred-geometry shell
-    group.add(new THREE.LineSegments(
-      new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.35, 0)),
-      new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:0.22})
-    ));
-
-    // concentric yantra rings
-    var ringMat = new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:0.45, metalness:0.6, roughness:0.35});
-    var r1 = new THREE.Mesh(new THREE.TorusGeometry(1.85,0.016,10,140), ringMat); group.add(r1);
-    var r2 = new THREE.Mesh(new THREE.TorusGeometry(1.50,0.012,10,140), ringMat); r2.rotation.x = Math.PI/2.3; group.add(r2);
-    var r3 = new THREE.Mesh(new THREE.TorusGeometry(1.15,0.010,10,140), ringMat); r3.rotation.y = Math.PI/2.6; group.add(r3);
-
-    // interlocking triangles (shatkona)
-    function tri(radius, rot, color, op){
-      var pts = [];
-      for(var k=0;k<3;k++){ var a = rot + k*2*Math.PI/3; pts.push(new THREE.Vector3(Math.cos(a)*radius, Math.sin(a)*radius, 0)); }
-      pts.push(pts[0].clone());
-      return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
-        new THREE.LineBasicMaterial({color:new THREE.Color(color), transparent:true, opacity:op}));
-    }
-    group.add(tri(1.28,  Math.PI/2, '#c9a87c', 0.75));
-    group.add(tri(1.28, -Math.PI/2, '#b87a8a', 0.55));
-
-    // glowing core (behind the DOM ॐ)
-    var core = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: glowTex(128, [[0,'rgba(245,228,196,1)'],[0.3,'rgba(201,168,124,0.7)'],[1,'rgba(201,168,124,0)']]),
-      transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false }));
-    core.scale.set(2.2,2.2,1); group.add(core);
-
-    // dosha planets — each on its own tilted 3D orbit
-    var doshas = [
-      {c:'#7ab8d4', r:2.00, sp: 0.55, inc: 0.50, ph:0.0},  // Vata
-      {c:'#d4917a', r:1.62, sp:-0.80, inc:-0.90, ph:2.1},  // Pitta
-      {c:'#8bbd7a', r:2.45, sp: 0.38, inc: 1.35, ph:4.0}   // Kapha
-    ].map(function(d){
-      var holder = new THREE.Group(); holder.rotation.x = d.inc; holder.rotation.z = d.inc*0.4;
-      var planet = new THREE.Mesh(new THREE.SphereGeometry(0.08,24,24),
-        new THREE.MeshStandardMaterial({color:d.c, emissive:d.c, emissiveIntensity:1.6}));
-      var glow = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color(d.c), transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false}));
-      glow.scale.set(0.55,0.55,1); planet.add(glow);
-      holder.add(planet);
-      holder.add(new THREE.Mesh(new THREE.TorusGeometry(d.r,0.004,6,140),
-        new THREE.MeshBasicMaterial({color:new THREE.Color(d.c), transparent:true, opacity:0.16})));
-      group.add(holder);
-      return {d:d, planet:planet};
-    });
-
-    function resize(){
-      var w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
-      renderer.setSize(w,h,false);
-      camera.aspect = w/h; camera.updateProjectionMatrix();
-    }
-    resize();
-
-    function update(t){
-      group.rotation.y = t*0.18 + ptr.x*0.5;
-      group.rotation.x = Math.sin(t*0.25)*0.08 - ptr.y*0.4;
-      r2.rotation.z = t*0.30; r3.rotation.x = t*0.22;
-      var pulse = 2.2 * (1 + Math.sin(t*1.2)*0.06);
-      core.scale.set(pulse, pulse, 1);
-      doshas.forEach(function(o){
-        var a = t*o.d.sp + o.d.ph;
-        o.planet.position.set(Math.cos(a)*o.d.r, Math.sin(a)*o.d.r, 0);
-      });
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── BREATH: a sphere that inhales, holds, exhales ─────────── */
-  function initBreath(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100); camera.position.z = 6;
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    var p1 = new THREE.PointLight(0xffe6b8, 40, 40); p1.position.set(3,4,6); scene.add(p1);
-    var p2 = new THREE.PointLight(0x7ab8d4, 18, 40); p2.position.set(-4,-2,4); scene.add(p2);
-
-    var grp = new THREE.Group(); scene.add(grp);
-    var gold = new THREE.Color('#c9a87c');
-    var sphere = new THREE.Mesh(new THREE.IcosahedronGeometry(1.2, 5),
-      new THREE.MeshStandardMaterial({color:new THREE.Color('#e6cfa6'), emissive:gold, emissiveIntensity:0.5, metalness:0.3, roughness:0.4, transparent:true, opacity:0.92}));
-    grp.add(sphere);
-    grp.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.45, 1)),
-      new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:0.25})));
-
-    var AC = isMobile ? 220 : 480;
-    var ap = new Float32Array(AC*3);
-    for(var i=0;i<AC;i++){
-      var u=Math.random(), v=Math.random(), th=2*Math.PI*u, phi=Math.acos(2*v-1), rr=1.7+Math.random()*0.6;
-      ap[i*3]=rr*Math.sin(phi)*Math.cos(th); ap[i*3+1]=rr*Math.sin(phi)*Math.sin(th); ap[i*3+2]=rr*Math.cos(phi);
-    }
-    var ag = new THREE.BufferGeometry(); ag.setAttribute('position', new THREE.BufferAttribute(ap,3));
-    var am = new THREE.PointsMaterial({size:0.06, map:softTex, color:gold, transparent:true, opacity:0.7, blending:THREE.AdditiveBlending, depthWrite:false});
-    grp.add(new THREE.Points(ag, am));
-
-    var core = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color('#e6cfa6'), transparent:true, opacity:0.6, blending:THREE.AdditiveBlending, depthWrite:false}));
-    core.scale.set(3.4,3.4,1); grp.add(core);
-
-    function resize(){ var w=canvas.clientWidth||1, h=canvas.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
-    resize();
-
-    function smooth(x){ return x*x*(3-2*x); }
-    function breathScale(t){            // 11s cycle, matched to the CSS phase labels
-      var p = (t % 11) / 11;
-      if(p < 0.36) return 0.70 + 0.38*smooth(p/0.36);   // inhale
-      if(p < 0.50) return 1.08;                          // hold
-      if(p < 0.90) return 1.08 - 0.38*smooth((p-0.5)/0.4); // exhale
-      return 0.70;                                        // rest
-    }
-    function update(t){
-      var s = breathScale(t), lift = (s-0.70)/0.38;
-      grp.scale.setScalar(s);
-      grp.rotation.y = t*0.15; grp.rotation.x = Math.sin(t*0.2)*0.1;
-      sphere.material.emissiveIntensity = 0.35 + 0.45*lift;
-      core.material.opacity = 0.4 + 0.4*lift;
-      am.opacity = 0.5 + 0.3*lift;
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── TRIDOSHA: three spheres orbiting a central bindu ─────────── */
-  function initTrinity(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100); camera.position.z = 6.4;
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    var grp = new THREE.Group(); scene.add(grp);
-    var gold = new THREE.Color('#c9a87c'), R = 2.1;
-
-    var nodes = [
-      {c:'#7ab8d4', a:Math.PI/2},                  // Vata  (top)
-      {c:'#d4917a', a:Math.PI/2 - 2*Math.PI/3},    // Pitta (bottom-right)
-      {c:'#8bbd7a', a:Math.PI/2 + 2*Math.PI/3}     // Kapha (bottom-left)
-    ].map(function(n){
-      var x=Math.cos(n.a)*R, y=Math.sin(n.a)*R;
-      var sph = new THREE.Mesh(new THREE.SphereGeometry(0.22,28,28),
-        new THREE.MeshStandardMaterial({color:n.c, emissive:n.c, emissiveIntensity:1.1, roughness:0.4}));
-      sph.position.set(x,y,0);
-      var glow = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color(n.c), transparent:true, opacity:0.85, blending:THREE.AdditiveBlending, depthWrite:false}));
-      glow.scale.set(1.3,1.3,1); sph.add(glow);
-      grp.add(sph);
-      return {x:x, y:y, sph:sph, glow:glow};
-    });
-
-    var bindu = new THREE.Mesh(new THREE.SphereGeometry(0.12,20,20),
-      new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:1.3}));
-    grp.add(bindu);
-    var binduGlow = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color('#e6cfa6'), transparent:true, opacity:0.8, blending:THREE.AdditiveBlending, depthWrite:false}));
-    binduGlow.scale.set(1.1,1.1,1); grp.add(binduGlow);
-
-    function line(ax,ay,bx,by,op){
-      return new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(ax,ay,0), new THREE.Vector3(bx,by,0)]),
-        new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:op}));
-    }
-    nodes.forEach(function(nd){ grp.add(line(0,0,nd.x,nd.y,0.35)); });
-    for(var i=0;i<3;i++){ var a=nodes[i], b=nodes[(i+1)%3]; grp.add(line(a.x,a.y,b.x,b.y,0.18)); }
-
-    var spark = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color('#e6cfa6'), transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false}));
-    spark.scale.set(0.5,0.5,1); grp.add(spark);
-
-    // DOM labels that ride along with each dot (projected from 3D each frame)
-    var labels = [], proj = new THREE.Vector3();
-    var OFF = { '0':[0,-52], '1':[62,16], '2':[-62,16], 'c':[0,36] };
-    var host = canvas.closest('.trinity');
-    if(host){
-      host.querySelectorAll('.t-label').forEach(function(el){
-        var n = el.getAttribute('data-node');
-        labels.push({ el:el, obj:(n==='c' ? bindu : nodes[+n].sph), off:(OFF[n] || [0,0]) });
-      });
-    }
-
-    function resize(){ var w=canvas.clientWidth||1, h=canvas.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
-    resize();
-    function update(t){
-      grp.rotation.y = ptr.x*0.35 + Math.sin(t*0.15)*0.05;
-      grp.rotation.x = -ptr.y*0.30;
-      var bp = 1 + Math.sin(t*1.4)*0.12; binduGlow.scale.set(1.1*bp, 1.1*bp, 1);
-      nodes.forEach(function(nd,k){
-        nd.sph.position.z = Math.sin(t*0.9 + k*2)*0.12;
-        var gp = 1 + Math.sin(t*1.2 + k*2)*0.15; nd.glow.scale.set(1.3*gp, 1.3*gp, 1);
-      });
-      var seg = (t*0.25) % 3, i0 = Math.floor(seg), f = seg - i0, a = nodes[i0], b = nodes[(i0+1)%3];
-      spark.position.set(a.x+(b.x-a.x)*f, a.y+(b.y-a.y)*f, 0.05);
-      var cw = canvas.clientWidth, ch = canvas.clientHeight;
-      for(var li=0; li<labels.length; li++){
-        var L = labels[li];
-        L.obj.getWorldPosition(proj); proj.project(camera);
-        L.el.style.transform = 'translate(-50%,-50%) translate(' + ((proj.x*0.5+0.5)*cw + L.off[0]) + 'px,' + ((-proj.y*0.5+0.5)*ch + L.off[1]) + 'px)';
-      }
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── SCIENCE: a particle DNA double-helix ─────────── */
-  function initHelix(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100); camera.position.z = 9;
-    var grp = new THREE.Group(); grp.rotation.z = 0.2; scene.add(grp);
-
-    var TURNS=2.2, N=isMobile?80:140, HEIGHT=6, RAD=1.1;
-    var col1=new THREE.Color('#c9a87c'), col2=new THREE.Color('#7ab8d4');
-    var pos=new Float32Array(N*2*3), colr=new Float32Array(N*2*3);
-    for(var i=0;i<N;i++){
-      var f=i/(N-1), ang=f*TURNS*Math.PI*2, y=(f-0.5)*HEIGHT, j=N+i;
-      pos[i*3]=Math.cos(ang)*RAD; pos[i*3+1]=y; pos[i*3+2]=Math.sin(ang)*RAD;
-      colr[i*3]=col1.r; colr[i*3+1]=col1.g; colr[i*3+2]=col1.b;
-      pos[j*3]=Math.cos(ang+Math.PI)*RAD; pos[j*3+1]=y; pos[j*3+2]=Math.sin(ang+Math.PI)*RAD;
-      colr[j*3]=col2.r; colr[j*3+1]=col2.g; colr[j*3+2]=col2.b;
-    }
-    var g=new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(pos,3));
-    g.setAttribute('color', new THREE.BufferAttribute(colr,3));
-    grp.add(new THREE.Points(g, new THREE.PointsMaterial({size:0.2, map:softTex, vertexColors:true, transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false})));
-
-    var rung=[];
-    for(var k=0;k<N;k+=6){ var f2=k/(N-1), a2=f2*TURNS*Math.PI*2, yy=(f2-0.5)*HEIGHT;
-      rung.push(new THREE.Vector3(Math.cos(a2)*RAD, yy, Math.sin(a2)*RAD));
-      rung.push(new THREE.Vector3(Math.cos(a2+Math.PI)*RAD, yy, Math.sin(a2+Math.PI)*RAD));
-    }
-    grp.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(rung),
-      new THREE.LineBasicMaterial({color:col1, transparent:true, opacity:0.22})));
-
-    function resize(){ var w=canvas.clientWidth||1, h=canvas.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
-    resize();
-    function update(t){ grp.rotation.y = t*0.4; renderer.render(scene, camera); }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── 90-DAY ARC: a journey of light through the stations ───────────
-     Drawn in pixel space (orthographic) and aligned to the real DOM dots, so the
-     trail is the path the four waypoints sit on. A comet travels Day 1 → Month 3,
-     maturing from gold to Kapha-sage, flaring each station as it passes. */
-  function initArc(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.OrthographicCamera(0,1,0,1,-1000,1000); camera.position.z = 10;
-
-    var gold=new THREE.Color('#c9a87c'), goldLt=new THREE.Color('#e6cfa6'), sage=new THREE.Color('#8bbd7a');
-    var SAMP = 240, W=1, H=1, dotRowY=0, curve=null;
-
-    var stage = canvas.closest('.arc-stage');
-    var dotEls = stage ? Array.prototype.slice.call(stage.querySelectorAll('.arc-dot')) : [];
-
-    // stations — one soft glow behind each DOM dot (last one arrives in Kapha sage)
-    var stationCols = [gold, gold, gold, sage];
-    var stations = stationCols.map(function(c){
-      var s = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:c, transparent:true, opacity:0, blending:THREE.AdditiveBlending, depthWrite:false}));
-      scene.add(s);
-      return {s:s, x:0, y:0, size:60};
-    });
-
-    // base trail (rebuilt on layout), comet head + fading tail
-    var trailMat = new THREE.LineBasicMaterial({vertexColors:true, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending, depthWrite:false});
-    var trail = null;
-    var head = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:goldLt, transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false}));
-    scene.add(head);
-    var TAIL = isMobile ? 10 : 18, tail = [];
-    for(var ti=0; ti<TAIL; ti++){
-      var sp = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:gold, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending, depthWrite:false}));
-      scene.add(sp); tail.push(sp);
-    }
-
-    // drifting star-dust along the band
-    var DN = isMobile ? 70 : 150;
-    var dpos = new Float32Array(DN*3), dspd = new Float32Array(DN), dcol = new Float32Array(DN*3);
-    var dgeo = new THREE.BufferGeometry();
-    dgeo.setAttribute('position', new THREE.BufferAttribute(dpos,3));
-    dgeo.setAttribute('color', new THREE.BufferAttribute(dcol,3));
-    scene.add(new THREE.Points(dgeo, new THREE.PointsMaterial({size:7, map:softTex, vertexColors:true, sizeAttenuation:false, transparent:true, opacity:0.55, blending:THREE.AdditiveBlending, depthWrite:false})));
-
-    function layout(){
-      W = canvas.clientWidth||1; H = canvas.clientHeight||1;
-      camera.right = W; camera.bottom = H; camera.updateProjectionMatrix();
-      if(dotEls.length < 2) return;
-      var crect = canvas.getBoundingClientRect();
-      if(crect.width === 0) return;
-      var centers = dotEls.map(function(el){ var r=el.getBoundingClientRect(); return {x:r.left+r.width/2-crect.left, y:r.top+r.height/2-crect.top}; });
-      dotRowY = centers[0].y;
-      var seg = Math.abs(centers[1].x - centers[0].x) || W/4;
-      var bow = Math.min(24, seg*0.16);
-
-      // control points: pass through each dot, bow gently up between them
-      var cp = [];
-      for(var k=0;k<centers.length;k++){
-        cp.push(new THREE.Vector3(centers[k].x, centers[k].y, 0));
-        if(k < centers.length-1) cp.push(new THREE.Vector3((centers[k].x+centers[k+1].x)/2, (centers[k].y+centers[k+1].y)/2 - bow, 0));
-      }
-      curve = new THREE.CatmullRomCurve3(cp);
-
-      var sp = curve.getSpacedPoints(SAMP);
-      var tp = new Float32Array((SAMP+1)*3), tc = new Float32Array((SAMP+1)*3), tmp = new THREE.Color();
-      for(var s2=0;s2<=SAMP;s2++){
-        tp[s2*3]=sp[s2].x; tp[s2*3+1]=sp[s2].y; tp[s2*3+2]=0;
-        tmp.copy(gold).lerp(sage, s2/SAMP);
-        tc[s2*3]=tmp.r; tc[s2*3+1]=tmp.g; tc[s2*3+2]=tmp.b;
-      }
-      var tg = new THREE.BufferGeometry();
-      tg.setAttribute('position', new THREE.BufferAttribute(tp,3));
-      tg.setAttribute('color', new THREE.BufferAttribute(tc,3));
-      if(trail){ trail.geometry.dispose(); trail.geometry = tg; }
-      else { trail = new THREE.Line(tg, trailMat); scene.add(trail); }
-
-      stations.forEach(function(st,i){
-        st.x = centers[i].x; st.y = centers[i].y;
-        st.size = Math.max(52, Math.min(86, seg*0.5));
-        st.s.position.set(st.x, st.y, 0);
-      });
-
-      for(var di=0; di<DN; di++){
-        dpos[di*3]=Math.random()*W; dpos[di*3+1]=dotRowY + (Math.random()-0.5)*70; dpos[di*3+2]=0;
-        dspd[di]=10+Math.random()*26;
-        var dc = Math.random()<0.6 ? gold : (Math.random()<0.5 ? sage : goldLt);
-        dcol[di*3]=dc.r; dcol[di*3+1]=dc.g; dcol[di*3+2]=dc.b;
-      }
-      dgeo.attributes.position.needsUpdate = true; dgeo.attributes.color.needsUpdate = true;
-    }
-
-    function resize(){ renderer.setSize(canvas.clientWidth||1, canvas.clientHeight||1, false); layout(); }
-    resize();
-
-    var hp = new THREE.Vector3(), P = new THREE.Vector3();
-    function update(t){
-      if(!curve) return;
-      var p = (t*0.09) % 1;                       // ~11s journey, looping
-      curve.getPointAt(p, hp);
-      head.position.set(hp.x, hp.y, 0.2);
-      var hb = 1 + Math.sin(t*6)*0.12; head.scale.set(32*hb, 32*hb, 1);
-
-      for(var i=0;i<TAIL;i++){
-        var tp2 = p - (i+1)*0.011; if(tp2<0) tp2+=1;
-        curve.getPointAt(tp2, P);
-        var fade = 1 - i/TAIL, s = tail[i];
-        s.position.set(P.x, P.y, 0.1);
-        s.material.opacity = 0.55*fade*fade;
-        s.material.color.copy(gold).lerp(sage, p);
-        s.scale.set(26*fade, 26*fade, 1);
-      }
-
-      stations.forEach(function(st){
-        var dx=st.x-hp.x, dy=st.y-hp.y, d=Math.sqrt(dx*dx+dy*dy);
-        var near = Math.max(0, 1 - d/130);
-        st.s.material.opacity = 0.32 + 0.18*Math.sin(t*1.5 + st.x*0.01) + near*0.85;
-        var sc = st.size*(1 + near*0.4);
-        st.s.scale.set(sc, sc, 1);
-      });
-
-      for(var di=0; di<DN; di++){ dpos[di*3]+=dspd[di]*0.02; if(dpos[di*3]>W) dpos[di*3]-=W; }
-      dgeo.attributes.position.needsUpdate = true;
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── IDA & PINGALA: a caduceus winding around Sushumna ─────────── */
-  function initNadi(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
-    renderer.setPixelRatio(PR);
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100); camera.position.z = 8.5;
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    var pl = new THREE.PointLight(0xffe6b8, 30, 40); pl.position.set(3,2,6); scene.add(pl);
-
-    var grp = new THREE.Group(); scene.add(grp);
-    var gold = new THREE.Color('#c9a87c'), vata = new THREE.Color('#7ab8d4'), pitta = new THREE.Color('#d4917a');
-    var H = 6, r = 0.72, turns = 3;
-
-    // a point on a channel — sign flips the phase by π so the two strands sit opposite
-    function pt(u, sign){
-      var phase = u*Math.PI*2*turns + (sign>0 ? 0 : Math.PI);
-      return new THREE.Vector3(Math.cos(phase)*r, (u-0.5)*H, Math.sin(phase)*r);
-    }
-
-    // Sushumna — the central channel
-    grp.add(new THREE.Line(
-      new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,-H/2,0), new THREE.Vector3(0,H/2,0)]),
-      new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:0.5})));
-
-    // Ida (cool, left) & Pingala (warm, right) strands
-    function strand(sign, color){
-      var p = []; for(var u=0; u<=1.0001; u+=1/160){ p.push(pt(u, sign)); }
-      return new THREE.Line(new THREE.BufferGeometry().setFromPoints(p),
-        new THREE.LineBasicMaterial({color:color, transparent:true, opacity:0.45}));
-    }
-    grp.add(strand(1, vata)); grp.add(strand(-1, pitta));
-
-    // breath flowing through each channel — Ida rises, Pingala descends
-    function flow(sign, color, dir, count){
-      var us = new Float32Array(count), pos = new Float32Array(count*3);
-      for(var i=0;i<count;i++){ us[i] = Math.random(); }
-      var g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos,3));
-      grp.add(new THREE.Points(g, new THREE.PointsMaterial({size:0.16, map:softTex, color:color, transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false})));
-      return { us:us, pos:pos, g:g, sign:sign, dir:dir };
-    }
-    var CN = isMobile ? 22 : 40;
-    var flows = [ flow(1, vata, 1, CN), flow(-1, pitta, -1, CN) ];
-
-    // chakras at the crossing points of the two channels
-    var chak = [];
-    for(var k=0;k<6;k++){
-      var phase = Math.PI/2 + k*Math.PI, u = phase/(Math.PI*2*turns), y = (u-0.5)*H;
-      var s = new THREE.Mesh(new THREE.SphereGeometry(0.12,20,20),
-        new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:1.2}));
-      s.position.set(0, y, 0);
-      var gl = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color('#e6cfa6'), transparent:true, opacity:0.85, blending:THREE.AdditiveBlending, depthWrite:false}));
-      gl.scale.set(0.7,0.7,1); s.add(gl);
-      grp.add(s); chak.push({s:s, gl:gl, ph:k*0.45});
-    }
-
-    function resize(){ var w=canvas.clientWidth||1, h=canvas.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
-    resize();
-
-    function update(t){
-      grp.rotation.y = t*0.25 + ptr.x*0.4;
-      grp.rotation.x = -ptr.y*0.15;
-      flows.forEach(function(fl){
-        for(var i=0;i<fl.us.length;i++){
-          fl.us[i] += fl.dir*0.0016;
-          if(fl.us[i] > 1) fl.us[i] -= 1; else if(fl.us[i] < 0) fl.us[i] += 1;
-          var v = pt(fl.us[i], fl.sign);
-          fl.pos[i*3]=v.x; fl.pos[i*3+1]=v.y; fl.pos[i*3+2]=v.z;
-        }
-        fl.g.attributes.position.needsUpdate = true;
-      });
-      chak.forEach(function(c){
-        var w = Math.sin(t*1.8 + c.ph*Math.PI);
-        c.gl.scale.set(0.7*(1+w*0.4), 0.7*(1+w*0.4), 1);
-        c.s.material.emissiveIntensity = 0.9 + 0.6*Math.max(0, w);
-      });
-      renderer.render(scene, camera);
-    }
-    return {update:update, resize:resize};
-  }
-
-  /* ─────────── boot & shared render loop ─────────── */
-  var scenes = [], resizers = [];
-
-  function register(initFn, canvasId, opts){
-    opts = opts || {};
-    var canvas = document.getElementById(canvasId);
-    if(!canvas) return;
-    var s;
-    try { s = initFn(canvas); }
-    catch(e){ return; }                       // leave the CSS/SVG fallback in place
-    var entry = { s:s, visible:true };
-    scenes.push(entry); resizers.push(s.resize);
-    if(opts.onReady) opts.onReady(canvas);
-    if(opts.observe){                          // pause when its section is off-screen
-      entry.visible = false;
-      var target = canvas.closest(opts.observe) || canvas;
-      new IntersectionObserver(function(es){ entry.visible = es[0].isIntersecting; if(entry.visible){ try{ s.resize(); }catch(e){} } }, {threshold:0.02}).observe(target);
-    }
-  }
-
-  register(initBG,      'bgCanvas',      { onReady:function(){ document.body.classList.add('webgl'); } });
-  register(initMed,     'medCanvas',     { observe:'.medallion', onReady:function(c){ c.closest('.medallion').classList.add('has-3d'); } });
-  register(initBreath,  'breathCanvas',  { observe:'.breath' });
-  register(initTrinity, 'trinityCanvas', { observe:'.trinity',  onReady:function(c){ c.closest('.trinity').classList.add('has-3d'); } });
-  register(initHelix,   'helixCanvas',   { observe:'.science' });
-  register(initNadi,    'nadiCanvas',    { observe:'.modes', onReady:function(c){ c.closest('.nadi-vis').classList.add('has-3d'); } });
-
-  if(!scenes.length) return;
-
-  var rt;
-  window.addEventListener('resize', function(){
-    clearTimeout(rt);
-    rt = setTimeout(function(){ resizers.forEach(function(fn){ fn(); }); }, 150);
-  }, {passive:true});
-
-  var clock = new THREE.Clock();
-  var running = true, raf = 0;
-
-  function render(){
-    ptr.x += (ptr.tx - ptr.x)*0.05;
-    ptr.y += (ptr.ty - ptr.y)*0.05;
-    var t = clock.getElapsedTime();
-    for(var i=0;i<scenes.length;i++){ if(scenes[i].visible) scenes[i].s.update(t); }
-  }
-  function loop(){ if(!running) return; render(); raf = requestAnimationFrame(loop); }
-
-  document.addEventListener('visibilitychange', function(){
-    running = !document.hidden;
-    if(!running){ cancelAnimationFrame(raf); return; }
-    if(reduce) render(); else loop();
-  });
-
-  if(reduce){                                  // one still frame for every scene
-    scenes.forEach(function(e){ e.visible = true; });
-    render();
-  } else loop();
 })();
 </script>
 
