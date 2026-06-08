@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js">
-<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;600&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap"></noscript>
 <style>
 
 /* ═══════════════════════════════════════════════════════════
@@ -1986,43 +1986,7 @@ window.addEventListener('load', function() {
 
   /* ─────────── boot & shared render loop ─────────── */
   var scenes = [], resizers = [];
-
-  function register(initFn, canvasId, opts){
-    opts = opts || {};
-    var canvas = document.getElementById(canvasId);
-    if(!canvas) return;
-    var s;
-    try { s = initFn(canvas); }
-    catch(e){ return; }                       // leave the CSS/SVG fallback in place
-    var entry = { s:s, visible:true };
-    scenes.push(entry); resizers.push(s.resize);
-    if(opts.onReady) opts.onReady(canvas);
-    if(opts.observe){                          // pause when its section is off-screen
-      entry.visible = false;
-      var target = canvas.closest(opts.observe) || canvas;
-      new IntersectionObserver(function(es){ entry.visible = es[0].isIntersecting; if(entry.visible){ try{ s.resize(); }catch(e){} } }, {threshold:0.02}).observe(target);
-    }
-  }
-
-  register(initBG,      'bgCanvas',      { onReady:function(){ document.body.classList.add('webgl'); } });
-  register(initMed,     'medCanvas',     { observe:'.medallion', onReady:function(c){ c.closest('.medallion').classList.add('has-3d'); } });
-  register(initBreath,  'breathCanvas',  { observe:'.breath' });
-  register(initTrinity, 'trinityCanvas', { observe:'.trinity',  onReady:function(c){ c.closest('.trinity').classList.add('has-3d'); } });
-  register(initHelix,   'helixCanvas',   { observe:'.science' });
-  register(initNadi,    'nadiCanvas',    { observe:'.modes', onReady:function(c){ c.closest('.nadi-vis').classList.add('has-3d'); } });
-  register(initJourney, 'journeyCanvas', { observe:'.arc' });
-  register(initScroll,  'scrollCanvas',  { observe:'.hero' });
-
-  if(!scenes.length) return;
-
-  var rt;
-  window.addEventListener('resize', function(){
-    clearTimeout(rt);
-    rt = setTimeout(function(){ resizers.forEach(function(fn){ fn(); }); }, 150);
-  }, {passive:true});
-
-  var clock = new THREE.Clock();
-  var running = true, raf = 0;
+  var clock = new THREE.Clock(), running = true, raf = 0, rt;
 
   function render(){
     ptr.x += (ptr.tx - ptr.x)*0.05;
@@ -2031,17 +1995,49 @@ window.addEventListener('load', function() {
     for(var i=0;i<scenes.length;i++){ if(scenes[i].visible) scenes[i].s.update(t); }
   }
   function loop(){ if(!running) return; render(); raf = requestAnimationFrame(loop); }
-
   document.addEventListener('visibilitychange', function(){
     running = !document.hidden;
     if(!running){ cancelAnimationFrame(raf); return; }
     if(reduce) render(); else loop();
   });
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ resizers.forEach(function(fn){ fn(); }); }, 150);
+  }, {passive:true});
 
-  if(reduce){                                  // one still frame for every scene
-    scenes.forEach(function(e){ e.visible = true; });
-    render();
-  } else loop();
+  // init one scene per task — each task stays ≤ ~80 ms, eliminating the long-task TBT hit
+  var queue = [
+    [initBG,      'bgCanvas',      null,         function(){ document.body.classList.add('webgl'); }],
+    [initMed,     'medCanvas',     '.medallion', function(c){ c.closest('.medallion').classList.add('has-3d'); }],
+    [initBreath,  'breathCanvas',  '.breath',    null],
+    [initTrinity, 'trinityCanvas', '.trinity',   function(c){ c.closest('.trinity').classList.add('has-3d'); }],
+    [initHelix,   'helixCanvas',   '.science',   null],
+    [initNadi,    'nadiCanvas',    '.modes',     function(c){ c.closest('.nadi-vis').classList.add('has-3d'); }],
+    [initJourney, 'journeyCanvas', '.arc',       null],
+    [initScroll,  'scrollCanvas',  '.hero',      null]
+  ];
+  var loopStarted = false;
+
+  function processNext(){
+    if(!queue.length){ if(reduce){ scenes.forEach(function(e){e.visible=true;}); render(); } return; }
+    var item=queue.shift(), fn=item[0], id=item[1], obs=item[2], onReady=item[3];
+    var canvas=document.getElementById(id);
+    if(canvas){
+      var s; try{ s=fn(canvas); }catch(e){}
+      if(s){
+        var entry={s:s, visible:!obs};
+        scenes.push(entry); resizers.push(s.resize);
+        if(onReady) onReady(canvas);
+        if(obs){
+          var target=canvas.closest(obs)||canvas;
+          new IntersectionObserver(function(es){ entry.visible=es[0].isIntersecting; if(entry.visible){try{s.resize();}catch(e){}} },{threshold:0.02}).observe(target);
+        }
+        if(!loopStarted && !reduce){ loopStarted=true; loop(); }
+      }
+    }
+    setTimeout(processNext, 0);
+  }
+  processNext();
 })();
   }); // end import
 }); // end load
