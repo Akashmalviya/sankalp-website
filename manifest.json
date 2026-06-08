@@ -1,0 +1,13 @@
+{
+  "name": "Sankalp — Yoga, Meditation & Ayurveda for Natural Healing",
+  "short_name": "Sankalp",
+  "description": "Heal naturally through yogic science and modern science. A personalized daily practice based on your Ayurvedic constitution (Prakriti).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0618",
+  "theme_color": "#0f0618",
+  "icons": [
+    { "src": "/images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

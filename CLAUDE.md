@@ -44,12 +44,16 @@ Implications:
 
 ## Adding a new blog post
 
-A new post requires changes in **two** places:
+A new post requires changes in **three** places (and one more if you want it indexed):
 
-1. Create `blog/<slug>.html`. Copy an existing post (e.g. `blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html`) as the template — it carries the nav, hero, article structure, color tokens, and mobile breakpoint already wired with the correct `../` paths.
-2. Add a new `<a class="blog-card">` inside the `.blog-grid` in `index.html`. There is a `<!-- ADD MORE BLOG CARDS HERE -->` marker right after the last card (around line 1264) — insert above it. Each card needs: `href`, a `<span class="blog-tag">`, `<h3>`, `<p>` description, and a "Read More →" span.
+1. Create `blog/<slug>.html`. Copy an existing post (e.g. `blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html`) as the template — it carries the nav, hero, article structure, color tokens, and mobile breakpoint already wired with the correct `../` paths. Update the head SEO block: `<title>`, `<meta description>`, `canonical`, OG/Twitter tags, and the JSON-LD (`BlogPosting` + `BreadcrumbList`; add `FAQPage`/`HowTo` if the post has a visible FAQ or step list). The shared social image is `https://sankalphealth.in/images/og-default.png`; the nav "All Articles" back-link points to `index.html` (the `/blog/` hub).
+2. Add a new `<a class="bcard">` inside the `.blog-grid` in `index.html` (newest first, just after `<div class="blog-grid">`; a `<!-- ADD MORE BLOG CARDS HERE -->` marker also sits after the last card). Each card needs: `href`, a `<span class="tag">`, `<h3>`, `<p>` description, and a "Read More →" span.
+3. Add a matching `<a class="hcard">` to the `.hubgrid` in `blog/index.html` (the crawlable blog hub) — newest first.
+4. Add the post URL to `sitemap.xml` (priority `0.7`) so search engines discover it.
 
-If you only do step 1, the post exists but is unreachable from the homepage.
+If you skip step 2 or 3 the post still works but is unreachable from the site's navigation; skip step 4 and it won't be in the sitemap.
+
+> OG/Twitter share images use `images/og-default.png` (1200×630). It was rendered from an HTML template via headless Chrome — there is no committed source file, so regenerate from scratch if the brand changes. `apple-touch-icon.png`, `manifest.json`, and `theme-color` are wired into every page's `<head>`.
 
 ## Prakriti assessment
 
