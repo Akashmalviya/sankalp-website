@@ -26,7 +26,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js">
 <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap"></noscript>
 <style>
@@ -195,10 +194,10 @@ section{position:relative;z-index:2}
   display:flex;align-items:center;justify-content:center;animation:medIn 1.5s var(--ease) both}
 @keyframes medIn{0%{opacity:0;transform:scale(.55) translateY(24px)}100%{opacity:1;transform:none}}
 
-.med-aura{position:absolute;inset:-20%;border-radius:50%;filter:blur(6px);
-  background:radial-gradient(circle,rgba(201,168,124,.24),rgba(139,92,159,.08) 46%,transparent 70%);
-  animation:medBreath 11s ease-in-out infinite}
-@keyframes medBreath{0%,100%{transform:scale(.9);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+.med-aura{position:absolute;inset:-20%;border-radius:50%;filter:blur(8px);
+  background:radial-gradient(circle,rgba(255,230,170,.38) 0%,rgba(201,168,124,.20) 28%,rgba(139,92,159,.10) 52%,transparent 72%);
+  animation:medBreath 9s ease-in-out infinite}
+@keyframes medBreath{0%,100%{transform:scale(.88);opacity:.72}50%{transform:scale(1.12);opacity:1}}
 
 .med-halo{position:absolute;inset:-3%;border-radius:50%;
   background:conic-gradient(from 0deg,transparent 0deg,rgba(201,168,124,.6) 38deg,transparent 105deg,rgba(122,184,212,.35) 195deg,transparent 250deg,rgba(212,145,122,.32) 320deg,transparent 360deg);
@@ -214,27 +213,22 @@ section{position:relative;z-index:2}
 .l-petal-outer{fill:rgba(201,168,124,.06);stroke:rgba(201,168,124,.34);stroke-width:.7;opacity:0;animation:petalIn .8s var(--ease) forwards}
 .l-petal-mid{fill:rgba(201,168,124,.10);stroke:rgba(201,168,124,.52);stroke-width:.75;opacity:0;animation:petalIn .7s var(--ease) forwards}
 .l-petal-inner{fill:rgba(201,168,124,.16);stroke:rgba(201,168,124,.70);stroke-width:.9;opacity:0;animation:petalIn .55s var(--ease) forwards}
-.lotus-bindu{fill:rgba(201,168,124,.18);stroke:rgba(201,168,124,.6);stroke-width:1.2;animation:binduGlow 6s ease-in-out 3.2s infinite}
+.lotus-bindu{fill:rgba(255,235,190,.55);stroke:rgba(201,168,124,.9);stroke-width:1.4;r:34px;animation:binduGlow 5s ease-in-out infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes petalIn{to{opacity:1}}
-@keyframes binduGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(201,168,124,.55))}50%{filter:drop-shadow(0 0 22px rgba(201,168,124,1))}}
-.med-om{position:absolute;top:50%;left:50%;z-index:2;pointer-events:none;
-  font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(34px,4.4vw,50px);color:var(--gold-lt);line-height:1;
-  transform:translate(-50%,-50%) scale(.3);opacity:0;
-  animation:omIgnite 1s var(--ease) 0.5s both,omGlow 11s ease-in-out 1.5s infinite}
-@keyframes omIgnite{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.16)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-@keyframes omGlow{0%,100%{filter:drop-shadow(0 0 12px rgba(201,168,124,.55))}50%{filter:drop-shadow(0 0 22px rgba(201,168,124,.95))}}
+@keyframes binduGlow{0%,100%{filter:drop-shadow(0 0 14px rgba(201,168,124,.7)) drop-shadow(0 0 40px rgba(201,168,124,.35))}50%{filter:drop-shadow(0 0 28px rgba(255,220,150,1)) drop-shadow(0 0 80px rgba(201,168,124,.6))}}
 @keyframes fadeIn{to{opacity:1}}
 
 /* ── orbiting dosha planets ── */
-.orbit{position:absolute;border:1px solid rgba(201,168,124,.1);border-radius:50%;animation:spin linear infinite}
-.orbit-v{inset:4%;animation-duration:17s}
-.orbit-p{inset:15%;animation-duration:12s;animation-direction:reverse}
-.orbit-k{inset:-9%;animation-duration:25s}
-.planet{position:absolute;top:-5px;left:50%;width:9px;height:9px;border-radius:50%;transform:translateX(-50%)}
-.planet.v{background:var(--vata);box-shadow:0 0 10px 2px rgba(122,184,212,.85)}
-.planet.p{background:var(--pitta);box-shadow:0 0 10px 2px rgba(212,145,122,.85)}
-.planet.k{background:var(--kapha);box-shadow:0 0 10px 2px rgba(139,189,122,.85)}
+.orbit{position:absolute;border-radius:50%;animation:spin linear infinite}
+.orbit-v{inset:-10%;border:1px solid rgba(122,184,212,.20);animation-duration:17s}
+.orbit-p{inset:8%;border:1px solid rgba(212,145,122,.18);animation-duration:12s;animation-direction:reverse}
+.orbit-k{inset:22%;border:1px solid rgba(139,189,122,.16);animation-duration:25s}
+.planet{position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;transform:translateX(-50%)}
+.planet.v{background:var(--vata);box-shadow:0 0 14px 4px rgba(122,184,212,.90)}
+.planet.p{background:var(--pitta);box-shadow:0 0 14px 4px rgba(212,145,122,.90)}
+.planet.k{background:var(--kapha);box-shadow:0 0 14px 4px rgba(139,189,122,.90)}
+.medallion.has-3d .orbit{display:none}
 
 /* ── hero text (clean, fully readable) ── */
 .hero-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
@@ -332,18 +326,26 @@ section{position:relative;z-index:2}
 
 .trinity{position:relative;display:flex;align-items:center;justify-content:center}
 .trinity svg{width:100%;max-width:420px;height:auto;overflow:visible}
-.tri-edge{stroke:var(--gold30);stroke-width:1;fill:none;stroke-dasharray:680;stroke-dashoffset:680}
+.tri-edge{stroke:rgba(201,168,124,.35);stroke-width:1.2;fill:none;stroke-dasharray:680;stroke-dashoffset:680}
 .in.tri-edge,.trinity.in .tri-edge{animation:draw 2s var(--ease) forwards}
+/* coloured edge overlays — drawn after the base polygon */
+.tri-edge-v{stroke:var(--vata);stroke-width:1;fill:none;opacity:.40}
+.tri-edge-p{stroke:var(--pitta);stroke-width:1;fill:none;opacity:.35}
+.tri-edge-k{stroke:var(--kapha);stroke-width:1;fill:none;opacity:.30}
 .tri-node{transition:transform .4s var(--ease)}
+.tri-node.v{filter:drop-shadow(0 0 14px rgba(122,184,212,.55))}
+.tri-node.p{filter:drop-shadow(0 0 14px rgba(212,145,122,.55))}
+.tri-node.k{filter:drop-shadow(0 0 14px rgba(139,189,122,.55))}
 .tri-node circle.halo{animation:nodepulse 3.4s ease-in-out infinite}
 .tri-node.v circle.halo{animation-delay:0s}.tri-node.p circle.halo{animation-delay:1.1s}.tri-node.k circle.halo{animation-delay:2.2s}
-@keyframes nodepulse{0%,100%{opacity:.18;transform:scale(1);transform-box:fill-box;transform-origin:center}50%{opacity:.05;transform:scale(1.55)}}
+@keyframes nodepulse{0%,100%{opacity:.22;transform:scale(1);transform-box:fill-box;transform-origin:center}50%{opacity:.06;transform:scale(1.65)}}
 .tri-node text{font-family:'Noto Sans Devanagari',sans-serif;text-anchor:middle;font-weight:500}
 .tri-node .en{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase}
-.tri-trav{fill:var(--gold-lt);filter:drop-shadow(0 0 8px rgba(201,168,124,.9));offset-path:path('M210 54 L372 336 L48 336 Z');animation:travel 8s linear infinite}
+.tri-trav{fill:var(--gold-lt);r:5px;filter:drop-shadow(0 0 12px rgba(201,168,124,1)) drop-shadow(0 0 4px #fff);offset-path:path('M210 54 L372 336 L48 336 Z');animation:travel 8s linear infinite}
 @keyframes travel{to{offset-distance:100%}}
-.tri-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;fill:var(--gold60);text-anchor:middle;text-transform:uppercase}
-.tri-bindu{fill:var(--gold);animation:binduGlow 4s ease-in-out infinite}
+.tri-center{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;fill:var(--gold);text-anchor:middle;text-transform:uppercase}
+.tri-bindu{fill:rgba(255,230,160,.9);r:7px;filter:drop-shadow(0 0 10px rgba(201,168,124,.8)) drop-shadow(0 0 24px rgba(201,168,124,.4));animation:binduGlow 4s ease-in-out infinite}
+.tri-center-glow{fill:rgba(201,168,124,.06);animation:binduGlow 4s ease-in-out 2s infinite}
 
 .dosha-list{display:flex;flex-direction:column;gap:16px}
 .dc{border-radius:14px;padding:24px 26px;border:1px solid;position:relative;overflow:hidden;cursor:default;transition:transform .4s var(--ease),border-color .4s}
@@ -602,18 +604,60 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .nav-links{display:none}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(13,5,21,.98);padding:22px;gap:18px;border-bottom:1px solid var(--gold15)}
   .nav-toggle{display:block}
+
+  /* ── Hero ── */
+  .hero{padding:88px 22px 60px}
+  .hero-stack{gap:28px}
+  .hero-kick{font-size:9px;letter-spacing:3px;white-space:normal;line-height:1.6}
+  .hero-dev{font-size:15px;letter-spacing:3px}
+  .hero-tag{font-size:18px}
+  .hero-sub{font-size:16px;line-height:1.65;margin:0 0 26px}
+  .hero-ctas{flex-direction:column;gap:12px}
+  .hero-ctas .btn{width:100%;justify-content:center}
+
+  /* ── Medallion CSS fallback: hide petals, keep rings + centre glow ── */
+  .medallion{width:clamp(160px,52vw,220px);height:clamp(160px,52vw,220px)}
+  .lotus-outer-g,.lotus-mid-g,.lotus-inner-g{display:none}
+  .lotus-guide{stroke:rgba(201,168,124,.28);stroke-width:1}
+  .med-aura{filter:blur(8px)}
+  .lotus-bindu{r:40px;fill:rgba(255,235,190,.65);stroke:rgba(255,215,140,.95)}
+
+  /* ── Stats ── */
+  .stats{padding:36px 0}
   .stats-grid{grid-template-columns:1fr 1fr;gap:34px 24px}
   .stat:nth-child(2)::after{display:none}
+
+  /* ── Section padding ── */
+  .modes,.steps,.dosha,.science,.vaidya,.arc,.voices,.blog-section{padding:76px 0}
+
+  /* ── Steps ── */
   .steps-row{grid-template-columns:1fr;gap:40px}
   .step-arrow{display:none}
+  .steps-sub{margin-bottom:50px}
+
+  /* ── Mode cards ── */
+  .mode-card{padding:18px 20px}
+
+  /* ── Arc/journey ── */
   .arc-line{grid-template-columns:1fr 1fr;gap:40px 0}
   .arc-line::before,.arc-line::after{display:none}
+
+  /* ── Science ── */
   .sci-grid{grid-template-columns:1fr}
+
   section{padding-left:0;padding-right:0}
 }
 @media(max-width:480px){
   .stat:not(:last-child)::after{display:none}
   .voice-q{display:none}
+
+  /* ── Even tighter on very small screens ── */
+  .hero{padding:80px 18px 52px}
+  .hero-kick{font-size:8px;letter-spacing:2px}
+  .hero-title{letter-spacing:6px}
+  .hero-tag{font-size:17px}
+  .hero-sub{font-size:15px}
+  .medallion{width:clamp(150px,55vw,200px);height:clamp(150px,55vw,200px)}
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -729,6 +773,10 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     <div class="medallion">
       <div class="med-aura"></div>
       <div class="med-halo"></div>
+      <!-- Dosha orbit rings (CSS fallback; hidden when Three.js boots) -->
+      <div class="orbit orbit-v"><div class="planet v"></div></div>
+      <div class="orbit orbit-p"><div class="planet p"></div></div>
+      <div class="orbit orbit-k"><div class="planet k"></div></div>
       <canvas class="med-canvas" id="medCanvas" aria-hidden="true"></canvas>
       <!-- SVG yantra below stays as a no-WebGL fallback (hidden once 3D boots) -->
       <svg class="med-yantra" viewBox="0 0 400 400" aria-hidden="true">
@@ -743,7 +791,6 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
         <!-- Central bindu -->
         <circle class="lotus-bindu" cx="200" cy="200" r="26"/>
       </svg>
-      <div class="med-om">&#2384;</div>
     </div>
   </div>
 
@@ -863,9 +910,15 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
           <span class="t-label you" data-node="c">You</span>
         </div>
         <svg viewBox="0 0 420 380" aria-hidden="true">
+          <!-- base outline -->
           <polygon class="tri-edge" points="210,54 372,336 48,336"/>
-          <polygon class="tri-edge" points="210,300 90,108 330,108" style="stroke:rgba(201,168,124,.12)"/>
-          <!-- center -->
+          <polygon class="tri-edge" points="210,300 90,108 330,108" style="stroke:rgba(201,168,124,.16)"/>
+          <!-- coloured edges: V-K left, V-P right, K-P bottom -->
+          <line class="tri-edge-v" x1="210" y1="54"  x2="48"  y2="336"/>
+          <line class="tri-edge-p" x1="210" y1="54"  x2="372" y2="336"/>
+          <line class="tri-edge-k" x1="48"  y1="336" x2="372" y2="336"/>
+          <!-- centre glow + bindu -->
+          <circle class="tri-center-glow" cx="210" cy="242" r="32"/>
           <circle class="tri-bindu" cx="210" cy="242" r="4"/>
           <text class="tri-center" x="210" y="270">YOU</text>
           <!-- traveling spark -->
@@ -1343,7 +1396,9 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 ═══════════════════════════════════════════════════════════ -->
 <script>
 window.addEventListener('load', function() {
-  import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js').then(function(mod) {
+  if (window.innerWidth < 760) return;
+  var load = function() {
+    import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js').then(function(mod) {
     var THREE = mod;
 
 (function(){
@@ -1452,7 +1507,7 @@ window.addEventListener('load', function() {
     return {update:update, resize:resize};
   }
 
-  /* ─────────── HERO MEDALLION: 3D yantra + dosha planets ─────────── */
+  /* ─────────── HERO MEDALLION: rings + shatkona + centre glow + planets ─────────── */
   function initMed(canvas){
     var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
     renderer.setPixelRatio(PR);
@@ -1467,70 +1522,86 @@ window.addEventListener('load', function() {
     var group = new THREE.Group(); scene.add(group);
     var gold = new THREE.Color('#c9a87c');
 
-    // outer sacred-geometry shell
-    group.add(new THREE.LineSegments(
-      new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.35, 0)),
-      new THREE.LineBasicMaterial({color:gold, transparent:true, opacity:0.22})
-    ));
-
-    // concentric yantra rings
-    var ringMat = new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:0.45, metalness:0.6, roughness:0.35});
-    var r1 = new THREE.Mesh(new THREE.TorusGeometry(1.85,0.016,10,140), ringMat); group.add(r1);
-    var r2 = new THREE.Mesh(new THREE.TorusGeometry(1.50,0.012,10,140), ringMat); r2.rotation.x = Math.PI/2.3; group.add(r2);
-    var r3 = new THREE.Mesh(new THREE.TorusGeometry(1.15,0.010,10,140), ringMat); r3.rotation.y = Math.PI/2.6; group.add(r3);
-
-    // interlocking triangles (shatkona)
     function tri(radius, rot, color, op){
-      var pts = [];
-      for(var k=0;k<3;k++){ var a = rot + k*2*Math.PI/3; pts.push(new THREE.Vector3(Math.cos(a)*radius, Math.sin(a)*radius, 0)); }
+      var pts = [], k;
+      for(k=0;k<3;k++){
+        var a = rot + k*2*Math.PI/3;
+        pts.push(new THREE.Vector3(Math.cos(a)*radius, Math.sin(a)*radius, 0));
+      }
       pts.push(pts[0].clone());
       return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
         new THREE.LineBasicMaterial({color:new THREE.Color(color), transparent:true, opacity:op}));
     }
+
+    /* ── concentric rings ── */
+    var ringMat = new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:0.45, metalness:0.6, roughness:0.35});
+    var r1 = new THREE.Mesh(new THREE.TorusGeometry(1.85,0.018,10,140), ringMat); group.add(r1);
+    var r2 = new THREE.Mesh(new THREE.TorusGeometry(1.50,0.013,10,140), ringMat); r2.rotation.x = Math.PI/2.3; group.add(r2);
+    var r3 = new THREE.Mesh(new THREE.TorusGeometry(1.15,0.011,10,140), ringMat); r3.rotation.y = Math.PI/2.6; group.add(r3);
+
+    /* ── shatkona: one upward (gold) + one downward (rose) ── */
     group.add(tri(1.28,  Math.PI/2, '#c9a87c', 0.75));
     group.add(tri(1.28, -Math.PI/2, '#b87a8a', 0.55));
 
-    // glowing core (behind the DOM ॐ)
-    var core = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: glowTex(128, [[0,'rgba(245,228,196,1)'],[0.3,'rgba(201,168,124,0.7)'],[1,'rgba(201,168,124,0)']]),
-      transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false }));
-    core.scale.set(2.2,2.2,1); group.add(core);
+    /* ── centre glow: bright bindu sphere + breathing aura ── */
+    var bindu = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 16, 16),
+      new THREE.MeshStandardMaterial({color:'#fff8e8', emissive:'#ffe8b0', emissiveIntensity:4.0})
+    );
+    group.add(bindu);
 
-    // dosha planets — each on its own tilted 3D orbit
+    var aura = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: glowTex(128, [[0,'rgba(255,235,170,1)'],[0.35,'rgba(201,168,124,0.55)'],[1,'rgba(0,0,0,0)']]),
+      transparent:true, opacity:0.88, blending:THREE.AdditiveBlending, depthWrite:false
+    }));
+    aura.scale.set(2.4, 2.4, 1);
+    group.add(aura);
+
+    /* ── dosha planets ── */
     var doshas = [
-      {c:'#7ab8d4', r:2.00, sp: 0.55, inc: 0.50, ph:0.0},  // Vata
-      {c:'#d4917a', r:1.62, sp:-0.80, inc:-0.90, ph:2.1},  // Pitta
-      {c:'#8bbd7a', r:2.45, sp: 0.38, inc: 1.35, ph:4.0}   // Kapha
+      {c:'#7ab8d4', r:2.00, sp: 0.55, inc: 0.50, ph:0.0},
+      {c:'#d4917a', r:1.62, sp:-0.80, inc:-0.90, ph:2.1},
+      {c:'#8bbd7a', r:2.45, sp: 0.38, inc: 1.35, ph:4.0}
     ].map(function(d){
-      var holder = new THREE.Group(); holder.rotation.x = d.inc; holder.rotation.z = d.inc*0.4;
-      var planet = new THREE.Mesh(new THREE.SphereGeometry(0.08,24,24),
-        new THREE.MeshStandardMaterial({color:d.c, emissive:d.c, emissiveIntensity:1.6}));
-      var glow = new THREE.Sprite(new THREE.SpriteMaterial({map:softTex, color:new THREE.Color(d.c), transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false}));
-      glow.scale.set(0.55,0.55,1); planet.add(glow);
-      holder.add(planet);
+      var holder = new THREE.Group();
+      holder.rotation.x = d.inc; holder.rotation.z = d.inc*0.4;
       holder.add(new THREE.Mesh(new THREE.TorusGeometry(d.r,0.004,6,140),
         new THREE.MeshBasicMaterial({color:new THREE.Color(d.c), transparent:true, opacity:0.16})));
+      var planet = new THREE.Mesh(new THREE.SphereGeometry(0.09,16,16),
+        new THREE.MeshStandardMaterial({color:d.c, emissive:d.c, emissiveIntensity:1.8}));
+      var glow = new THREE.Sprite(new THREE.SpriteMaterial({
+        map:softTex, color:new THREE.Color(d.c),
+        transparent:true, opacity:0.90, blending:THREE.AdditiveBlending, depthWrite:false
+      }));
+      glow.scale.set(0.60,0.60,1); planet.add(glow);
+      holder.add(planet);
       group.add(holder);
       return {d:d, planet:planet};
     });
 
     function resize(){
-      var w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
+      var w=canvas.clientWidth||1, h=canvas.clientHeight||1;
       renderer.setSize(w,h,false);
-      camera.aspect = w/h; camera.updateProjectionMatrix();
+      camera.aspect=w/h; camera.updateProjectionMatrix();
     }
     resize();
 
     function update(t){
       group.rotation.y = t*0.18 + ptr.x*0.5;
       group.rotation.x = Math.sin(t*0.25)*0.08 - ptr.y*0.4;
-      r2.rotation.z = t*0.30; r3.rotation.x = t*0.22;
-      var pulse = 2.2 * (1 + Math.sin(t*1.2)*0.06);
-      core.scale.set(pulse, pulse, 1);
+      r2.rotation.z = t*0.30;
+      r3.rotation.x = t*0.22;
+
+      var pulse = 1 + Math.sin(t*1.4)*0.15;
+      aura.scale.setScalar(2.4 * pulse);
+      aura.material.opacity = 0.80 + Math.sin(t*1.4)*0.12;
+      bindu.material.emissiveIntensity = 3.5 + 2.0*Math.sin(t*2.1);
+
       doshas.forEach(function(o){
         var a = t*o.d.sp + o.d.ph;
         o.planet.position.set(Math.cos(a)*o.d.r, Math.sin(a)*o.d.r, 0);
       });
+
       renderer.render(scene, camera);
     }
     return {update:update, resize:resize};
@@ -2044,8 +2115,14 @@ window.addEventListener('load', function() {
     setTimeout(processNext, 0);
   }
   processNext();
-})();
-  }); // end import
+  })();
+    }); // end import
+  };
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(load, { timeout: 3000 });
+  } else {
+    setTimeout(load, 2000);
+  }
 }); // end load
 </script>
 
