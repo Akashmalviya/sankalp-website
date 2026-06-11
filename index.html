@@ -167,14 +167,11 @@ section{position:relative;z-index:2}
 /* ═══════════════════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════════════════ */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-  padding:clamp(96px,15vh,160px) 40px 0;overflow:hidden;
-  background:radial-gradient(ellipse at 50% 74%,rgba(45,27,78,.55) 0%,transparent 60%),
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:120px 40px 84px;overflow:hidden;
+  background:radial-gradient(ellipse at 78% 42%,rgba(45,27,78,.5) 0%,transparent 58%),
             radial-gradient(ellipse at 12% 18%,rgba(139,92,159,.1),transparent 50%),
-            radial-gradient(ellipse at 88% 30%,rgba(122,184,212,.06),transparent 45%)}
-
-/* full-bleed 3D stage — the cosmic lotus lives here */
-.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+            radial-gradient(ellipse at 88% 82%,rgba(122,184,212,.06),transparent 45%)}
 
 /* light rays sweeping from the top */
 .hero-rays{position:absolute;top:-12%;left:50%;width:150%;height:95%;z-index:0;pointer-events:none;opacity:.55;
@@ -189,13 +186,12 @@ section{position:relative;z-index:2}
   box-shadow:0 0 7px 1px rgba(201,168,124,.7);opacity:0;animation:ember var(--ed) linear infinite;animation-delay:var(--edl)}
 @keyframes ember{0%{opacity:0;transform:translate(0,0) scale(.5)}8%{opacity:.85}88%{opacity:.5}100%{opacity:0;transform:translate(var(--ex),-92vh) scale(1.1)}}
 
-/* ── THE SEAL (medallion) — CSS/SVG fallback when WebGL is unavailable ── */
-.medallion{position:absolute;left:0;right:0;margin:0 auto;bottom:-6%;z-index:0;
-  width:min(64vw,500px);height:min(64vw,500px);opacity:.9;pointer-events:none;
-  display:flex;align-items:center;justify-content:center;
-  animation:medIn 1.5s var(--ease) both;transition:opacity 1s ease}
-/* animation:none is required — medIn's fill-mode would otherwise pin opacity at 1 */
-.hero.has-3d .medallion{opacity:0;animation:none;visibility:hidden;transition:opacity .8s ease,visibility 0s .8s}
+.hero-stack{position:relative;z-index:2;width:100%;max-width:1160px;display:grid;
+  grid-template-columns:1fr clamp(260px,34vw,400px);gap:clamp(40px,6vw,96px);align-items:center}
+
+/* ── THE SEAL (medallion) ── */
+.medallion{position:relative;width:clamp(240px,32vw,380px);height:clamp(240px,32vw,380px);justify-self:center;
+  display:flex;align-items:center;justify-content:center;animation:medIn 1.5s var(--ease) both}
 @keyframes medIn{0%{opacity:0;transform:scale(.55) translateY(24px)}100%{opacity:1;transform:none}}
 
 .med-aura{position:absolute;inset:-20%;border-radius:50%;filter:blur(8px);
@@ -223,29 +219,33 @@ section{position:relative;z-index:2}
 @keyframes binduGlow{0%,100%{filter:drop-shadow(0 0 14px rgba(201,168,124,.7)) drop-shadow(0 0 40px rgba(201,168,124,.35))}50%{filter:drop-shadow(0 0 28px rgba(255,220,150,1)) drop-shadow(0 0 80px rgba(201,168,124,.6))}}
 @keyframes fadeIn{to{opacity:1}}
 
-/* ── orbiting dosha planets ── */
-.orbit{position:absolute;border-radius:50%;animation:spin linear infinite}
-.orbit-v{inset:-10%;border:1px solid rgba(122,184,212,.20);animation-duration:17s}
-.orbit-p{inset:8%;border:1px solid rgba(212,145,122,.18);animation-duration:12s;animation-direction:reverse}
-.orbit-k{inset:22%;border:1px solid rgba(139,189,122,.16);animation-duration:25s}
-.planet{position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;transform:translateX(-50%)}
+/* ── dosha electrons (atomic shells, fanned 60° apart) ── */
+.orbit{position:absolute;inset:-2%;border-radius:50%;animation-timing-function:linear;animation-iteration-count:infinite}
+.orbit-v{border:1px solid rgba(122,184,212,.26);animation-name:orbV;animation-duration:6s}
+.orbit-p{border:1px solid rgba(212,145,122,.24);animation-name:orbP;animation-duration:8s}
+.orbit-k{border:1px solid rgba(139,189,122,.22);animation-name:orbK;animation-duration:10s}
+@keyframes orbV{from{transform:rotate(0deg) scaleY(.38) rotate(0deg)}to{transform:rotate(0deg) scaleY(.38) rotate(360deg)}}
+@keyframes orbP{from{transform:rotate(60deg) scaleY(.38) rotate(0deg)}to{transform:rotate(60deg) scaleY(.38) rotate(-360deg)}}
+@keyframes orbK{from{transform:rotate(-60deg) scaleY(.38) rotate(0deg)}to{transform:rotate(-60deg) scaleY(.38) rotate(360deg)}}
+.planet{position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;transform:translateX(-50%) scaleY(2.6)}
 .planet.v{background:var(--vata);box-shadow:0 0 14px 4px rgba(122,184,212,.90)}
 .planet.p{background:var(--pitta);box-shadow:0 0 14px 4px rgba(212,145,122,.90)}
 .planet.k{background:var(--kapha);box-shadow:0 0 14px 4px rgba(139,189,122,.90)}
+.medallion.has-3d .orbit{display:none}
 
-/* ── hero text — floats above the lotus, centered ── */
-.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:940px;will-change:transform,opacity}
+/* ── hero text (clean, fully readable) ── */
+.hero-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
 .hero-kick{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;animation:blurUp .9s var(--ease) .4s both}
-.hero-dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:18px;letter-spacing:4px;font-weight:400;margin-bottom:4px;animation:blurUp .9s var(--ease) .55s both}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(42px,8.5vw,96px);font-weight:600;letter-spacing:clamp(8px,1.5vw,16px);line-height:1;margin-bottom:20px;
+.hero-dev{font-family:'Noto Sans Devanagari',sans-serif;color:var(--gold);font-size:17px;letter-spacing:4px;font-weight:400;margin-bottom:4px;animation:blurUp .9s var(--ease) .55s both}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(38px,7vw,72px);font-weight:600;letter-spacing:9px;line-height:1;margin-bottom:18px;
   background:linear-gradient(100deg,#fff 0%,var(--gold-lt) 22%,#fff 38%,var(--gold) 58%,#fff 78%,var(--gold-lt) 100%);
   background-size:230% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
   filter:drop-shadow(0 2px 30px rgba(201,168,124,.22));
   animation:up 1s var(--ease) .7s both,shimmer 7s linear 1.7s infinite}
 @keyframes shimmer{to{background-position:-230% center}}
-.hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);color:var(--gold-lt);font-weight:300;letter-spacing:1px;margin-bottom:14px;text-shadow:0 2px 18px rgba(15,6,24,.9),0 0 6px rgba(15,6,24,.6);animation:blurUp 1s var(--ease) .9s both}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:300;line-height:1.7;max-width:600px;margin:0 auto 36px;text-shadow:0 2px 18px rgba(15,6,24,.9),0 0 6px rgba(15,6,24,.6);animation:blurUp 1s var(--ease) 1.05s both}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:blurUp 1s var(--ease) 1.2s both}
+.hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);color:var(--gold-lt);font-weight:300;letter-spacing:1px;margin-bottom:14px;animation:blurUp 1s var(--ease) .9s both}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:300;line-height:1.7;max-width:520px;margin:0 0 34px;animation:blurUp 1s var(--ease) 1.05s both}
+.hero-ctas{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;animation:blurUp 1s var(--ease) 1.2s both}
 @keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 @keyframes blurUp{from{opacity:0;transform:translateY(22px);filter:blur(9px)}to{opacity:1;transform:none;filter:blur(0)}}
 
@@ -584,7 +584,12 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
 @media(max-width:980px){
-  .hero{padding:120px 24px 14vh}
+  .hero{padding:120px 24px 72px}
+  .hero-stack{grid-template-columns:1fr;gap:44px;justify-items:center;text-align:center}
+  .medallion{order:-1}
+  .hero-text{align-items:center;text-align:center}
+  .hero-sub{margin:0 auto 34px}
+  .hero-ctas{justify-content:center}
   .modes-inner{grid-template-columns:1fr;gap:50px}
   .nadi-vis{order:-1}
   .dosha-layout{grid-template-columns:1fr;gap:50px}
@@ -604,7 +609,8 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .nav-toggle{display:block}
 
   /* ── Hero ── */
-  .hero{padding:96px 22px 13vh}
+  .hero{padding:88px 22px 60px}
+  .hero-stack{gap:28px}
   .hero-kick{font-size:9px;letter-spacing:3px;white-space:normal;line-height:1.6}
   .hero-dev{font-size:15px;letter-spacing:3px}
   .hero-tag{font-size:18px}
@@ -613,7 +619,7 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .hero-ctas .btn{width:100%;justify-content:center}
 
   /* ── Medallion CSS fallback: hide petals, keep rings + centre glow ── */
-  .medallion{width:min(70vw,280px);height:min(70vw,280px);bottom:-3%}
+  .medallion{width:clamp(160px,52vw,220px);height:clamp(160px,52vw,220px)}
   .lotus-outer-g,.lotus-mid-g,.lotus-inner-g{display:none}
   .lotus-guide{stroke:rgba(201,168,124,.28);stroke-width:1}
   .med-aura{filter:blur(8px)}
@@ -654,7 +660,7 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .hero-title{letter-spacing:6px}
   .hero-tag{font-size:17px}
   .hero-sub{font-size:15px}
-  .medallion{width:min(75vw,240px);height:min(75vw,240px)}
+  .medallion{width:clamp(150px,55vw,200px);height:clamp(150px,55vw,200px)}
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -663,7 +669,9 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
 #bgCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* When the WebGL starfield is live, retire the flat CSS one */
 body.webgl .starfield,body.webgl .nebula{display:none}
-/* hero cosmic lotus canvas is styled in the HERO block (.hero-canvas) */
+/* 3D yantra fills the medallion box; CSS aura/halo/Om stay layered around it */
+.med-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.medallion.has-3d .med-yantra{opacity:0;pointer-events:none}
 /* breath visualizer */
 .breath-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:none;animation:none}
@@ -745,44 +753,47 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
   </ul>
 </nav>
 
-<!-- ═══ HERO — text floating above the Cosmic Lotus ═══ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
   <div class="hero-rays"></div>
   <div class="hero-embers" id="embers"></div>
 
-  <!-- Three.js particle lotus (full-bleed) -->
-  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-stack">
+    <!-- TEXT (left) -->
+    <div class="hero-text">
+      <div class="hero-kick">Your body has been speaking to you</div>
+      <div class="hero-dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</div>
+      <h1 class="hero-title">SANKALP</h1>
+      <p class="hero-tag">A sacred vow to your own healing.</p>
+      <p class="hero-sub">Not another wellness app. Sankalp reads your body's original design &mdash; your Prakriti &mdash; and writes a living daily practice of yoga, meditation and Ayurveda, for you, not everyone.</p>
+      <div class="hero-ctas">
+        <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="btn btn-gold">Create Your Free Profile <span class="arr">&rarr;</span></a>
+        <a href="prakriti-assessment.html" class="btn btn-ghost">Take the Prakriti Test</a>
+      </div>
+    </div>
 
-  <!-- CSS/SVG lotus seal — fallback when WebGL is unavailable -->
-  <div class="medallion" aria-hidden="true">
-    <div class="med-aura"></div>
-    <div class="med-halo"></div>
-    <div class="orbit orbit-v"><div class="planet v"></div></div>
-    <div class="orbit orbit-p"><div class="planet p"></div></div>
-    <div class="orbit orbit-k"><div class="planet k"></div></div>
-    <svg class="med-yantra" viewBox="0 0 400 400">
-      <!-- Subtle guide circles -->
-      <circle class="lotus-guide" cx="200" cy="200" r="168"/>
-      <circle class="lotus-guide" cx="200" cy="200" r="116"/>
-      <circle class="lotus-guide" cx="200" cy="200" r="66"/>
-      <!-- Lotus petal rings (generated by JS) -->
-      <g class="lotus-outer-g" id="lotusOuter"></g>
-      <g class="lotus-mid-g" id="lotusMid"></g>
-      <g class="lotus-inner-g" id="lotusInner"></g>
-      <!-- Central bindu -->
-      <circle class="lotus-bindu" cx="200" cy="200" r="26"/>
-    </svg>
-  </div>
-
-  <div class="hero-inner">
-    <div class="hero-kick">Your body has been speaking to you</div>
-    <div class="hero-dev">&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</div>
-    <h1 class="hero-title">SANKALP</h1>
-    <p class="hero-tag">A sacred vow to your own healing.</p>
-    <p class="hero-sub">Not another wellness app. Sankalp reads your body's original design &mdash; your Prakriti &mdash; and writes a living daily practice of yoga, meditation and Ayurveda, for you, not everyone.</p>
-    <div class="hero-ctas">
-      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="btn btn-gold">Create Your Free Profile <span class="arr">&rarr;</span></a>
-      <a href="prakriti-assessment.html" class="btn btn-ghost">Take the Prakriti Test</a>
+    <!-- THE SEAL (right) -->
+    <div class="medallion">
+      <div class="med-aura"></div>
+      <div class="med-halo"></div>
+      <!-- Dosha orbit rings (CSS fallback; hidden when Three.js boots) -->
+      <div class="orbit orbit-v"><div class="planet v"></div></div>
+      <div class="orbit orbit-p"><div class="planet p"></div></div>
+      <div class="orbit orbit-k"><div class="planet k"></div></div>
+      <canvas class="med-canvas" id="medCanvas" aria-hidden="true"></canvas>
+      <!-- SVG yantra below stays as a no-WebGL fallback (hidden once 3D boots) -->
+      <svg class="med-yantra" viewBox="0 0 400 400" aria-hidden="true">
+        <!-- Subtle guide circles -->
+        <circle class="lotus-guide" cx="200" cy="200" r="168"/>
+        <circle class="lotus-guide" cx="200" cy="200" r="116"/>
+        <circle class="lotus-guide" cx="200" cy="200" r="66"/>
+        <!-- Lotus petal rings (generated by JS) -->
+        <g class="lotus-outer-g" id="lotusOuter"></g>
+        <g class="lotus-mid-g" id="lotusMid"></g>
+        <g class="lotus-inner-g" id="lotusInner"></g>
+        <!-- Central bindu -->
+        <circle class="lotus-bindu" cx="200" cy="200" r="26"/>
+      </svg>
     </div>
   </div>
 
@@ -1366,14 +1377,14 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
     em.appendChild(ef);
   }
 
-  // Gentle parallax — hero text drifts and fades as you scroll out of the hero
+  // Gentle parallax — medallion drifts as you scroll out of the hero
   if(!reduce){
-    var hinner=document.querySelector('.hero-inner');
+    var med=document.querySelector('.medallion'), htext=document.querySelector('.hero-text');
     window.addEventListener('scroll', function(){
       var y=window.scrollY, vh=window.innerHeight;
-      if(y<vh && hinner){
-        hinner.style.transform='translateY('+(y*0.2)+'px)';
-        hinner.style.opacity=Math.max(0,1-y/(vh*0.8));
+      if(y<vh){
+        if(med) med.style.transform='translateY('+(y*0.18)+'px) scale('+(1-y/vh*0.06)+')';
+        if(htext){ htext.style.transform='translateY('+(y*0.06)+'px)'; htext.style.opacity=Math.max(0,1-y/(vh*0.85)); }
       }
     }, {passive:true});
   }
@@ -1382,12 +1393,13 @@ body.webgl .breath-orb{position:relative;z-index:1;background:none;box-shadow:no
 
 <!-- ═══════════════════════════════════════════════════════════
      THREE.JS COSMIC LAYER
-     · hero: the Cosmic Lotus — a breathing particle yantra-galaxy
      · full-screen starfield + drifting nebula (replaces CSS bg)
+     · 3D Sri-Yantra medallion with dosha planets orbiting in depth
      Degrades to the CSS/SVG originals if WebGL is unavailable.
 ═══════════════════════════════════════════════════════════ -->
 <script>
 window.addEventListener('load', function() {
+  if (window.innerWidth < 760) return;
   var load = function() {
     import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js').then(function(mod) {
     var THREE = mod;
@@ -1498,215 +1510,130 @@ window.addEventListener('load', function() {
     return {update:update, resize:resize};
   }
 
-  /* ─────────── HERO: THE COSMIC LOTUS ───────────
-     A vast tilted mandala-galaxy of particles — bindu, three petal rings,
-     shatkona, rim circles and drifting dust — that blooms outward from the
-     centre on load, breathes on an ~11s cycle, counter-rotates ring by ring,
-     ignites under the cursor and disperses as you scroll away.
-     The hero text floats above it. */
-  function initLotus(canvas){
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:false, alpha:true, powerPreference:'high-performance'});
+  /* ─────────── HERO MEDALLION: the dosha atom ───────────
+     A gold nucleus (bindu) with the three doshas as electrons racing
+     along inclined elliptical shells — the classic atom symbol in 3D.
+     Each shell precesses slowly and its electron drags a comet trail.
+     The shatkona stays inside as a quiet yantra layer. */
+  function initMed(canvas){
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
     renderer.setPixelRatio(PR);
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
-    camera.position.set(0, 3.0, 7.4);
-    camera.lookAt(0, -0.3, 0);
+    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.z = 7.4;
 
-    var group = new THREE.Group();
-    group.position.y = -2.7;             // pooled low — the text owns the upper half
-    group.rotation.x = -1.35;            // disc lies almost flat, viewer above-front
-    scene.add(group);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+    var l1 = new THREE.PointLight(0xffe6b8, 60, 60); l1.position.set(5,6,7); scene.add(l1);
+    var l2 = new THREE.PointLight(0x7ab8d4, 22, 60); l2.position.set(-6,-4,5); scene.add(l2);
 
-    var R = 3.15, N = isMobile ? 7000 : 22000, idx = 0;
-    var start = new Float32Array(N*3), tgt = new Float32Array(N*3), col = new Float32Array(N*3);
-    var dly = new Float32Array(N), siz = new Float32Array(N), pha = new Float32Array(N), spd = new Float32Array(N);
+    var group = new THREE.Group(); scene.add(group);
+    var gold = new THREE.Color('#c9a87c');
 
-    var cGold = new THREE.Color('#c9a87c'), cLt = new THREE.Color('#e6cfa6'),
-        cCream = new THREE.Color('#fff3d8'), cRose = new THREE.Color('#b87a8a'),
-        cDosha = [new THREE.Color('#7ab8d4'), new THREE.Color('#d4917a'), new THREE.Color('#8bbd7a')];
-
-    function put(x, y, z, c, size, speed){
-      if(idx >= N) return;
-      var i3 = idx*3, r = Math.sqrt(x*x + y*y);
-      // born scattered in a wide shell, then drawn home into the lotus
-      var th = Math.random()*Math.PI*2, phE = Math.acos(Math.random()*2-1), rr = 5 + Math.random()*5;
-      start[i3]   = Math.sin(phE)*Math.cos(th)*rr;
-      start[i3+1] = Math.sin(phE)*Math.sin(th)*rr;
-      start[i3+2] = Math.cos(phE)*rr*0.6;
-      tgt[i3] = x; tgt[i3+1] = y; tgt[i3+2] = z;
-      col[i3] = c.r; col[i3+1] = c.g; col[i3+2] = c.b;
-      dly[idx] = (r/R)*1.1 + Math.random()*0.5;     // blooms from the bindu outward
-      siz[idx] = size*(0.6 + Math.random()*0.8);
-      pha[idx] = Math.random()*Math.PI*2;
-      spd[idx] = speed;
-      idx++;
-    }
-    function zDome(rr){ return (Math.random()-0.5)*0.07 - Math.pow(rr/R,2)*0.10; }
-
-    // ring of lotus petals: points hug the petal outline, some fill the body
-    function petalRing(count, petals, r0, r1, halfW, colA, colB, mixA, size, speed){
-      for(var i=0;i<count;i++){
-        var k = (Math.random()*petals)|0;
-        var base = k*Math.PI*2/petals;
-        var t = Math.random();
-        var w = Math.pow(Math.sin(Math.PI*t), 0.75)*halfW;
-        var lat = Math.random() < 0.72
-          ? w*(0.88 + Math.random()*0.12)*(Math.random()<0.5 ? -1 : 1)
-          : w*(Math.random()*2 - 1);
-        var rr = r0 + t*(r1-r0), a = base + lat;
-        put(Math.cos(a)*rr, Math.sin(a)*rr, zDome(rr), Math.random()<mixA ? colA : colB, size, speed);
+    function tri(radius, rot, color, op){
+      var pts = [], k;
+      for(k=0;k<3;k++){
+        var a = rot + k*2*Math.PI/3;
+        pts.push(new THREE.Vector3(Math.cos(a)*radius, Math.sin(a)*radius, 0));
       }
-    }
-    // shatkona triangle outline
-    function triRing(count, radius, rot, c, size, speed){
-      var vx = [];
-      for(var v=0;v<3;v++){ var a = rot + v*2*Math.PI/3; vx.push([Math.cos(a)*radius, Math.sin(a)*radius]); }
-      for(var i=0;i<count;i++){
-        var e = (Math.random()*3)|0, t = Math.random(), A = vx[e], B = vx[(e+1)%3];
-        var x = A[0]+(B[0]-A[0])*t, y = A[1]+(B[1]-A[1])*t;
-        put(x + (Math.random()-0.5)*0.03, y + (Math.random()-0.5)*0.03, zDome(radius)+0.04, c, size, speed);
-      }
-    }
-    function circleRing(count, radius, jit, c, size, speed){
-      for(var i=0;i<count;i++){
-        var a = Math.random()*Math.PI*2, rr = radius + (Math.random()-0.5)*jit;
-        put(Math.cos(a)*rr, Math.sin(a)*rr, zDome(rr), c, size, speed);
-      }
+      pts.push(pts[0].clone());
+      return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+        new THREE.LineBasicMaterial({color:new THREE.Color(color), transparent:true, opacity:op}));
     }
 
-    var F = Math.floor;
-    // bindu — a dense luminous heart
-    for(var b=0;b<F(N*0.03);b++){
-      var ba = Math.random()*Math.PI*2, brr = Math.random()*Math.random()*0.22;
-      put(Math.cos(ba)*brr, Math.sin(ba)*brr, (Math.random()-0.5)*0.08, cCream, 0.14, 0.10);
-    }
-    petalRing(F(N*0.14),  8, 0.34, 1.02, 0.300, cLt,   cCream, 0.70, 0.085,  0.055);
-    petalRing(F(N*0.21), 12, 0.98, 1.82, 0.205, cGold, cLt,    0.65, 0.075, -0.038);
-    petalRing(F(N*0.26), 16, 1.78, 2.62, 0.152, cGold, cLt,    0.88, 0.066,  0.024);
-    triRing(F(N*0.03), 1.5,  Math.PI/2, cLt,   0.07,  0.012);
-    triRing(F(N*0.03), 1.5, -Math.PI/2, cRose, 0.07, -0.012);
-    circleRing(F(N*0.05), 2.82, 0.025, cGold, 0.055, -0.030);
-    circleRing(F(N*0.05), 3.02, 0.040, cGold, 0.050,  0.020);
-    // cosmic dust drifting between the rings, with rare dosha-coloured sparks
-    while(idx < N){
-      var da = Math.random()*Math.PI*2, drr = 0.3 + Math.sqrt(Math.random())*2.95;
-      var dc = Math.random() < 0.80 ? cGold : (Math.random() < 0.5 ? cLt : cDosha[(Math.random()*3)|0]);
-      put(Math.cos(da)*drr, Math.sin(da)*drr, (Math.random()-0.5)*0.30 - Math.pow(drr/R,2)*0.10, dc, 0.045, 0.008 + Math.random()*0.022);
-    }
+    /* ── outer equator ring: the atom's boundary ── */
+    var ringMat = new THREE.MeshStandardMaterial({color:gold, emissive:gold, emissiveIntensity:0.45, metalness:0.6, roughness:0.35});
+    var r1 = new THREE.Mesh(new THREE.TorusGeometry(2.25,0.014,10,160), ringMat); group.add(r1);
 
-    var geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(start,3));
-    geo.setAttribute('aTarget',  new THREE.BufferAttribute(tgt,3));
-    geo.setAttribute('aColor',   new THREE.BufferAttribute(col,3));
-    geo.setAttribute('aDelay',   new THREE.BufferAttribute(dly,1));
-    geo.setAttribute('aSize',    new THREE.BufferAttribute(siz,1));
-    geo.setAttribute('aPhase',   new THREE.BufferAttribute(pha,1));
-    geo.setAttribute('aSpeed',   new THREE.BufferAttribute(spd,1));
+    /* ── shatkona: one upward (gold) + one downward (rose), subdued ── */
+    group.add(tri(1.28,  Math.PI/2, '#c9a87c', 0.45));
+    group.add(tri(1.28, -Math.PI/2, '#b87a8a', 0.32));
 
-    var mat = new THREE.ShaderMaterial({
-      transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
-      uniforms:{
-        uTime:{value:0}, uReveal:{value:0}, uPR:{value:PR},
-        uScroll:{value:0}, uMouse:{value:new THREE.Vector2(0,0)}, uAspect:{value:1}
-      },
-      vertexShader:
-        'attribute vec3 aTarget; attribute vec3 aColor;'+
-        'attribute float aDelay; attribute float aSize; attribute float aPhase; attribute float aSpeed;'+
-        'uniform float uTime; uniform float uReveal; uniform float uPR; uniform float uScroll; uniform float uAspect;'+
-        'uniform vec2 uMouse;'+
-        'varying vec3 vColor; varying float vAlpha; varying float vGlow;'+
-        'void main(){'+
-        '  vColor = aColor;'+
-        '  float p = clamp((uReveal - aDelay)/0.9, 0.0, 1.0);'+
-        '  p = 1.0 - pow(1.0 - p, 3.0);'+                      // ease-out bloom
-        '  float ang = uTime*aSpeed;'+                          // each ring spins at its own pace
-        '  float c = cos(ang), s = sin(ang);'+
-        '  vec3 t = vec3(aTarget.x*c - aTarget.y*s, aTarget.x*s + aTarget.y*c, aTarget.z);'+
-        '  float br = 1.0 + 0.045*sin(uTime*0.57 + length(aTarget.xy)*0.7);'+ // ~11s breath
-        '  t.xy *= br;'+
-        '  t.z += 0.05*sin(uTime*0.5 + aPhase);'+
-        '  vec3 pos = mix(position, t, p);'+
-        '  pos *= 1.0 + uScroll*1.2;'+                          // disperse on scroll
-        '  vec4 mv = modelViewMatrix * vec4(pos, 1.0);'+
-        '  vec4 cp = projectionMatrix * mv;'+
-        '  vec2 ndc = cp.xy / cp.w;'+
-        '  float md = length((ndc - uMouse) * vec2(uAspect, 1.0));'+
-        '  vGlow = smoothstep(0.5, 0.0, md);'+                  // ignite near cursor
-        '  float tw = 0.62 + 0.38*sin(uTime*1.7 + aPhase*7.0);'+
-        '  vAlpha = p * tw * (1.0 - uScroll*0.85);'+
-        '  gl_PointSize = aSize * uPR * (1.0 + vGlow*1.4) * (300.0 / -mv.z);'+
-        '  gl_Position = cp;'+
-        '}',
-      fragmentShader:
-        'varying vec3 vColor; varying float vAlpha; varying float vGlow;'+
-        'void main(){'+
-        '  float d = length(gl_PointCoord - vec2(0.5));'+
-        '  float a = smoothstep(0.5, 0.05, d);'+
-        '  vec3 col = vColor + vGlow*vec3(0.50, 0.38, 0.20);'+
-        '  gl_FragColor = vec4(col, a*vAlpha);'+
-        '}'
-    });
-    group.add(new THREE.Points(geo, mat));
+    /* ── nucleus: bright bindu sphere + breathing aura ── */
+    var bindu = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 20, 20),
+      new THREE.MeshStandardMaterial({color:'#fff8e8', emissive:'#ffe8b0', emissiveIntensity:4.0})
+    );
+    group.add(bindu);
 
-    /* ── breathing bindu glow at the heart of the lotus ── */
     var aura = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: glowTex(128, [[0,'rgba(255,238,190,1)'],[0.3,'rgba(201,168,124,0.5)'],[1,'rgba(0,0,0,0)']]),
-      transparent:true, opacity:0.55, blending:THREE.AdditiveBlending, depthWrite:false
+      map: glowTex(128, [[0,'rgba(255,235,170,1)'],[0.35,'rgba(201,168,124,0.55)'],[1,'rgba(0,0,0,0)']]),
+      transparent:true, opacity:0.88, blending:THREE.AdditiveBlending, depthWrite:false
     }));
-    aura.scale.set(2.0, 2.0, 1); aura.position.z = 0.2; group.add(aura);
-    var core = new THREE.Sprite(new THREE.SpriteMaterial({
-      map:softTex, color:new THREE.Color('#fff3d8'),
-      transparent:true, opacity:0.8, blending:THREE.AdditiveBlending, depthWrite:false
-    }));
-    core.scale.set(0.7, 0.7, 1); core.position.z = 0.25; group.add(core);
+    aura.scale.set(2.4, 2.4, 1);
+    group.add(aura);
 
-    /* ── the three doshas as living lights weaving through the petals ── */
+    /* ── dosha electrons on three elliptical shells, fanned 60° apart ── */
+    var RX = 1.92, RY = 0.76, TRAIL = 10;
     var doshas = [
-      {c:'#7ab8d4', r:1.35, sp: 0.30, ph:0.0},
-      {c:'#d4917a', r:1.95, sp:-0.22, ph:2.1},
-      {c:'#8bbd7a', r:2.55, sp: 0.16, ph:4.2}
+      {c:'#7ab8d4', fan: Math.PI/2,             tilt: 0.42, sp: 1.45, ph:0.0, pr: 0.10},
+      {c:'#d4917a', fan: Math.PI/2 + Math.PI/3, tilt:-0.30, sp:-1.10, ph:2.1, pr:-0.13},
+      {c:'#8bbd7a', fan: Math.PI/2 - Math.PI/3, tilt: 0.10, sp: 0.85, ph:4.2, pr: 0.08}
     ].map(function(d){
-      var planet = new THREE.Mesh(new THREE.SphereGeometry(0.07,16,16),
-        new THREE.MeshStandardMaterial({color:d.c, emissive:d.c, emissiveIntensity:2.2}));
+      var col = new THREE.Color(d.c);
+      var prec = new THREE.Group();                 // precession carrier
+      var plane = new THREE.Group();                // the shell's own plane
+      plane.rotation.z = d.fan; plane.rotation.x = d.tilt;
+      prec.add(plane); group.add(prec);
+
+      var pts = [];
+      for(var i=0;i<=120;i++){
+        var a = i/120*Math.PI*2;
+        pts.push(new THREE.Vector3(Math.cos(a)*RX, Math.sin(a)*RY, 0));
+      }
+      plane.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+        new THREE.LineBasicMaterial({color:col, transparent:true, opacity:0.30})));
+
+      var electron = new THREE.Mesh(new THREE.SphereGeometry(0.085,16,16),
+        new THREE.MeshStandardMaterial({color:d.c, emissive:d.c, emissiveIntensity:2.4}));
       var glow = new THREE.Sprite(new THREE.SpriteMaterial({
-        map:softTex, color:new THREE.Color(d.c),
-        transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false
+        map:softTex, color:col,
+        transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false
       }));
-      glow.scale.set(0.55, 0.55, 1); planet.add(glow);
-      group.add(planet);
-      return {d:d, planet:planet};
+      glow.scale.set(0.62,0.62,1); electron.add(glow);
+      plane.add(electron);
+
+      var trail = [];
+      for(var k=0;k<TRAIL;k++){
+        var s = new THREE.Sprite(new THREE.SpriteMaterial({
+          map:softTex, color:col,
+          transparent:true, opacity:0, blending:THREE.AdditiveBlending, depthWrite:false
+        }));
+        plane.add(s); trail.push(s);
+      }
+      return {d:d, prec:prec, electron:electron, glow:glow, trail:trail};
     });
 
     function resize(){
-      var w = canvas.clientWidth||1, h = canvas.clientHeight||1;
+      var w=canvas.clientWidth||1, h=canvas.clientHeight||1;
       renderer.setSize(w,h,false);
-      camera.aspect = w/h; camera.updateProjectionMatrix();
-      mat.uniforms.uAspect.value = camera.aspect;
-      // pull the lotus in a touch on narrow screens
-      group.scale.setScalar(Math.max(0.72, Math.min(1, camera.aspect/1.15)));
+      camera.aspect=w/h; camera.updateProjectionMatrix();
     }
     resize();
 
-    var t0 = -1;
     function update(t){
-      if(t0 < 0) t0 = t;
-      var u = mat.uniforms;
-      u.uTime.value = t;
-      u.uReveal.value = reduce ? 10 : (t - t0)*0.8;
-      u.uScroll.value = Math.min((window.scrollY||0)/(window.innerHeight||1), 1);
-      u.uMouse.value.set(ptr.x, -ptr.y);
+      group.rotation.y = t*0.16 + ptr.x*0.5;
+      group.rotation.x = Math.sin(t*0.25)*0.08 - ptr.y*0.4;
 
-      group.rotation.x = -1.35 + ptr.y*0.05;
-      group.rotation.y = ptr.x*0.10;
-
-      var br = 1 + Math.sin(t*0.57)*0.10;
-      aura.scale.set(2.0*br, 2.0*br, 1);
-      aura.material.opacity = 0.45 + 0.14*Math.sin(t*0.57);
-      core.scale.set(0.7*br, 0.7*br, 1);
+      var pulse = 1 + Math.sin(t*1.4)*0.15;
+      aura.scale.setScalar(2.4 * pulse);
+      aura.material.opacity = 0.80 + Math.sin(t*1.4)*0.12;
+      bindu.material.emissiveIntensity = 3.5 + 2.0*Math.sin(t*2.1);
 
       doshas.forEach(function(o){
+        o.prec.rotation.y = t*o.d.pr;
         var a = t*o.d.sp + o.d.ph;
-        o.planet.position.set(Math.cos(a)*o.d.r, Math.sin(a)*o.d.r, 0.16 + 0.10*Math.sin(t*0.8 + o.d.ph));
+        o.electron.position.set(Math.cos(a)*RX, Math.sin(a)*RY, 0);
+        var gp = 1 + Math.sin(t*3 + o.d.ph)*0.18;
+        o.glow.scale.set(0.62*gp, 0.62*gp, 1);
+        var dir = o.d.sp > 0 ? 1 : -1;
+        for(var k=0;k<TRAIL;k++){
+          var ta = a - dir*(k+1)*0.13;
+          var f = 1 - (k+1)/(TRAIL+1);
+          var s = o.trail[k];
+          s.position.set(Math.cos(ta)*RX, Math.sin(ta)*RY, 0);
+          s.material.opacity = 0.55*f*f;
+          s.scale.set(0.42*f, 0.42*f, 1);
+        }
       });
 
       renderer.render(scene, camera);
@@ -2190,22 +2117,16 @@ window.addEventListener('load', function() {
   }, {passive:true});
 
   // init one scene per task — each task stays ≤ ~80 ms, eliminating the long-task TBT hit
-  // The hero lotus boots everywhere (counts scale down on mobile); heavier
-  // secondary scenes stay desktop-only and keep their CSS/SVG fallbacks.
   var queue = [
-    [initLotus,   'heroCanvas',    '.hero',      function(c){ c.closest('.hero').classList.add('has-3d'); }],
+    [initBG,      'bgCanvas',      null,         function(){ document.body.classList.add('webgl'); }],
+    [initMed,     'medCanvas',     '.medallion', function(c){ c.closest('.medallion').classList.add('has-3d'); }],
+    [initBreath,  'breathCanvas',  '.breath',    null],
+    [initTrinity, 'trinityCanvas', '.trinity',   function(c){ c.closest('.trinity').classList.add('has-3d'); }],
+    [initHelix,   'helixCanvas',   '.science',   null],
+    [initNadi,    'nadiCanvas',    '.modes',     function(c){ c.closest('.nadi-vis').classList.add('has-3d'); }],
+    [initJourney, 'journeyCanvas', '.arc',       null],
     [initScroll,  'scrollCanvas',  '.hero',      null]
   ];
-  if(!isMobile){
-    queue.push(
-      [initBG,      'bgCanvas',      null,         function(){ document.body.classList.add('webgl'); }],
-      [initBreath,  'breathCanvas',  '.breath',    null],
-      [initTrinity, 'trinityCanvas', '.trinity',   function(c){ c.closest('.trinity').classList.add('has-3d'); }],
-      [initHelix,   'helixCanvas',   '.science',   null],
-      [initNadi,    'nadiCanvas',    '.modes',     function(c){ c.closest('.nadi-vis').classList.add('has-3d'); }],
-      [initJourney, 'journeyCanvas', '.arc',       null]
-    );
-  }
   var loopStarted = false;
 
   function processNext(){
