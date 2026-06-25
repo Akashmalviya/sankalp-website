@@ -197,7 +197,14 @@ footer{background:var(--bg);border-top:1px solid var(--gold08);padding:64px 24px
   .steps{grid-template-columns:1fr}
   .bgrid{grid-template-columns:1fr}
   .gapstrip{gap:12px}
-  .gap-mid span{font-size:13px}
+}
+@media(max-width:560px){
+  .gapstrip{grid-template-columns:1fr;gap:8px;max-width:300px}
+  .gap-num{font-size:24px}
+  .gap-mid{height:auto;background:none;display:flex;flex-direction:column;align-items:center;gap:9px;padding:4px 0}
+  .gap-mid::before{content:'';width:1px;height:20px;background:linear-gradient(180deg,transparent,var(--gold30))}
+  .gap-mid::after{content:'';position:static;width:1px;height:20px;border:none;transform:none;top:auto;right:auto;background:linear-gradient(180deg,var(--pitta),transparent)}
+  .gap-mid span{position:static;transform:none;white-space:normal;text-align:center;font-size:14px;line-height:1.45;max-width:250px}
 }
 </style>
 </head>
