@@ -1,0 +1,253 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+<PageLayout
+  title="Privacy — Sankalp"
+  description="Sankalp holds your health data as sacred. Learn what we collect, how we use it, and how you stay in control."
+  path="/privacy"
+>
+
+  <div class="page-wrap">
+
+    <span class="eyebrow">Sankalp Health</span>
+    <h1 class="page-title">Privacy</h1>
+
+    <p class="page-intro">
+      Your health is intimate. What you share with Sankalp — your body's patterns, your daily rhythms, your healing journey — is treated with the same reverence a vaidya gives to a patient's trust.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- WHAT WE COLLECT -->
+    <div class="priv-section">
+      <p class="priv-section-label">What we collect</p>
+      <div class="priv-cards">
+        <div class="priv-card">
+          <div class="priv-card-icon">🧬</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Health Profile</div>
+            <p class="priv-card-text">Your Prakriti, Vikriti, and dosha scores derived from your onboarding answers. This is the core of your personalised experience — never sold, never shared with third parties.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">📓</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Journal Entries</div>
+            <p class="priv-card-text">Reflections you write in the Reflect tab. Stored encrypted on our servers. Never used to train AI models without your explicit consent.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">📱</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Usage Data</div>
+            <p class="priv-card-text">Anonymous session and feature-usage signals — which practices you open, how long you spend in a session — to improve recommendations. No personally identifiable information is attached.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">📞</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Phone Number</div>
+            <p class="priv-card-text">Used only for account authentication via OTP. We do not send marketing messages without consent, and we never share your number with advertisers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE USE IT -->
+    <div class="priv-section">
+      <p class="priv-section-label">How we use it</p>
+      <div class="priv-cards">
+        <div class="priv-card">
+          <div class="priv-card-icon">🌿</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Personalisation</div>
+            <p class="priv-card-text">Your dosha profile shapes every recommendation — from morning practices to meal guidance — so the app feels like it was made for you, because in every meaningful sense, it is.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">🤖</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">AI Companion</div>
+            <p class="priv-card-text">The Vaidya companion uses your health context to give grounded, personalised guidance. Conversations are not used for model training. Your dialogue stays between you and the platform.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">📈</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Improving Sankalp</div>
+            <p class="priv-card-text">Aggregated, anonymised patterns help us understand which practices resonate and which content lands — so we can build better experiences for the entire community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUR CONTROLS -->
+    <div class="priv-section">
+      <p class="priv-section-label">Your controls</p>
+      <div class="priv-cards">
+        <div class="priv-card">
+          <div class="priv-card-icon">🔄</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Retake Your Reading</div>
+            <p class="priv-card-text">Your health profile is never permanent. Retake the onboarding assessment any time from the Profile screen to update your Prakriti and Vikriti readings.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">📤</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Export Your Data</div>
+            <p class="priv-card-text">You can request a copy of all data we hold about you. Write to us at <a href="mailto:privacy@sankalphealth.in">privacy@sankalphealth.in</a> and we will send it to you within 30 days.</p>
+          </div>
+        </div>
+        <div class="priv-card">
+          <div class="priv-card-icon">🗑️</div>
+          <div class="priv-card-body">
+            <div class="priv-card-title">Delete Your Account</div>
+            <p class="priv-card-text">You have the right to be forgotten. Request full deletion at any time by writing to <a href="mailto:privacy@sankalphealth.in">privacy@sankalphealth.in</a>. All data is permanently removed within 30 days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-block">
+      <p>Questions about your privacy, data, or any of the above? We are a small team and we read every message.</p>
+      <a href="mailto:privacy@sankalphealth.in">privacy@sankalphealth.in</a>
+    </div>
+
+    <p class="last-updated">Last updated — June 2025</p>
+
+  </div>
+
+</PageLayout>
+
+<style>
+  .page-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+  }
+
+  .page-title {
+    font-size: clamp(32px, 6vw, 48px);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin: 6px 0 22px;
+  }
+
+  .page-intro {
+    font-size: 18px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--green);
+    padding-left: 20px;
+  }
+
+  .divider {
+    width: 44px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+    margin: 36px 0;
+  }
+
+  .priv-section { margin-bottom: 44px; }
+
+  .priv-section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .priv-cards {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: var(--shadow);
+  }
+
+  .priv-card {
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+  .priv-card:last-child { border-bottom: none; }
+  .priv-card:hover { background: var(--bg-soft); }
+
+  .priv-card-icon {
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .priv-card-body { flex: 1; }
+
+  .priv-card-title {
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .priv-card-text {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .priv-card-text a {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.2s;
+  }
+  .priv-card-text a:hover { border-color: var(--green); }
+
+  .contact-block {
+    margin-top: 48px;
+    padding: 30px 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--green-soft);
+    text-align: center;
+  }
+  .contact-block p {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .contact-block a {
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    padding-bottom: 2px;
+  }
+
+  .last-updated {
+    margin-top: 44px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .page-wrap { padding: 44px 20px 80px; }
+    .priv-card { flex-direction: row; }
+  }
+</style>

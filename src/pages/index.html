@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#ffffff">
+<title>Sankalp — The Daily Guidance Your Prescription Never Came With</title>
+<meta name="description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress that fits your life.">
+<link rel="canonical" href="https://sankalphealth.in/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sankalphealth.in/">
+<meta property="og:title" content="Sankalp — The Daily Guidance Your Prescription Never Came With">
+<meta property="og:description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress that fits your life.">
+<meta property="og:image" content="https://sankalphealth.in/images/og-default.png">
+<meta property="og:site_name" content="Sankalp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sankalp — The Daily Guidance Your Prescription Never Came With">
+<meta name="twitter:description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress.">
+<meta name="twitter:image" content="https://sankalphealth.in/images/og-default.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Sankalp","url":"https://sankalphealth.in","logo":"https://sankalphealth.in/favicon.svg","description":"Sankalp gives people the everyday lifestyle guidance that treatment alone doesn't — simple daily plans for food, sleep, movement and stress."},{"@type":"WebSite","name":"Sankalp","url":"https://sankalphealth.in"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap"></noscript>
+<style>
+
+/* ═══════════════════════════════════════════════════════════
+   RESET + TOKENS
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f7f5;
+  --bg-card:#ffffff;
+  --ink:#182420;
+  --text:#3a4844;
+  --muted:#66756f;
+  --line:#e3eae6;
+  --green:#157a5b;
+  --green-dark:#0e5c44;
+  --green-soft:#e6f3ed;
+  --accent:#e0752e;
+  --accent-soft:#fdeee1;
+  --gold:#b0894f;
+  --gold-soft:#f4ecdd;
+  --air:#3e8fbf;
+  --fire:#db7b4c;
+  --earth:#4e9e68;
+  --radius:16px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 1px 2px rgba(24,36,32,.05),0 8px 28px rgba(24,36,32,.07);
+  --shadow-lg:0 24px 60px rgba(24,36,32,.14);
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16.5px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--green-soft);color:var(--green-dark)}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--ink);font-weight:600;line-height:1.2}
+img{max-width:100%;display:block}
+.dev{font-family:'Noto Sans Devanagari',serif}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ═══════════ NAV ═══════════ */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand .mark{width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:visible}
+/* ─ animated lotus mark ─ */
+.lotus{width:100%;height:100%;display:block;overflow:visible}
+.lotus .petals{transform-box:view-box;transform-origin:256px 300px;animation:lotusBreathe 6s ease-in-out 1.5s infinite}
+.lotus .p{transform-box:view-box;transform-origin:256px 366px;transform:rotate(var(--r));animation:petalBloom .85s cubic-bezier(.22,1,.36,1) backwards;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.lotus .p1{--r:-80deg;animation-delay:.16s}
+.lotus .p2{--r:80deg;animation-delay:.16s}
+.lotus .p3{--r:-42deg;animation-delay:.08s}
+.lotus .p4{--r:42deg;animation-delay:.08s}
+.lotus .p5{--r:0deg;animation-delay:0s}
+.lotus .seed{transform-box:view-box;transform-origin:256px 356px;animation:seedPop .5s ease .4s backwards,seedGlow 4s ease-in-out 1.4s infinite}
+.brand:hover .lotus .p1{transform:rotate(-92deg)}
+.brand:hover .lotus .p2{transform:rotate(92deg)}
+.brand:hover .lotus .p3{transform:rotate(-49deg)}
+.brand:hover .lotus .p4{transform:rotate(49deg)}
+.brand:hover .lotus .p5{transform:rotate(0deg) scale(1.06)}
+@keyframes petalBloom{from{transform:rotate(0deg) scale(.3);opacity:0}}
+@keyframes seedPop{from{transform:scale(0);opacity:0}}
+@keyframes seedGlow{0%,100%{filter:drop-shadow(0 0 .5px rgba(194,149,78,.3))}50%{filter:drop-shadow(0 0 4px rgba(194,149,78,.85))}}
+@keyframes lotusBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@media (prefers-reduced-motion:reduce){.lotus .p,.lotus .seed,.lotus .petals{animation:none!important}}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14.5px;font-weight:500;transition:color .25s}
+.nav-links a:hover{color:var(--green)}
+.nav-links .nav-cta{background:var(--green);color:#fff;padding:9px 18px;border-radius:100px;transition:background .25s}
+.nav-links .nav-cta:hover{background:var(--green-dark);color:#fff}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:17px;color:var(--ink);cursor:pointer}
+
+/* ═══════════ BUTTONS ═══════════ */
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15.5px;padding:14px 28px;border-radius:100px;transition:all .25s var(--ease)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(21,122,91,.28)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-ghost{color:var(--green);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--green);background:var(--green-soft)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+
+/* ═══════════ HERO (WebGL) ═══════════ */
+.hero{position:relative;overflow:hidden;padding:72px 0 64px;
+  background:
+    radial-gradient(130% 90% at 100% -10%, rgba(217,184,119,.13), transparent 52%),
+    radial-gradient(100% 80% at -8% 108%, rgba(21,122,91,.09), transparent 58%),
+    linear-gradient(180deg,#ffffff 0%,#fbfdfc 58%,#f4f7f5 100%)}
+.hero-fx{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(21,122,91,.06) 1px,transparent 1.5px);background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(125% 100% at 50% 0%,#000 28%,transparent 74%);
+  mask-image:radial-gradient(125% 100% at 50% 0%,#000 28%,transparent 74%)}
+.hero::before{content:'';position:absolute;top:-14%;right:-6%;width:min(620px,60vw);height:min(620px,60vw);border-radius:50%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(217,184,119,.24),transparent 70%);filter:blur(8px);animation:auraFloat 17s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-12%;width:min(560px,54vw);height:min(560px,54vw);border-radius:50%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(21,122,91,.16),transparent 70%);filter:blur(10px);animation:auraFloat 21s ease-in-out .6s infinite reverse}
+@keyframes auraFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,22px) scale(1.07)}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero::after{animation:none}}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero h1{font-size:clamp(36px,5.4vw,60px);margin:0 0 20px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero .sub{font-size:clamp(17px,2.1vw,19.5px);color:var(--muted);max-width:520px;margin:0 0 30px}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.hero .note{margin-top:16px;font-size:13.5px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px;max-width:540px}
+.chip{font-size:13.5px;font-weight:500;color:var(--text);background:var(--bg-card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;box-shadow:0 1px 3px rgba(24,36,32,.05)}
+.chips-note{margin-top:18px;font-size:14.5px;color:var(--muted);max-width:520px}
+
+/* the orb canvas */
+.orb-wrap{position:relative;width:100%;aspect-ratio:1/1;max-width:480px;margin:0 auto;border-radius:50%;
+  background:
+    radial-gradient(closest-side, rgba(217,184,119,.12), transparent 52%),
+    radial-gradient(closest-side, rgba(21,122,91,.12) 0%, rgba(21,122,91,.04) 46%, transparent 72%)}
+.orb-wrap::before{content:'';position:absolute;inset:15%;border-radius:50%;border:1px solid rgba(21,122,91,.14);animation:orbring 6s ease-in-out infinite}
+.orb-wrap::after{content:'';position:absolute;inset:30%;border-radius:50%;border:1px solid rgba(217,184,119,.20);animation:orbring 6s ease-in-out .6s infinite}
+@keyframes orbring{0%,100%{transform:scale(.9);opacity:.45}50%{transform:scale(1.06);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.orb-wrap::before,.orb-wrap::after{animation:none}}
+.orb-wrap canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;z-index:2}
+.orb-cap{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);text-align:center;
+  font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--muted);white-space:nowrap}
+.orb-cap .dev{font-style:normal;color:var(--gold);font-size:14px}
+
+/* ═══════════ STATS ═══════════ */
+.stats{background:var(--bg-soft);padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
+.stat-num{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,44px);font-weight:600;color:var(--green);line-height:1.1;margin-bottom:8px}
+.stat-lbl{font-size:13.5px;color:var(--muted);line-height:1.5;max-width:210px;margin:0 auto}
+
+/* ═══════════ PROBLEM ═══════════ */
+.problem{background:var(--bg);padding:80px 0}
+.sec-head{text-align:center;max-width:660px;margin:0 auto 48px}
+.sec-head h2{font-size:clamp(27px,3.6vw,40px);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:17px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pcard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow)}
+.pcard .num{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.pcard h3{font-size:19.5px;margin-bottom:9px}
+.pcard p{font-size:15.5px;color:var(--muted)}
+.problem .punch{text-align:center;margin-top:46px;font-family:'Fraunces',serif;font-size:clamp(20px,2.8vw,26px);color:var(--ink);max-width:680px;margin-left:auto;margin-right:auto}
+.problem .punch strong{color:var(--green)}
+.problem .punch-sub{text-align:center;margin-top:14px;font-size:16px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+
+/* ═══════════ SCIENCE — two modes ═══════════ */
+.science{background:var(--bg-soft);padding:88px 0}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+.mode-card{background:var(--bg-card);border-radius:var(--radius);padding:28px 26px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.mode-card.stress{border-top:4px solid var(--accent)}
+.mode-card.heal{border-top:4px solid var(--green)}
+.mode-top{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.mode-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mode-ico svg{width:22px;height:22px}
+.stress .mode-ico{background:var(--accent-soft);color:var(--accent)}
+.heal .mode-ico{background:var(--green-soft);color:var(--green)}
+.mode-card h3{font-size:20px}
+.mode-sub{font-size:13px;color:var(--muted)}
+.wave{width:100%;height:56px;margin-bottom:16px}
+.wave-line{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.stress-line{stroke:var(--accent);animation:stressScroll .9s linear infinite}
+.heal-line{stroke:var(--green);animation:healScroll 5s linear infinite}
+@keyframes stressScroll{to{transform:translateX(-58px)}}
+@keyframes healScroll{to{transform:translateX(-100px)}}
+.mode-list{list-style:none}
+.mode-list li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--text);border-bottom:1px solid var(--line)}
+.mode-list li:last-child{border-bottom:none}
+.stress .mode-list li::before{content:'•';position:absolute;left:8px;color:var(--accent)}
+.heal .mode-list li::before{content:'•';position:absolute;left:8px;color:var(--green)}
+.timing{display:flex;gap:16px;align-items:flex-start;background:var(--accent-soft);border:1px solid #f3d9c2;border-radius:var(--radius);padding:22px 26px;margin-top:26px}
+.timing-ico{font-size:22px;line-height:1.3;color:var(--accent)}
+.timing p{font-size:15.5px;color:var(--text)}
+.science-close{text-align:center;margin-top:40px;font-family:'Fraunces',serif;font-size:clamp(18px,2.4vw,23px);color:var(--ink);max-width:660px;margin-left:auto;margin-right:auto;line-height:1.45}
+.science-close strong{color:var(--green)}
+
+/* ═══════════ BRIDGE — ancient + modern ═══════════ */
+.bridge{padding:88px 0;position:relative;overflow:hidden}
+.bridge::before{content:'';position:absolute;top:-160px;right:-160px;width:520px;height:520px;background:radial-gradient(closest-side,var(--gold-soft),transparent);z-index:0}
+.bridge .wrap{position:relative;z-index:1}
+.bridge-rows{display:flex;flex-direction:column;gap:14px;max-width:900px;margin:0 auto}
+.brow{display:grid;grid-template-columns:1fr 46px 1fr;gap:0;align-items:stretch;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.bside{padding:20px 22px}
+.bside .k{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.bside.modern .k{color:var(--green)}
+.bside.ancient{background:var(--gold-soft)}
+.bside.ancient .k{color:var(--gold)}
+.bside h3{font-size:18px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.bside .devname{font-family:'Noto Sans Devanagari',serif;color:var(--gold);font-size:17px;font-weight:600}
+.bside p{font-size:14px;color:var(--muted);line-height:1.5}
+.blink{display:flex;align-items:center;justify-content:center;background:var(--bg-soft);color:var(--muted)}
+.blink svg{width:20px;height:20px}
+.bridge-eorbs{display:flex;gap:6px;margin-top:8px}
+.eorb{border-radius:50%;display:grid;place-items:center;color:#fff;flex:0 0 auto;width:26px;height:26px}
+.eorb svg{width:14px;height:14px}
+.eorb.air{background:radial-gradient(circle at 34% 30%,#8ac0dd,#3e8fbf)}
+.eorb.fire{background:radial-gradient(circle at 34% 30%,#e8a883,#db7b4c)}
+.eorb.earth{background:radial-gradient(circle at 34% 30%,#83c395,#4e9e68)}
+.bridge-close{text-align:center;margin-top:34px;font-size:15.5px;color:var(--muted);max-width:600px;margin-left:auto;margin-right:auto}
+
+/* ═══════════ APP SHOWCASE ═══════════ */
+.app{background:var(--bg-soft);padding:88px 0}
+.app-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.app-copy .astep{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.app-copy .astep:last-child{border-bottom:none}
+.app-copy .an{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center;flex:0 0 auto;margin-top:2px}
+.app-copy .astep h3{font-size:18px;margin-bottom:3px}
+.app-copy .astep p{font-size:14.5px;color:var(--muted)}
+.app-copy .app-cta{margin-top:26px}
+.devices{display:flex;gap:18px;justify-content:center;perspective:1400px}
+.device{width:216px;flex:0 0 auto;border-radius:34px;background:#fff;box-shadow:var(--shadow-lg),0 0 0 7px #10201b;overflow:hidden;position:relative}
+.device.tilt-l{transform:rotateY(9deg) translateY(10px)}
+.device.tilt-r{transform:rotateY(-9deg)}
+.dnotch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:74px;height:16px;background:#10201b;border-radius:0 0 11px 11px;z-index:5}
+.dscreen{padding:26px 15px 18px;min-height:420px;background:linear-gradient(180deg,#fff,#f6faf7)}
+.dev-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
+/* result screen */
+.dorb-stack{width:118px;height:100px;margin:12px auto 8px;position:relative}
+.dorb-stack .o{position:absolute;border-radius:50%}
+.dorb-stack .o.fire{width:70px;height:70px;left:10px;top:4px;background:radial-gradient(circle at 34% 30%,#eaa87f,#db7b4c);box-shadow:0 10px 22px rgba(219,123,76,.4)}
+.dorb-stack .o.air{width:50px;height:50px;right:6px;top:32px;background:radial-gradient(circle at 34% 30%,#8ac0dd,#3e8fbf);box-shadow:0 10px 20px rgba(62,143,191,.35)}
+.dorb-stack .o.earth{width:34px;height:34px;left:26px;bottom:0;background:radial-gradient(circle at 34% 30%,#83c395,#4e9e68);box-shadow:0 8px 16px rgba(78,158,104,.35)}
+.dtitle{font-family:'Fraunces',serif;font-size:19px;text-align:center;color:var(--ink);line-height:1.2}
+.dtitle em{font-style:italic;color:var(--green)}
+.delrow{display:flex;align-items:center;gap:9px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:8px;box-shadow:0 1px 3px rgba(24,36,32,.04)}
+.delrow .eorb{width:28px;height:28px}
+.delrow b{font-family:'Fraunces',serif;font-size:13px;color:var(--ink)}
+.delrow .es{font-size:10px;color:var(--muted)}
+.delrow .ep{margin-left:auto;font-family:'Fraunces',serif;font-size:15px;color:var(--ink);font-weight:600}
+/* home screen */
+.dhero{border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#fbe6da,#fff 62%);border:1px solid var(--line);padding:14px}
+.dhero .dh-top{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.dhero .dh-state{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.dhero .eorb{width:40px;height:40px}
+.dhero .dh-state b{font-family:'Fraunces',serif;font-size:17px;color:var(--ink)}
+.dhero p{font-size:11.5px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.dhero .dh-btn{background:var(--fire);color:#fff;font-size:11.5px;font-weight:600;text-align:center;padding:9px;border-radius:10px}
+.dmini{display:flex;align-items:center;gap:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:9px}
+.dmini .dmi{width:30px;height:30px;border-radius:9px;background:var(--green-soft);color:var(--green);display:grid;place-items:center}
+.dmini .dmi svg{width:15px;height:15px}
+.dmini b{font-size:11.5px;color:var(--ink);display:block}
+.dmini span{font-size:10px;color:var(--muted)}
+
+/* ═══════════ REPORT CARD (interactive) ═══════════ */
+.report{padding:92px 0}
+.report-card{max-width:720px;margin:0 auto;background:var(--bg-card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden}
+.rc-head{padding:26px 30px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.rc-head .rc-lbl{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rc-head .rc-habit{font-family:'Fraunces',serif;font-size:22px;color:var(--ink);line-height:1.25}
+.rc-body{padding:26px 30px 30px}
+.rc-ask{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.rtoggle{display:flex;gap:10px;flex-wrap:wrap}
+.rbtn{flex:1;min-width:150px;display:flex;align-items:center;gap:11px;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;transition:all .2s var(--ease);text-align:left;font-family:inherit}
+.rbtn .eorb{width:34px;height:34px}
+.rbtn b{font-family:'Fraunces',serif;font-size:15px;color:var(--ink);display:block}
+.rbtn span{font-size:11.5px;color:var(--muted)}
+.rbtn.on{border-color:var(--green);background:var(--green-soft);box-shadow:0 4px 14px rgba(21,122,91,.14)}
+.rverdict{margin-top:22px;border:1px solid var(--line);border-radius:16px;padding:22px;transition:all .3s var(--ease)}
+.rv-badge{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}
+.rv-badge svg{width:15px;height:15px}
+.rverdict h4{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:600}
+.rverdict p{font-size:15px;color:var(--text);line-height:1.6}
+.rverdict .rv-fix{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted)}
+.rverdict .rv-fix b{color:var(--green)}
+/* verdict states */
+.rverdict.right{background:var(--green-soft);border-color:#bfe3d3}
+.rverdict.right .rv-badge{background:var(--green);color:#fff}
+.rverdict.wrong{background:var(--accent-soft);border-color:#f3d9c2}
+.rverdict.wrong .rv-badge{background:var(--accent);color:#fff}
+.rverdict.neutral{background:var(--bg-soft);border-color:var(--line)}
+.rverdict.neutral .rv-badge{background:#8a978f;color:#fff}
+.report-foot{text-align:center;margin-top:30px;font-size:16px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
+.report-foot strong{color:var(--ink);font-family:'Fraunces',serif;font-weight:600}
+
+/* ═══════════ SCROLL REVEAL ═══════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .wave-line{animation:none}
+}
+
+/* ═══════════ HOW IT WORKS ═══════════ */
+.how{padding:88px 0;background:var(--bg-soft)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
+.step{position:relative;padding:30px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card)}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:-17px;left:24px;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(21,122,91,.3)}
+.step h3{font-size:19.5px;margin:10px 0 9px}
+.step p{font-size:15.5px;color:var(--muted)}
+.how .cta-center{text-align:center;margin-top:44px}
+
+/* ═══════════ PLAN COVERAGE ═══════════ */
+.plan{background:var(--bg);padding:80px 0}
+.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.plan-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 18px;text-align:center;transition:transform .25s var(--ease),box-shadow .25s}
+.plan-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.plan-card .ico{width:30px;height:30px;margin:0 auto 12px;color:var(--green)}
+.plan-card h3{font-size:16.5px;margin-bottom:6px}
+.plan-card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+
+/* ═══════════ TRUST ═══════════ */
+.trust{padding:88px 0;background:var(--bg-soft)}
+.trust-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.trust h2{font-size:clamp(27px,3.6vw,36px);margin-bottom:16px}
+.trust p{color:var(--muted);margin-bottom:14px}
+.trust ul{list-style:none;margin-top:10px}
+.trust li{padding:11px 0 11px 34px;position:relative;color:var(--text);font-size:15.5px;border-bottom:1px solid var(--line)}
+.trust li:last-child{border-bottom:none}
+.trust li::before{content:'✓';position:absolute;left:0;top:11px;width:22px;height:22px;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ═══════════ BLOG ═══════════ */
+.blog{background:var(--bg);padding:80px 0}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.bcard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:transform .25s var(--ease),box-shadow .25s}
+.bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.bcard .tag{align-self:flex-start;font-size:12px;font-weight:600;color:var(--green);background:var(--green-soft);padding:4px 11px;border-radius:100px}
+.bcard h3{font-size:18px;line-height:1.35}
+.bcard p{font-size:14.5px;color:var(--muted);flex-grow:1}
+.bcard .more{font-size:14px;font-weight:600;color:var(--green)}
+.blog .cta-center{text-align:center;margin-top:40px}
+
+/* ═══════════ FINAL CTA ═══════════ */
+.final{padding:96px 0;text-align:center}
+.final-box{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:24px;padding:64px 32px;color:#fff}
+.final-box h2{color:#fff;font-size:clamp(26px,3.6vw,38px);margin-bottom:14px}
+.final-box p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 30px;font-size:17px}
+.final-box .btn-primary{background:#fff;color:var(--green-dark);box-shadow:0 4px 18px rgba(0,0,0,.18)}
+.final-box .btn-primary:hover{background:var(--green-soft)}
+.final-box .alt{margin-top:18px;font-size:14px;color:rgba(255,255,255,.75)}
+.final-box .alt a{color:#fff;font-weight:600}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{border-top:1px solid var(--line);padding:36px 0 44px}
+.foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);text-decoration:none;font-size:14px}
+.foot-links a:hover{color:var(--green)}
+.foot-copy{font-size:13px;color:var(--muted)}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .orb-wrap{max-width:360px;order:-1}
+  .hero .sub{max-width:none}
+  .grid-3,.steps,.blog-grid{grid-template-columns:1fr 1fr}
+  .plan-grid{grid-template-columns:repeat(3,1fr)}
+  .trust-inner,.app-inner{grid-template-columns:1fr;gap:36px}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .mode-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .grid-3,.steps,.blog-grid{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr 1fr}
+  .steps{gap:34px}
+  .hero{padding:48px 0 48px}
+  .brow{grid-template-columns:1fr;}
+  .bside.ancient{border-top:1px solid var(--line)}
+  .blink{transform:rotate(90deg);padding:6px 0}
+  .device{width:180px}
+  .rbtn{min-width:120px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px 24px;gap:16px;border-bottom:1px solid var(--line);align-items:flex-start}
+  .nav-toggle{display:block}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6SVRXGV2Q"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-F6SVRXGV2Q');</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="mark"><svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus"><g class="petals"><path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/></g><circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/></svg></span>Sankalp</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#science">The science</a></li>
+      <li><a href="#roots">Ancient + modern</a></li>
+      <li><a href="#app">The app</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="for-doctors.html">For Doctors</a></li>
+      <li><a href="prakriti-assessment.html" class="nav-cta">Free health check</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-fx" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">Everyday health, made simple</span>
+        <h1>Your body already<br>knows how to <em>heal</em>.</h1>
+        <p class="sub">Whether you're managing a diagnosis or just tired of feeling tired, Sankalp turns "improve your lifestyle" into a clear daily plan — food, sleep, breath and rhythm, matched to your body and your day.</p>
+        <div class="cta-row">
+          <a href="prakriti-assessment.html" class="btn btn-primary">Take the free health check</a>
+          <a href="#app" class="btn btn-ghost">See how it works</a>
+        </div>
+        <p class="note">5 minutes · No sign-up · Plain language, no medical jargon</p>
+        <div class="chips reveal">
+          <span class="chip">Always tired</span>
+          <span class="chip">Poor sleep</span>
+          <span class="chip">Weak digestion</span>
+          <span class="chip">Can't focus</span>
+          <span class="chip">Acne &amp; skin</span>
+          <span class="chip">Stress &amp; anxiety</span>
+        </div>
+        <p class="chips-note">If it can be fixed by how you live, we'll help you fix it. If it needs a doctor, we'll tell you that — honestly and early.</p>
+      </div>
+      <div class="orb-wrap" id="orb-wrap" aria-hidden="true">
+        <canvas id="orb-canvas"></canvas>
+        <div class="orb-cap">breath is the switch — <span class="dev">प्राण</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ NUMBERS ══════════════════ -->
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num" data-to="9" data-suf="/10">0</div><div class="stat-lbl">people spend most of their day stuck in stress mode</div></div>
+      <div class="stat"><div class="stat-num" data-to="8" data-suf=" wks">0</div><div class="stat-lbl">of daily practice is enough to measurably change the brain</div></div>
+      <div class="stat"><div class="stat-num" data-to="5" data-suf=" min">0</div><div class="stat-lbl">to complete the health check and get your first plan</div></div>
+      <div class="stat"><div class="stat-num" data-to="5000" data-suf="+">0</div><div class="stat-lbl">years of traditional practice, filtered through modern research</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PROBLEM ══════════════════ -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Does this sound familiar?</h2>
+      <p>Most of us have lived this cycle more than once.</p>
+    </div>
+    <div class="grid-3">
+      <div class="pcard"><div class="num">1</div><h3>You visit the doctor</h3><p>You get a diagnosis and a prescription in a ten-minute appointment. Take this, twice a day, after food. Done.</p></div>
+      <div class="pcard"><div class="num">2</div><h3>The medicine helps — for a while</h3><p>The symptoms ease. But nobody explains what in your daily routine keeps bringing the problem back.</p></div>
+      <div class="pcard"><div class="num">3</div><h3>You're left to figure it out alone</h3><p>"Eat healthy, sleep well, reduce stress" isn't a plan. You need to know exactly what to do — and someone to keep you on track.</p></div>
+    </div>
+    <p class="punch">That missing piece — the guidance between the clinic and your kitchen, your bed, your day — <strong>is what Sankalp does.</strong></p>
+    <p class="punch-sub">And you don't need a prescription to start. If you simply want deeper sleep, steadier energy or a calmer mind, this is for you too.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ THE SCIENCE ══════════════════ -->
+<section class="science" id="science">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The science, simply</span>
+      <h2>Your body has two modes.<br>It only heals in one of them.</h2>
+      <p>Your nervous system runs an accelerator and a brake. Modern life — deadlines, screens, late meals, short nights — keeps the accelerator pressed. And a body in stress mode postpones everything else: digestion, deep sleep, repair, even skin and hair.</p>
+    </div>
+    <div class="mode-grid">
+      <div class="mode-card stress reveal">
+        <div class="mode-top">
+          <span class="mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+          <div><h3>Stress mode</h3><span class="mode-sub">the accelerator · always on for most of us</span></div>
+        </div>
+        <svg class="wave" viewBox="0 0 300 60" aria-hidden="true" preserveAspectRatio="none"><path class="wave-line stress-line" d="M0,30 L18,30 L25,10 L33,52 L41,22 L48,30 L58,30 L76,30 L83,10 L91,52 L99,22 L106,30 L116,30 L134,30 L141,10 L149,52 L157,22 L164,30 L174,30 L192,30 L199,10 L207,52 L215,22 L222,30 L232,30 L250,30 L257,10 L265,52 L273,22 L280,30 L290,30 L308,30 L315,10 L323,52 L331,22 L338,30 L348,30 L366,30 L373,10 L381,52 L389,22 L396,30 L406,30"/></svg>
+        <ul class="mode-list">
+          <li>Heart races, muscles stay tense</li>
+          <li>Digestion slows or turns erratic</li>
+          <li>Sleep gets light and broken</li>
+          <li>Repair — skin, hair, gut — gets postponed</li>
+        </ul>
+      </div>
+      <div class="mode-card heal reveal">
+        <div class="mode-top">
+          <span class="mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+          <div><h3>Recovery mode</h3><span class="mode-sub">the brake · where healing actually happens</span></div>
+        </div>
+        <svg class="wave" viewBox="0 0 300 60" aria-hidden="true" preserveAspectRatio="none"><path class="wave-line heal-line" d="M0,30 C15,12 35,12 50,30 C65,48 85,48 100,30 C115,12 135,12 150,30 C165,48 185,48 200,30 C215,12 235,12 250,30 C265,48 285,48 300,30 C315,12 335,12 350,30 C365,48 385,48 400,30"/></svg>
+        <ul class="mode-list">
+          <li>Heart settles, breath deepens</li>
+          <li>Digestion switches fully on</li>
+          <li>Sleep turns deep and restorative</li>
+          <li>The body runs its own repairs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timing reveal">
+      <span class="timing-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <p><strong>The most overlooked lever? Timing.</strong> Many of us eat reasonable food at unreasonable hours, and sleep at hours our body never agreed to. Your plan fixes the <em>when</em>, not just the <em>what</em>.</p>
+    </div>
+    <p class="science-close reveal">Every habit in your plan — meal times, a short breathing practice, an evening wind-down — has one job: <strong>easing your body off the accelerator, so it can do its own repairs.</strong></p>
+  </div>
+</section>
+
+<!-- ══════════════════ BRIDGE — ANCIENT + MODERN ══════════════════ -->
+<section class="bridge" id="roots">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Ancient wisdom, modern proof</span>
+      <h2>Two maps of the same body</h2>
+      <p>Sankalp doesn't pick sides. India's 5,000-year health tradition and modern science are describing the same thing in different words. When both agree — it goes into your plan.</p>
+    </div>
+    <div class="bridge-rows">
+
+      <div class="brow reveal">
+        <div class="bside modern"><div class="k">Modern science</div><h3>Two nervous-system modes</h3><p>The sympathetic accelerator and parasympathetic brake decide whether you're surviving or repairing.</p></div>
+        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="bside ancient"><div class="k">Yogic tradition</div><h3>Pingala &amp; Ida <span class="devname">पिंगला · इड़ा</span></h3><p>The sun and moon channels — the exact same on/off switch, named millennia earlier.</p></div>
+      </div>
+
+      <div class="brow reveal">
+        <div class="bside modern"><div class="k">Modern science</div><h3>Your genetic constitution</h3><p>DNA research (ayurgenomics, 2015) confirms people fall into distinct metabolic types written in their genes.</p></div>
+        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="bside ancient"><div class="k">Ayurveda</div><h3>Air, Fire &amp; Earth <span class="devname">त्रिदोष</span></h3>
+          <p>Everyone is a unique blend of three elements — the original personalised medicine.</p>
+          <div class="bridge-eorbs">
+            <span class="eorb air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3 12h15a2.5 2.5 0 1 1-2.5 2.5"/></svg></span>
+            <span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span>
+            <span class="eorb earth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c0-2.5-2-4-4.5-4 0 2.5 2 4 4.5 4z"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brow reveal">
+        <div class="bside modern"><div class="k">Modern science</div><h3>The gut–brain axis</h3><p>Your gut health directly drives mood, focus and immunity — the second brain in your belly.</p></div>
+        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="bside ancient"><div class="k">Ayurveda</div><h3>Digestive fire <span class="devname">अग्नि</span></h3><p>Agni — get the fire right and everything downstream improves. Weak fire is the root of most disease.</p></div>
+      </div>
+
+      <div class="brow reveal">
+        <div class="bside modern"><div class="k">Modern science</div><h3>Epigenetics</h3><p>Your daily choices switch genes on and off. You are not stuck with the body you inherited.</p></div>
+        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="bside ancient"><div class="k">Vedic thought</div><h3>Lifestyle is destiny <span class="devname">कर्म</span></h3><p>Change the pattern, change the outcome. Disease is not fate — it's a habit the body learned.</p></div>
+      </div>
+
+    </div>
+    <p class="bridge-close reveal">No fads, no miracle cures, no thirty-day detoxes. Just what both maps agree on — turned into something you can actually do tomorrow morning.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ APP SHOWCASE ══════════════════ -->
+<section class="app" id="app">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Meet the app</span>
+      <h2>Your body, read in five minutes</h2>
+      <p>No jargon to decode, no dosha vocabulary to memorise. Plain language on the surface — the deep tradition underneath, when you want it.</p>
+    </div>
+    <div class="app-inner">
+      <div class="app-copy reveal">
+        <div class="astep"><div class="an">1</div><div><h3>A gentle five-minute read</h3><p>Simple questions about your body, your routine and what's troubling you — in everyday words, no right answers.</p></div></div>
+        <div class="astep"><div class="an">2</div><div><h3>Meet your nature</h3><p>We show how much Air, Fire and Earth you carry — and what that means for how you eat, move and rest.</p></div></div>
+        <div class="astep"><div class="an">3</div><div><h3>A plan that changes with your day</h3><p>Each morning: how you're arriving, and the one small thing to do about it. We stay with you as it works.</p></div></div>
+        <a href="prakriti-assessment.html" class="btn btn-primary app-cta">Try the free health check</a>
+      </div>
+      <div class="devices reveal">
+        <!-- Result phone -->
+        <div class="device tilt-l">
+          <div class="dnotch"></div>
+          <div class="dscreen">
+            <div class="dev-eyebrow">Your nature</div>
+            <div class="dorb-stack"><div class="o fire"></div><div class="o air"></div><div class="o earth"></div></div>
+            <div class="dtitle">You lead with<br><em>Fire &amp; Air</em></div>
+            <div class="delrow"><span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span><div><b>Fire</b><div class="es">heat &amp; drive</div></div><span class="ep">46%</span></div>
+            <div class="delrow"><span class="eorb air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3 12h15a2.5 2.5 0 1 1-2.5 2.5"/></svg></span><div><b>Air</b><div class="es">movement &amp; change</div></div><span class="ep">34%</span></div>
+            <div class="delrow"><span class="eorb earth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/></svg></span><div><b>Earth</b><div class="es">calm &amp; weight</div></div><span class="ep">20%</span></div>
+          </div>
+        </div>
+        <!-- Home phone -->
+        <div class="device tilt-r">
+          <div class="dnotch"></div>
+          <div class="dscreen">
+            <div class="dev-eyebrow" style="text-align:left">Good morning, Akash</div>
+            <div style="height:12px"></div>
+            <div class="dhero">
+              <div class="dh-top">How you're arriving · morning</div>
+              <div class="dh-state"><span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span><b>A little heated</b></div>
+              <p>Sharpness, a shorter fuse. Your body's asking for cool and calm today.</p>
+              <div class="dh-btn">Try a 4-min cooling breath →</div>
+            </div>
+            <div class="dmini"><div class="dmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"/></svg></div><div><b>Morning check-in</b><span>How are you arriving?</span></div></div>
+            <div class="dmini"><div class="dmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/></svg></div><div><b>Your full reading</b><span>Prakriti · Vikriti</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BEHAVIOR REPORT CARD ══════════════════ -->
+<section class="report" id="report">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why generic advice fails</span>
+      <h2>The same habit can heal one body<br>and harm another</h2>
+      <p>A diet chart treats everyone the same. Your body isn't everyone. See how one ordinary habit changes verdict depending on who's doing it.</p>
+    </div>
+    <div class="report-card reveal">
+      <div class="rc-head">
+        <div class="rc-lbl">The habit</div>
+        <div class="rc-habit">A glass of cold water, first thing in the morning.</div>
+      </div>
+      <div class="rc-body">
+        <p class="rc-ask">Whose body is it? Tap to see the verdict change.</p>
+        <div class="rtoggle" id="rtoggle">
+          <button class="rbtn" data-body="fire"><span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span><span><b>Runs hot</b><span>warm hands, sharp appetite</span></span></button>
+          <button class="rbtn on" data-body="air"><span class="eorb air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M20.7 7 3.3 17"/><path d="M3.3 7 20.7 17"/></svg></span><span><b>Runs cold</b><span>cold hands, light frame</span></span></button>
+          <button class="rbtn" data-body="earth"><span class="eorb earth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/></svg></span><span><b>Runs slow</b><span>steady, slow to wake</span></span></button>
+        </div>
+        <div class="rverdict wrong" id="rverdict">
+          <span class="rv-badge" id="rv-badge"></span>
+          <h4 id="rv-title"></h4>
+          <p id="rv-text"></p>
+          <div class="rv-fix" id="rv-fix"></div>
+        </div>
+      </div>
+    </div>
+    <p class="report-foot"><strong>This is what your daily plan does</strong> — for every habit, it tells you the verdict for <em>your</em> body, why, and the exact fix.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps to a routine that heals</h2>
+      <p>No apps to master, no jargon to decode. Just clear steps that fit your life.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Answer a few simple questions</h3><p>Five minutes about your body, your routine, and what's troubling you — in everyday language.</p></div>
+      <div class="step"><h3>Get your personal daily plan</h3><p>Small, clear actions for your food, sleep, movement and calm — built around your day, not someone else's ideal.</p></div>
+      <div class="step"><h3>We stay with you</h3><p>Gentle daily check-ins keep you consistent. Small steps, done daily — that's how bodies actually recover.</p></div>
+    </div>
+    <div class="cta-center"><a href="prakriti-assessment.html" class="btn btn-primary">Start the health check</a></div>
+  </div>
+</section>
+
+<!-- ══════════════════ PLAN COVERAGE ══════════════════ -->
+<section class="plan" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Your plan</span>
+      <h2>Five things your prescription never covered</h2>
+      <p>Your plan gives you specific, doable guidance in each — matched to your body and your problem.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M4 11h16M6 11a6 6 0 0 1 12 0M8 3v2M12 2v3M16 3v2M4 15h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg></div><h3>Food</h3><p>What to eat, when, and what to skip — for your body, not a generic diet chart.</p></div>
+      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Sleep</h3><p>A wind-down routine that fixes the reasons you can't fall or stay asleep.</p></div>
+      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="13" cy="5" r="2"/><path d="M6 21l3-5 3 2 2-4M9 16l-2-4 5-2 3 3h3"/></svg></div><h3>Movement</h3><p>Simple daily movement and stretches — no gym, no hour-long workouts.</p></div>
+      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M3 8h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3 12h15a2.5 2.5 0 1 1-2.5 2.5"/><path d="M3 16h9a2 2 0 1 1-2 2"/></svg></div><h3>Breath &amp; calm</h3><p>Short breathing exercises that switch your body out of stress mode.</p></div>
+      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>Daily rhythm</h3><p>The right order and timing for your day, so the good habits actually stick.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHY / TRUST ══════════════════ -->
+<section class="trust" id="why">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div>
+        <span class="eyebrow">Why Sankalp</span>
+        <h2>Old wisdom, checked against modern science</h2>
+        <p>Our guidance draws on India's traditional understanding of daily health — food, routine, breath — and every recommendation is cross-checked against modern research.</p>
+        <p>If both agree, it goes in your plan. If they don't, it stays out. No fads, no miracle cures, no thirty-day detoxes.</p>
+      </div>
+      <ul>
+        <li>Works alongside your doctor — never instead of one</li>
+        <li>Plain language you can read and act on in minutes</li>
+        <li>Personalised to your body, routine and problem</li>
+        <li>Small daily steps, not overwhelming lifestyle overhauls</li>
+        <li>We tell you when something needs a doctor, not us</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BLOG ══════════════════ -->
+<section class="blog" id="blog">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Learn</span>
+      <h2>Understand your body, five minutes at a time</h2>
+      <p>Practical reads on sleep, stress, food and recovery — written to be understood, not to impress.</p>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/yoga-and-pranayama-for-anxiety.html" class="bcard"><span class="tag">Stress &amp; anxiety</span><h3>Calm an Anxious Mind — Breathing &amp; Gentle Movement That Work</h3><p>Anxiety is a nervous system stuck "on". Learn the breathing exercises and gentle movement that switch it off — plus a simple 10-minute daily routine.</p><span class="more">Read more →</span></a>
+      <a href="blog/ayurveda-for-sleep-insomnia.html" class="bcard"><span class="tag">Sleep</span><h3>Can't Sleep? Find the Cause — and the Natural Fixes That Help</h3><p>Different people can't sleep for different reasons. Find yours, and the warm, grounding evening habits that bring deep sleep back.</p><span class="more">Read more →</span></a>
+      <a href="blog/nadi-shodhana-alternate-nostril-breathing.html" class="bcard"><span class="tag">Breathing</span><h3>Alternate Nostril Breathing — Five Minutes to a Quieter Mind</h3><p>The gentlest balancing breath there is. Exactly how to do it, step by step — and the science of why it works.</p><span class="more">Read more →</span></a>
+      <a href="blog/sns-pns-how-your-nervous-system-controls-health.html" class="bcard"><span class="tag">How your body works</span><h3>Your Body Has an Accelerator and a Brake — Here's How to Use Them</h3><p>Modern science calls them the sympathetic and parasympathetic nervous systems. Understanding them explains most of your stress, sleep and digestion problems.</p><span class="more">Read more →</span></a>
+      <a href="blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html" class="bcard"><span class="tag">Herbs, with evidence</span><h3>Ashwagandha — The Ancient Herb Proven by Modern Science</h3><p>3,000 years of traditional use, now backed by clinical trials. What the research actually says about stress, sleep and strength.</p><span class="more">Read more →</span></a>
+      <a href="blog/triphala-the-three-fruit-formula-backed-by-science.html" class="bcard"><span class="tag">Herbs, with evidence</span><h3>Triphala — The Three-Fruit Formula Backed by Science</h3><p>Three dried fruits, 2,000 years of use — and modern trials showing real benefits for gut and oral health.</p><span class="more">Read more →</span></a>
+    </div>
+    <div class="cta-center"><a href="blog/" class="btn btn-ghost">Read all articles →</a></div>
+  </div>
+</section>
+
+<!-- ══════════════════ FINAL CTA ══════════════════ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-box">
+      <h2>Start with the free health check</h2>
+      <p>Five minutes of simple questions. You'll come away understanding your body better — and knowing exactly what to work on first.</p>
+      <a href="prakriti-assessment.html" class="btn btn-primary">Take the health check</a>
+      <p class="alt">Prefer to talk first? <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener">Join our WhatsApp community</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <a href="#top" class="brand" style="font-size:18px"><span class="mark" style="width:26px;height:26px"><svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus"><g class="petals"><path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/></g><circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/></svg></span>Sankalp</a>
+    <div class="foot-links">
+      <a href="#app">The app</a>
+      <a href="#roots">Ancient + modern</a>
+      <a href="blog/">Blog</a>
+      <a href="prakriti-assessment.html">Health check</a>
+      <a href="for-doctors.html">For Doctors</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <p class="foot-copy">© 2026 Sankalp · sankalphealth.in</p>
+  </div>
+</footer>
+
+<!-- ══════════════════ SCROLL / COUNTER JS ══════════════════ -->
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click', function(){ document.querySelector('.nav-links').classList.remove('open'); });
+});
+
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setFinal(el){ el.textContent = parseInt(el.dataset.to,10).toLocaleString('en-IN') + (el.dataset.suf||''); }
+  function countUp(el){
+    var to = parseInt(el.dataset.to,10), suf = el.dataset.suf||'', dur=1600, start=null;
+    function tick(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1), eased=1-Math.pow(1-p,3);
+      el.textContent = Math.round(to*eased).toLocaleString('en-IN')+suf; if(p<1) requestAnimationFrame(tick); }
+    requestAnimationFrame(tick);
+  }
+  if(reduced || !('IntersectionObserver' in window)){
+    document.querySelectorAll('.stat-num').forEach(setFinal);
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  } else {
+    document.querySelectorAll('.pcard,.step,.plan-card,.bcard,.brow,.astep').forEach(function(el){
+      el.classList.add('reveal');
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.transitionDelay = Math.min(i*90,450)+'ms';
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if(e.target.classList.contains('stat-num')) countUp(e.target);
+        io.unobserve(e.target); });
+    }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal,.stat-num').forEach(function(el){ io.observe(el); });
+  }
+
+  // ── Behavior report card ──
+  var DATA = {
+    fire:  {v:'neutral', badge:'Neutral', title:'Fine for you — even helpful.',
+            text:'You already run warm, so a cool glass is mildly soothing, especially in summer. It won’t throw you off.',
+            fix:'<b>Keep it</b> — just not ice-cold, and always after you’ve been awake a few minutes.'},
+    air:   {v:'wrong', badge:'Wrong for you', title:'It smothers your digestion before the day starts.',
+            text:'Your body already runs cold, and cold water on an empty stomach slows a digestion that’s sluggish first thing anyway — like pouring cold water on an engine you’re trying to start.',
+            fix:'<b>Switch to</b> warm water with a squeeze of lemon. You should feel digestion shift in 3–5 days.'},
+    earth: {v:'right', badge:'Right for you', title:'It wakes up a sluggish morning system.',
+            text:'Your mornings run slow and heavy, so a brisk cool glass gives your steady metabolism the nudge it needs to get moving.',
+            fix:'<b>Keep it</b> — cool, not iced. A pinch of ginger or honey helps even more.'}
+  };
+  var ICONS = {
+    right:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>',
+    wrong:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    neutral:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>'
+  };
+  var verdict = document.getElementById('rverdict');
+  function render(body){
+    var d = DATA[body];
+    verdict.className = 'rverdict ' + d.v;
+    document.getElementById('rv-badge').innerHTML = ICONS[d.v] + ' ' + d.badge;
+    document.getElementById('rv-title').textContent = d.title;
+    document.getElementById('rv-text').textContent = d.text;
+    document.getElementById('rv-fix').innerHTML = d.fix;
+  }
+  document.querySelectorAll('#rtoggle .rbtn').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('#rtoggle .rbtn').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      render(b.dataset.body);
+    });
+  });
+  render('air');
+})();
+</script>
+
+<!-- ══════════════════ WEBGL BREATHING ORB (three.js) ══════════════════ -->
+<!-- three.js vendored locally (global THREE, UMD r128) → no CDN, no extension
+     blocking, works over file:// and in production alike -->
+<script src="three.min.js"></script>
+<script>
+(function(){
+  if(typeof THREE === 'undefined') return; // CDN unreachable → CSS aura remains
+  var wrap = document.getElementById('orb-wrap');
+  var canvas = document.getElementById('orb-canvas');
+  if(!wrap || !canvas) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  } catch(e){ return; } // no WebGL → the CSS radial glow remains as fallback
+
+  renderer.setClearColor(0x000000, 0);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+  camera.position.set(0, 0, 5.0);
+
+  // ── even points on a sphere (fibonacci) ──
+  var COUNT = 5200;
+  var positions = new Float32Array(COUNT * 3);
+  var scales = new Float32Array(COUNT);
+  var rnds = new Float32Array(COUNT);
+  var R = 1.5;
+  var golden = Math.PI * (3 - Math.sqrt(5));
+  for(var i=0;i<COUNT;i++){
+    var y = 1 - (i / (COUNT - 1)) * 2;
+    var rad = Math.sqrt(1 - y*y);
+    var theta = golden * i;
+    positions[i*3]   = Math.cos(theta) * rad * R;
+    positions[i*3+1] = y * R;
+    positions[i*3+2] = Math.sin(theta) * rad * R;
+    scales[i] = 0.5 + Math.random() * 0.9;
+    rnds[i]   = Math.random();
+  }
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.setAttribute('aScale', new THREE.BufferAttribute(scales, 1));
+  geo.setAttribute('aRand', new THREE.BufferAttribute(rnds, 1));
+
+  var uniforms = {
+    uTime:   { value: 0 },
+    uSize:   { value: 3.4 },
+    uPixelRatio: { value: 1 },
+    uColorA: { value: new THREE.Color(0x137a58) }, // deep green
+    uColorB: { value: new THREE.Color(0xc79637) }  // gold shimmer
+  };
+
+  // NormalBlending (NOT additive) so points are visible on the white hero.
+  // Depth is faked by fading far-side points toward pale sage → the flat dot
+  // field reads as a sphere with real volume.
+  var mat = new THREE.ShaderMaterial({
+    uniforms: uniforms,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.NormalBlending,
+    vertexShader: [
+      'uniform float uTime;',
+      'uniform float uSize;',
+      'uniform float uPixelRatio;',
+      'attribute float aScale;',
+      'attribute float aRand;',
+      'varying float vMix;',
+      'varying float vDepth;',
+      'void main(){',
+      '  vec3 p = position;',
+      '  float globalBreath = sin(uTime * 0.5) * 0.5 + 0.5;',   // 0..1 slow inhale/exhale
+      '  float local = sin(uTime * 0.9 + aRand * 6.2831) * 0.5 + 0.5;',
+      '  float disp = globalBreath * 0.14 + local * 0.02;',
+      '  p *= (1.0 + disp);',
+      '  vec4 mv = modelViewMatrix * vec4(p, 1.0);',
+      '  gl_Position = projectionMatrix * mv;',
+      '  float s = uSize * aScale * (0.85 + globalBreath * 0.35);',
+      '  gl_PointSize = s * (4.0 / -mv.z) * uPixelRatio;',
+      '  vMix = aScale;',
+      '  vDepth = -mv.z;',
+      '}'
+    ].join('\n'),
+    fragmentShader: [
+      'uniform vec3 uColorA;',
+      'uniform vec3 uColorB;',
+      'varying float vMix;',
+      'varying float vDepth;',
+      'void main(){',
+      '  vec2 uv = gl_PointCoord - 0.5;',
+      '  float d = length(uv);',
+      '  if(d > 0.5) discard;',
+      '  float soft = smoothstep(0.5, 0.0, d);',
+      '  float t = clamp((vDepth - 3.5) / 3.0, 0.0, 1.0);',      // 0 near … 1 far
+      '  vec3 col = mix(uColorA, uColorB, smoothstep(0.72, 1.35, vMix));',
+      '  col = mix(col, vec3(0.80, 0.89, 0.84), t * 0.72);',     // far points fade to pale sage
+      '  float a = soft * mix(0.95, 0.18, t) * (0.5 + vMix * 0.5);',
+      '  gl_FragColor = vec4(col, a);',
+      '}'
+    ].join('\n')
+  });
+
+  var points = new THREE.Points(geo, mat);
+  scene.add(points);
+
+  // ── sizing ──
+  function resize(){
+    var w = wrap.clientWidth, h = wrap.clientHeight;
+    if(!w || !h) return;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    uniforms.uPixelRatio.value = renderer.getPixelRatio();
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  if('ResizeObserver' in window){ new ResizeObserver(resize).observe(wrap); }
+  else { window.addEventListener('resize', resize); }
+
+  // ── gentle mouse parallax ──
+  var tx = 0, ty = 0, cx = 0, cy = 0;
+  window.addEventListener('pointermove', function(e){
+    var r = wrap.getBoundingClientRect();
+    tx = ((e.clientX - (r.left + r.width/2)) / r.width) * 0.5;
+    ty = ((e.clientY - (r.top + r.height/2)) / r.height) * 0.5;
+  }, { passive: true });
+
+  // ── run only when visible / tab active ──
+  var clock = new THREE.Clock();
+  var visible = true, running = false;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(ents){
+      visible = ents[0].isIntersecting;
+      if(visible) start();
+    }, { threshold: 0.05 }).observe(wrap);
+  }
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden && visible) start();
+  });
+
+  function frame(){
+    if(!visible || document.hidden || reduce){ running = false; return; }
+    running = true;
+    uniforms.uTime.value = clock.getElapsedTime();
+    cx += (tx - cx) * 0.05;
+    cy += (ty - cy) * 0.05;
+    points.rotation.y += 0.0016;
+    points.rotation.x = cy * 0.6;
+    points.rotation.z = -cx * 0.3;
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  function start(){ if(!running){ clock.getDelta(); requestAnimationFrame(frame); } }
+
+  if(reduce){
+    // draw a single calm frame, no animation
+    uniforms.uTime.value = 1.2;
+    renderer.render(scene, camera);
+  } else {
+    start();
+  }
+})();
+</script>
+</body>
+</html>

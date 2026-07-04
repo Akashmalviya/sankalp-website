@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 5 — Trefoil bloom. Three teardrop petals at 120° around a gold seed. Clean roundel mark. -->
+  <g id="icon">
+    <g id="petals" fill="#157a5b">
+      <path d="M256 256 C214 190 224 132 256 104 C288 132 298 190 256 256 Z"/>
+      <path d="M256 256 C214 190 224 132 256 104 C288 132 298 190 256 256 Z" transform="rotate(120 256 256)"/>
+      <path d="M256 256 C214 190 224 132 256 104 C288 132 298 190 256 256 Z" transform="rotate(240 256 256)"/>
+    </g>
+    <circle id="seed" cx="256" cy="256" r="34" fill="#c2954e"/>
+  </g>
+</svg>

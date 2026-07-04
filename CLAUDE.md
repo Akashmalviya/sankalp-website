@@ -4,52 +4,53 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A fully static, hand-authored HTML/CSS/JS site for Sankalp — landing page, an interactive Prakriti assessment, and a blog. There is **no build system, no package manager, no test framework, no linter, no bundler**. Files in the repo are exactly what gets served.
+A Sankalp site now running on **Astro** as a thin static-build wrapper, migrated from a fully static, hand-authored HTML/CSS/JS site (landing page, an interactive Prakriti assessment, and a blog). Astro was introduced to have a real place to grow into (shared layouts, components, later re-theming) — but as of this migration, **every page is still the exact same self-contained HTML it always was**, just relocated under `src/pages/`. There is no shared layout, no components, no CSS/JS bundle yet. Files are passthrough: what's in `src/pages/*.html` is copied byte-for-byte into the build output at the same path.
 
 ## Local preview
 
-Open any HTML file directly in a browser, or serve from the repo root:
-
 ```bash
-python3 -m http.server 8000   # then http://localhost:8000
+npm install
+npm run dev       # astro dev server with live reload
+# or
+npm run build && npm run preview   # build to dist/ then serve it
 ```
-
-Use a server (not `file://`) because pages reference relative assets like `images/...` and `../favicon.svg`.
 
 ## Repo shape
 
-- `index.html` — landing page; contains the blog index grid (the only place blog cards are listed).
-- `prakriti-assessment.html` — standalone interactive quiz; all logic lives in its inline `<script>` at the bottom.
-- `blog/<slug>.html` — one self-contained file per article.
-- `images/`, `favicon.svg` — shared static assets.
+- `src/pages/index.html` — the landing page. This is the **new** (redesign) homepage: white/green/gold, Fraunces + Inter fonts, WebGL "breathing orb" hero (vendored `three.min.js`). It replaced the old purple/gold homepage in this migration.
+- `src/pages/prakriti-assessment.html` — standalone interactive quiz; all logic lives in its inline `<script>` at the bottom.
+- `src/pages/blog/<slug>.html` — one self-contained file per article. Still uses the **old** brand (purple/gold, Cinzel/Cormorant Garamond) — not yet re-themed to match the new homepage.
+- `src/pages/for-doctors.html`, `src/pages/privacy.html`, `src/pages/app.html` — also unchanged, old brand.
+- `public/` — static passthrough assets, copied as-is to the build root: `images/`, `favicon.svg`, `manifest.json`, `robots.txt`, `sitemap.xml`, `three.min.js`.
 
-## Architecture: every page is self-contained
+## ⚠️ Two brands coexist right now
 
-This is the single most important thing to know before editing. There are **no shared CSS or JS files**. Each HTML page inlines:
+The homepage (`src/pages/index.html`) uses a **different design system** than every other page: white background, green/gold accents, Fraunces/Inter/Noto Sans Devanagari, CSS tokens like `--green`, `--ink`, `--muted`. Every other page (blog, prakriti assessment, for-doctors, privacy, app) still uses the **old** purple-cosmic brand described below. This is intentional and temporary — re-theming the rest of the site to match the new homepage is a deferred, separate task. Don't assume the token names or fonts below apply to the homepage.
 
-1. Google Fonts link (`Cinzel`, `Cormorant Garamond`, `Noto Sans Devanagari`).
-2. A `<style>` block that re-declares the same CSS custom properties (`--bg-deep`, `--bg-dark`, `--gold`, `--text-light`, `--text-muted`, `--pink-stone`, etc.) and re-defines `nav`, `.nav-brand`, footer, and section styles.
-3. The page body.
-4. (Only on `index.html` and `prakriti-assessment.html`) an inline `<script>` block.
+## Architecture: every page is still self-contained
+
+This is still the single most important thing to know before editing. There are **no shared CSS or JS files, no Astro layout/components yet**. Each page inlines its own Google Fonts link, its own `<style>` block re-declaring its own CSS custom properties, and its own inline `<script>` where needed.
 
 Implications:
-- Visual changes to global elements (nav, brand, color tokens, footer) must be applied to **every page** to stay consistent. Grep for the token or class across `index.html`, `prakriti-assessment.html`, and `blog/*.html`.
-- Don't introduce a shared stylesheet or JS bundle without the user's agreement — the per-page-self-contained convention is intentional and matches how the site is currently deployed.
+- Visual changes to global elements (nav, brand, color tokens, footer) must be applied to **every page individually** to stay consistent. Grep for the token or class across `src/pages/**/*.html`.
+- Don't introduce a shared Astro layout, stylesheet, or JS bundle without the user's agreement — the per-page-self-contained convention is intentional for now, carried over unchanged from the pre-Astro site.
 
 ## Path conventions
 
-- Pages at the repo root use `favicon.svg`, `images/...`, `blog/<slug>.html`.
-- Blog pages use `../favicon.svg`, `../images/...`, and link back via `../index.html` and `../index.html#blog`.
+Unchanged from before the migration — Astro preserves the exact directory structure of `src/pages/` in its build output, and `public/` files land at the build root, so all existing relative paths still resolve correctly:
+
+- Pages directly under `src/pages/` use `favicon.svg`, `images/...`, `blog/<slug>.html` (root-relative).
+- Pages under `src/pages/blog/` use `../favicon.svg`, `../images/...`, and link back via `../index.html`.
 - Get this wrong and assets 404 silently in the browser.
 
 ## Adding a new blog post
 
 A new post requires changes in **three** places (and one more if you want it indexed):
 
-1. Create `blog/<slug>.html`. Copy an existing post (e.g. `blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html`) as the template — it carries the nav, hero, article structure, color tokens, and mobile breakpoint already wired with the correct `../` paths. Update the head SEO block: `<title>`, `<meta description>`, `canonical`, OG/Twitter tags, and the JSON-LD (`BlogPosting` + `BreadcrumbList`; add `FAQPage`/`HowTo` if the post has a visible FAQ or step list). The shared social image is `https://sankalphealth.in/images/og-default.png`; the nav "All Articles" back-link points to `index.html` (the `/blog/` hub).
-2. Add a new `<a class="bcard">` inside the `.blog-grid` in `index.html` (newest first, just after `<div class="blog-grid">`; a `<!-- ADD MORE BLOG CARDS HERE -->` marker also sits after the last card). Each card needs: `href`, a `<span class="tag">`, `<h3>`, `<p>` description, and a "Read More →" span.
-3. Add a matching `<a class="hcard">` to the `.hubgrid` in `blog/index.html` (the crawlable blog hub) — newest first.
-4. Add the post URL to `sitemap.xml` (priority `0.7`) so search engines discover it.
+1. Create `src/pages/blog/<slug>.html`. Copy an existing post (e.g. `src/pages/blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html`) as the template — it carries the nav, hero, article structure, color tokens, and mobile breakpoint already wired with the correct `../` paths. Update the head SEO block: `<title>`, `<meta description>`, `canonical`, OG/Twitter tags, and the JSON-LD (`BlogPosting` + `BreadcrumbList`; add `FAQPage`/`HowTo` if the post has a visible FAQ or step list). The shared social image is `https://sankalphealth.in/images/og-default.png`; the nav "All Articles" back-link points to `blog/index.html` (the `/blog/` hub).
+2. Add a new `<a class="bcard">` inside the `.blog-grid` in `src/pages/index.html` (newest first). Each card needs: `href`, a `<span class="tag">`, `<h3>`, `<p>` description, and a "Read More →" span.
+3. Add a matching `<a class="hcard">` to the `.hubgrid` in `src/pages/blog/index.html` (the crawlable blog hub) — newest first.
+4. Add the post URL to `public/sitemap.xml` (priority `0.7`) so search engines discover it.
 
 If you skip step 2 or 3 the post still works but is unreachable from the site's navigation; skip step 4 and it won't be in the sitemap.
 
@@ -57,7 +58,7 @@ If you skip step 2 or 3 the post still works but is unreachable from the site's 
 
 ## Prakriti assessment
 
-All quiz behavior is in `prakriti-assessment.html` — the questions, dosha profiles, scoring, and rendering live in a single inline `<script>` near the bottom of the file (~line 609 onward).
+All quiz behavior is in `src/pages/prakriti-assessment.html` — the questions, dosha profiles, scoring, and rendering live in a single inline `<script>` near the bottom of the file.
 
 - `questions[]` — each entry has `category`, optional `categoryIcon`/`categoryDesc` (only on the first question of a new category), `text`, and three `options` each tagged with a `dosha` ("vata" | "pitta" | "kapha").
 - `doshaProfiles{}` — strengths, imbalance signs, food, lifestyle, and meditation copy used in the result page.
@@ -66,12 +67,14 @@ All quiz behavior is in `prakriti-assessment.html` — the questions, dosha prof
 
 When changing question count, don't hard-code the total — `questions.length` is used throughout.
 
-## Brand & typography
+## Brand & typography (old brand — blog/prakriti/for-doctors/privacy/app)
 
 - English headings use **Cinzel**; body copy uses **Cormorant Garamond**; Sanskrit uses **Noto Sans Devanagari**.
 - The brand wordmark is rendered as `<span>संकल्प</span> SANKALP` using HTML entities for the Devanagari (`&#2360;&#2306;&#2325;&#2354;&#2381;&#2346;`) — match this pattern rather than pasting Unicode directly so the site stays consistent across files that use different editors.
 - The shared accent color is `--gold: #c9a87c` over a deep purple `--bg-deep: #0f0618`. The Prakriti page additionally defines `--vata`, `--pitta`, `--kapha` for the per-dosha UI.
 
+The new homepage (`src/pages/index.html`) instead uses **Fraunces** (headings) + **Inter** (body) + Noto Sans Devanagari, with `--green: #157a5b`, `--gold: #b0894f`, `--ink`/`--text`/`--muted` on a white `--bg`.
+
 ## Deployment
 
-Pushes to `main` deploy the site (recent history includes a "Trigger rebuild" commit). Because it's static, there is nothing to build — what's in the repo is what ships.
+Deployed via **Netlify**. Build command is `npm run build` (Astro outputs to `dist/`), publish directory `dist` — configured directly in the Netlify dashboard (there is no `netlify.toml` in the repo by choice, so check the dashboard if a build starts failing or serving stale settings).

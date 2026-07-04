@@ -1,0 +1,118 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/brand.css';
+import '../styles/blog-post.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** site-root-relative path, e.g. "/blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html" */
+  path: string;
+  /** plain-text headline used in JSON-LD (no HTML entities/tags) */
+  headline: string;
+  /** ISO date, e.g. "2026-04-09" */
+  publishDate: string;
+  /** small eyebrow tag shown above the hero heading */
+  tag: string;
+  /** hero <h1> — HTML allowed (e.g. &mdash;, <br>) */
+  heroTitle: string;
+  /** hero subheading — HTML allowed */
+  heroSub: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  headline,
+  publishDate,
+  tag,
+  heroTitle,
+  heroSub,
+  ogImage = 'https://sankalphealth.in/images/og-default.png',
+} = Astro.props;
+
+const url = `https://sankalphealth.in${path}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline,
+  description,
+  url,
+  datePublished: publishDate,
+  author: { '@type': 'Organization', name: 'Sankalp' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Sankalp',
+    logo: { '@type': 'ImageObject', url: 'https://sankalphealth.in/favicon.svg' },
+  },
+  mainEntityOfPage: url,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sankalphealth.in' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sankalphealth.in/blog/' },
+      { '@type': 'ListItem', position: 3, name: headline, item: url },
+    ],
+  },
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#ffffff" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Sankalp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<slot name="head" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" /></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6SVRXGV2Q"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F6SVRXGV2Q');
+</script>
+</head>
+<body>
+
+<Header base="../" active="blog" />
+
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">{tag}</span>
+    <h1 set:html={heroTitle} />
+    <p class="blog-hero-sub" set:html={heroSub} />
+  </div>
+</header>
+
+<article class="article">
+  <slot />
+</article>
+
+<Footer base="../" />
+
+</body>
+</html>

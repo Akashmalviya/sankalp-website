@@ -1,661 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0f0618">
-<title>Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance — Sankalp</title>
-<meta name="description" content="Understand the Ayurvedic framework of Panch Mahabhutas (five elements) and Tridosha (Vata, Pitta, Kapha). Learn to identify which dosha is imbalanced in your body.">
-<link rel="canonical" href="https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html">
-<meta property="og:title" content="Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance — Sankalp">
-<meta property="og:description" content="Understand the Ayurvedic framework of Panch Mahabhutas (five elements) and Tridosha (Vata, Pitta, Kapha). Learn to identify which dosha is imbalanced in your body.">
-<meta property="og:image" content="https://sankalphealth.in/images/og-default.png">
-<meta property="og:site_name" content="Sankalp">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance — Sankalp">
-<meta name="twitter:description" content="Understand the Ayurvedic framework of Panch Mahabhutas (five elements) and Tridosha (Vata, Pitta, Kapha). Learn to identify which dosha is imbalanced in your body.">
-<meta name="twitter:image" content="https://sankalphealth.in/images/og-default.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance","description":"Understand the Ayurvedic framework of Panch Mahabhutas (five elements) and Tridosha (Vata, Pitta, Kapha). Learn to identify which dosha is imbalanced in your body.","url":"https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html","datePublished":"2026-04-07","author":{"@type":"Organization","name":"Sankalp"},"publisher":{"@type":"Organization","name":"Sankalp","logo":{"@type":"ImageObject","url":"https://sankalphealth.in/favicon.svg"}},"mainEntityOfPage":"https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sankalphealth.in"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://sankalphealth.in/#blog"},{"@type":"ListItem","position":3,"name":"Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance","item":"https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html"}]}}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  :root {
-    --bg-deep: #0f0618;
-    --bg-dark: #1a0a2e;
-    --bg-mid: #2d1b4e;
-    --gold: #c9a87c;
-    --gold-dim: rgba(201, 168, 124, 0.6);
-    --gold-faint: rgba(201, 168, 124, 0.15);
-    --text-light: #e8dff0;
-    --text-muted: #b8a8c8;
-    --text-white: #ffffff;
-    --pink-stone: #b87a8a;
-    --vata: #7ab8d4;
-    --pitta: #d4917a;
-    --kapha: #8bbd7a;
-  }
-
-  body {
-    font-family: 'Cormorant Garamond', serif;
-    background: var(--bg-deep);
-    color: var(--text-light);
-    line-height: 1.8;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 14px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(15, 6, 24, 0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(201, 168, 124, 0.08);
-  }
-
-  .nav-brand {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: 16px;
-    letter-spacing: 5px;
-    text-decoration: none;
-  }
-
-  .nav-brand span {
-    font-family: 'Noto Sans Devanagari', sans-serif;
-    color: var(--gold);
-    font-size: 11px;
-    margin-right: 8px;
-    font-weight: 300;
-  }
-
-  .nav-back {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .nav-back:hover { color: var(--text-white); }
-
-  /* HERO */
-  .blog-hero {
-    padding: 140px 20px 80px;
-    text-align: center;
-    background: radial-gradient(ellipse at 50% 40%, rgba(45, 27, 78, 0.5) 0%, var(--bg-deep) 70%);
-    position: relative;
-  }
-
-  .blog-hero::before {
-    content: 'ॐ';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 300px;
-    color: rgba(139, 92, 159, 0.03);
-    pointer-events: none;
-  }
-
-  .blog-hero-content { position: relative; z-index: 1; }
-
-  .blog-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--pink-stone);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .blog-hero h1 {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 600;
-    letter-spacing: 2px;
-    line-height: 1.3;
-    max-width: 700px;
-    margin: 0 auto 16px;
-  }
-
-  .blog-hero-sub {
-    color: var(--gold);
-    font-size: 18px;
-    font-style: italic;
-    font-weight: 300;
-    max-width: 550px;
-    margin: 0 auto;
-  }
-
-  /* ARTICLE */
-  .article {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 60px 24px 100px;
-  }
-
-  .article h2 {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin: 60px 0 16px;
-    line-height: 1.3;
-  }
-
-  .article h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin: 40px 0 12px;
-  }
-
-  .article p {
-    font-size: 18px;
-    color: var(--text-muted);
-    line-height: 1.9;
-    margin-bottom: 20px;
-  }
-
-  .article strong { color: var(--text-light); font-weight: 500; }
-  .article em.gold { color: var(--gold); font-weight: 400; }
-
-  .divider {
-    width: 50px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    margin: 40px 0;
-  }
-
-  .divider-center {
-    width: 50px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 40px auto;
-  }
-
-  /* QUOTE */
-  .quote {
-    margin: 40px 0;
-    padding: 24px 30px;
-    border-left: 2px solid var(--gold-faint);
-    background: rgba(45, 27, 78, 0.15);
-    border-radius: 0 6px 6px 0;
-  }
-
-  .quote p {
-    font-size: 19px;
-    font-style: italic;
-    color: var(--gold-dim);
-    line-height: 1.6;
-    margin-bottom: 0;
-  }
-
-  .quote .source {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-style: normal;
-    margin-top: 8px;
-    display: block;
-  }
-
-  /* ELEMENTS */
-  .elements-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin: 30px 0;
-  }
-
-  .element-card {
-    text-align: center;
-    padding: 22px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(201, 168, 124, 0.08);
-    background: rgba(45, 27, 78, 0.2);
-  }
-
-  .element-card .symbol {
-    font-size: 28px;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .element-card .sanskrit {
-    font-family: 'Noto Sans Devanagari', sans-serif;
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 300;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .element-card h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    margin-bottom: 6px;
-  }
-
-  .element-card p {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.4;
-    margin-bottom: 0;
-  }
-
-  .element-earth { border-color: rgba(139, 189, 122, 0.2); }
-  .element-water { border-color: rgba(122, 155, 212, 0.2); }
-  .element-fire { border-color: rgba(212, 145, 122, 0.2); }
-  .element-air { border-color: rgba(180, 200, 220, 0.2); }
-  .element-space { border-color: rgba(180, 160, 200, 0.2); }
-
-  /* DOSHA CARDS */
-  .dosha-section {
-    margin: 40px 0;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid rgba(201, 168, 124, 0.08);
-  }
-
-  .dosha-vata {
-    background: linear-gradient(160deg, rgba(122, 184, 212, 0.06), rgba(26, 10, 46, 0.3));
-    border-color: rgba(122, 184, 212, 0.1);
-  }
-
-  .dosha-pitta {
-    background: linear-gradient(160deg, rgba(212, 145, 122, 0.06), rgba(26, 10, 46, 0.3));
-    border-color: rgba(212, 145, 122, 0.1);
-  }
-
-  .dosha-kapha {
-    background: linear-gradient(160deg, rgba(139, 189, 122, 0.06), rgba(26, 10, 46, 0.3));
-    border-color: rgba(139, 189, 122, 0.1);
-  }
-
-  .dosha-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .dosha-header .dosha-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .dosha-vata .dosha-icon { border: 1px solid rgba(122, 184, 212, 0.3); color: var(--vata); }
-  .dosha-pitta .dosha-icon { border: 1px solid rgba(212, 145, 122, 0.3); color: var(--pitta); }
-  .dosha-kapha .dosha-icon { border: 1px solid rgba(139, 189, 122, 0.3); color: var(--kapha); }
-
-  .dosha-header h3 {
-    margin: 0;
-    font-family: 'Cinzel', serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-  }
-
-  .dosha-vata .dosha-header h3 { color: var(--vata); }
-  .dosha-pitta .dosha-header h3 { color: var(--pitta); }
-  .dosha-kapha .dosha-header h3 { color: var(--kapha); }
-
-  .dosha-subtitle {
-    font-size: 13px;
-    font-style: italic;
-    font-weight: 300;
-    margin-top: 2px;
-  }
-
-  .dosha-vata .dosha-subtitle { color: rgba(122, 184, 212, 0.6); }
-  .dosha-pitta .dosha-subtitle { color: rgba(212, 145, 122, 0.6); }
-  .dosha-kapha .dosha-subtitle { color: rgba(139, 189, 122, 0.6); }
-
-  .dosha-body p {
-    font-size: 16px;
-    margin-bottom: 14px;
-  }
-
-  .dosha-traits {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  .trait-block h5 {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .trait-list {
-    list-style: none;
-  }
-
-  .trait-list li {
-    font-size: 14px;
-    color: var(--text-muted);
-    padding: 3px 0 3px 16px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .trait-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: rgba(201, 168, 124, 0.25);
-  }
-
-  /* IMBALANCE CHECKER */
-  .checker-section {
-    margin: 50px 0;
-    padding: 36px;
-    background: rgba(45, 27, 78, 0.2);
-    border: 1px solid rgba(201, 168, 124, 0.1);
-    border-radius: 10px;
-  }
-
-  .checker-section h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: 20px;
-    margin: 0 0 6px 0;
-    letter-spacing: 1.5px;
-  }
-
-  .checker-intro {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    line-height: 1.7;
-  }
-
-  .checker-dosha {
-    margin-bottom: 28px;
-    padding: 24px;
-    border-radius: 8px;
-  }
-
-  .checker-dosha.vata-check { background: rgba(122, 184, 212, 0.04); border: 1px solid rgba(122, 184, 212, 0.08); }
-  .checker-dosha.pitta-check { background: rgba(212, 145, 122, 0.04); border: 1px solid rgba(212, 145, 122, 0.08); }
-  .checker-dosha.kapha-check { background: rgba(139, 189, 122, 0.04); border: 1px solid rgba(139, 189, 122, 0.08); }
-
-  .checker-dosha h4 {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 4px;
-  }
-
-  .vata-check h4 { color: var(--vata); }
-  .pitta-check h4 { color: var(--pitta); }
-  .kapha-check h4 { color: var(--kapha); }
-
-  .checker-dosha .elements-label {
-    font-size: 12px;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .sign-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .sign-col h5 {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-dim);
-    margin-bottom: 8px;
-  }
-
-  .sign-col ul {
-    list-style: none;
-  }
-
-  .sign-col li {
-    font-size: 14px;
-    color: var(--text-muted);
-    padding: 3px 0 3px 16px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .sign-col li::before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    font-size: 11px;
-    color: rgba(201, 168, 124, 0.3);
-    top: 5px;
-  }
-
-  .remedy-box {
-    margin-top: 14px;
-    padding: 14px 18px;
-    border-radius: 6px;
-    background: rgba(201, 168, 124, 0.04);
-    border: 1px solid rgba(201, 168, 124, 0.06);
-  }
-
-  .remedy-box h5 {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-
-  .remedy-box p {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 0;
-    line-height: 1.6;
-  }
-
-  /* HIGHLIGHT BOX */
-  .highlight-box {
-    background: rgba(201, 168, 124, 0.06);
-    border: 1px solid rgba(201, 168, 124, 0.12);
-    border-radius: 8px;
-    padding: 28px;
-    margin: 30px 0;
-    text-align: center;
-  }
-
-  .highlight-box h4 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    font-size: 13px;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-  }
-
-  .highlight-box p {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin-bottom: 0;
-    line-height: 1.7;
-  }
-
-  /* DUAL LENS */
-  .dual-lens {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .lens-card {
-    padding: 22px;
-    border-radius: 6px;
-    border: 1px solid rgba(201, 168, 124, 0.06);
-  }
-
-  .lens-card.modern { background: rgba(122, 184, 212, 0.05); }
-  .lens-card.yogic { background: rgba(201, 168, 124, 0.05); }
-
-  .lens-label {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .lens-card.modern .lens-label { color: var(--vata); }
-  .lens-card.yogic .lens-label { color: var(--gold); }
-  .lens-card p { font-size: 15px; margin-bottom: 0; }
-
-  /* CTA */
-  .blog-cta {
-    text-align: center;
-    margin: 60px 0;
-    padding: 40px;
-    border-top: 1px solid rgba(201, 168, 124, 0.1);
-    border-bottom: 1px solid rgba(201, 168, 124, 0.1);
-  }
-
-  .blog-cta p {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--bg-deep);
-    background: linear-gradient(135deg, var(--gold), #dfc299);
-    padding: 13px 32px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(201, 168, 124, 0.3);
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--bg-deep);
-    border-top: 1px solid rgba(201, 168, 124, 0.08);
-    padding: 40px 20px 24px;
-    text-align: center;
-  }
-
-  .footer-brand {
-    font-family: 'Cinzel', serif;
-    color: var(--text-white);
-    font-size: 16px;
-    letter-spacing: 5px;
-    margin-bottom: 4px;
-  }
-
-  .footer-tagline {
-    color: var(--gold-dim);
-    font-style: italic;
-    font-size: 13px;
-    margin-bottom: 16px;
-  }
-
-  .footer-quote {
-    font-family: 'Cinzel', serif;
-    color: rgba(201, 168, 124, 0.25);
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 12px 20px; }
-    .article { padding: 40px 16px 80px; }
-    .elements-grid { grid-template-columns: repeat(3, 1fr); }
-    .dosha-traits { grid-template-columns: 1fr; }
-    .sign-columns { grid-template-columns: 1fr; }
-    .dual-lens { grid-template-columns: 1fr; }
-    .blog-hero { padding: 120px 16px 60px; }
-  }
-
-  @media (max-width: 480px) {
-    .elements-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6SVRXGV2Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-F6SVRXGV2Q');
-</script>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="../index.html" class="nav-brand"><span>संकल्प</span> SANKALP</a>
-  <a href="index.html" class="nav-back">&larr; All Articles</a>
-</nav>
-
-<!-- HERO -->
-<header class="blog-hero">
-  <div class="blog-hero-content">
-    <span class="blog-tag">Ayurveda + Modern Science</span>
-    <h1>Three Doshas, Five Elements & How to Find Your Imbalance</h1>
-    <p class="blog-hero-sub">The oldest health system in the world, explained simply. Discover what your body is trying to tell you.</p>
-  </div>
-</header>
-
-<!-- ARTICLE -->
-<article class="article">
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+---
+<BlogPostLayout
+  title="Ayurveda: Three Doshas, Five Elements &amp; Finding Your Imbalance — Sankalp"
+  description="Understand the Ayurvedic framework of Panch Mahabhutas (five elements) and Tridosha (Vata, Pitta, Kapha). Learn to identify which dosha is imbalanced in your body."
+  path="/blog/ayurveda-three-doshas-five-elements.html"
+  headline="Ayurveda: Three Doshas, Five Elements & Finding Your Imbalance"
+  publishDate="2026-04-07"
+  tag="Ayurveda + Modern Science"
+  heroTitle="Three Doshas, Five Elements &amp; How to Find Your Imbalance"
+  heroSub="The oldest health system in the world, explained simply. Discover what your body is trying to tell you."
+>
 
   <h2>Everything Is Made of Five Elements</h2>
   <div class="divider"></div>
@@ -1049,14 +404,87 @@
     <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="cta-btn">Join Our WhatsApp Community</a>
   </div>
 
-</article>
+</BlogPostLayout>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">SANKALP</div>
-  <p class="footer-tagline">Dhyan for Mind, Body & a Better Life</p>
-  <p class="footer-quote">Health is not a luxury. It is a lifestyle.</p>
-</footer>
+<style>
+  /* ELEMENTS (Panch Mahabhutas) */
+  .elements-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:30px 0}
+  .element-card{text-align:center;padding:22px 10px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg-card);box-shadow:var(--shadow)}
+  .element-card .symbol{font-size:28px;margin-bottom:8px;display:block;color:var(--gold)}
+  .element-card .sanskrit{font-family:'Noto Sans Devanagari',serif;font-size:12px;color:var(--gold);font-weight:500;display:block;margin-bottom:2px}
+  .element-card h4{font-family:'Fraunces',serif;color:var(--ink);font-size:11px;letter-spacing:1.5px;margin-bottom:6px;font-weight:600}
+  .element-card p{font-size:12px;color:var(--muted);line-height:1.4;margin-bottom:0}
+  .element-space{border-top:3px solid var(--gold)}
+  .element-air{border-top:3px solid var(--air)}
+  .element-fire{border-top:3px solid var(--fire)}
+  .element-water{border-top:3px solid var(--air)}
+  .element-earth{border-top:3px solid var(--earth)}
 
-</body>
-</html>
+  /* DOSHA CARDS */
+  .dosha-section{margin:40px 0;padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg-card);box-shadow:var(--shadow)}
+  .dosha-vata{border-top:3px solid var(--air)}
+  .dosha-pitta{border-top:3px solid var(--fire)}
+  .dosha-kapha{border-top:3px solid var(--earth)}
+
+  .dosha-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+  .dosha-header .dosha-icon{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--bg-soft);border:1.5px solid var(--line)}
+  .dosha-vata .dosha-icon{color:var(--air);border-color:var(--air)}
+  .dosha-pitta .dosha-icon{color:var(--fire);border-color:var(--fire)}
+  .dosha-kapha .dosha-icon{color:var(--earth);border-color:var(--earth)}
+
+  .dosha-header h3{margin:0;font-family:'Fraunces',serif;font-size:20px;font-weight:600}
+  .dosha-vata .dosha-header h3{color:var(--air)}
+  .dosha-pitta .dosha-header h3{color:var(--fire)}
+  .dosha-kapha .dosha-header h3{color:var(--earth)}
+
+  .dosha-subtitle{font-size:13px;font-style:italic;color:var(--muted);margin-top:2px}
+
+  .dosha-body p{font-size:16px;color:var(--text);margin-bottom:14px}
+
+  .dosha-traits{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+
+  .trait-block h5{font-family:'Fraunces',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+
+  .trait-list{list-style:none}
+  .trait-list li{font-size:14px;color:var(--muted);padding:3px 0 3px 16px;position:relative;line-height:1.5}
+  .trait-list li::before{content:'—';position:absolute;left:0;color:var(--line)}
+
+  /* IMBALANCE CHECKER */
+  .checker-section{margin:50px 0;padding:36px;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius)}
+  .checker-section h3{font-family:'Fraunces',serif;color:var(--ink);font-size:20px;margin:0 0 6px;font-weight:600}
+  .checker-intro{font-size:16px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+
+  .checker-dosha{margin-bottom:28px;padding:24px;border-radius:12px;background:var(--bg-card);border:1px solid var(--line)}
+  .checker-dosha.vata-check{border-top:3px solid var(--air)}
+  .checker-dosha.pitta-check{border-top:3px solid var(--fire)}
+  .checker-dosha.kapha-check{border-top:3px solid var(--earth)}
+
+  .checker-dosha h4{font-family:'Fraunces',serif;font-size:15px;letter-spacing:.5px;margin-bottom:4px;font-weight:600}
+  .vata-check h4{color:var(--air)}
+  .pitta-check h4{color:var(--fire)}
+  .kapha-check h4{color:var(--earth)}
+
+  .checker-dosha .elements-label{font-size:12px;font-style:italic;color:var(--muted);margin-bottom:14px;display:block}
+
+  .sign-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  .sign-col h5{font-family:'Fraunces',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+  .sign-col ul{list-style:none}
+  .sign-col li{font-size:14px;color:var(--muted);padding:3px 0 3px 16px;position:relative;line-height:1.5}
+  .sign-col li::before{content:'›';position:absolute;left:0;font-size:13px;color:var(--gold);top:2px}
+
+  .remedy-box{margin-top:14px;padding:14px 18px;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+  .remedy-box h5{font-family:'Fraunces',serif;font-size:11px;letter-spacing:1.5px;color:var(--gold);margin-bottom:6px;font-weight:600}
+  .remedy-box p{font-size:14px;color:var(--text);margin-bottom:0;line-height:1.6}
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .elements-grid { grid-template-columns: repeat(3, 1fr); }
+    .dosha-traits { grid-template-columns: 1fr; }
+    .sign-columns { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .elements-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

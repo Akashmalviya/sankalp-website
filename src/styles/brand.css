@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════
+   SANKALP — shared brand tokens + nav/footer/button primitives
+   New white/green/gold brand (introduced with the homepage
+   redesign). Imported by every layout that uses <Header>/<Footer>.
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f7f5;
+  --bg-card:#ffffff;
+  --ink:#182420;
+  --text:#3a4844;
+  --muted:#66756f;
+  --line:#e3eae6;
+  --green:#157a5b;
+  --green-dark:#0e5c44;
+  --green-soft:#e6f3ed;
+  --accent:#e0752e;
+  --accent-soft:#fdeee1;
+  --gold:#b0894f;
+  --gold-soft:#f4ecdd;
+  --air:#3e8fbf;
+  --fire:#db7b4c;
+  --earth:#4e9e68;
+  --radius:16px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 1px 2px rgba(24,36,32,.05),0 8px 28px rgba(24,36,32,.07);
+  --shadow-lg:0 24px 60px rgba(24,36,32,.14);
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16.5px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--green-soft);color:var(--green-dark)}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--ink);font-weight:600;line-height:1.2}
+img{max-width:100%;display:block}
+.dev{font-family:'Noto Sans Devanagari',serif}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ═══════════ NAV ═══════════ */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand .mark{width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:visible}
+/* ─ animated lotus mark ─ */
+.lotus{width:100%;height:100%;display:block;overflow:visible}
+.lotus .petals{transform-box:view-box;transform-origin:256px 300px;animation:lotusBreathe 6s ease-in-out 1.5s infinite}
+.lotus .p{transform-box:view-box;transform-origin:256px 366px;transform:rotate(var(--r));animation:petalBloom .85s cubic-bezier(.22,1,.36,1) backwards;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.lotus .p1{--r:-80deg;animation-delay:.16s}
+.lotus .p2{--r:80deg;animation-delay:.16s}
+.lotus .p3{--r:-42deg;animation-delay:.08s}
+.lotus .p4{--r:42deg;animation-delay:.08s}
+.lotus .p5{--r:0deg;animation-delay:0s}
+.lotus .seed{transform-box:view-box;transform-origin:256px 356px;animation:seedPop .5s ease .4s backwards,seedGlow 4s ease-in-out 1.4s infinite}
+.brand:hover .lotus .p1{transform:rotate(-92deg)}
+.brand:hover .lotus .p2{transform:rotate(92deg)}
+.brand:hover .lotus .p3{transform:rotate(-49deg)}
+.brand:hover .lotus .p4{transform:rotate(49deg)}
+.brand:hover .lotus .p5{transform:rotate(0deg) scale(1.06)}
+@keyframes petalBloom{from{transform:rotate(0deg) scale(.3);opacity:0}}
+@keyframes seedPop{from{transform:scale(0);opacity:0}}
+@keyframes seedGlow{0%,100%{filter:drop-shadow(0 0 .5px rgba(194,149,78,.3))}50%{filter:drop-shadow(0 0 4px rgba(194,149,78,.85))}}
+@keyframes lotusBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@media (prefers-reduced-motion:reduce){.lotus .p,.lotus .seed,.lotus .petals{animation:none!important}}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14.5px;font-weight:500;transition:color .25s}
+.nav-links a:hover{color:var(--green)}
+.nav-links a.active{color:var(--green)}
+.nav-links .nav-cta{background:var(--green);color:#fff;padding:9px 18px;border-radius:100px;transition:background .25s}
+.nav-links .nav-cta:hover{background:var(--green-dark);color:#fff}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:17px;color:var(--ink);cursor:pointer}
+
+/* ═══════════ BUTTONS ═══════════ */
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15.5px;padding:14px 28px;border-radius:100px;transition:all .25s var(--ease)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(21,122,91,.28)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-ghost{color:var(--green);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--green);background:var(--green-soft)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{border-top:1px solid var(--line);padding:36px 0 44px}
+.foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);text-decoration:none;font-size:14px}
+.foot-links a:hover{color:var(--green)}
+.foot-copy{font-size:13px;color:var(--muted)}
+
+/* ═══════════ RESPONSIVE (nav) ═══════════ */
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px 24px;gap:16px;border-bottom:1px solid var(--line);align-items:flex-start}
+  .nav-toggle{display:block}
+}

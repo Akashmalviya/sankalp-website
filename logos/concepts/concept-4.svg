@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 4 — Cradle. An open cup/leaf holding a seed (sun/bindu). Nurturing, held, intention. -->
+  <g id="icon">
+    <circle id="bindu" cx="256" cy="238" r="52" fill="#c2954e"/>
+    <path id="cup" d="M152 214 A150 150 0 1 1 360 214" fill="none" stroke="#157a5b" stroke-width="30" stroke-linecap="round"/>
+  </g>
+</svg>

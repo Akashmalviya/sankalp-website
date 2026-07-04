@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Preview — Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 2rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.light { background: #f4f7f5; color: #182420; }
+  body.dark { background: #14100f; color: #eee; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  h1 { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 600; }
+  h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.2rem; margin: 2.5rem 0 1rem; }
+  .sub { opacity: 0.7; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .toggle { padding: 0.5rem 1rem; border: 1px solid currentColor; border-radius: 8px; background: transparent; color: inherit; cursor: pointer; font-size: 0.875rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+  .card { border: 1px solid rgba(128,128,128,0.25); border-radius: 14px; overflow: hidden; }
+  .card-img { display: flex; align-items: center; justify-content: center; padding: 2rem; min-height: 220px; }
+  body.light .card-img { background: #fff; }
+  body.dark .card-img { background: #1f1a19; }
+  .card-img img { max-width: 100%; max-height: 180px; }
+  .card-label { padding: 0.7rem 1rem; font-size: 0.85rem; font-weight: 600; border-top: 1px solid rgba(128,128,128,0.25); }
+  .card-label span { font-weight: 400; opacity: 0.65; }
+  body.light .card-label { background: #fafcfb; }
+  body.dark .card-label { background: #191413; }
+  /* combination lockups */
+  .locks { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .lock { display: flex; align-items: center; gap: 12px; padding: 1.25rem 1.5rem; border: 1px solid rgba(128,128,128,0.25); border-radius: 14px; }
+  body.light .lock { background: #fff; }
+  body.dark .lock { background: #1f1a19; }
+  .lock img { width: 46px; height: 46px; }
+  .lock .word { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.7rem; color: #182420; letter-spacing: -0.5px; }
+  body.dark .lock .word { color: #f4ece2; }
+  .lock .n { margin-left: auto; font-size: 0.8rem; opacity: 0.55; }
+  /* favicon strip */
+  .fav { display: flex; gap: 2rem; flex-wrap: wrap; align-items: end; }
+  .fav .col { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .fav .name { font-size: 0.8rem; font-weight: 600; }
+  .fav .sizes { display: flex; gap: 1rem; align-items: end; padding: 0.75rem 1rem; border-radius: 10px; }
+  body.light .fav .sizes { background: #fff; border: 1px solid rgba(128,128,128,0.2); }
+  body.dark .fav .sizes { background: #1f1a19; border: 1px solid rgba(128,128,128,0.2); }
+  .fav .s { text-align: center; }
+  .fav .s div { font-size: 0.7rem; opacity: 0.55; margin-top: 3px; }
+</style>
+</head>
+<body class="light">
+  <div class="header">
+    <h1>Sankalp — Logo Concepts</h1>
+    <button class="toggle" onclick="document.body.classList.toggle('dark'); document.body.classList.toggle('light'); this.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';">🌙 Dark</button>
+  </div>
+  <p class="sub">Lotus / sunrise · redesign palette · 5 distinct directions. Toggle dark to check both backgrounds.</p>
+
+  <div class="grid">
+    <div class="card"><div class="card-img"><img src="concepts/concept-1.svg" alt="concept-1"></div><div class="card-label">concept-1 <span>· Sunrise over lotus</span></div></div>
+    <div class="card"><div class="card-img"><img src="concepts/concept-2.svg" alt="concept-2"></div><div class="card-label">concept-2 <span>· Five-element mandala</span></div></div>
+    <div class="card"><div class="card-img"><img src="concepts/concept-3.svg" alt="concept-3"></div><div class="card-label">concept-3 <span>· Single-line lotus</span></div></div>
+    <div class="card"><div class="card-img"><img src="concepts/concept-4.svg" alt="concept-4"></div><div class="card-label">concept-4 <span>· Sun-lotus fusion</span></div></div>
+    <div class="card"><div class="card-img"><img src="concepts/concept-5.svg" alt="concept-5"></div><div class="card-label">concept-5 <span>· Cupped leaf + sunrise</span></div></div>
+  </div>
+
+  <h2>Combination lockup (how it reads in the nav)</h2>
+  <div class="locks">
+    <div class="lock"><img src="concepts/concept-1.svg"><span class="word">Sankalp</span><span class="n">1</span></div>
+    <div class="lock"><img src="concepts/concept-2.svg"><span class="word">Sankalp</span><span class="n">2</span></div>
+    <div class="lock"><img src="concepts/concept-3.svg"><span class="word">Sankalp</span><span class="n">3</span></div>
+    <div class="lock"><img src="concepts/concept-4.svg"><span class="word">Sankalp</span><span class="n">4</span></div>
+    <div class="lock"><img src="concepts/concept-5.svg"><span class="word">Sankalp</span><span class="n">5</span></div>
+  </div>
+
+  <h2>Favicon size check (64 / 32 / 16 px)</h2>
+  <div class="fav">
+    <div class="col"><div class="name">concept-1</div><div class="sizes"><div class="s"><img src="concepts/concept-1.svg" width="64" height="64"><div>64</div></div><div class="s"><img src="concepts/concept-1.svg" width="32" height="32"><div>32</div></div><div class="s"><img src="concepts/concept-1.svg" width="16" height="16"><div>16</div></div></div></div>
+    <div class="col"><div class="name">concept-2</div><div class="sizes"><div class="s"><img src="concepts/concept-2.svg" width="64" height="64"><div>64</div></div><div class="s"><img src="concepts/concept-2.svg" width="32" height="32"><div>32</div></div><div class="s"><img src="concepts/concept-2.svg" width="16" height="16"><div>16</div></div></div></div>
+    <div class="col"><div class="name">concept-3</div><div class="sizes"><div class="s"><img src="concepts/concept-3.svg" width="64" height="64"><div>64</div></div><div class="s"><img src="concepts/concept-3.svg" width="32" height="32"><div>32</div></div><div class="s"><img src="concepts/concept-3.svg" width="16" height="16"><div>16</div></div></div></div>
+    <div class="col"><div class="name">concept-4</div><div class="sizes"><div class="s"><img src="concepts/concept-4.svg" width="64" height="64"><div>64</div></div><div class="s"><img src="concepts/concept-4.svg" width="32" height="32"><div>32</div></div><div class="s"><img src="concepts/concept-4.svg" width="16" height="16"><div>16</div></div></div></div>
+    <div class="col"><div class="name">concept-5</div><div class="sizes"><div class="s"><img src="concepts/concept-5.svg" width="64" height="64"><div>64</div></div><div class="s"><img src="concepts/concept-5.svg" width="32" height="32"><div>32</div></div><div class="s"><img src="concepts/concept-5.svg" width="16" height="16"><div>16</div></div></div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/brand.css';
+import '../../styles/blog-post.css';
+
+const jsonLdBlog = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Sankalp Blog',
+  url: 'https://sankalphealth.in/blog/',
+  description: 'Science-backed guides to yoga, meditation, pranayama and Ayurveda for stress, anxiety, sleep and natural healing.',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Sankalp',
+    url: 'https://sankalphealth.in',
+    logo: { '@type': 'ImageObject', url: 'https://sankalphealth.in/favicon.svg' },
+  },
+  blogPost: [
+    { '@type': 'BlogPosting', headline: 'Yoga & Pranayama for Anxiety: Calm Your Nervous System', url: 'https://sankalphealth.in/blog/yoga-and-pranayama-for-anxiety.html' },
+    { '@type': 'BlogPosting', headline: 'Nadi Shodhana: Alternate Nostril Breathing Step by Step', url: 'https://sankalphealth.in/blog/nadi-shodhana-alternate-nostril-breathing.html' },
+    { '@type': 'BlogPosting', headline: 'Ayurveda for Sleep: Natural Remedies for Insomnia', url: 'https://sankalphealth.in/blog/ayurveda-for-sleep-insomnia.html' },
+    { '@type': 'BlogPosting', headline: 'How SNS & PNS Work Together to Control Your Health', url: 'https://sankalphealth.in/blog/sns-pns-how-your-nervous-system-controls-health.html' },
+    { '@type': 'BlogPosting', headline: 'Three Doshas, Five Elements & How to Find Your Imbalance', url: 'https://sankalphealth.in/blog/ayurveda-three-doshas-five-elements.html' },
+    { '@type': 'BlogPosting', headline: 'Ashwagandha: The Ancient Herb Proven by Modern Science', url: 'https://sankalphealth.in/blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html' },
+    { '@type': 'BlogPosting', headline: 'Triphala: The Three-Fruit Formula Backed by Science', url: 'https://sankalphealth.in/blog/triphala-the-three-fruit-formula-backed-by-science.html' },
+    { '@type': 'BlogPosting', headline: 'Ayurgenomics: Your DNA Already Knows Your Prakriti', url: 'https://sankalphealth.in/blog/ayurgenomics-your-dna-already-knows-your-prakriti.html' },
+    { '@type': 'BlogPosting', headline: 'Sattva, Rajas, Tamas: The Three Gunas', url: 'https://sankalphealth.in/blog/three-gunas-sattva-rajas-tamas.html' },
+    { '@type': 'BlogPosting', headline: 'Sankhya Darshan: The Philosophy Behind All Creation', url: 'https://sankalphealth.in/blog/sankhya-darshan-the-philosophy-of-creation.html' },
+    { '@type': 'BlogPosting', headline: 'The Protein Myth: Why Sattvic Food Is Enough', url: 'https://sankalphealth.in/blog/the-protein-myth-why-sattvic-food-is-enough.html' },
+  ],
+};
+
+const jsonLdBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sankalphealth.in' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sankalphealth.in/blog/' },
+  ],
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#ffffff" />
+<title>Blog — Yoga, Meditation &amp; Ayurveda for Natural Healing | Sankalp</title>
+<meta name="description" content="The Sankalp blog: practical, science-backed guides to yoga, meditation, pranayama and Ayurveda — for stress, anxiety, sleep, digestion and natural healing." />
+<link rel="canonical" href="https://sankalphealth.in/blog/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sankalphealth.in/blog/" />
+<meta property="og:title" content="Blog — Yoga, Meditation &amp; Ayurveda for Natural Healing | Sankalp" />
+<meta property="og:description" content="Practical, science-backed guides to yoga, meditation, pranayama and Ayurveda — for stress, anxiety, sleep and natural healing." />
+<meta property="og:image" content="https://sankalphealth.in/images/og-default.png" />
+<meta property="og:site_name" content="Sankalp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Blog — Yoga, Meditation &amp; Ayurveda for Natural Healing | Sankalp" />
+<meta name="twitter:description" content="Practical, science-backed guides to yoga, meditation, pranayama and Ayurveda — for stress, anxiety, sleep and natural healing." />
+<meta name="twitter:image" content="https://sankalphealth.in/images/og-default.png" />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdBlog)} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" /></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6SVRXGV2Q"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F6SVRXGV2Q');
+</script>
+<style>
+  .hub{max-width:1080px;margin:0 auto;padding:50px 24px 90px}
+  .hubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+  .hcard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;text-decoration:none;box-shadow:var(--shadow);transition:transform .25s var(--ease),box-shadow .25s}
+  .hcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .hcard .tag{align-self:flex-start;font-size:12px;font-weight:600;color:var(--green);background:var(--green-soft);padding:4px 11px;border-radius:100px;margin-bottom:14px}
+  .hcard h2{font-size:18px;line-height:1.35;margin:0 0 10px}
+  .hcard p{font-size:14.5px;color:var(--muted);flex-grow:1;margin-bottom:16px;line-height:1.6}
+  .hcard .more{font-size:14px;font-weight:600;color:var(--green)}
+  .hub-assess{display:block;margin-bottom:26px;padding:32px;text-align:center;border:1px solid var(--line);border-radius:var(--radius);background:var(--green-soft);text-decoration:none;transition:box-shadow .25s}
+  .hub-assess:hover{box-shadow:var(--shadow)}
+  .hub-assess .tag{display:block;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .hub-assess h2{font-size:24px;margin:0 0 8px}
+  .hub-assess p{font-size:16px;color:var(--muted);margin:0 auto 4px;max-width:560px}
+  .hub-assess .more{display:inline-block;margin-top:6px;font-size:14px;font-weight:600;color:var(--green)}
+</style>
+</head>
+<body>
+
+<Header base="../" active="blog" />
+
+<header class="blog-hero">
+  <div class="blog-hero-content">
+    <span class="blog-tag">The Sankalp Journal</span>
+    <h1>Yoga, Meditation &amp; Ayurveda for Natural Healing</h1>
+    <p class="blog-hero-sub">Practical, science-backed guides to the ancient practices &mdash; for stress, anxiety, sleep, digestion and the body's own way of healing.</p>
+  </div>
+</header>
+
+<section class="hub">
+
+  <a href="../prakriti-assessment.html" class="hub-assess">
+    <span class="tag">Interactive Tool</span>
+    <h2>Discover Your Prakriti</h2>
+    <p>Are you Vata, Pitta or Kapha? Take the free 15-question dosha quiz to find your body's natural constitution and current imbalance.</p>
+    <span class="more">Take the Dosha Quiz &rarr;</span>
+  </a>
+
+  <div class="hubgrid">
+    <a href="yoga-and-pranayama-for-anxiety.html" class="hcard"><span class="tag">Yoga + Nervous System</span><h2>Yoga &amp; Pranayama for Anxiety</h2><p>Anxiety is a nervous system stuck on. The breathing exercises and gentle yoga that switch it off &mdash; plus a 10-minute daily routine.</p><span class="more">Read More &rarr;</span></a>
+    <a href="nadi-shodhana-alternate-nostril-breathing.html" class="hcard"><span class="tag">Pranayama + Science</span><h2>Nadi Shodhana, Step by Step</h2><p>The gentlest balancing breath in yoga. Five minutes to quieten a busy mind &mdash; exactly how to do it, and why it works.</p><span class="more">Read More &rarr;</span></a>
+    <a href="ayurveda-for-sleep-insomnia.html" class="hcard"><span class="tag">Ayurveda + Sleep</span><h2>Ayurveda for Sleep &amp; Insomnia</h2><p>Why you can't sleep depends on your dosha. Find the cause of your insomnia and the warm, grounding remedies that bring deep sleep back.</p><span class="more">Read More &rarr;</span></a>
+    <a href="sns-pns-how-your-nervous-system-controls-health.html" class="hcard"><span class="tag">Science + Yogic Science</span><h2>How SNS &amp; PNS Control Your Health</h2><p>Your body has two gears &mdash; an accelerator and a brake. Science calls them Sympathetic and Parasympathetic. Yogis called them Pingala and Ida.</p><span class="more">Read More &rarr;</span></a>
+    <a href="ayurveda-three-doshas-five-elements.html" class="hcard"><span class="tag">Ayurveda + Modern Science</span><h2>Three Doshas, Five Elements</h2><p>Everything in your body is made of five elements that combine into three doshas &mdash; Vata, Pitta, Kapha. Discover which is out of balance.</p><span class="more">Read More &rarr;</span></a>
+    <a href="ashwagandha-the-ancient-herb-proven-by-modern-science.html" class="hcard"><span class="tag">Ayurveda + Modern Science</span><h2>Ashwagandha, Proven by Science</h2><p>3,000 years of Ayurvedic use, now backed by clinical trials &mdash; from stress and sleep to strength and brain health.</p><span class="more">Read More &rarr;</span></a>
+    <a href="triphala-the-three-fruit-formula-backed-by-science.html" class="hcard"><span class="tag">Ayurveda + Modern Research</span><h2>Triphala, Backed by Science</h2><p>Three dried fruits, 2,000 years of use, now proven by trials to heal your gut and match medical mouthwash for oral health.</p><span class="more">Read More &rarr;</span></a>
+    <a href="ayurgenomics-your-dna-already-knows-your-prakriti.html" class="hcard"><span class="tag">Ayurveda + Genomics</span><h2>Ayurgenomics &amp; Your DNA</h2><p>Scientists proved Vata, Pitta and Kapha aren't just ancient theory &mdash; they're written in your genes. Meet the researchers who connected the two.</p><span class="more">Read More &rarr;</span></a>
+    <a href="three-gunas-sattva-rajas-tamas.html" class="hcard"><span class="tag">Bhagavad Gita + Psychology</span><h2>Sattva, Rajas &amp; Tamas</h2><p>Every thought and mood is coloured by three invisible forces. How the Gunas shape your mind &mdash; and how to shift toward clarity.</p><span class="more">Read More &rarr;</span></a>
+    <a href="sankhya-darshan-the-philosophy-of-creation.html" class="hcard"><span class="tag">Philosophy + Science</span><h2>Sankhya Darshan</h2><p>Before Yoga, before Ayurveda, there was Sankhya &mdash; the oldest map of reality, and the 24 Tattvas that explain who you really are.</p><span class="more">Read More &rarr;</span></a>
+    <a href="the-protein-myth-why-sattvic-food-is-enough.html" class="hcard"><span class="tag">Yogic Science + Nutrition</span><h2>The Protein Myth</h2><p>Modern science says eat more protein. Yogic science says eat Sattvic. Who is right? The answer will change how you think about food.</p><span class="more">Read More &rarr;</span></a>
+  </div>
+
+</section>
+
+<Footer base="../" />
+
+</body>
+</html>

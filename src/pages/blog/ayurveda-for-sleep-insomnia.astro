@@ -1,0 +1,159 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What does Ayurveda say causes insomnia?', acceptedAnswer: { '@type': 'Answer', text: 'Ayurveda sees most insomnia as aggravated Vata dosha — the air-and-movement energy that governs the nervous system. When Vata is high from stress, irregular routine, late nights or too much stimulation, the mind stays active and the body cannot settle. Pitta and Kapha imbalances cause their own sleep patterns too.' } },
+    { '@type': 'Question', name: 'What are the best Ayurvedic remedies for sleep?', acceptedAnswer: { '@type': 'Answer', text: 'A warm cup of milk with a pinch of nutmeg before bed, a self-massage of the feet and scalp with warm oil (abhyanga), an early and light dinner, a regular sleep time, and slow breathing such as Nadi Shodhana. Calming herbs like ashwagandha, brahmi and jatamansi are traditionally used under guidance.' } },
+    { '@type': 'Question', name: 'What time should I sleep according to Ayurveda?', acceptedAnswer: { '@type': 'Answer', text: 'Ayurveda recommends sleeping by about 10 pm, before the active Pitta period of night (roughly 10 pm to 2 am) gives you a second wind. Going to bed during the heavy, slow Kapha evening hours makes it far easier to fall asleep.' } },
+    { '@type': 'Question', name: 'Which dosha keeps you awake at night?', acceptedAnswer: { '@type': 'Answer', text: 'Vata typically makes it hard to fall asleep, with a racing mind and light, broken sleep. Pitta tends to wake you between 1 and 3 am, feeling hot or wired. Kapha sleeps deeply and long but can still wake unrefreshed. Knowing your dosha points to the right remedy.' } },
+  ],
+};
+---
+<BlogPostLayout
+  title="Ayurveda for Sleep: Natural Remedies for Insomnia by Dosha | Sankalp"
+  description="Ayurveda for better sleep: discover why you can't sleep by your dosha (Vata, Pitta, Kapha), natural remedies for insomnia, an evening routine, and the herbs and breathing that help."
+  path="/blog/ayurveda-for-sleep-insomnia.html"
+  headline="Ayurveda for Sleep: Natural Remedies for Insomnia by Dosha"
+  publishDate="2026-06-08"
+  tag="Ayurveda + Sleep Science"
+  heroTitle="Ayurveda for Sleep &mdash; Natural Remedies for Insomnia"
+  heroSub="Sleep is not something you force. It is something you allow. Ayurveda's gift is knowing exactly what is keeping <em>you</em> awake &mdash; and how to gently undo it."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  </Fragment>
+
+  <h2>Why Can't You Sleep?</h2>
+  <div class="divider"></div>
+
+  <p>
+    You are tired all day, yet the moment your head touches the pillow, your mind switches on. Or you fall asleep easily but jolt awake at 2 am, unable to drift back. Modern medicine calls all of this <em class="gold">insomnia</em> and often offers the same answer to everyone. Ayurveda asks a sharper question first: <strong>which kind of sleeplessness is this, and which energy is behind it?</strong>
+  </p>
+
+  <p>
+    Because the cause is not the same for everyone, the cure isn't either. In Ayurveda, sleep (<em class="gold">Nidra</em>) is one of the three pillars of health, alongside food and balanced energy. Lose it, and everything else &mdash; digestion, mood, immunity, weight &mdash; slowly unravels. The path back to sleep begins with understanding your <strong>dosha</strong>.
+  </p>
+
+  <h2>Find the Dosha Behind Your Insomnia</h2>
+  <div class="divider"></div>
+
+  <p>
+    See which of these patterns feels most like your nights. It points you straight to the remedies that will actually help.
+  </p>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="benefit-icon">&#127788;</span>
+      <h4>Vata &mdash; Can't Switch Off</h4>
+      <p>A racing, worrying mind. You struggle to fall asleep, sleep lightly, and wake easily. Often worse after a busy, irregular or anxious day. The most common cause of insomnia.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#128293;</span>
+      <h4>Pitta &mdash; The 2 AM Wake-Up</h4>
+      <p>You fall asleep, then wake between 1 and 3 am feeling hot, alert or irritable, replaying problems. Linked to stress, late work and a fiery, driven temperament.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">&#127769;</span>
+      <h4>Kapha &mdash; Heavy but Unrested</h4>
+      <p>You sleep long and deeply yet wake groggy, foggy and reluctant. Here the issue isn't too little sleep but heavy, dull sleep &mdash; and daytime sluggishness.</p>
+    </div>
+  </div>
+
+  <p>
+    Not sure which is yours? Our free <a href="../prakriti-assessment.html">dosha quiz</a> reads your constitution and current imbalance in about five minutes.
+  </p>
+
+  <h2>Ayurvedic Remedies for Better Sleep</h2>
+  <div class="divider"></div>
+
+  <p>
+    Most insomnia is aggravated <em class="gold">Vata</em> &mdash; the dry, light, mobile energy of the nervous system. So the remedies below all share one quality: they bring the opposite. <strong>Warmth, weight, oil, rhythm and slowness.</strong> They calm the body so sleep can return on its own.
+  </p>
+
+  <ul class="mechanism-list">
+    <li><span class="mech-title">Warm Spiced Milk Before Bed</span><p>A cup of warm milk with a pinch of <strong>nutmeg</strong> (and a little turmeric or cardamom) is the classic Ayurvedic nightcap. Warm, heavy and grounding &mdash; the opposite of restless Vata. Nutmeg in particular is prized for inviting sleep.</p></li>
+    <li><span class="mech-title">Abhyanga &mdash; Warm Oil Massage</span><p>Rub warm sesame oil into the <strong>soles of your feet and your scalp</strong> for a couple of minutes before bed. This simple, deeply calming ritual settles the nervous system faster than almost anything else.</p></li>
+    <li><span class="mech-title">Eat Early, Eat Light</span><p>Finish a light dinner by around 7&ndash;7:30 pm. A heavy, late meal keeps the body busy digesting when it should be winding down. A calm gut makes for a calm night.</p></li>
+    <li><span class="mech-title">Keep a Steady Rhythm (Dinacharya)</span><p>Vata thrives on routine. Going to bed and waking at the <strong>same time daily</strong> &mdash; even on weekends &mdash; is one of the most powerful sleep medicines there is.</p></li>
+    <li><span class="mech-title">Dim the Stimulation</span><p>Screens, news and bright light late at night feed Vata and Pitta. Swap them for low light, a warm shower, gentle music or a few pages of a calming book in the last hour before bed.</p></li>
+  </ul>
+
+  <div class="dual-lens">
+    <div class="lens-card modern">
+      <span class="lens-label">Modern Science Says</span>
+      <p>A regular sleep schedule, dim evening light, an earlier dinner and a wind-down routine all support healthy <strong>circadian rhythm</strong> and melatonin release. Warmth and self-massage lower sympathetic arousal &mdash; the same stress response that keeps insomniacs awake.</p>
+    </div>
+    <div class="lens-card yogic">
+      <span class="lens-label">Ayurveda Has Always Said</span>
+      <p>Insomnia is <strong>excess Vata</strong> disturbing the mind. Counter it with warm, unctuous, grounding routines, and honour the body's clock: be asleep before the active Pitta hours of night give you a second wind.</p>
+    </div>
+  </div>
+
+  <h2>Calming Herbs for Sleep</h2>
+  <div class="divider"></div>
+
+  <p>
+    Ayurveda leans on gentle, nourishing herbs rather than sedatives. The best known is <a href="ashwagandha-the-ancient-herb-proven-by-modern-science.html"><em class="green">Ashwagandha</em></a>, an adaptogen shown in trials to lower cortisol and improve sleep quality. <em class="gold">Brahmi</em> and <em class="gold">Jatamansi</em> are classic mind-calming herbs, while <em class="gold">Tagara</em> (Indian valerian) is traditionally used for restlessness. Because herbs interact with your unique constitution and any medicines you take, use them with guidance rather than guesswork.
+  </p>
+
+  <h2>The Breath That Brings Sleep</h2>
+  <div class="divider"></div>
+
+  <p>
+    The fastest way to move the body from "alert" to "ready for sleep" is the breath. In bed, breathe in for a count of 4 and out for 6 &mdash; the long exhale switches on the body's relaxation response. Or practise a few rounds of <a href="nadi-shodhana-alternate-nostril-breathing.html">Nadi Shodhana (alternate nostril breathing)</a> sitting up before you lie down. Slow breath, slow mind, slow into sleep.
+  </p>
+
+  <div class="highlight-box">
+    <h4>Your Ideal Bedtime</h4>
+    <p>Ayurveda says sleep by about <strong>10 pm</strong>. After 10, the active Pitta hours of night can hand you a "second wind." Catch the heavy, drowsy Kapha evening window instead &mdash; falling asleep becomes effortless.</p>
+  </div>
+
+  <div class="quote">
+    <p>"Sleep, well or badly enjoyed, brings happiness or misery, strength or weakness, knowledge or ignorance, life or its loss."</p>
+    <span class="source">&mdash; Charaka Samhita</span>
+  </div>
+
+  <div class="warning-box">
+    <h4>When to Get Help</h4>
+    <p>These remedies suit everyday, lifestyle-driven sleeplessness. If your insomnia is long-standing, severe, or paired with low mood, breathing pauses in sleep, or another health condition, please see a doctor &mdash; chronic sleep loss deserves proper assessment. Ayurvedic routines work best alongside good medical care, not instead of it.</p>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="divider"></div>
+    <details>
+      <summary>What does Ayurveda say causes insomnia?</summary>
+      <div class="faq-a">Ayurveda sees most insomnia as aggravated Vata dosha &mdash; the air-and-movement energy that governs the nervous system. When Vata is high from stress, irregular routine, late nights or too much stimulation, the mind stays active and the body cannot settle. Pitta and Kapha imbalances cause their own sleep patterns too.</div>
+    </details>
+    <details>
+      <summary>What are the best Ayurvedic remedies for sleep?</summary>
+      <div class="faq-a">A warm cup of milk with a pinch of nutmeg before bed, a self-massage of the feet and scalp with warm oil (abhyanga), an early and light dinner, a regular sleep time, and slow breathing such as Nadi Shodhana. Calming herbs like ashwagandha, brahmi and jatamansi are traditionally used under guidance.</div>
+    </details>
+    <details>
+      <summary>What time should I sleep according to Ayurveda?</summary>
+      <div class="faq-a">Ayurveda recommends sleeping by about 10 pm, before the active Pitta period of night (roughly 10 pm to 2 am) gives you a second wind. Going to bed during the heavy, slow Kapha evening hours makes it far easier to fall asleep.</div>
+    </details>
+    <details>
+      <summary>Which dosha keeps you awake at night?</summary>
+      <div class="faq-a">Vata typically makes it hard to fall asleep, with a racing mind and light, broken sleep. Pitta tends to wake you between 1 and 3 am, feeling hot or wired. Kapha sleeps deeply and long but can still wake unrefreshed. Knowing your dosha points to the right remedy.</div>
+    </details>
+  </section>
+
+  <div class="related">
+    <h4>Keep Reading</h4>
+    <a href="yoga-and-pranayama-for-anxiety.html">Yoga &amp; Pranayama for Anxiety: Calm Your Nervous System &rarr;</a>
+    <a href="nadi-shodhana-alternate-nostril-breathing.html">Nadi Shodhana: Alternate Nostril Breathing, Step by Step &rarr;</a>
+    <a href="ashwagandha-the-ancient-herb-proven-by-modern-science.html">Ashwagandha: The Ancient Herb Proven by Science &rarr;</a>
+    <a href="../prakriti-assessment.html">Free Dosha Quiz: Discover Your Prakriti &rarr;</a>
+  </div>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <p>Want a Sleep Routine Built Around Your Dosha?</p>
+    <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="cta-btn">Join Our WhatsApp Community</a>
+  </div>
+
+</BlogPostLayout>

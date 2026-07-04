@@ -1,0 +1,1075 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Sankalp',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web, iOS, Android',
+  url: 'https://sankalphealth.in/app.html',
+  description: 'An Ayurvedic health app that builds a personalized daily plan of yoga, meditation, breathwork and diet from your dosha (Prakriti), backed by modern neuroscience.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  publisher: { '@type': 'Organization', name: 'Sankalp', url: 'https://sankalphealth.in' },
+};
+---
+<PageLayout
+  title="Ayurveda Health App — Yoga, Meditation &amp; Diet by Dosha | Sankalp"
+  description="An Ayurvedic health app: a personalized daily plan of yoga, meditation, breathwork and diet built from your dosha (Prakriti), backed by modern neuroscience. Free on the web; iOS & Android coming soon."
+  path="/app.html"
+  active="app"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+<!-- ========================
+     HERO
+======================== -->
+<section class="hero" id="hero">
+  <div class="hero-fx" aria-hidden="true"></div>
+  <div class="hero-inner">
+
+    <!-- LEFT: TEXT -->
+    <div class="hero-text fade-in">
+      <span class="eyebrow">Your body has been talking to you</span>
+      <h1 class="hero-headline">Your practice.<br>Personalized<br>to your nature.</h1>
+      <p class="hero-subcopy">Not another wellness app. Sankalp reads your body&rsquo;s design &mdash; your Prakriti &mdash; and writes a living daily practice for you, not everyone.</p>
+      <div class="cta-group">
+        <a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="btn btn-primary">Open the App &rarr;</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: PHONE + BADGES -->
+    <div class="phone-col fade-in">
+      <div class="phone-frame">
+        <div class="phone-screen">
+
+          <!-- STAGE 1: Analysing -->
+          <div class="phone-stage active" id="ph-stage-1">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 14px 20px;">
+              <div class="ph-orb-wrap" style="margin-bottom:14px;">
+                <div class="ph-ring-outer"></div>
+                <div class="ph-ring-inner"></div>
+                <div class="ph-orb-core"><span class="ph-om">&#2384;</span></div>
+              </div>
+              <p style="font-family:'Fraunces',serif;font-style:italic;font-size:10.5px;color:var(--ink);text-align:center;margin-bottom:14px;line-height:1.4;">Reading the patterns<br>of your body&hellip;</p>
+              <div style="width:100%;">
+                <div class="ph-step active" id="ph-step-0">
+                  <div class="ph-step-dot"><div class="ph-step-pulse"></div></div>
+                  <span class="ph-step-text">Reading your nervous system signals&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-1">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Mapping your Prakriti&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-2">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Identifying your current Vikriti&hellip;</span>
+                </div>
+                <div class="ph-step" id="ph-step-3">
+                  <div class="ph-step-dot"></div>
+                  <span class="ph-step-text">Building your daily rhythm&hellip;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 2: Home Screen -->
+          <div class="phone-stage" id="ph-stage-2">
+            <div class="phone-notch"></div>
+            <div class="phone-status">
+              <span class="phone-status-time">9:41</span>
+              <div class="phone-status-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div style="padding:32px 14px 56px;flex:1;display:flex;flex-direction:column;overflow:hidden;">
+              <!-- Greeting -->
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;">
+                <div>
+                  <div class="ph-greeting-muted">Namaste &#127881;</div>
+                  <div class="ph-name-text">Akash</div>
+                  <div class="ph-dosha-badge">
+                    <div class="ph-dosha-dot"></div>
+                    <span class="ph-dosha-text">Vata &middot; &#2357;&#2366;&#2340;</span>
+                  </div>
+                </div>
+                <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-soft));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">&#129495;</div>
+              </div>
+              <!-- Today's Practice card -->
+              <div class="ph-practice-card">
+                <div class="ph-practice-om">&#2384;</div>
+                <div class="ph-practice-label">Today&rsquo;s Practice</div>
+                <div class="ph-practice-title">Vata Calming Sadhana</div>
+                <div class="ph-chips">
+                  <span class="ph-chip-s">&#9203; 30 min</span>
+                  <span class="ph-chip-s">&#127749; Morning</span>
+                  <span class="ph-chip-s">&#10022; For you</span>
+                </div>
+                <div class="ph-begin-btn">Begin Practice &rarr;</div>
+              </div>
+              <!-- Streak -->
+              <div class="ph-streak-row">
+                <span class="ph-streak-fire">&#128293;</span>
+                <div>
+                  <div class="ph-streak-count">4</div>
+                  <div class="ph-streak-label">Days</div>
+                </div>
+                <div class="ph-day-dots">
+                  <div class="ph-day-dot done">M</div>
+                  <div class="ph-day-dot done">T</div>
+                  <div class="ph-day-dot done">W</div>
+                  <div class="ph-day-dot done">T</div>
+                  <div class="ph-day-dot empty">F</div>
+                  <div class="ph-day-dot empty">S</div>
+                  <div class="ph-day-dot empty">S</div>
+                </div>
+              </div>
+              <!-- Quick Practices -->
+              <div class="ph-qp-label">Quick Practices</div>
+              <div class="ph-qp-scroll">
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon">&#127758;</div>
+                  <div class="ph-qp-name">Pranayama</div>
+                  <div class="ph-qp-dur">10 min</div>
+                </div>
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon">&#129479;</div>
+                  <div class="ph-qp-name">Meditation</div>
+                  <div class="ph-qp-dur">15 min</div>
+                </div>
+                <div class="ph-qp-card">
+                  <div class="ph-qp-icon" style="font-family:serif;font-size:14px;color:var(--gold);">&#2384;</div>
+                  <div class="ph-qp-name">Mantra Japa</div>
+                  <div class="ph-qp-dur">20 min</div>
+                </div>
+              </div>
+            </div>
+            <!-- Bottom nav -->
+            <div class="ph-bottom-nav">
+              <div class="ph-nav-item ph-nav-active">
+                <span class="ph-nav-icon">&#127968;</span>
+                <span class="ph-nav-label">Home</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#9654;&#65039;</span>
+                <span class="ph-nav-label">Videos</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#128197;</span>
+                <span class="ph-nav-label">Daily</span>
+              </div>
+              <div class="ph-nav-item">
+                <span class="ph-nav-icon">&#128100;</span>
+                <span class="ph-nav-label">Profile</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="store-badges">
+        <a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="store-badge live">
+          <span class="store-badge-icon">&#127760;</span>
+          <div class="store-badge-info">
+            <span class="store-badge-coming live">Available Now</span>
+            <span class="store-badge-name live">Open on the Web</span>
+          </div>
+        </a>
+        <div class="store-badge">
+          <span class="store-badge-icon">&#9201;</span>
+          <div class="store-badge-info">
+            <span class="store-badge-coming">Coming Soon</span>
+            <span class="store-badge-name">iOS &amp; Android</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="community-link">
+        Join the Community &rarr;
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================
+     THE PROBLEM
+======================== -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="gold-rule"></div>
+    <div class="fade-in">
+      <span class="eyebrow center-block">Why Sankalp</span>
+      <h2 class="section-title center-block" style="max-width:680px;margin-left:auto;margin-right:auto;">The apps you&rsquo;ve tried<br>didn&rsquo;t know your body.</h2>
+      <div class="problem-hook">
+        <p class="problem-line">You&rsquo;ve downloaded the meditation apps. Done the 7-day streaks. Tried the diets.</p>
+        <p class="problem-line">None of them asked what your body already knows &mdash; what you&rsquo;re made of, what you&rsquo;re running from, what your breath is telling you.</p>
+        <p class="problem-punchline">Sankalp does.</p>
+      </div>
+    </div>
+    <div class="gold-rule gold-rule-bottom"></div>
+  </div>
+</section>
+
+<!-- ========================
+     HOW IT WORKS
+======================== -->
+<section class="how-it-works" id="how">
+  <div class="wrap">
+    <div class="fade-in">
+      <span class="eyebrow">The Journey</span>
+      <h2 class="section-title">Three steps. One intention.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps-grid fade-in">
+
+      <div class="step-card">
+        <span class="step-number">01 &middot; <span class="dev">&#2360;&#2369;&#2344;&#2344;&#2366;</span></span>
+        <h3>We hear you first</h3>
+        <p>Tell us your story in your own words &mdash; how you sleep, eat, feel and live. No checkboxes. Just you.</p>
+        <a href="prakriti-assessment.html" class="step-link">Begin your profile &rarr;</a>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">02 &middot; <span class="dev">&#2346;&#2381;&#2352;&#2325;&#2371;&#2340;&#2367;</span></span>
+        <h3>We read your design</h3>
+        <p>Your Prakriti &mdash; your original constitution of Vata, Pitta and Kapha. The blueprint you were born with, confirmed by modern science.</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">03 &middot; <span class="dev">&#2357;&#2367;&#2325;&#2371;&#2340;&#2367;</span></span>
+        <h3>We find the drift</h3>
+        <p>The gap between who you are and how you&rsquo;re living &mdash; your Vikriti. That gap is the diagnosis, and the first step of your daily practice.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     FEATURE SHOWCASE
+======================== -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="fade-in">
+      <span class="eyebrow">Inside the App</span>
+      <h2 class="section-title">What&rsquo;s inside</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="feature-grid fade-in">
+
+      <div class="feature-card">
+        <span class="feature-icon">&#127749;</span>
+        <h3>Today&rsquo;s Sadhana</h3>
+        <p>Your personalized morning practice. Breathwork, asana, and meditation &mdash; sequenced for your dosha, your imbalance, and the season you&rsquo;re in.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#127758;</span>
+        <h3>Pranayama Library</h3>
+        <p>20+ breathing techniques. Each one mapped to a symptom, a nervous system state, and a healing outcome. Breath is the switch &mdash; we show you how to use it.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#10022;</span>
+        <h3>Streak &amp; Continuity</h3>
+        <p>Ancient wisdom knew: 40 days changes the body. Track your practice, honor your commitment, and build the habit that finally stays.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">&#129295;</span>
+        <h3>Sankalp AI Companion</h3>
+        <p>Ask anything about your health. Get answers rooted in both Ayurveda and modern science. Not generic advice &mdash; answers that know your Prakriti.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SCREEN SHOWCASE
+======================== -->
+<section class="screens-section" id="screens">
+  <div class="wrap">
+    <div class="fade-in" style="margin-bottom:56px;">
+      <span class="eyebrow">See It Working</span>
+      <h2 class="section-title">Built around your body,<br>not a template.</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Row 1: Sankalp AI (phone left, copy right) -->
+    <div class="screen-row fade-in">
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-chat-header">
+            <div class="ph-chat-av">&#10022;</div>
+            <div>
+              <span class="ph-chat-name">Sankalp</span>
+              <span class="ph-chat-online">&#9679; Online</span>
+            </div>
+          </div>
+          <div class="ph-chat-body">
+            <div class="ph-msg-row user">
+              <div class="ph-bubble user">I've been bloated every evening and my sleep is broken. What's happening?</div>
+            </div>
+            <div class="ph-ts" style="text-align:right;">9:12 PM</div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot">Vata imbalance &mdash; Air in excess. Your Agni is irregular and your nervous system is stuck in stress mode. Evening bloating and broken sleep are the first signals.</div>
+            </div>
+            <div class="ph-ts" style="padding-left:28px;">9:12 PM</div>
+            <div class="ph-msg-row user">
+              <div class="ph-bubble user">What can I do tonight?</div>
+            </div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot">Nadi Shodhana &mdash; 5 rounds, 4&ndash;4&ndash;4 count. It directly activates your parasympathetic nervous system. Your body needs to feel safe before it can rest.</div>
+            </div>
+            <div class="ph-msg-row">
+              <div class="ph-msg-av">&#10022;</div>
+              <div class="ph-bubble bot" style="display:flex;align-items:center;gap:5px;padding:10px 14px;">
+                <div class="ph-typing-dot"></div>
+                <div class="ph-typing-dot"></div>
+                <div class="ph-typing-dot"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ph-input-bar">Ask about your health&hellip;</div>
+        </div>
+      </div>
+
+      <div class="screen-copy">
+        <span class="sc-tag">Sankalp AI</span>
+        <h3>Ask anything.<br>Get answers that<br>know your body.</h3>
+        <p>Sankalp doesn&rsquo;t give generic wellness tips. It knows your Prakriti, your current imbalance, and the season you&rsquo;re in. Every answer is calibrated to you &mdash; not a template.</p>
+        <ul class="feat-bullets">
+          <li>Explains <em>why</em> your symptom is happening &mdash; root cause, not surface relief</li>
+          <li>Recommends specific pranayama, food, and lifestyle shifts for your constitution</li>
+          <li>Bridges Ayurveda and modern neuroscience in plain, warm language</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="screen-sep"></div>
+
+    <!-- Row 2: Weekly Sadhana (copy left, phone right) -->
+    <div class="screen-row flip fade-in">
+
+      <div class="screen-copy">
+        <span class="sc-tag">Your Sadhana</span>
+        <h3>A 7-day healing arc.<br>Not a workout plan.</h3>
+        <p>Each day has a theme, an element, and a dosha focus. Monday grounds you. Wednesday releases you. Friday creates space. Your plan knows what day it is &mdash; and what your body needs right now.</p>
+        <ul class="feat-bullets">
+          <li>4-phase sessions: Suksham Vyayam &rarr; Asanas &rarr; Pranayama &rarr; Yoga Nidra</li>
+          <li><em>Element-mapped days</em> &mdash; Earth, Fire, Water, Air, Ether, Yin, Consciousness</li>
+          <li>Daily Sankalp note adapted to your dosha and any flagged conditions</li>
+        </ul>
+      </div>
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-daily-hd">
+            <div>
+              <span class="ph-daily-title">Weekly Sadhana</span>
+              <span class="ph-daily-sub">Healing arc &middot; 7 days</span>
+            </div>
+            <div class="ph-ring">
+              <div class="ph-ring-in">50%</div>
+            </div>
+          </div>
+          <div class="ph-week">
+            <div class="ph-wd done"><span class="ph-wd-lbl">M</span><span class="ph-wd-em">&#127757;</span></div>
+            <div class="ph-wd done"><span class="ph-wd-lbl">T</span><span class="ph-wd-em">&#128293;</span></div>
+            <div class="ph-wd today"><span class="ph-wd-lbl">W</span><span class="ph-wd-em">&#128167;</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">T</span><span class="ph-wd-em">&#127788;&#65039;</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">F</span><span class="ph-wd-em">&#10024;</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">S</span><span class="ph-wd-em">&#127769;</span></div>
+            <div class="ph-wd"><span class="ph-wd-lbl">S</span><span class="ph-wd-em">&#129196;</span></div>
+          </div>
+          <div class="ph-theme">
+            <div class="ph-theme-top">
+              <span class="ph-theme-em">&#128167;</span>
+              <span class="ph-theme-dt">Water &middot; Apr 23</span>
+            </div>
+            <span class="ph-theme-name">Flow &amp; Release</span>
+            <span class="ph-theme-focus">Emotional body &middot; Hips &middot; Sacral</span>
+          </div>
+          <div class="ph-phases-lbl">TODAY&rsquo;S 4-PHASE SESSION</div>
+          <div class="ph-phase-list">
+            <div class="ph-phase-row done">
+              <div class="ph-phase-ic">&#128260;</div>
+              <div>
+                <span class="ph-phase-name">Suksham Vyayam</span>
+                <span class="ph-phase-dur">8 min &middot; Neck, shoulders, spine</span>
+              </div>
+              <div class="ph-check done">&#10003;</div>
+            </div>
+            <div class="ph-phase-row active">
+              <div class="ph-phase-ic">&#129496;</div>
+              <div>
+                <span class="ph-phase-name">Asanas</span>
+                <span class="ph-phase-dur">20 min &middot; Warrior I, Child&rsquo;s Pose&hellip;</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+            <div class="ph-phase-row">
+              <div class="ph-phase-ic">&#127788;&#65039;</div>
+              <div>
+                <span class="ph-phase-name">Pranayama</span>
+                <span class="ph-phase-dur">10 min &middot; Nadi Shodhana, Bhramari</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+            <div class="ph-phase-row">
+              <div class="ph-phase-ic">&#127769;</div>
+              <div>
+                <span class="ph-phase-name">Yoga Nidra</span>
+                <span class="ph-phase-dur">15 min &middot; Body scan, Sankalpa</span>
+              </div>
+              <div class="ph-check pend"></div>
+            </div>
+          </div>
+          <div class="ph-gold-btn">&#9654; BEGIN TODAY&rsquo;S SESSION &middot; 53 MIN</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen-sep"></div>
+
+    <!-- Row 3: Prakriti Diagnosis (phone left, copy right) -->
+    <div class="screen-row fade-in">
+
+      <div class="screen-phone-lg">
+        <div class="screen-inner">
+          <div class="ph-notch"></div>
+          <div class="ph-result-hd">
+            <span class="ph-result-lbl">Your Diagnosis &middot; &#2344;&#2367;&#2342;&#2366;&#2344;</span>
+            <span class="ph-result-ttl">Here&rsquo;s what we found</span>
+          </div>
+          <div class="ph-result-body">
+            <div class="ph-sns">
+              <span class="ph-sns-badge">NERVOUS SYSTEM</span>
+              <div class="ph-sns-row">
+                <div class="ph-sns-dot"></div>
+                <span class="ph-sns-title">Sympathetic Dominant</span>
+              </div>
+              <span class="ph-sns-desc">Your body is running in stress mode. Healing is paused until this shifts.</span>
+            </div>
+            <div class="ph-prakriti" id="prakriti-card-screen">
+              <div class="ph-prakriti-bg">&#2357;&#2366;&#2340;</div>
+              <span class="ph-prakriti-badge">YOUR PRAKRITI</span>
+              <div class="ph-prakriti-name-row">
+                <span class="ph-prakriti-name">Vata</span>
+                <span class="ph-prakriti-dev">&#2357;&#2366;&#2340;</span>
+              </div>
+              <span class="ph-prakriti-els">Air + Space &middot; Mobile &middot; Light &middot; Dry</span>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Vata</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill vata" data-w="62"></div></div>
+                <span class="ph-bar-pct">62%</span>
+              </div>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Pitta</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill pitta" data-w="25"></div></div>
+                <span class="ph-bar-pct">25%</span>
+              </div>
+              <div class="ph-bar-row">
+                <span class="ph-bar-lbl">Kapha</span>
+                <div class="ph-bar-track"><div class="ph-bar-fill kapha" data-w="13"></div></div>
+                <span class="ph-bar-pct">13%</span>
+              </div>
+            </div>
+          </div>
+          <div class="ph-sankalp-sec">
+            <span class="ph-sankalp-lbl">PICK YOUR FIRST SANKALP &middot; &#2360;&#2306;&#2325;&#2354;&#2381;&#2346;</span>
+            <div class="ph-action sel">
+              <div class="ph-action-ic">&#127749;</div>
+              <div>
+                <span class="ph-action-title">Wake 30 min earlier + pranayama</span>
+                <span class="ph-action-detail">Before the world starts, before the mind races</span>
+              </div>
+              <div class="ph-radio sel"></div>
+            </div>
+            <div class="ph-action">
+              <div class="ph-action-ic">&#127807;</div>
+              <div>
+                <span class="ph-action-title">Warm sesame oil on feet tonight</span>
+                <span class="ph-action-detail">Grounds Vata, calms nervous system</span>
+              </div>
+              <div class="ph-radio emp"></div>
+            </div>
+          </div>
+          <div class="ph-result-footer">BEGIN MY DAY 1 &rarr;</div>
+        </div>
+      </div>
+
+      <div class="screen-copy">
+        <span class="sc-tag">Your Diagnosis</span>
+        <h3>Know what<br>you&rsquo;re made of.</h3>
+        <p>5 minutes of honest answers about your body &mdash; your frame, skin, sleep, digestion, mind, stress. The result: a clinical-grade constitution map, not a personality quiz. You see what you are, and what to do first.</p>
+        <ul class="feat-bullets">
+          <li>Your <em>Prakriti</em> (innate constitution) and <em>Vikriti</em> (current imbalance) mapped separately</li>
+          <li>Nervous system status &mdash; are you stuck in stress? The app tells you directly</li>
+          <li>One first Sankalp: a small, honest commitment to begin Day 1</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================
+     TRANSFORMATION TIMELINE
+======================== -->
+<section class="timeline-section" id="timeline">
+  <div class="wrap fade-in">
+    <span class="eyebrow center-block">What Changes</span>
+    <h2 class="section-title center-block" style="max-width:640px;margin-left:auto;margin-right:auto;">What 90 days looks like.</h2>
+    <p class="section-sub center-block" style="max-width:520px;margin-left:auto;margin-right:auto;">Ancient texts named this threshold. Modern neuroscience confirmed it. Here is the arc.</p>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <span class="timeline-days">7</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">The Shift Begins</span>
+        <p class="timeline-desc">Sleep deepens. Breath slows. The nervous system starts to register that it&rsquo;s safe to heal.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">21</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">Body Regulates</span>
+        <p class="timeline-desc">Digestion stabilises. Energy evens out. Anxiety becomes less reactive. A new pattern is forming.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">40</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">The Rewire</span>
+        <p class="timeline-desc">Ancient wisdom named this threshold. Modern neuroscience confirms it &mdash; the brain physically changes with sustained practice.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-days">90</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-name">A New Baseline</span>
+        <p class="timeline-desc">Your Vikriti comes closer to your Prakriti. You know your body. You live differently &mdash; without trying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SCIENCE BRIDGE
+======================== -->
+<section class="science-bridge" id="science">
+  <div class="wrap">
+    <div class="fade-in">
+      <span class="eyebrow">The Evidence</span>
+      <h2 class="section-title">Ancient wisdom. Modern proof.</h2>
+      <p class="section-sub">Every practice in Sankalp is backed by both traditions. They were always saying the same thing.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="science-table-wrap fade-in">
+      <table class="science-table">
+        <thead>
+          <tr>
+            <th>Modern Science</th>
+            <th>Yogic Equivalent</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-modern">Neuroplasticity</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Chitta Vritti</span>
+              <span class="td-vedic-script">&#2330;&#2367;&#2340;&#2381;&#2340; &#2357;&#2371;&#2340;&#2381;&#2340;&#2367;</span>
+            </td>
+            <td class="td-meaning">8 weeks of meditation rewires your brain. Your mind is not fixed &mdash; it is a practice.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Parasympathetic Activation</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Ida Nadi</span>
+              <span class="td-vedic-script">&#2311;&#2337;&#2366; &#2344;&#2366;&#2334;&#2368;</span>
+            </td>
+            <td class="td-meaning">Slow breath directly flips the body from stress mode into healing mode. Pranayama is the master switch.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Gut&ndash;Brain Axis</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Agni</span>
+              <span class="td-vedic-script">&#2309;&#2327;&#2381;&#2344;&#2367;</span>
+            </td>
+            <td class="td-meaning">Your gut health drives your mental health. Agni &mdash; the digestive fire &mdash; is the root of everything.</td>
+          </tr>
+          <tr>
+            <td class="td-modern">Vagal Tone</td>
+            <td class="td-vedic">
+              <span class="td-vedic-name">Sushumna Nadi</span>
+              <span class="td-vedic-script">&#2360;&#2369;&#2359;&#2369;&#2350;&#2381;&#2344;&#2366;</span>
+            </td>
+            <td class="td-meaning">The vagus nerve connects breath to calm to healing. Pranayama directly stimulates it, every time you exhale slowly.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     CTA FINAL
+======================== -->
+<section class="cta-final" id="coming-soon">
+  <div class="wrap fade-in">
+    <div class="eyebrow center-block">Now Live</div>
+    <div class="divider-center"></div>
+    <h2 class="cta-headline">Sankalp is here.</h2>
+    <p class="cta-sub">Your body has been talking to you. In about 10 minutes, meet your Prakriti, see where you&rsquo;ve drifted, and take your first step back &mdash; free.</p>
+    <div class="cta-group center-block">
+      <a href="prakriti-assessment.html" class="btn btn-primary">Create Your Free Health Profile &rarr;</a>
+      <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener" class="btn btn-ghost">Join the Community</a>
+    </div>
+  </div>
+</section>
+
+</PageLayout>
+
+<style>
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { position: relative; padding: clamp(72px, 9vw, 120px) 0; }
+  .center-block { display: block; text-align: center; }
+  .eyebrow.center-block::after { display: none; }
+
+  .divider { width: 48px; height: 2px; background: var(--green); border-radius: 2px; margin: 20px 0; }
+  .divider-center { width: 48px; height: 2px; background: var(--gold); border-radius: 2px; margin: 24px auto; }
+
+  .section-title { font-size: clamp(24px, 3.6vw, 38px); line-height: 1.28; margin-bottom: 14px; }
+  .section-sub { color: var(--muted); font-size: 18px; line-height: 1.7; max-width: 560px; margin-bottom: 14px; }
+
+  .cta-group { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  /* FADE-IN */
+  .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+
+  /* ======================== HERO ======================== */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 100% -10%, rgba(217,184,119,.14), transparent 55%),
+      radial-gradient(100% 80% at -8% 108%, rgba(21,122,91,.10), transparent 58%),
+      linear-gradient(180deg,#ffffff 0%,#fbfdfc 60%,#f4f7f5 100%);
+    padding-top: 40px;
+  }
+  .hero-fx {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(21,122,91,.06) 1px, transparent 1.5px);
+    background-size: 26px 26px;
+    -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 76%);
+    mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 76%);
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center;
+    max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%;
+    position: relative; z-index: 2;
+  }
+  .hero-headline { font-size: clamp(30px, 5vw, 50px); line-height: 1.2; margin-bottom: 22px; }
+  .hero-subcopy { font-size: clamp(16.5px, 1.9vw, 19px); color: var(--muted); line-height: 1.75; max-width: 440px; margin-bottom: 32px; }
+
+  /* --- PHONE MOCKUP (hero) --- */
+  .phone-col { display: flex; flex-direction: column; align-items: center; gap: 20px; flex-shrink: 0; }
+  .phone-frame {
+    position: relative; width: 230px; height: 468px; border-radius: 38px;
+    background: #10201b; padding: 6px;
+    box-shadow: var(--shadow-lg);
+    animation: phone-float 6s ease-in-out infinite;
+  }
+  @keyframes phone-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .phone-screen {
+    width: 100%; height: 100%; border-radius: 32px; overflow: hidden; position: relative;
+    background: linear-gradient(180deg, #ffffff, #f6faf7);
+  }
+  .phone-notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 56px; height: 5px; border-radius: 3px; background: rgba(24,36,32,.12); z-index: 5; }
+  .phone-status { position: absolute; top: 22px; left: 0; right: 0; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+  .phone-status-time { font-family: 'Fraunces', serif; font-size: 9px; color: var(--muted); letter-spacing: 1px; }
+  .phone-status-dots { display: flex; gap: 3px; }
+  .phone-status-dots span { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+
+  .phone-stage { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; transition: opacity .7s ease; pointer-events: none; }
+  .phone-stage.active { opacity: 1; pointer-events: auto; }
+
+  /* Stage 1 — Analysing */
+  .ph-orb-wrap { position: relative; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; }
+  .ph-ring-outer { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(21,122,91,.35); animation: ph-spin 18s linear infinite; }
+  .ph-ring-inner { position: absolute; inset: 16px; border-radius: 50%; border: 1px solid rgba(176,137,79,.35); animation: ph-spin 12s linear reverse infinite; }
+  .ph-orb-core {
+    width: 62px; height: 62px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(21,122,91,.18), rgba(21,122,91,.05) 60%, transparent);
+    display: flex; align-items: center; justify-content: center;
+    animation: ph-breath 3s ease-in-out infinite;
+  }
+  .ph-om { font-size: 26px; color: var(--gold); font-family: serif; line-height: 1; }
+  .ph-step { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid transparent; opacity: .4; transition: all .5s ease; margin-bottom: 5px; }
+  .ph-step.done, .ph-step.active { opacity: 1; border-color: var(--line); background: var(--bg-soft); }
+  .ph-step-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 8px; color: transparent; }
+  .ph-step.done .ph-step-dot { border-color: var(--green); color: var(--green); }
+  .ph-step.active .ph-step-dot { border-color: var(--green); }
+  .ph-step-pulse { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: ph-shimmer 1.2s ease-in-out infinite; }
+  .ph-step-text { font-size: 9px; color: var(--muted); }
+  .ph-step.done .ph-step-text, .ph-step.active .ph-step-text { color: var(--ink); }
+
+  /* Stage 2 — Home */
+  .ph-greeting-muted { font-size: 9px; color: var(--muted); margin-bottom: 2px; }
+  .ph-name-text { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); font-weight: 600; line-height: 1.1; }
+  .ph-dosha-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 10px; background: rgba(62,143,191,.1); border: 1px solid rgba(62,143,191,.35); margin-top: 5px; }
+  .ph-dosha-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--air); flex-shrink: 0; }
+  .ph-dosha-text { font-size: 8px; color: var(--air); font-weight: 600; letter-spacing: .5px; }
+  .ph-practice-card { border-radius: 14px; background: var(--green-soft); border: 1px solid #bfe3d3; padding: 12px; position: relative; overflow: hidden; margin-top: 8px; }
+  .ph-practice-om { position: absolute; right: 8px; top: 2px; font-family: serif; font-size: 44px; color: rgba(21,122,91,.08); line-height: 1; pointer-events: none; }
+  .ph-practice-label { font-family: 'Fraunces', serif; font-size: 6px; letter-spacing: 2px; color: var(--green); text-transform: uppercase; margin-bottom: 4px; }
+  .ph-practice-title { font-family: 'Fraunces', serif; font-size: 11px; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .ph-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
+  .ph-chip-s { font-size: 7px; padding: 2px 6px; border-radius: 8px; background: #fff; color: var(--muted); border: 1px solid var(--line); }
+  .ph-begin-btn { font-size: 7px; font-weight: 700; letter-spacing: 1px; color: #fff; background: var(--green); border-radius: 8px; padding: 5px 10px; display: inline-block; }
+  .ph-streak-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .ph-streak-fire { font-size: 16px; line-height: 1; }
+  .ph-streak-count { font-family: 'Fraunces', serif; font-size: 18px; color: var(--ink); font-weight: 700; line-height: 1; }
+  .ph-streak-label { font-size: 7px; color: var(--muted); }
+  .ph-day-dots { display: flex; gap: 3px; margin-left: auto; }
+  .ph-day-dot { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; }
+  .ph-day-dot.done { background: var(--green); color: #fff; border: 1.5px solid var(--green); }
+  .ph-day-dot.empty { background: var(--bg-soft); color: var(--muted); border: 1.5px solid var(--line); }
+  .ph-bottom-nav { position: absolute; bottom: 0; left: 0; right: 0; height: 48px; background: linear-gradient(to top, #fff 80%, transparent); border-top: 1px solid var(--line); display: flex; justify-content: space-around; align-items: center; padding: 6px 8px 12px; }
+  .ph-nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; opacity: .4; }
+  .ph-nav-item.ph-nav-active { opacity: 1; }
+  .ph-nav-icon { font-size: 14px; line-height: 1; }
+  .ph-nav-label { font-size: 7px; color: var(--muted); }
+  .ph-nav-item.ph-nav-active .ph-nav-label { color: var(--green); }
+
+  .ph-qp-label { font-family: 'Fraunces', serif; font-size: 11px; color: var(--ink); font-weight: 600; margin-top: 10px; margin-bottom: 6px; }
+  .ph-qp-scroll { display: flex; gap: 7px; overflow: hidden; }
+  .ph-qp-card { min-width: 70px; padding: 8px; border-radius: 10px; background: var(--bg-soft); border: 1px solid var(--line); flex-shrink: 0; }
+  .ph-qp-icon { width: 28px; height: 28px; border-radius: 7px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 13px; margin-bottom: 5px; }
+  .ph-qp-name { font-family: 'Fraunces', serif; font-size: 7.5px; color: var(--ink); margin-bottom: 2px; line-height: 1.3; }
+  .ph-qp-dur { font-size: 7px; color: var(--muted); }
+
+  @keyframes ph-spin { to { transform: rotate(360deg); } }
+  @keyframes ph-breath { 0%,100%{transform:scale(1);opacity:.85} 50%{transform:scale(1.15);opacity:1} }
+  @keyframes ph-shimmer { 0%,100%{opacity:.45} 50%{opacity:1} }
+
+  /* --- STORE BADGES --- */
+  .store-badges { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; }
+  .store-badge { display: flex; align-items: center; gap: 10px; padding: 9px 22px; border-radius: 30px; border: 1px solid var(--line); background: var(--bg-card); opacity: .55; width: 100%; justify-content: center; text-decoration: none; }
+  .store-badge.live { opacity: 1; border-color: #bfe3d3; background: var(--green-soft); cursor: pointer; }
+  .store-badge-icon { font-size: 13px; }
+  .store-badge-info { display: flex; flex-direction: column; align-items: flex-start; }
+  .store-badge-coming { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; line-height: 1; }
+  .store-badge-coming.live { color: var(--green); }
+  .store-badge-name { font-size: 12.5px; font-weight: 600; letter-spacing: .5px; color: var(--text); line-height: 1.3; }
+  .store-badge-name.live { color: var(--ink); }
+  .community-link { font-size: 13.5px; font-weight: 600; color: var(--green); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .3s; margin-top: 2px; }
+  .community-link:hover { border-color: var(--green); }
+
+  /* ======================== PROBLEM ======================== */
+  .problem { background: var(--bg-soft); text-align: center; }
+  .gold-rule { width: 100%; height: 1px; background: var(--line); margin-bottom: 56px; }
+  .gold-rule-bottom { margin-bottom: 0; margin-top: 56px; }
+  .problem-hook { max-width: 640px; margin: 0 auto; }
+  .problem-line { font-size: clamp(16.5px, 2vw, 20px); color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+  .problem-punchline { font-family: 'Fraunces', serif; font-size: clamp(22px, 3.2vw, 32px); color: var(--green); margin-top: 32px; font-weight: 600; }
+
+  /* ======================== HOW IT WORKS ======================== */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  .step-card { padding: 32px 26px; background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .3s var(--ease), box-shadow .3s; }
+  .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .step-number { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--green); margin-bottom: 18px; display: block; }
+  .step-card h3 { font-size: 17px; margin-bottom: 12px; line-height: 1.35; }
+  .step-card p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
+  .step-link { font-size: 13.5px; font-weight: 600; color: var(--green); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; display: inline-block; }
+  .step-link:hover { border-color: var(--green); }
+
+  /* ======================== FEATURES ======================== */
+  .features { background: var(--bg); }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 44px; }
+  .feature-card { padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .3s var(--ease), box-shadow .3s; }
+  .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .feature-icon { font-size: 24px; margin-bottom: 16px; display: block; }
+  .feature-card h3 { font-family: 'Fraunces', serif; color: var(--green); font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+  .feature-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+  /* ======================== SCREEN SHOWCASE ======================== */
+  .screens-section { background: var(--bg-soft); }
+  .screen-row { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: center; max-width: 900px; margin: 0 auto 80px; }
+  .screen-row:last-child { margin-bottom: 0; }
+  .screen-row.flip { grid-template-columns: 1fr 220px; }
+  .screen-row.flip .screen-phone-lg { order: 2; }
+  .screen-row.flip .screen-copy { order: 1; }
+
+  .screen-phone-lg { position: relative; width: 220px; height: 472px; border-radius: 38px; background: #10201b; padding: 6px; box-shadow: var(--shadow-lg); flex-shrink: 0; }
+  .screen-inner { width: 100%; height: 100%; border-radius: 32px; background: #fff; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .ph-notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 46px; height: 4px; border-radius: 2px; background: rgba(24,36,32,.12); z-index: 10; }
+
+  /* --- AI Chat screen --- */
+  .ph-chat-header { padding: 26px 12px 8px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .ph-chat-av { width: 24px; height: 24px; border-radius: 50%; background: var(--green-soft); border: 1px solid #bfe3d3; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--green); flex-shrink: 0; }
+  .ph-chat-name { font-family: 'Fraunces', serif; font-size: 11px; letter-spacing: .5px; color: var(--ink); display: block; line-height: 1.2; }
+  .ph-chat-online { font-size: 7px; color: var(--earth); display: block; letter-spacing: .3px; }
+  .ph-chat-body { flex: 1; overflow: hidden; padding: 8px 10px 6px; display: flex; flex-direction: column; gap: 6px; }
+  .ph-msg-row { display: flex; align-items: flex-end; gap: 5px; }
+  .ph-msg-row.user { justify-content: flex-end; }
+  .ph-msg-av { width: 18px; height: 18px; border-radius: 50%; background: var(--green-soft); border: 1px solid #bfe3d3; display: flex; align-items: center; justify-content: center; font-size: 7px; color: var(--green); flex-shrink: 0; }
+  .ph-bubble { padding: 7px 9px; font-size: 9px; line-height: 1.55; max-width: 82%; font-family: 'Inter', sans-serif; }
+  .ph-bubble.bot { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 13px 13px 13px 3px; color: var(--text); }
+  .ph-bubble.user { background: linear-gradient(135deg, var(--gold), #c9a476); border-radius: 13px 13px 3px 13px; color: #2a1f10; font-weight: 600; }
+  .ph-ts { font-size: 6.5px; color: var(--muted); padding: 0 26px; }
+  .ph-typing { display: flex; align-items: center; gap: 4px; padding: 2px 10px; }
+  .ph-typing-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--green); opacity: .4; animation: typing-pulse 1.4s ease-in-out infinite; }
+  .ph-typing-dot:nth-child(2) { animation-delay: .22s; }
+  .ph-typing-dot:nth-child(3) { animation-delay: .44s; }
+  @keyframes typing-pulse { 0%,80%,100%{transform:scale(.75);opacity:.3} 40%{transform:scale(1);opacity:.85} }
+  .ph-input-bar { margin: 6px 10px 10px; padding: 7px 12px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 18px; flex-shrink: 0; font-size: 8px; color: var(--muted); font-family: 'Inter', sans-serif; }
+
+  /* --- Weekly Sadhana screen --- */
+  .ph-daily-hd { padding: 26px 12px 8px; display: flex; justify-content: space-between; align-items: flex-start; flex-shrink: 0; }
+  .ph-daily-title { font-family: 'Fraunces', serif; font-size: 13px; color: var(--ink); font-weight: 600; display: block; letter-spacing: .3px; }
+  .ph-daily-sub { font-size: 7.5px; color: var(--muted); letter-spacing: .5px; display: block; margin-top: 2px; }
+  .ph-ring { width: 30px; height: 30px; border-radius: 50%; background: conic-gradient(var(--green) 160deg, var(--line) 160deg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ph-ring-in { width: 20px; height: 20px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 5.5px; font-family: 'Fraunces', serif; color: var(--green); }
+  .ph-week { display: flex; justify-content: space-between; padding: 5px 10px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+  .ph-wd { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .ph-wd-lbl { font-size: 5.5px; font-family: 'Fraunces', serif; color: var(--muted); letter-spacing: .5px; }
+  .ph-wd-em { font-size: 10px; line-height: 1; }
+  .ph-wd.today .ph-wd-lbl { color: var(--gold); }
+  .ph-wd.done .ph-wd-lbl { color: var(--green); }
+  .ph-theme { margin: 7px 10px; padding: 8px 10px; background: rgba(62,143,191,.07); border: 1px solid rgba(62,143,191,.25); border-radius: 9px; flex-shrink: 0; }
+  .ph-theme-top { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+  .ph-theme-em { font-size: 13px; }
+  .ph-theme-dt { font-size: 6.5px; color: var(--air); font-family: 'Fraunces', serif; letter-spacing: 1px; }
+  .ph-theme-name { font-family: 'Fraunces', serif; font-size: 10.5px; color: var(--ink); letter-spacing: .5px; display: block; margin-bottom: 2px; }
+  .ph-theme-focus { font-size: 7px; color: var(--air); display: block; letter-spacing: .5px; }
+  .ph-phases-lbl { padding: 5px 10px 3px; font-family: 'Fraunces', serif; font-size: 6.5px; letter-spacing: 2px; color: var(--green); flex-shrink: 0; }
+  .ph-phase-list { flex: 1; padding: 0 10px; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+  .ph-phase-row { display: flex; align-items: center; gap: 6px; padding: 7px 8px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; }
+  .ph-phase-row.done { opacity: .55; border-color: #bfe3d3; }
+  .ph-phase-row.active { border-color: var(--gold); background: var(--gold-soft); }
+  .ph-phase-ic { width: 22px; height: 22px; border-radius: 6px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .ph-phase-name { font-family: 'Fraunces', serif; font-size: 7.5px; color: var(--ink); letter-spacing: .3px; display: block; }
+  .ph-phase-dur { font-size: 6.5px; color: var(--muted); display: block; }
+  .ph-check { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; margin-left: auto; }
+  .ph-check.done { background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 6px; color: #fff; }
+  .ph-check.pend { border: 1.5px solid var(--line); }
+  .ph-gold-btn { margin: 5px 10px 10px; padding: 8px; background: linear-gradient(135deg, var(--gold), #c9a476); border-radius: 9px; text-align: center; font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; color: #2a1f10; flex-shrink: 0; }
+
+  /* --- Result / Diagnosis screen --- */
+  .ph-result-hd { padding: 24px 12px 7px; flex-shrink: 0; }
+  .ph-result-lbl { font-family: 'Fraunces', serif; font-size: 7px; letter-spacing: 2px; color: var(--green); text-transform: uppercase; display: block; }
+  .ph-result-ttl { font-family: 'Fraunces', serif; font-size: 13px; color: var(--ink); font-weight: 600; display: block; margin-top: 3px; }
+  .ph-result-body { padding: 0 10px; display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+  .ph-sns { padding: 9px 11px; border-radius: 11px; background: var(--accent-soft); border: 1px solid #f3d9c2; position: relative; overflow: hidden; }
+  .ph-sns-badge { font-size: 6.5px; font-family: 'Fraunces', serif; letter-spacing: 2px; color: var(--fire); display: block; margin-bottom: 4px; }
+  .ph-sns-row { display: flex; align-items: center; gap: 6px; }
+  .ph-sns-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--fire); box-shadow: 0 0 8px rgba(219,123,76,.4); animation: sns-pulse 2s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes sns-pulse { 0%,100%{box-shadow:0 0 5px rgba(219,123,76,.35)} 50%{box-shadow:0 0 12px rgba(219,123,76,.55)} }
+  .ph-sns-title { font-family: 'Fraunces', serif; font-size: 10px; color: var(--ink); font-weight: 600; }
+  .ph-sns-desc { font-size: 7.5px; color: var(--muted); margin-top: 4px; line-height: 1.5; display: block; }
+  .ph-prakriti { padding: 9px 11px; border-radius: 11px; background: rgba(62,143,191,.06); border: 1px solid rgba(62,143,191,.3); position: relative; overflow: hidden; }
+  .ph-prakriti-bg { position: absolute; right: 8px; top: 2px; font-size: 46px; color: rgba(62,143,191,.08); line-height: 1; pointer-events: none; font-family: 'Noto Sans Devanagari', sans-serif; }
+  .ph-prakriti-badge { font-size: 6.5px; font-family: 'Fraunces', serif; letter-spacing: 2px; color: var(--air); display: block; margin-bottom: 2px; }
+  .ph-prakriti-name-row { display: flex; align-items: baseline; gap: 5px; margin-bottom: 1px; }
+  .ph-prakriti-name { font-family: 'Fraunces', serif; font-size: 15px; color: var(--ink); font-weight: 700; }
+  .ph-prakriti-dev { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 11px; color: var(--muted); }
+  .ph-prakriti-els { font-size: 7px; color: var(--air); letter-spacing: .3px; display: block; margin-bottom: 7px; }
+  .ph-bar-row { display: flex; align-items: center; gap: 5px; margin-bottom: 4px; }
+  .ph-bar-lbl { font-size: 6.5px; font-family: 'Fraunces', serif; color: var(--muted); width: 28px; flex-shrink: 0; }
+  .ph-bar-track { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .ph-bar-fill { height: 100%; border-radius: 2px; width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+  .ph-bar-fill.vata { background: var(--air); }
+  .ph-bar-fill.pitta { background: var(--fire); }
+  .ph-bar-fill.kapha { background: var(--earth); }
+  .ph-bar-pct { font-size: 6.5px; color: var(--muted); width: 22px; text-align: right; flex-shrink: 0; }
+  .ph-sankalp-sec { flex: 1; padding: 5px 10px 0; display: flex; flex-direction: column; }
+  .ph-sankalp-lbl { font-family: 'Fraunces', serif; font-size: 6.5px; letter-spacing: 2px; color: var(--green); display: block; margin-bottom: 5px; }
+  .ph-action { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: var(--bg-soft); border: 1.5px solid var(--line); border-radius: 9px; margin-bottom: 4px; }
+  .ph-action.sel { background: var(--gold-soft); border-color: var(--gold); }
+  .ph-action-ic { width: 24px; height: 24px; border-radius: 6px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .ph-action.sel .ph-action-ic { background: var(--gold-soft); border-color: var(--gold); }
+  .ph-action-title { font-family: 'Fraunces', serif; font-size: 7.5px; color: var(--ink); display: block; line-height: 1.3; }
+  .ph-action-detail { font-size: 6.5px; color: var(--muted); display: block; line-height: 1.4; }
+  .ph-radio { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; margin-left: auto; }
+  .ph-radio.sel { background: var(--gold); display: flex; align-items: center; justify-content: center; }
+  .ph-radio.sel::after { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #fff; }
+  .ph-radio.emp { border: 1.5px solid var(--line); }
+  .ph-result-footer { margin: 5px 10px 10px; padding: 8px; background: linear-gradient(135deg, var(--gold), #c9a476); border-radius: 9px; text-align: center; font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; color: #2a1f10; flex-shrink: 0; }
+
+  /* --- Screen copy text --- */
+  .screen-copy .sc-tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+  .screen-copy h3 { font-size: clamp(20px, 2.6vw, 27px); line-height: 1.3; margin-bottom: 14px; }
+  .screen-copy p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+  .feat-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .feat-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+  .feat-bullets li::before { content: '\2726'; color: var(--gold); font-size: 10px; flex-shrink: 0; margin-top: 4px; }
+  .feat-bullets li em { color: var(--ink); font-style: normal; font-weight: 600; }
+  .screen-sep { width: 60px; height: 1px; background: var(--line); margin: 72px auto; }
+
+  /* ======================== TIMELINE ======================== */
+  .timeline-section { background: var(--bg); text-align: center; }
+  .timeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 52px; position: relative; }
+  .timeline-grid::before { content: ''; position: absolute; top: 22px; left: 12%; right: 12%; height: 1px; background: linear-gradient(90deg, transparent, var(--line), var(--gold), var(--line), transparent); pointer-events: none; }
+  .timeline-item { text-align: center; padding: 0 8px; position: relative; }
+  .timeline-days { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 700; color: var(--green); letter-spacing: 1px; display: block; line-height: 1; position: relative; z-index: 1; }
+  .timeline-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px #fff; margin: 10px auto; position: relative; z-index: 1; }
+  .timeline-name { font-family: 'Fraunces', serif; font-size: 13px; letter-spacing: .3px; color: var(--ink); font-weight: 600; display: block; margin-bottom: 8px; }
+  .timeline-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ======================== SCIENCE TABLE ======================== */
+  .science-bridge { background: var(--bg-soft); }
+  .science-table-wrap { overflow-x: auto; margin-top: 44px; }
+  .science-table { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 560px; }
+  .science-table thead th { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 0 28px 18px 0; text-align: left; border-bottom: 1px solid var(--line); }
+  .science-table thead th:last-child { padding-right: 0; }
+  .science-table tbody tr { border-bottom: 1px solid var(--line); transition: background .2s; }
+  .science-table tbody tr:nth-child(odd) { background: var(--bg-card); }
+  .science-table tbody tr:hover { background: var(--green-soft); }
+  .science-table td { padding: 20px 28px 20px 0; vertical-align: middle; line-height: 1.6; }
+  .science-table td:last-child { padding-right: 0; }
+  .td-modern { color: var(--green); font-family: 'Fraunces', serif; font-size: 13px; letter-spacing: .5px; font-weight: 600; white-space: nowrap; padding-right: 32px !important; }
+  .td-vedic { color: var(--gold); padding-right: 32px !important; }
+  .td-vedic-name { font-style: italic; font-size: 17px; display: block; line-height: 1.3; margin-bottom: 2px; font-family: 'Fraunces', serif; }
+  .td-vedic-script { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 12px; font-weight: 400; color: var(--muted); font-style: normal; display: block; }
+  .td-meaning { color: var(--muted); font-size: 15px; font-style: italic; }
+
+  /* ======================== CTA FINAL ======================== */
+  .cta-final { text-align: center; padding: clamp(96px, 12vw, 140px) 0; background: linear-gradient(180deg, var(--bg-soft), var(--bg)); }
+  .cta-headline { font-size: clamp(28px, 4.4vw, 42px); margin-bottom: 16px; }
+  .cta-sub { font-size: clamp(16.5px, 1.9vw, 19px); color: var(--muted); line-height: 1.75; max-width: 520px; margin: 0 auto 40px; }
+
+  /* ======================== MOBILE ======================== */
+  @media (max-width: 768px) {
+    section { padding: clamp(56px, 10vw, 80px) 0; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; text-align: center; }
+    .hero-subcopy { margin-left: auto; margin-right: auto; }
+    .cta-group { justify-content: center; }
+    .phone-col { order: -1; }
+    .phone-frame { width: 200px; height: 406px; }
+    .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .screen-row, .screen-row.flip { grid-template-columns: 1fr; gap: 32px; text-align: center; margin-bottom: 52px; }
+    .screen-row .screen-phone-lg, .screen-row.flip .screen-phone-lg { order: -1; margin: 0 auto; }
+    .screen-row .screen-copy, .screen-row.flip .screen-copy { order: 1; }
+    .feat-bullets { text-align: left; }
+    .screen-sep { margin: 44px auto; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .phone-frame { width: 180px; height: 366px; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .timeline-days { font-size: 28px; }
+  }
+</style>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Animate dosha bars when the diagnosis card scrolls into view
+  const doshaObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ph-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        doshaObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.ph-prakriti').forEach(el => doshaObs.observe(el));
+
+  // Hero phone: 2-stage animated sequence (Analysing → Home → loop)
+  (function() {
+    const stages = document.querySelectorAll('.phone-stage');
+    const stepEls = document.querySelectorAll('.ph-step');
+    if (stages.length < 2 || stepEls.length < 4) return;
+
+    let stepTimer = null;
+    let stageTimer = null;
+
+    function resetSteps() {
+      stepEls.forEach(el => {
+        el.classList.remove('active', 'done');
+        const dot = el.querySelector('.ph-step-dot');
+        if (dot) dot.innerHTML = '';
+      });
+      activateStep(0);
+    }
+
+    function activateStep(i) {
+      const el = stepEls[i];
+      if (!el) return;
+      el.classList.add('active');
+      const dot = el.querySelector('.ph-step-dot');
+      if (dot) dot.innerHTML = '<div class="ph-step-pulse"></div>';
+    }
+
+    function completeStep(i) {
+      const el = stepEls[i];
+      if (!el) return;
+      el.classList.remove('active');
+      el.classList.add('done');
+      const dot = el.querySelector('.ph-step-dot');
+      if (dot) dot.innerHTML = '&#10003;';
+    }
+
+    function showStage(index) {
+      stages.forEach((s, i) => s.classList.toggle('active', i === index));
+    }
+
+    function runStage1() {
+      clearTimeout(stageTimer);
+      clearInterval(stepTimer);
+      resetSteps();
+      showStage(0);
+      let s = 0;
+      stepTimer = setInterval(function() {
+        completeStep(s);
+        s++;
+        if (s < stepEls.length) {
+          activateStep(s);
+        } else {
+          clearInterval(stepTimer);
+        }
+      }, 1400);
+      stageTimer = setTimeout(runStage2, 7200);
+    }
+
+    function runStage2() {
+      clearInterval(stepTimer);
+      showStage(1);
+      stageTimer = setTimeout(runStage1, 8500);
+    }
+
+    resetSteps();
+    showStage(0);
+    stageTimer = setTimeout(function() {
+      let s = 0;
+      stepTimer = setInterval(function() {
+        completeStep(s);
+        s++;
+        if (s < stepEls.length) activateStep(s);
+        else clearInterval(stepTimer);
+      }, 1400);
+      setTimeout(runStage2, 7200);
+    }, 600);
+  })();
+</script>

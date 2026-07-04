@@ -1,0 +1,35 @@
+---
+interface Props {
+  /** relative path prefix to the site root — "" at root, "../" one level down (e.g. blog/*) */
+  base?: string;
+}
+const { base = '' } = Astro.props;
+---
+<footer>
+  <div class="foot-inner">
+    <a href={`${base}index.html`} class="brand" style="font-size:18px">
+      <span class="mark" style="width:26px;height:26px">
+        <svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus">
+          <g class="petals">
+            <path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/>
+            <path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/>
+            <path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/>
+            <path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/>
+            <path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/>
+          </g>
+          <circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/>
+        </svg>
+      </span>
+      Sankalp
+    </a>
+    <div class="foot-links">
+      <a href={`${base}index.html#app`}>The app</a>
+      <a href={`${base}index.html#roots`}>Ancient + modern</a>
+      <a href={`${base}blog/`}>Blog</a>
+      <a href={`${base}prakriti-assessment.html`}>Health check</a>
+      <a href={`${base}for-doctors.html`}>For Doctors</a>
+      <a href={`${base}privacy.html`}>Privacy</a>
+    </div>
+    <p class="foot-copy">&copy; 2026 Sankalp &middot; sankalphealth.in</p>
+  </div>
+</footer>

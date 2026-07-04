@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sankalp app icon">
+  <!-- Maskable app / home-screen tile: cream lotus on brand green, art kept inside the centre safe zone. -->
+  <rect width="512" height="512" fill="#157a5b"/>
+  <g transform="translate(256 256) scale(0.62) translate(-256 -260)" fill="#f4ece2">
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" opacity=".72" transform="rotate(-80 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" opacity=".72" transform="rotate(80 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" opacity=".88" transform="rotate(-42 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" opacity=".88" transform="rotate(42 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z"/>
+    <circle cx="256" cy="356" r="15" fill="#e6c98f"/>
+  </g>
+</svg>

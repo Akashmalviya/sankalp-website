@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 2 — Bindu & horizon. A single sun/seed disc over a calm horizon arc. Minimal sunrise. -->
+  <g id="icon">
+    <circle id="bindu" cx="256" cy="212" r="58" fill="#c2954e"/>
+    <path id="horizon" d="M150 300 A240 240 0 0 0 362 300" fill="none" stroke="#157a5b" stroke-width="28" stroke-linecap="round"/>
+  </g>
+</svg>

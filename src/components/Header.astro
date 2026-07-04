@@ -1,0 +1,50 @@
+---
+interface Props {
+  /** relative path prefix to the site root — "" at root, "../" one level down (e.g. blog/*) */
+  base?: string;
+  /** which nav item to highlight as current */
+  active?: 'app' | 'blog' | 'for-doctors';
+}
+const { base = '', active } = Astro.props;
+---
+<nav>
+  <div class="nav-inner">
+    <a href={`${base}index.html`} class="brand">
+      <span class="mark">
+        <svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus">
+          <g class="petals">
+            <path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/>
+            <path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/>
+            <path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/>
+            <path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/>
+            <path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/>
+          </g>
+          <circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/>
+        </svg>
+      </span>
+      Sankalp
+    </a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href={`${base}index.html#science`}>The science</a></li>
+      <li><a href={`${base}index.html#roots`}>Ancient + modern</a></li>
+      <li><a href={`${base}index.html#app`} class={active === 'app' ? 'active' : undefined}>The app</a></li>
+      <li><a href={`${base}blog/`} class={active === 'blog' ? 'active' : undefined}>Blog</a></li>
+      <li><a href={`${base}for-doctors.html`} class={active === 'for-doctors' ? 'active' : undefined}>For Doctors</a></li>
+      <li><a href={`${base}prakriti-assessment.html`} class="nav-cta">Free health check</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.querySelectorAll('.nav-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.parentElement?.querySelector('.nav-links')?.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.nav-links a').forEach((a) => {
+    a.addEventListener('click', () => {
+      a.closest('.nav-links')?.classList.remove('open');
+    });
+  });
+</script>

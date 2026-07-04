@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus">
+  <!-- Sankalp — primary icon. Tonal open lotus + gold seed. Redesign palette. -->
+  <g id="lotus">
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73" transform="rotate(-80 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73" transform="rotate(80 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b" transform="rotate(-42 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b" transform="rotate(42 256 366)"/>
+    <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/>
+  </g>
+  <circle id="seed" cx="256" cy="356" r="15" fill="#c2954e"/>
+</svg>

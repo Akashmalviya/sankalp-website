@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 1 — Vesica seed. Sacred-geometry lens (petal/flame) with an inner gold seed. Green + gold, no ornament. -->
+  <g id="icon">
+    <path id="petal" d="M256 117 A168 168 0 0 1 256 395 A168 168 0 0 1 256 117 Z" fill="#0e5c44"/>
+    <path id="seed" d="M256 175 A100 100 0 0 1 256 338 A100 100 0 0 1 256 175 Z" fill="#c2954e"/>
+  </g>
+</svg>
