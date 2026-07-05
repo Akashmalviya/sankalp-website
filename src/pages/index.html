@@ -392,9 +392,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
   .hero{padding:48px 0 48px}
   .brow{grid-template-columns:1fr;}
   .bside.ancient{border-top:1px solid var(--line)}
-  .blink{transform:rotate(90deg);padding:6px 0}
+  .blink{transform:rotate(90deg);padding:6px 0;width:32px;justify-self:center}
   .device{width:180px}
-  .rbtn{min-width:120px}
+  .rbtn{min-width:120px;flex-basis:100%}
 }
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
@@ -443,7 +443,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
       </div>
       <div class="orb-wrap" id="orb-wrap" aria-hidden="true">
         <canvas id="orb-canvas"></canvas>
-        <div class="orb-cap">breath is the switch — <span class="dev">प्राण</span></div>
+        <div class="orb-cap">your body's blueprint — <span class="dev">प्रकृति</span></div>
       </div>
     </div>
   </div>
@@ -772,7 +772,7 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
 })();
 </script>
 
-<!-- ══════════════════ WEBGL BREATHING ORB (three.js) ══════════════════ -->
+<!-- ══════════════════ WEBGL DNA HELIX (three.js) ══════════════════ -->
 <!-- three.js vendored locally (global THREE, UMD r128) → no CDN, no extension
      blocking, works over file:// and in production alike -->
 <script src="three.min.js"></script>
@@ -795,27 +795,62 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
   var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
   camera.position.set(0, 0, 5.0);
 
-  // ── even points on a sphere (fibonacci) ──
-  var COUNT = 5200;
+  // ── double helix: two strands + base-pair rungs + ambient dust ──
+  var HEIGHT = 3.4, RADIUS = 0.72, TURNS = 2.6;
+  var PER_STRAND = 640, RUNGS = 26, RUNG_PTS = 12, AMBIENT = 700;
+  var COUNT = PER_STRAND * 2 + RUNGS * RUNG_PTS + AMBIENT;
   var positions = new Float32Array(COUNT * 3);
   var scales = new Float32Array(COUNT);
   var rnds = new Float32Array(COUNT);
-  var R = 1.5;
-  var golden = Math.PI * (3 - Math.sqrt(5));
-  for(var i=0;i<COUNT;i++){
-    var y = 1 - (i / (COUNT - 1)) * 2;
-    var rad = Math.sqrt(1 - y*y);
-    var theta = golden * i;
-    positions[i*3]   = Math.cos(theta) * rad * R;
-    positions[i*3+1] = y * R;
-    positions[i*3+2] = Math.sin(theta) * rad * R;
-    scales[i] = 0.5 + Math.random() * 0.9;
-    rnds[i]   = Math.random();
+  var mixes = new Float32Array(COUNT);   // 0 → green strand, 1 → gold strand, 0.5 → rung
+  var TWO_PI = Math.PI * 2;
+  var idx = 0, s, i, f, ang, k;
+
+  for(s = 0; s < 2; s++){
+    for(i = 0; i < PER_STRAND; i++){
+      f = i / (PER_STRAND - 1);
+      ang = f * TURNS * TWO_PI + s * Math.PI;
+      positions[idx*3]   = Math.cos(ang) * RADIUS + (Math.random()-0.5) * 0.05;
+      positions[idx*3+1] = (f - 0.5) * HEIGHT      + (Math.random()-0.5) * 0.03;
+      positions[idx*3+2] = Math.sin(ang) * RADIUS + (Math.random()-0.5) * 0.05;
+      scales[idx] = 0.6 + Math.random() * 0.9;
+      rnds[idx]   = Math.random();
+      mixes[idx]  = s;
+      idx++;
+    }
   }
+  for(i = 0; i < RUNGS; i++){
+    f = (i + 0.5) / RUNGS;
+    ang = f * TURNS * TWO_PI;
+    var ax = Math.cos(ang) * RADIUS, az = Math.sin(ang) * RADIUS, ry = (f - 0.5) * HEIGHT;
+    for(k = 0; k < RUNG_PTS; k++){
+      var g = (k + 0.5) / RUNG_PTS;               // lerp strand A → strand B (opposite point)
+      positions[idx*3]   = ax * (1 - 2*g);
+      positions[idx*3+1] = ry + (Math.random()-0.5) * 0.02;
+      positions[idx*3+2] = az * (1 - 2*g);
+      scales[idx] = 0.4 + Math.random() * 0.45;
+      rnds[idx]   = Math.random();
+      mixes[idx]  = 0.5;
+      idx++;
+    }
+  }
+  for(i = 0; i < AMBIENT; i++){
+    ang = Math.random() * TWO_PI;
+    var rr = 0.9 + Math.random() * 1.1;
+    positions[idx*3]   = Math.cos(ang) * rr;
+    positions[idx*3+1] = (Math.random() - 0.5) * HEIGHT * 1.2;
+    positions[idx*3+2] = Math.sin(ang) * rr;
+    scales[idx] = 0.2 + Math.random() * 0.4;
+    rnds[idx]   = Math.random();
+    mixes[idx]  = Math.random();
+    idx++;
+  }
+
   var geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   geo.setAttribute('aScale', new THREE.BufferAttribute(scales, 1));
   geo.setAttribute('aRand', new THREE.BufferAttribute(rnds, 1));
+  geo.setAttribute('aMix', new THREE.BufferAttribute(mixes, 1));
 
   var uniforms = {
     uTime:   { value: 0 },
@@ -826,8 +861,8 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
   };
 
   // NormalBlending (NOT additive) so points are visible on the white hero.
-  // Depth is faked by fading far-side points toward pale sage → the flat dot
-  // field reads as a sphere with real volume.
+  // Depth is faked by fading far-side points toward pale sage → the strand
+  // curling away reads as behind the one curling toward you.
   var mat = new THREE.ShaderMaterial({
     uniforms: uniforms,
     transparent: true,
@@ -839,20 +874,22 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
       'uniform float uPixelRatio;',
       'attribute float aScale;',
       'attribute float aRand;',
+      'attribute float aMix;',
       'varying float vMix;',
       'varying float vDepth;',
+      'varying float vA;',
       'void main(){',
       '  vec3 p = position;',
-      '  float globalBreath = sin(uTime * 0.5) * 0.5 + 0.5;',   // 0..1 slow inhale/exhale
-      '  float local = sin(uTime * 0.9 + aRand * 6.2831) * 0.5 + 0.5;',
-      '  float disp = globalBreath * 0.14 + local * 0.02;',
-      '  p *= (1.0 + disp);',
+      '  float breath = sin(uTime * 0.5) * 0.5 + 0.5;',          // 0..1 slow inhale/exhale
+      '  p.xz *= (1.0 + breath * 0.05);',
+      '  float tw = sin(uTime * 0.9 + aRand * 6.2831) * 0.5 + 0.5;', // per-point twinkle
       '  vec4 mv = modelViewMatrix * vec4(p, 1.0);',
       '  gl_Position = projectionMatrix * mv;',
-      '  float s = uSize * aScale * (0.85 + globalBreath * 0.35);',
+      '  float s = uSize * aScale * (0.8 + tw * 0.4);',
       '  gl_PointSize = s * (4.0 / -mv.z) * uPixelRatio;',
-      '  vMix = aScale;',
+      '  vMix = aMix;',
       '  vDepth = -mv.z;',
+      '  vA = 0.45 + aScale * 0.55;',
       '}'
     ].join('\n'),
     fragmentShader: [
@@ -860,22 +897,27 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
       'uniform vec3 uColorB;',
       'varying float vMix;',
       'varying float vDepth;',
+      'varying float vA;',
       'void main(){',
       '  vec2 uv = gl_PointCoord - 0.5;',
       '  float d = length(uv);',
       '  if(d > 0.5) discard;',
       '  float soft = smoothstep(0.5, 0.0, d);',
-      '  float t = clamp((vDepth - 3.5) / 3.0, 0.0, 1.0);',      // 0 near … 1 far
-      '  vec3 col = mix(uColorA, uColorB, smoothstep(0.72, 1.35, vMix));',
-      '  col = mix(col, vec3(0.80, 0.89, 0.84), t * 0.72);',     // far points fade to pale sage
-      '  float a = soft * mix(0.95, 0.18, t) * (0.5 + vMix * 0.5);',
+      '  float t = clamp((vDepth - 4.0) / 2.2, 0.0, 1.0);',      // 0 near … 1 far
+      '  vec3 col = mix(uColorA, uColorB, vMix);',
+      '  col = mix(col, vec3(0.80, 0.89, 0.84), t * 0.7);',      // far points fade to pale sage
+      '  float a = soft * mix(0.95, 0.22, t) * vA;',
       '  gl_FragColor = vec4(col, a);',
       '}'
     ].join('\n')
   });
 
   var points = new THREE.Points(geo, mat);
-  scene.add(points);
+  var TILT = -0.28;                       // resting lean, so the helix isn't bolt upright
+  var group = new THREE.Group();
+  group.add(points);
+  group.rotation.z = TILT;
+  scene.add(group);
 
   // ── sizing ──
   function resize(){
@@ -918,9 +960,9 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
     uniforms.uTime.value = clock.getElapsedTime();
     cx += (tx - cx) * 0.05;
     cy += (ty - cy) * 0.05;
-    points.rotation.y += 0.0016;
-    points.rotation.x = cy * 0.6;
-    points.rotation.z = -cx * 0.3;
+    points.rotation.y += 0.004;             // spin the helix on its own axis
+    group.rotation.x = cy * 0.35;
+    group.rotation.z = TILT - cx * 0.25;
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
