@@ -26,11 +26,12 @@ const { base = '', active } = Astro.props;
     </a>
     <button class="nav-toggle" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
-      <li><a href={`${base}index.html#science`}>The science</a></li>
-      <li><a href={`${base}index.html#roots`}>Ancient + modern</a></li>
+      <li><a href={`${base}index.html#pillars`}>The five pillars</a></li>
+      <li><a href={`${base}index.html#how`}>How it works</a></li>
+      <li><a href={`${base}index.html#coach`}>Your coach</a></li>
       <li><a href={`${base}blog/`} class={active === 'blog' ? 'active' : undefined}>Blog</a></li>
       <li><a href={`${base}for-doctors.html`} class={active === 'for-doctors' ? 'active' : undefined}>For Doctors</a></li>
-      <li><a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="nav-cta">Talk to Us, Free</a></li>
+      <li><a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener" class="nav-cta">Book a free call</a></li>
     </ul>
   </div>
 </nav>

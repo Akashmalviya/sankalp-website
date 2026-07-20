@@ -7,21 +7,142 @@
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ffffff">
-<title>Sankalp — The Daily Guidance Your Prescription Never Came With</title>
-<meta name="description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress that fits your life.">
+<title>Sankalp — Personalised Lifestyle Medicine for Diabetes, Fatty Liver, PCOS &amp; Gut Health</title>
+<meta name="description" content="Your diagnosis has a cause. Sankalp's coaches find it and fix it — rebuilding the five pillars your health runs on: nutrition, sleep, movement, gut and emotional health. Book a free 30-minute discovery call.">
 <link rel="canonical" href="https://sankalphealth.in/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sankalphealth.in/">
-<meta property="og:title" content="Sankalp — The Daily Guidance Your Prescription Never Came With">
-<meta property="og:description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress that fits your life.">
+<meta property="og:title" content="Sankalp — Personalised Lifestyle Medicine">
+<meta property="og:description" content="Your diagnosis has a cause. We find it — and fix it. Personalised lifestyle coaching for diabetes, fatty liver, PCOS, gut trouble and chronic fatigue.">
 <meta property="og:image" content="https://sankalphealth.in/images/og-default.png">
 <meta property="og:site_name" content="Sankalp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sankalp — The Daily Guidance Your Prescription Never Came With">
-<meta name="twitter:description" content="Doctors treat the illness. Sankalp helps you fix the daily habits behind it — simple, personal guidance on food, sleep, movement and stress.">
+<meta name="twitter:title" content="Sankalp — Personalised Lifestyle Medicine">
+<meta name="twitter:description" content="Your diagnosis has a cause. We find it — and fix it. Personalised lifestyle coaching across nutrition, sleep, movement, gut and emotional health.">
 <meta name="twitter:image" content="https://sankalphealth.in/images/og-default.png">
+<!-- Structured data. Deliberately NOT typed as MedicalOrganization / Physician /
+     MedicalBusiness: this is lifestyle coaching, not a medical service, and the
+     coach holds no medical degree. Claiming a medical type would misrepresent
+     that to both Google and the reader. Keep it Organization + Person + Service.
+     The FAQPage entries must stay word-for-word matched to the visible FAQ
+     section below - Google requires the answer to be present on the page. -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Sankalp","url":"https://sankalphealth.in","logo":"https://sankalphealth.in/favicon.svg","description":"Sankalp gives people the everyday lifestyle guidance that treatment alone doesn't — simple daily plans for food, sleep, movement and stress."},{"@type":"WebSite","name":"Sankalp","url":"https://sankalphealth.in"}]}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sankalphealth.in/#org",
+      "name": "Sankalp",
+      "url": "https://sankalphealth.in",
+      "logo": "https://sankalphealth.in/favicon.svg",
+      "image": "https://sankalphealth.in/images/og-default.png",
+      "description": "Sankalp provides personalised lifestyle medicine coaching across five pillars — nutrition, sleep, movement, gut health and emotional health — for people living with lifestyle-driven conditions.",
+      "founder": { "@id": "https://sankalphealth.in/#akash" },
+      "areaServed": "IN",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://wa.me/918359011231",
+        "availableLanguage": ["en", "hi"]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sankalphealth.in/#akash",
+      "name": "Akash Malviya",
+      "jobTitle": "Lifestyle coach",
+      "description": "Founder of Sankalp. Has studied metabolic and lifestyle health since 2017. Not a medical doctor; does not diagnose, prescribe or advise on medication.",
+      "worksFor": { "@id": "https://sankalphealth.in/#org" },
+      "url": "https://sankalphealth.in/#coach"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://sankalphealth.in/#service",
+      "name": "Personalised lifestyle coaching",
+      "serviceType": "Lifestyle and health coaching",
+      "provider": { "@id": "https://sankalphealth.in/#org" },
+      "areaServed": "IN",
+      "description": "One-to-one coaching across nutrition, sleep, movement, gut health and emotional health, for people living with prediabetes, type 2 diabetes, fatty liver, PCOS, obesity, IBS, thyroid conditions, insomnia and chronic fatigue. Complements medical treatment and never replaces it.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Free discovery call",
+        "price": "0",
+        "priceCurrency": "INR",
+        "description": "A 30-minute call at no cost and with no obligation."
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sankalphealth.in/#website",
+      "name": "Sankalp",
+      "url": "https://sankalphealth.in",
+      "publisher": { "@id": "https://sankalphealth.in/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sankalphealth.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will I have to stop my medicines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — and please don't. We never stop, reduce or change anyone's medication. That decision belongs to your doctor and only your doctor. What we do is work on the lifestyle side so that when you go for your next review, your physician has better numbers to work with. Any change in dosage comes from them, based on those numbers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long before I notice anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Honestly, it depends on what we're fixing. Sleep, energy, bloating and mood usually shift within two to four weeks — those respond fast. Blood markers take longer — typically three to six months of consistent work, and they move at the pace your body decides, not the pace we'd like. Anyone promising faster than that is selling you something."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What actually happens on the discovery call?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Thirty minutes, on the phone or WhatsApp. You talk, we listen — what's going on, what you've already tried, what you're hoping for. Then we tell you plainly whether we think we can help and what working together would look like. If we're not the right fit, we'll tell you that instead. No cost, no obligation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this Ayurveda? Is it a diet plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neither, exactly. It's lifestyle medicine — working on the daily behaviours that drive chronic conditions. We draw on India's traditional understanding of daily living, which got a great deal right about food, timing and rhythm, but we only keep what modern evidence supports. No detoxes, no cleanses, no miracle cures, and nothing you have to believe in for it to work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it online, or do I need to come in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Online. Assessment, protocol and check-ins all happen over call and WhatsApp, so it works wherever you are and fits around your job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to give up everything I like eating?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and plans that demand that are exactly why most people quit by week three. We build around what you already eat and what's actually cooked in your kitchen. Timing and sequencing often matter as much as the food itself — a lot of early progress comes from changing when you eat, not banning what you eat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We'll walk you through the programmes and pricing on the discovery call, once we know what you actually need — quoting before that would be guesswork. The call itself is free, and there's no pressure to sign up on it."
+          }
+        }
+      ]
+    }
+  ]
+}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +171,12 @@ html{scroll-behavior:smooth}
   --accent-soft:#fdeee1;
   --gold:#b0894f;
   --gold-soft:#f4ecdd;
-  --air:#3e8fbf;
-  --fire:#db7b4c;
-  --earth:#4e9e68;
+  /* five pillars */
+  --p-nutrition:#4e9e68;
+  --p-sleep:#4f6ba3;
+  --p-movement:#e0752e;
+  --p-gut:#c08a3e;
+  --p-emotional:#96699c;
   --radius:16px;
   --ease:cubic-bezier(.22,1,.36,1);
   --shadow:0 1px 2px rgba(24,36,32,.05),0 8px 28px rgba(24,36,32,.07);
@@ -114,6 +238,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-
 .btn-ghost{color:var(--green);border:1.5px solid var(--line)}
 .btn-ghost:hover{border-color:var(--green);background:var(--green-soft)}
 .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
+.sec-head h2{font-size:clamp(27px,3.6vw,40px);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:17px}
+.cta-center{text-align:center;margin-top:44px}
+.cta-note{font-size:13.5px;color:var(--muted);margin-top:14px}
 
 /* ═══════════ HERO (WebGL) ═══════════ */
 .hero{position:relative;overflow:hidden;padding:72px 0 64px;
@@ -131,19 +260,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-
   background:radial-gradient(closest-side,rgba(21,122,91,.16),transparent 70%);filter:blur(10px);animation:auraFloat 21s ease-in-out .6s infinite reverse}
 @keyframes auraFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,22px) scale(1.07)}}
 @media(prefers-reduced-motion:reduce){.hero::before,.hero::after{animation:none}}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.22fr .78fr;gap:30px;align-items:center}
 .hero-content{position:relative;z-index:2}
-.hero h1{font-size:clamp(36px,5.4vw,60px);margin:0 0 20px;letter-spacing:-.5px}
+/* max size is capped so "Your diagnosis has a cause." holds on one line in
+   the hero column — raising it re-introduces an orphaned "cause." */
+.hero h1{font-size:clamp(32px,4.1vw,44px);margin:0 0 20px;letter-spacing:-.4px;text-wrap:balance}
 .hero h1 em{font-style:italic;color:var(--green)}
-.hero .sub{font-size:clamp(17px,2.1vw,19.5px);color:var(--muted);max-width:520px;margin:0 0 30px}
+.hero .sub{font-size:clamp(16.5px,2vw,19px);color:var(--muted);max-width:540px;margin:0 0 28px}
+.hero .sub strong{color:var(--text);font-weight:600}
 .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .hero .note{margin-top:16px;font-size:13.5px;color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px;max-width:540px}
-.chip{font-size:13.5px;font-weight:500;color:var(--text);background:var(--bg-card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;box-shadow:0 1px 3px rgba(24,36,32,.05)}
-.chips-note{margin-top:18px;font-size:14.5px;color:var(--muted);max-width:520px}
+.hero .doctor-line{margin-top:26px;padding:13px 18px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:10px;font-size:14.5px;color:var(--text);max-width:540px}
 
 /* the orb canvas */
-.orb-wrap{position:relative;width:100%;aspect-ratio:1/1;max-width:480px;margin:0 auto;border-radius:50%;
+.orb-wrap{position:relative;width:100%;aspect-ratio:1/1;max-width:460px;margin:0 auto;border-radius:50%;
   background:
     radial-gradient(closest-side, rgba(217,184,119,.12), transparent 52%),
     radial-gradient(closest-side, rgba(21,122,91,.12) 0%, rgba(21,122,91,.04) 46%, transparent 72%)}
@@ -152,196 +282,151 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-
 @keyframes orbring{0%,100%{transform:scale(.9);opacity:.45}50%{transform:scale(1.06);opacity:.9}}
 @media(prefers-reduced-motion:reduce){.orb-wrap::before,.orb-wrap::after{animation:none}}
 .orb-wrap canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;z-index:2}
-.orb-cap{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);text-align:center;
+.orb-cap{position:absolute;left:50%;bottom:1%;transform:translateX(-50%);text-align:center;
   font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--muted);white-space:nowrap}
-.orb-cap .dev{font-style:normal;color:var(--gold);font-size:14px}
 
-/* ═══════════ STATS ═══════════ */
-.stats{background:var(--bg-soft);padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
-.stat-num{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,44px);font-weight:600;color:var(--green);line-height:1.1;margin-bottom:8px}
-.stat-lbl{font-size:13.5px;color:var(--muted);line-height:1.5;max-width:210px;margin:0 auto}
+/* ═══════════ CONDITIONS STRIP ═══════════ */
+.cond{background:var(--bg-soft);padding:52px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cond-lbl{text-align:center;font-size:14px;font-weight:600;letter-spacing:.4px;color:var(--muted);margin-bottom:22px}
+.cond-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:840px;margin:0 auto}
+.cond-list span{font-size:14.5px;font-weight:500;color:var(--ink);background:var(--bg-card);border:1px solid var(--line);padding:9px 17px;border-radius:100px;box-shadow:0 1px 3px rgba(24,36,32,.05)}
+.cond-foot{text-align:center;margin-top:24px;font-size:15px;color:var(--muted);max-width:620px;margin-left:auto;margin-right:auto}
+
+/* ═══════════ SCALE / COUNTERS ═══════════ */
+.scale{background:var(--bg);padding:76px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat-num{font-family:'Fraunces',serif;font-size:clamp(34px,4.4vw,48px);font-weight:600;color:var(--green);line-height:1.05;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:14.5px;color:var(--muted);line-height:1.55;max-width:215px;margin:0 auto}
+.stat-lbl strong{color:var(--text);font-weight:600}
+.scale-src{text-align:center;margin-top:34px;font-size:12.5px;color:var(--muted)}
+.scale-src a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.scale-src a:hover{color:var(--green)}
 
 /* ═══════════ PROBLEM ═══════════ */
-.problem{background:var(--bg);padding:80px 0}
-.sec-head{text-align:center;max-width:660px;margin:0 auto 48px}
-.sec-head h2{font-size:clamp(27px,3.6vw,40px);margin-bottom:14px}
-.sec-head p{color:var(--muted);font-size:17px}
+.problem{background:var(--bg);padding:84px 0}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .pcard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow)}
 .pcard .num{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .pcard h3{font-size:19.5px;margin-bottom:9px}
 .pcard p{font-size:15.5px;color:var(--muted)}
-.problem .punch{text-align:center;margin-top:46px;font-family:'Fraunces',serif;font-size:clamp(20px,2.8vw,26px);color:var(--ink);max-width:680px;margin-left:auto;margin-right:auto}
+.problem .punch{text-align:center;margin-top:46px;font-family:'Fraunces',serif;font-size:clamp(20px,2.8vw,27px);color:var(--ink);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.4}
 .problem .punch strong{color:var(--green)}
-.problem .punch-sub{text-align:center;margin-top:14px;font-size:16px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
 
-/* ═══════════ SCIENCE — two modes ═══════════ */
-.science{background:var(--bg-soft);padding:88px 0}
-.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
-.mode-card{background:var(--bg-card);border-radius:var(--radius);padding:28px 26px;border:1px solid var(--line);box-shadow:var(--shadow)}
-.mode-card.stress{border-top:4px solid var(--accent)}
-.mode-card.heal{border-top:4px solid var(--green)}
-.mode-top{display:flex;gap:14px;align-items:center;margin-bottom:18px}
-.mode-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mode-ico svg{width:22px;height:22px}
-.stress .mode-ico{background:var(--accent-soft);color:var(--accent)}
-.heal .mode-ico{background:var(--green-soft);color:var(--green)}
-.mode-card h3{font-size:20px}
-.mode-sub{font-size:13px;color:var(--muted)}
-.wave{width:100%;height:56px;margin-bottom:16px}
-.wave-line{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.stress-line{stroke:var(--accent);animation:stressScroll .9s linear infinite}
-.heal-line{stroke:var(--green);animation:healScroll 5s linear infinite}
-@keyframes stressScroll{to{transform:translateX(-58px)}}
-@keyframes healScroll{to{transform:translateX(-100px)}}
-.mode-list{list-style:none}
-.mode-list li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--text);border-bottom:1px solid var(--line)}
-.mode-list li:last-child{border-bottom:none}
-.stress .mode-list li::before{content:'•';position:absolute;left:8px;color:var(--accent)}
-.heal .mode-list li::before{content:'•';position:absolute;left:8px;color:var(--green)}
-.timing{display:flex;gap:16px;align-items:flex-start;background:var(--accent-soft);border:1px solid #f3d9c2;border-radius:var(--radius);padding:22px 26px;margin-top:26px}
-.timing-ico{font-size:22px;line-height:1.3;color:var(--accent)}
-.timing p{font-size:15.5px;color:var(--text)}
-.science-close{text-align:center;margin-top:40px;font-family:'Fraunces',serif;font-size:clamp(18px,2.4vw,23px);color:var(--ink);max-width:660px;margin-left:auto;margin-right:auto;line-height:1.45}
-.science-close strong{color:var(--green)}
+/* ═══════════ FIVE PILLARS ═══════════ */
+.pillars{background:var(--bg-soft);padding:88px 0}
+.ptabs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:920px;margin:0 auto 30px}
+.ptab{background:var(--bg-card);border:1.5px solid var(--line);border-radius:var(--radius);padding:20px 12px;text-align:center;cursor:pointer;font-family:inherit;transition:all .25s var(--ease)}
+.ptab:hover{border-color:var(--pc);transform:translateY(-2px)}
+.ptab.on{border-color:var(--pc);background:#fff;box-shadow:0 6px 20px rgba(24,36,32,.10)}
+.ptab .pico{width:38px;height:38px;margin:0 auto 10px;border-radius:11px;display:grid;place-items:center;background:var(--pc-soft);color:var(--pc);transition:all .25s var(--ease)}
+.ptab .pico svg{width:20px;height:20px}
+.ptab.on .pico{background:var(--pc);color:#fff}
+.ptab b{display:block;font-family:'Fraunces',serif;font-size:15.5px;color:var(--ink);font-weight:600;line-height:1.25}
+.ptab[data-p="nutrition"]{--pc:var(--p-nutrition);--pc-soft:#e8f3ea}
+.ptab[data-p="sleep"]{--pc:var(--p-sleep);--pc-soft:#e9edf5}
+.ptab[data-p="movement"]{--pc:var(--p-movement);--pc-soft:#fdeee1}
+.ptab[data-p="gut"]{--pc:var(--p-gut);--pc-soft:#f7eeda}
+.ptab[data-p="emotional"]{--pc:var(--p-emotional);--pc-soft:#f2eaf4}
 
-/* ═══════════ BRIDGE — ancient + modern ═══════════ */
-.bridge{padding:88px 0;position:relative;overflow:hidden}
-.bridge::before{content:'';position:absolute;top:-160px;right:-160px;width:520px;height:520px;background:radial-gradient(closest-side,var(--gold-soft),transparent);z-index:0}
-.bridge .wrap{position:relative;z-index:1}
-.bridge-rows{display:flex;flex-direction:column;gap:14px;max-width:900px;margin:0 auto}
-.brow{display:grid;grid-template-columns:1fr 46px 1fr;gap:0;align-items:stretch;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.bside{padding:20px 22px}
-.bside .k{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.bside.modern .k{color:var(--green)}
-.bside.ancient{background:var(--gold-soft)}
-.bside.ancient .k{color:var(--gold)}
-.bside h3{font-size:18px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.bside .devname{font-family:'Noto Sans Devanagari',serif;color:var(--gold);font-size:17px;font-weight:600}
-.bside p{font-size:14px;color:var(--muted);line-height:1.5}
-.blink{display:flex;align-items:center;justify-content:center;background:var(--bg-soft);color:var(--muted)}
-.blink svg{width:20px;height:20px}
-.bridge-eorbs{display:flex;gap:6px;margin-top:8px}
-.eorb{border-radius:50%;display:grid;place-items:center;color:#fff;flex:0 0 auto;width:26px;height:26px}
-.eorb svg{width:14px;height:14px}
-.eorb.air{background:radial-gradient(circle at 34% 30%,#8ac0dd,#3e8fbf)}
-.eorb.fire{background:radial-gradient(circle at 34% 30%,#e8a883,#db7b4c)}
-.eorb.earth{background:radial-gradient(circle at 34% 30%,#83c395,#4e9e68)}
-.bridge-close{text-align:center;margin-top:34px;font-size:15.5px;color:var(--muted);max-width:600px;margin-left:auto;margin-right:auto}
-
-/* ═══════════ APP SHOWCASE ═══════════ */
-.app{background:var(--bg-soft);padding:88px 0}
-.app-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.app-copy .astep{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.app-copy .astep:last-child{border-bottom:none}
-.app-copy .an{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center;flex:0 0 auto;margin-top:2px}
-.app-copy .astep h3{font-size:18px;margin-bottom:3px}
-.app-copy .astep p{font-size:14.5px;color:var(--muted)}
-.app-copy .app-cta{margin-top:26px}
-.devices{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;perspective:1400px}
-.device{width:216px;flex:0 0 auto;border-radius:34px;background:#fff;box-shadow:var(--shadow-lg),0 0 0 7px #10201b;overflow:hidden;position:relative}
-.device.tilt-l{transform:rotateY(9deg) translateY(10px)}
-.device.tilt-r{transform:rotateY(-9deg)}
-.dnotch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:74px;height:16px;background:#10201b;border-radius:0 0 11px 11px;z-index:5}
-.dscreen{padding:26px 15px 18px;min-height:420px;background:linear-gradient(180deg,#fff,#f6faf7)}
-.dev-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
-/* result screen */
-.dorb-stack{width:118px;height:100px;margin:12px auto 8px;position:relative}
-.dorb-stack .o{position:absolute;border-radius:50%}
-.dorb-stack .o.fire{width:70px;height:70px;left:10px;top:4px;background:radial-gradient(circle at 34% 30%,#eaa87f,#db7b4c);box-shadow:0 10px 22px rgba(219,123,76,.4)}
-.dorb-stack .o.air{width:50px;height:50px;right:6px;top:32px;background:radial-gradient(circle at 34% 30%,#8ac0dd,#3e8fbf);box-shadow:0 10px 20px rgba(62,143,191,.35)}
-.dorb-stack .o.earth{width:34px;height:34px;left:26px;bottom:0;background:radial-gradient(circle at 34% 30%,#83c395,#4e9e68);box-shadow:0 8px 16px rgba(78,158,104,.35)}
-.dtitle{font-family:'Fraunces',serif;font-size:19px;text-align:center;color:var(--ink);line-height:1.2}
-.dtitle em{font-style:italic;color:var(--green)}
-.delrow{display:flex;align-items:center;gap:9px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:8px;box-shadow:0 1px 3px rgba(24,36,32,.04)}
-.delrow .eorb{width:28px;height:28px}
-.delrow b{font-family:'Fraunces',serif;font-size:13px;color:var(--ink)}
-.delrow .es{font-size:10px;color:var(--muted)}
-.delrow .ep{margin-left:auto;font-family:'Fraunces',serif;font-size:15px;color:var(--ink);font-weight:600}
-/* home screen */
-.dhero{border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#fbe6da,#fff 62%);border:1px solid var(--line);padding:14px}
-.dhero .dh-top{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.dhero .dh-state{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.dhero .eorb{width:40px;height:40px}
-.dhero .dh-state b{font-family:'Fraunces',serif;font-size:17px;color:var(--ink)}
-.dhero p{font-size:11.5px;color:var(--muted);line-height:1.5;margin-bottom:10px}
-.dhero .dh-btn{background:var(--fire);color:#fff;font-size:11.5px;font-weight:600;text-align:center;padding:9px;border-radius:10px}
-.dmini{display:flex;align-items:center;gap:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:9px}
-.dmini .dmi{width:30px;height:30px;border-radius:9px;background:var(--green-soft);color:var(--green);display:grid;place-items:center}
-.dmini .dmi svg{width:15px;height:15px}
-.dmini b{font-size:11.5px;color:var(--ink);display:block}
-.dmini span{font-size:10px;color:var(--muted)}
-
-/* ═══════════ REPORT CARD (interactive) ═══════════ */
-.report{padding:92px 0}
-.report-card{max-width:720px;margin:0 auto;background:var(--bg-card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden}
-.rc-head{padding:26px 30px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
-.rc-head .rc-lbl{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.rc-head .rc-habit{font-family:'Fraunces',serif;font-size:22px;color:var(--ink);line-height:1.25}
-.rc-body{padding:26px 30px 30px}
-.rc-ask{font-size:14.5px;color:var(--muted);margin-bottom:14px}
-.rtoggle{display:flex;gap:10px;flex-wrap:wrap}
-.rbtn{flex:1;min-width:150px;display:flex;align-items:center;gap:11px;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;transition:all .2s var(--ease);text-align:left;font-family:inherit}
-.rbtn .eorb{width:34px;height:34px}
-.rbtn b{font-family:'Fraunces',serif;font-size:15px;color:var(--ink);display:block}
-.rbtn span{font-size:11.5px;color:var(--muted)}
-.rbtn.on{border-color:var(--green);background:var(--green-soft);box-shadow:0 4px 14px rgba(21,122,91,.14)}
-.rverdict{margin-top:22px;border:1px solid var(--line);border-radius:16px;padding:22px;transition:all .3s var(--ease)}
-.rv-badge{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}
-.rv-badge svg{width:15px;height:15px}
-.rverdict h4{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:600}
-.rverdict p{font-size:15px;color:var(--text);line-height:1.6}
-.rverdict .rv-fix{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted)}
-.rverdict .rv-fix b{color:var(--green)}
-/* verdict states */
-.rverdict.right{background:var(--green-soft);border-color:#bfe3d3}
-.rverdict.right .rv-badge{background:var(--green);color:#fff}
-.rverdict.wrong{background:var(--accent-soft);border-color:#f3d9c2}
-.rverdict.wrong .rv-badge{background:var(--accent);color:#fff}
-.rverdict.neutral{background:var(--bg-soft);border-color:var(--line)}
-.rverdict.neutral .rv-badge{background:#8a978f;color:#fff}
-.report-foot{text-align:center;margin-top:30px;font-size:16px;color:var(--muted);max-width:560px;margin-left:auto;margin-right:auto}
-.report-foot strong{color:var(--ink);font-family:'Fraunces',serif;font-weight:600}
-
-/* ═══════════ SCROLL REVEAL ═══════════ */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .wave-line{animation:none}
-}
+.ppanel{max-width:920px;margin:0 auto;background:var(--bg-card);border:1px solid var(--line);border-top:4px solid var(--pc,var(--green));border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 34px 30px}
+.ppanel h3{font-size:clamp(21px,2.6vw,26px);margin-bottom:8px}
+.ppanel .plede{font-size:16.5px;color:var(--muted);margin-bottom:26px;max-width:660px}
+.pcols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pcol h4{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.pcol ul{list-style:none}
+.pcol li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:var(--text);border-bottom:1px solid var(--line)}
+.pcol li:last-child{border-bottom:none}
+.pcol.signs li::before{content:'';position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.pcol.fix li::before{content:'✓';position:absolute;left:2px;top:8px;color:var(--pc,var(--green));font-weight:700;font-size:13px}
+.pillars-foot{text-align:center;margin-top:32px;font-size:16px;color:var(--muted);max-width:660px;margin-left:auto;margin-right:auto}
+.pillars-foot strong{color:var(--ink)}
 
 /* ═══════════ HOW IT WORKS ═══════════ */
-.how{padding:88px 0;background:var(--bg-soft)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
-.step{position:relative;padding:30px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card)}
-.step::before{counter-increment:step;content:counter(step);position:absolute;top:-17px;left:24px;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(21,122,91,.3)}
-.step h3{font-size:19.5px;margin:10px 0 9px}
-.step p{font-size:15.5px;color:var(--muted)}
-.how .cta-center{text-align:center;margin-top:44px}
+.how{padding:88px 0;background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{position:relative;padding:32px 22px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-card)}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:-17px;left:22px;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(21,122,91,.3)}
+.step h3{font-size:18px;margin:8px 0 8px}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .when{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 11px;border-radius:100px}
 
-/* ═══════════ PLAN COVERAGE ═══════════ */
-.plan{background:var(--bg);padding:80px 0}
-.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.plan-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 18px;text-align:center;transition:transform .25s var(--ease),box-shadow .25s}
-.plan-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.plan-card .ico{width:30px;height:30px;margin:0 auto 12px;color:var(--green)}
-.plan-card h3{font-size:16.5px;margin-bottom:6px}
-.plan-card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+/* ═══════════ OUTCOMES ═══════════ */
+.out{padding:88px 0;background:var(--bg-soft)}
+.out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ocard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow)}
+.ocard .oico{width:40px;height:40px;border-radius:11px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;margin-bottom:16px}
+.ocard .oico svg{width:20px;height:20px}
+.ocard h3{font-size:18px;margin-bottom:8px;line-height:1.3}
+.ocard p{font-size:14.5px;color:var(--muted)}
 
-/* ═══════════ TRUST ═══════════ */
-.trust{padding:88px 0;background:var(--bg-soft)}
-.trust-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.trust h2{font-size:clamp(27px,3.6vw,36px);margin-bottom:16px}
-.trust p{color:var(--muted);margin-bottom:14px}
-.trust ul{list-style:none;margin-top:10px}
-.trust li{padding:11px 0 11px 34px;position:relative;color:var(--text);font-size:15.5px;border-bottom:1px solid var(--line)}
-.trust li:last-child{border-bottom:none}
-.trust li::before{content:'✓';position:absolute;left:0;top:11px;width:22px;height:22px;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* ═══════════ WHY DIFFERENT ═══════════ */
+.diff{padding:88px 0;background:var(--bg)}
+.dtable{max-width:940px;margin:0 auto;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.drow{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.drow:last-child{border-bottom:none}
+.drow.head{background:var(--bg-soft)}
+.dcell{padding:17px 20px;font-size:15px;color:var(--text)}
+.drow.head .dcell{font-family:'Fraunces',serif;font-size:15.5px;font-weight:600;color:var(--ink)}
+.drow.head .dcell.us{color:var(--green)}
+.dcell.q{font-weight:500;color:var(--ink);background:#fbfdfc}
+.dcell.us{background:var(--green-soft);color:var(--green-dark);font-weight:500}
+.drow:not(.head) .dcell.them{color:var(--muted)}
+
+/* ═══════════ COACH / FOUNDER ═══════════ */
+.coach{padding:88px 0;background:var(--bg-soft)}
+.coach-intro{max-width:760px;margin:0 auto 44px}
+.coach-intro .said{font-family:'Fraunces',serif;font-size:clamp(23px,3.1vw,31px);color:var(--ink);line-height:1.32;margin-bottom:22px}
+.coach-intro p{font-size:16.5px;color:var(--text);margin-bottom:16px}
+.coach-intro p.q{color:var(--muted)}
+.coach-sig{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.coach-sig .av{width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--green-dark));color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:20px;font-weight:600;flex:0 0 auto}
+.coach-sig .sn{font-family:'Fraunces',serif;font-size:18px;color:var(--ink);font-weight:600;line-height:1.3}
+.coach-sig .sr{font-size:13.5px;color:var(--muted)}
+
+/* what I will / won't do */
+.pledge{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.pcard2{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px 22px;box-shadow:var(--shadow)}
+.pcard2.will{border-top:4px solid var(--green)}
+.pcard2.wont{border-top:4px solid var(--accent)}
+.pcard2 h3{font-size:19px;margin-bottom:16px}
+.pcard2 ul{list-style:none}
+.pcard2 li{position:relative;padding:11px 0 11px 30px;font-size:15px;color:var(--text);border-bottom:1px solid var(--line)}
+.pcard2 li:last-child{border-bottom:none}
+.pcard2.will li::before{content:'✓';position:absolute;left:2px;top:11px;color:var(--green);font-weight:700;font-size:14px}
+.pcard2.wont li::before{content:'✕';position:absolute;left:2px;top:11px;color:var(--accent);font-weight:700;font-size:13px}
+
+/* founding cohort */
+.cohort{max-width:900px;margin:44px auto 0;background:var(--bg-card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);padding:30px 32px;box-shadow:var(--shadow)}
+.cohort h3{font-size:21px;margin-bottom:10px}
+.cohort p{font-size:15.5px;color:var(--muted);margin-bottom:14px}
+.cohort ul{list-style:none;margin-bottom:6px}
+.cohort li{position:relative;padding:8px 0 8px 28px;font-size:15px;color:var(--text)}
+.cohort li::before{content:'→';position:absolute;left:2px;top:8px;color:var(--gold);font-weight:600}
+
+/* ═══════════ FAQ ═══════════ */
+.faq{padding:88px 0;background:var(--bg)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;background:var(--bg-card);overflow:hidden;transition:box-shadow .25s}
+.faq-item[open]{box-shadow:var(--shadow)}
+.faq-item summary{padding:20px 54px 20px 24px;cursor:pointer;font-family:'Fraunces',serif;font-size:17.5px;font-weight:600;color:var(--ink);position:relative;list-style:none;line-height:1.4}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'';position:absolute;right:24px;top:27px;width:10px;height:10px;border-right:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(45deg);transition:transform .25s var(--ease)}
+.faq-item[open] summary::after{transform:rotate(-135deg);top:30px}
+.faq-item .fa{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq-item .fa strong{color:var(--text)}
+
+/* ═══════════ FINAL CTA ═══════════ */
+.final{padding:96px 0;text-align:center}
+.final-box{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:24px;padding:64px 32px;color:#fff}
+.final-box h2{color:#fff;font-size:clamp(26px,3.6vw,38px);margin-bottom:14px}
+.final-box p{color:rgba(255,255,255,.85);max-width:540px;margin:0 auto 30px;font-size:17px}
+.final-box .btn-primary{background:#fff;color:var(--green-dark);box-shadow:0 4px 18px rgba(0,0,0,.18)}
+.final-box .btn-primary:hover{background:var(--green-soft)}
+.final-box .alt{margin-top:18px;font-size:14px;color:rgba(255,255,255,.75)}
+.final-box .alt a{color:#fff;font-weight:600}
 
 /* ═══════════ BLOG ═══════════ */
-.blog{background:var(--bg);padding:80px 0}
+.blog{background:var(--bg-soft);padding:80px 0}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .bcard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:transform .25s var(--ease),box-shadow .25s}
 .bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -349,52 +434,50 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-
 .bcard h3{font-size:18px;line-height:1.35}
 .bcard p{font-size:14.5px;color:var(--muted);flex-grow:1}
 .bcard .more{font-size:14px;font-weight:600;color:var(--green)}
-.blog .cta-center{text-align:center;margin-top:40px}
-
-/* ═══════════ FINAL CTA ═══════════ */
-.final{padding:96px 0;text-align:center}
-.final-box{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:24px;padding:64px 32px;color:#fff}
-.final-box h2{color:#fff;font-size:clamp(26px,3.6vw,38px);margin-bottom:14px}
-.final-box p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 30px;font-size:17px}
-.final-box .btn-primary{background:#fff;color:var(--green-dark);box-shadow:0 4px 18px rgba(0,0,0,.18)}
-.final-box .btn-primary:hover{background:var(--green-soft)}
-.final-box .alt{margin-top:18px;font-size:14px;color:rgba(255,255,255,.75)}
-.final-box .alt a{color:#fff;font-weight:600}
 
 /* ═══════════ FOOTER ═══════════ */
-footer{border-top:1px solid var(--line);padding:36px 0 44px}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;background:var(--bg)}
 .foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .foot-links a{color:var(--muted);text-decoration:none;font-size:14px}
 .foot-links a:hover{color:var(--green)}
 .foot-copy{font-size:13px;color:var(--muted)}
+.foot-disc{max-width:1080px;margin:26px auto 0;padding:0 24px;font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* ═══════════ SCROLL REVEAL ═══════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ═══════════ RESPONSIVE ═══════════ */
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:24px}
-  .orb-wrap{max-width:360px;order:-1}
-  .hero .sub{max-width:none}
-  .grid-3,.steps,.blog-grid{grid-template-columns:1fr 1fr}
-  .plan-grid{grid-template-columns:repeat(3,1fr)}
-  .trust-inner,.app-inner{grid-template-columns:1fr;gap:36px}
-  .stats-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
-  .mode-grid{grid-template-columns:1fr}
-}
 @media(max-width:960px){
   .nav-links{display:none}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px 24px;gap:16px;border-bottom:1px solid var(--line);align-items:flex-start}
   .nav-toggle{display:block}
 }
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .orb-wrap{max-width:330px;order:-1}
+  .hero .sub,.hero .doctor-line{max-width:none}
+  .grid-3,.blog-grid,.out-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:34px 20px}
+  .ptabs{grid-template-columns:repeat(3,1fr)}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:34px 20px}
+  .pledge{grid-template-columns:1fr;gap:16px}
+  .drow{grid-template-columns:1fr}
+  .dcell.q{font-family:'Fraunces',serif;font-size:16px;font-weight:600}
+  .drow.head{display:none}
+  .dcell.them::before{content:'Typical approach — ';font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#9aa8a2;display:block;margin-bottom:2px}
+  .dcell.us::before{content:'Sankalp — ';font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:2px}
+}
 @media(max-width:640px){
-  .grid-3,.steps,.blog-grid{grid-template-columns:1fr}
-  .plan-grid{grid-template-columns:1fr 1fr}
+  .grid-3,.blog-grid,.out-grid,.steps{grid-template-columns:1fr}
   .steps{gap:34px}
   .hero{padding:48px 0 48px}
-  .brow{grid-template-columns:1fr;}
-  .bside.ancient{border-top:1px solid var(--line)}
-  .blink{transform:rotate(90deg);padding:6px 0;width:32px;justify-self:center}
-  .device{width:180px}
-  .rbtn{min-width:120px;flex-basis:100%}
+  .cohort{padding:26px 22px}
+  .ptabs{grid-template-columns:repeat(2,1fr);gap:10px}
+  .ppanel{padding:26px 22px 24px}
+  .pcols{grid-template-columns:1fr;gap:20px}
 }
 </style>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
@@ -403,16 +486,35 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════════════════════════════
+     NOTES FOR ANYONE EDITING THIS PAGE
+
+     1. WHATSAPP CTA
+        All 6 CTAs point at wa.me/918359011231 with a prefilled message
+        (nav, hero, how-it-works, coach/founding-group, final CTA, footer).
+        If the business number changes, update all six together.
+
+     2. PROOF — READ BEFORE EDITING THE COACH SECTION
+        There are deliberately NO testimonials, client counts or success
+        rates on this page, because there are no clients yet. The coach
+        section earns trust by being openly early-stage instead. When real,
+        permissioned client results exist, add them there — never invent
+        them, and never state a number that isn't true. Same rule for the
+        stat band: every figure is cited to published research directly
+        underneath it. Keep it that way.
+═══════════════════════════════════════════════════════════════════ -->
+
 <nav>
   <div class="nav-inner">
     <a href="#top" class="brand"><span class="mark"><svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus"><g class="petals"><path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/></g><circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/></svg></span>Sankalp</a>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="#science">The science</a></li>
-      <li><a href="#roots">Ancient + modern</a></li>
+      <li><a href="#pillars">The five pillars</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#coach">Your coach</a></li>
       <li><a href="blog/">Blog</a></li>
       <li><a href="for-doctors.html">For Doctors</a></li>
-      <li><a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="nav-cta">Talk to Us, Free</a></li>
+      <li><a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener" class="nav-cta">Book a free call</a></li>
     </ul>
   </div>
 </nav>
@@ -423,180 +525,139 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="eyebrow">Everyday health, made simple</span>
-        <h1>Your body already<br>knows how to <em>heal</em>.</h1>
-        <p class="sub">Whether you're managing a diagnosis or just tired of feeling tired, Sankalp turns "improve your lifestyle" into a clear daily plan — food, sleep, breath and rhythm, matched to your body and your day.</p>
+        <span class="eyebrow">Lifestyle medicine, personalised</span>
+        <h1>Your diagnosis has a cause.<br>We find it — and <em>fix it</em>.</h1>
+        <p class="sub">Personalised lifestyle coaching for people living with diabetes, fatty liver, PCOS, gut trouble or chronic fatigue. We rebuild the five pillars your health actually runs on — <strong>nutrition, sleep, movement, gut and emotional health</strong> — one habit at a time.</p>
         <div class="cta-row">
-          <a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="btn btn-primary">Begin your free journey</a>
-          <a href="#how" class="btn btn-ghost">See how it works</a>
+          <a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener" class="btn btn-primary">Book a free discovery call</a>
+          <a href="#how" class="btn btn-ghost">How it works</a>
         </div>
-        <p class="note">5 minutes · No sign-up · Plain language, no medical jargon</p>
-        <div class="chips reveal">
-          <span class="chip">Always tired</span>
-          <span class="chip">Poor sleep</span>
-          <span class="chip">Weak digestion</span>
-          <span class="chip">Can't focus</span>
-          <span class="chip">Acne &amp; skin</span>
-          <span class="chip">Stress &amp; anxiety</span>
-        </div>
-        <p class="chips-note">If it can be fixed by how you live, we'll help you fix it. If it needs a doctor, we'll tell you that — honestly and early.</p>
+        <p class="note">30 minutes · No cost · No obligation</p>
+        <p class="doctor-line">We work <strong>alongside your doctor</strong>, never instead of one. We don't stop or change anyone's medication — that stays between you and your physician.</p>
       </div>
       <div class="orb-wrap" id="orb-wrap" aria-hidden="true">
         <canvas id="orb-canvas"></canvas>
-        <div class="orb-cap">your body's blueprint — <span class="dev">प्रकृति</span></div>
+        <div class="orb-cap">root cause, not just the symptom</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ NUMBERS ══════════════════ -->
-<section class="stats reveal">
+<!-- ══════════════════ WHO WE HELP ══════════════════ -->
+<section class="cond">
   <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat"><div class="stat-num" data-to="9" data-suf="/10">0</div><div class="stat-lbl">people spend most of their day stuck in stress mode</div></div>
-      <div class="stat"><div class="stat-num" data-to="8" data-suf=" wks">0</div><div class="stat-lbl">of daily practice is enough to measurably change the brain</div></div>
-      <div class="stat"><div class="stat-num" data-to="5" data-suf=" min">0</div><div class="stat-lbl">to begin your journey and get your first plan</div></div>
-      <div class="stat"><div class="stat-num" data-to="5000" data-suf="+">0</div><div class="stat-lbl">years of traditional practice, filtered through modern research</div></div>
+    <p class="cond-lbl">We coach people living with —</p>
+    <div class="cond-list">
+      <span>Prediabetes &amp; Type 2 diabetes</span>
+      <span>Fatty liver</span>
+      <span>PCOS &amp; hormonal imbalance</span>
+      <span>Obesity &amp; stubborn weight</span>
+      <span>IBS, bloating &amp; acidity</span>
+      <span>Thyroid</span>
+      <span>Insomnia &amp; poor sleep</span>
+      <span>Acne &amp; skin flare-ups</span>
+      <span>Chronic fatigue &amp; burnout</span>
+      <span>High BP &amp; cholesterol</span>
     </div>
+    <p class="cond-foot">Different names on the report. Underneath, almost always the same five pillars out of balance.</p>
   </div>
 </section>
 
-<!-- ══════════════════ PROBLEM ══════════════════ -->
+<!-- ══════════════════ SCALE ══════════════════
+     Every figure below is from published research and is cited underneath.
+     Do not add a statistic here that cannot be sourced. -->
+<section class="scale">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>This is not a small problem</h2>
+      <p>And the largest group in it is the one that can still turn things around.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num" data-to="101" data-suf=" mn">0</div>
+        <div class="stat-lbl">Indians are living with <strong>diabetes</strong> today</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-to="136" data-suf=" mn">0</div>
+        <div class="stat-lbl">more are at <strong>prediabetes</strong> — the stage where it can still be turned around</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-to="1" data-pre="" data-suf=" in 3">0</div>
+        <div class="stat-lbl">Indian adults have <strong>fatty liver</strong> — most of them don't know it yet</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-to="23" data-suf=" hrs">0</div>
+        <div class="stat-lbl">of your day happen <strong>outside a clinic</strong>. That's where this is decided</div>
+      </div>
+    </div>
+    <p class="scale-src">Diabetes and prediabetes figures: ICMR–INDIAB national study, <a href="https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00119-5/fulltext" target="_blank" rel="noopener">The Lancet Diabetes &amp; Endocrinology</a>, 2023. Fatty liver prevalence: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10920698/" target="_blank" rel="noopener">Indian systematic review &amp; meta-analysis</a>, 2024.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ THE PROBLEM ══════════════════ -->
 <section class="problem">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Does this sound familiar?</h2>
-      <p>Most of us have lived this cycle more than once.</p>
+      <h2>Why it keeps coming back</h2>
+      <p>You've probably lived this loop more than once.</p>
     </div>
     <div class="grid-3">
-      <div class="pcard"><div class="num">1</div><h3>You visit the doctor</h3><p>You get a diagnosis and a prescription in a ten-minute appointment. Take this, twice a day, after food. Done.</p></div>
-      <div class="pcard"><div class="num">2</div><h3>The medicine helps — for a while</h3><p>The symptoms ease. But nobody explains what in your daily routine keeps bringing the problem back.</p></div>
-      <div class="pcard"><div class="num">3</div><h3>You're left to figure it out alone</h3><p>"Eat healthy, sleep well, reduce stress" isn't a plan. You need to know exactly what to do — and someone to keep you on track.</p></div>
+      <div class="pcard"><div class="num">1</div><h3>The report names it</h3><p>Fatty liver. Prediabetes. PCOS. You get a diagnosis, a prescription, and a ten-minute appointment. Nobody has time to ask how you got here.</p></div>
+      <div class="pcard"><div class="num">2</div><h3>The medicine holds the line</h3><p>Numbers steady. Symptoms quieten. But medication manages the condition — it was never designed to undo what caused it.</p></div>
+      <div class="pcard"><div class="num">3</div><h3>Nothing upstream changed</h3><p>Same meals at the same wrong hours, same 1am sleep, same unrelenting stress. So the condition holds — or quietly progresses — and the dose goes up.</p></div>
     </div>
-    <p class="punch">That missing piece — the guidance between the clinic and your kitchen, your bed, your day — <strong>is what Sankalp does.</strong></p>
-    <p class="punch-sub">And you don't need a prescription to start. If you simply want deeper sleep, steadier energy or a calmer mind, this is for you too.</p>
+    <p class="punch">Lifestyle conditions are built by a lifestyle. <strong>Change what built it, and the body gets a real chance to recover.</strong></p>
   </div>
 </section>
 
-<!-- ══════════════════ THE SCIENCE ══════════════════ -->
-<section class="science" id="science">
+<!-- ══════════════════ THE FIVE PILLARS ══════════════════ -->
+<section class="pillars" id="pillars">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">The science, simply</span>
-      <h2>Your body has two modes.<br>It only heals in one of them.</h2>
-      <p>Your nervous system runs an accelerator and a brake. Modern life — deadlines, screens, late meals, short nights — keeps the accelerator pressed. And a body in stress mode postpones everything else: digestion, deep sleep, repair, even skin and hair.</p>
+    <div class="sec-head">
+      <span class="eyebrow">Our method</span>
+      <h2>Five pillars hold up your health</h2>
+      <p>Years of clinical work keeps landing on the same finding: when disease shows up, one or more of these five has been quietly failing for a long time. We find which — and rebuild it with you.</p>
     </div>
-    <div class="mode-grid">
-      <div class="mode-card stress reveal">
-        <div class="mode-top">
-          <span class="mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
-          <div><h3>Stress mode</h3><span class="mode-sub">the accelerator · always on for most of us</span></div>
+
+    <div class="ptabs" id="ptabs" role="tablist" aria-label="The five pillars">
+      <button class="ptab on" data-p="nutrition" role="tab" aria-selected="true" aria-controls="ppanel">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M6 11a6 6 0 0 1 12 0M8 3v2M12 2v3M16 3v2M4 15h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg></span>
+        <b>Nutrition</b>
+      </button>
+      <button class="ptab" data-p="sleep" role="tab" aria-selected="false" aria-controls="ppanel">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+        <b>Sleep</b>
+      </button>
+      <button class="ptab" data-p="movement" role="tab" aria-selected="false" aria-controls="ppanel">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="5" r="2"/><path d="M6 21l3-5 3 2 2-4M9 16l-2-4 5-2 3 3h3"/></svg></span>
+        <b>Movement</b>
+      </button>
+      <button class="ptab" data-p="gut" role="tab" aria-selected="false" aria-controls="ppanel">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v4a4 4 0 0 0 8 0"/><path d="M16 7v5a4 4 0 0 1-8 0v-1"/><path d="M8 11v4a4 4 0 0 0 7 2.6"/><path d="M12 18v3"/></svg></span>
+        <b>Gut health</b>
+      </button>
+      <button class="ptab" data-p="emotional" role="tab" aria-selected="false" aria-controls="ppanel">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+        <b>Emotional health</b>
+      </button>
+    </div>
+
+    <div class="ppanel" id="ppanel" role="tabpanel">
+      <h3 id="pp-title"></h3>
+      <p class="plede" id="pp-lede"></p>
+      <div class="pcols">
+        <div class="pcol signs">
+          <h4>Signs this pillar has slipped</h4>
+          <ul id="pp-signs"></ul>
         </div>
-        <svg class="wave" viewBox="0 0 300 60" aria-hidden="true" preserveAspectRatio="none"><path class="wave-line stress-line" d="M0,30 L18,30 L25,10 L33,52 L41,22 L48,30 L58,30 L76,30 L83,10 L91,52 L99,22 L106,30 L116,30 L134,30 L141,10 L149,52 L157,22 L164,30 L174,30 L192,30 L199,10 L207,52 L215,22 L222,30 L232,30 L250,30 L257,10 L265,52 L273,22 L280,30 L290,30 L308,30 L315,10 L323,52 L331,22 L338,30 L348,30 L366,30 L373,10 L381,52 L389,22 L396,30 L406,30"/></svg>
-        <ul class="mode-list">
-          <li>Heart races, muscles stay tense</li>
-          <li>Digestion slows or turns erratic</li>
-          <li>Sleep gets light and broken</li>
-          <li>Repair — skin, hair, gut — gets postponed</li>
-        </ul>
-      </div>
-      <div class="mode-card heal reveal">
-        <div class="mode-top">
-          <span class="mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
-          <div><h3>Recovery mode</h3><span class="mode-sub">the brake · where healing actually happens</span></div>
-        </div>
-        <svg class="wave" viewBox="0 0 300 60" aria-hidden="true" preserveAspectRatio="none"><path class="wave-line heal-line" d="M0,30 C15,12 35,12 50,30 C65,48 85,48 100,30 C115,12 135,12 150,30 C165,48 185,48 200,30 C215,12 235,12 250,30 C265,48 285,48 300,30 C315,12 335,12 350,30 C365,48 385,48 400,30"/></svg>
-        <ul class="mode-list">
-          <li>Heart settles, breath deepens</li>
-          <li>Digestion switches fully on</li>
-          <li>Sleep turns deep and restorative</li>
-          <li>The body runs its own repairs</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timing reveal">
-      <span class="timing-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-      <p><strong>The most overlooked lever? Timing.</strong> Many of us eat reasonable food at unreasonable hours, and sleep at hours our body never agreed to. Your plan fixes the <em>when</em>, not just the <em>what</em>.</p>
-    </div>
-    <p class="science-close reveal">Every habit in your plan — meal times, a short breathing practice, an evening wind-down — has one job: <strong>easing your body off the accelerator, so it can do its own repairs.</strong></p>
-  </div>
-</section>
-
-<!-- ══════════════════ BRIDGE — ANCIENT + MODERN ══════════════════ -->
-<section class="bridge" id="roots">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Ancient wisdom, modern proof</span>
-      <h2>Two maps of the same body</h2>
-      <p>Sankalp doesn't pick sides. India's 5,000-year health tradition and modern science are describing the same thing in different words. When both agree — it goes into your plan.</p>
-    </div>
-    <div class="bridge-rows">
-
-      <div class="brow reveal">
-        <div class="bside modern"><div class="k">Modern science</div><h3>Two nervous-system modes</h3><p>The sympathetic accelerator and parasympathetic brake decide whether you're surviving or repairing.</p></div>
-        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="bside ancient"><div class="k">Yogic tradition</div><h3>Pingala &amp; Ida <span class="devname">पिंगला · इड़ा</span></h3><p>The sun and moon channels — the exact same on/off switch, named millennia earlier.</p></div>
-      </div>
-
-      <div class="brow reveal">
-        <div class="bside modern"><div class="k">Modern science</div><h3>Your genetic constitution</h3><p>DNA research (ayurgenomics, 2015) confirms people fall into distinct metabolic types written in their genes.</p></div>
-        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="bside ancient"><div class="k">Ayurveda</div><h3>Air, Fire &amp; Earth <span class="devname">त्रिदोष</span></h3>
-          <p>Everyone is a unique blend of three elements — the original personalised medicine.</p>
-          <div class="bridge-eorbs">
-            <span class="eorb air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3 12h15a2.5 2.5 0 1 1-2.5 2.5"/></svg></span>
-            <span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span>
-            <span class="eorb earth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c0-2.5-2-4-4.5-4 0 2.5 2 4 4.5 4z"/></svg></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="brow reveal">
-        <div class="bside modern"><div class="k">Modern science</div><h3>The gut–brain axis</h3><p>Your gut health directly drives mood, focus and immunity — the second brain in your belly.</p></div>
-        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="bside ancient"><div class="k">Ayurveda</div><h3>Digestive fire <span class="devname">अग्नि</span></h3><p>Agni — get the fire right and everything downstream improves. Weak fire is the root of most disease.</p></div>
-      </div>
-
-      <div class="brow reveal">
-        <div class="bside modern"><div class="k">Modern science</div><h3>Epigenetics</h3><p>Your daily choices switch genes on and off. You are not stuck with the body you inherited.</p></div>
-        <div class="blink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="bside ancient"><div class="k">Vedic thought</div><h3>Lifestyle is destiny <span class="devname">कर्म</span></h3><p>Change the pattern, change the outcome. Disease is not fate — it's a habit the body learned.</p></div>
-      </div>
-
-    </div>
-    <p class="bridge-close reveal">No fads, no miracle cures, no thirty-day detoxes. Just what both maps agree on — turned into something you can actually do tomorrow morning.</p>
-  </div>
-</section>
-
-<!-- ══════════════════ BEHAVIOR REPORT CARD ══════════════════ -->
-<section class="report" id="report">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Why generic advice fails</span>
-      <h2>The same habit can heal one body<br>and harm another</h2>
-      <p>A diet chart treats everyone the same. Your body isn't everyone. See how one ordinary habit changes verdict depending on who's doing it.</p>
-    </div>
-    <div class="report-card reveal">
-      <div class="rc-head">
-        <div class="rc-lbl">The habit</div>
-        <div class="rc-habit">A glass of cold water, first thing in the morning.</div>
-      </div>
-      <div class="rc-body">
-        <p class="rc-ask">Whose body is it? Tap to see the verdict change.</p>
-        <div class="rtoggle" id="rtoggle">
-          <button class="rbtn" data-body="fire"><span class="eorb fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 3-2 4.2-2 7a2 2 0 0 0 4 0c2 1.8 3 3.2 3 6a5 5 0 0 1-10 0c0-4 4-6 5-13z"/></svg></span><span><b>Runs hot</b><span>warm hands, sharp appetite</span></span></button>
-          <button class="rbtn on" data-body="air"><span class="eorb air"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M20.7 7 3.3 17"/><path d="M3.3 7 20.7 17"/></svg></span><span><b>Runs cold</b><span>cold hands, light frame</span></span></button>
-          <button class="rbtn" data-body="earth"><span class="eorb earth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/></svg></span><span><b>Runs slow</b><span>steady, slow to wake</span></span></button>
-        </div>
-        <div class="rverdict wrong" id="rverdict">
-          <span class="rv-badge" id="rv-badge"></span>
-          <h4 id="rv-title"></h4>
-          <p id="rv-text"></p>
-          <div class="rv-fix" id="rv-fix"></div>
+        <div class="pcol fix">
+          <h4>What we work on with you</h4>
+          <ul id="pp-fix"></ul>
         </div>
       </div>
     </div>
-    <p class="report-foot"><strong>This is what your daily plan does</strong> — for every habit, it tells you the verdict for <em>your</em> body, why, and the exact fix.</p>
+
+    <p class="pillars-foot"><strong>We never fix one pillar in isolation.</strong> Poor sleep raises your sugar. A struggling gut flattens your mood. Stress undoes a perfect diet. The body is one system — so the plan treats it as one.</p>
   </div>
 </section>
 
@@ -604,54 +665,244 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
 <section class="how" id="how">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">How it works</span>
-      <h2>Three steps to a routine that heals</h2>
-      <p>No apps to master, no jargon to decode. Just clear steps that fit your life.</p>
+      <span class="eyebrow">How coaching works</span>
+      <h2>A coach, a plan, and someone who checks in</h2>
+      <p>Not a PDF diet chart. A real person who knows your case and stays with you while it changes.</p>
     </div>
     <div class="steps">
-      <div class="step"><h3>Answer a few simple questions</h3><p>Five minutes about your body, your routine, and what's troubling you — in everyday language.</p></div>
-      <div class="step"><h3>Get your personal daily plan</h3><p>Small, clear actions for your food, sleep, movement and calm — built around your day, not someone else's ideal.</p></div>
-      <div class="step"><h3>We stay with you</h3><p>Gentle daily check-ins keep you consistent. Small steps, done daily — that's how bodies actually recover.</p></div>
+      <div class="step">
+        <h3>Book a free discovery call</h3>
+        <p>Thirty minutes on the phone. You tell us what's going on. We tell you honestly whether we can help — and if we can't, we'll say so.</p>
+        <span class="when">30 minutes · free</span>
+      </div>
+      <div class="step">
+        <h3>We go looking for the cause</h3>
+        <p>A deep assessment across all five pillars — your meals and their timing, sleep, movement, digestion, stress, history and reports. We're looking for the pattern that built your condition.</p>
+        <span class="when">Week 1</span>
+      </div>
+      <div class="step">
+        <h3>You get a protocol built for you</h3>
+        <p>Specific, doable changes across the pillars that need them — food you'll actually eat, movement that fits your day, a wind-down that works. Sequenced, so you're never doing ten things at once.</p>
+        <span class="when">Week 1–2</span>
+      </div>
+      <div class="step">
+        <h3>We stay with you and course-correct</h3>
+        <p>Regular check-ins with your coach. What's working stays, what isn't gets changed. As your body shifts, the protocol shifts with it.</p>
+        <span class="when">Ongoing</span>
+      </div>
     </div>
-    <div class="cta-center"><a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="btn btn-primary">Begin your journey</a></div>
+    <div class="cta-center">
+      <a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener" class="btn btn-primary">Book a free discovery call</a>
+      <p class="cta-note">No cost, no obligation — and no sales pitch if we're not the right fit for you.</p>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════ PLAN COVERAGE ══════════════════ -->
-<section class="plan" id="plan">
+<!-- ══════════════════ OUTCOMES ══════════════════ -->
+<section class="out">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Your plan</span>
-      <h2>Five things your prescription never covered</h2>
-      <p>Your plan gives you specific, doable guidance in each — matched to your body and your problem.</p>
+      <span class="eyebrow">What changes</span>
+      <h2>What people actually come back and tell us</h2>
+      <p>Not a feature list. The things you'd notice if this worked.</p>
     </div>
-    <div class="plan-grid">
-      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M4 11h16M6 11a6 6 0 0 1 12 0M8 3v2M12 2v3M16 3v2M4 15h16v2a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></svg></div><h3>Food</h3><p>What to eat, when, and what to skip — for your body, not a generic diet chart.</p></div>
-      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Sleep</h3><p>A wind-down routine that fixes the reasons you can't fall or stay asleep.</p></div>
-      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="13" cy="5" r="2"/><path d="M6 21l3-5 3 2 2-4M9 16l-2-4 5-2 3 3h3"/></svg></div><h3>Movement</h3><p>Simple daily movement and stretches — no gym, no hour-long workouts.</p></div>
-      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M3 8h11a2.5 2.5 0 1 0-2.5-2.5"/><path d="M3 12h15a2.5 2.5 0 1 1-2.5 2.5"/><path d="M3 16h9a2 2 0 1 1-2 2"/></svg></div><h3>Breath &amp; calm</h3><p>Short breathing exercises that switch your body out of stress mode.</p></div>
-      <div class="plan-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>Daily rhythm</h3><p>The right order and timing for your day, so the good habits actually stick.</p></div>
+    <div class="out-grid">
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h3>You wake up before the alarm</h3>
+        <p>The 3pm crash goes. Energy stops arriving in spikes and dips and starts being something you can count on.</p>
+      </div>
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
+        <h3>Sleep comes back on its own</h3>
+        <p>You fall asleep without a screen or a tablet, stay asleep through the night, and wake up actually rested.</p>
+      </div>
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v4a4 4 0 0 0 8 0"/><path d="M16 7v5a4 4 0 0 1-8 0v-1"/><path d="M8 11v4a4 4 0 0 0 7 2.6"/></svg></div>
+        <h3>Meals stop being a gamble</h3>
+        <p>Bloating, acidity and heaviness after eating settle down. You stop planning your day around your stomach.</p>
+      </div>
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div>
+        <h3>You walk into your review with better numbers</h3>
+        <p>Sugar, lipids, liver markers, weight — tracked over months, discussed with your doctor, moving in the right direction.</p>
+      </div>
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Your mood stops swinging with your day</h3>
+        <p>Fewer flare-ups of irritation and anxiety. The steadiness that comes when a body isn't running on stress hormones all day.</p>
+      </div>
+      <div class="ocard">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>The habits hold without willpower</h3>
+        <p>Because they were built around your life, not an ideal one. This is the part most plans get wrong — and the only part that decides whether it lasts.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ WHY / TRUST ══════════════════ -->
-<section class="trust" id="why">
+<!-- ══════════════════ WHY DIFFERENT ══════════════════ -->
+<section class="diff">
   <div class="wrap">
-    <div class="trust-inner">
-      <div>
-        <span class="eyebrow">Why Sankalp</span>
-        <h2>Old wisdom, checked against modern science</h2>
-        <p>Our guidance draws on India's traditional understanding of daily health — food, routine, breath — and every recommendation is cross-checked against modern research.</p>
-        <p>If both agree, it goes in your plan. If they don't, it stays out. No fads, no miracle cures, no thirty-day detoxes.</p>
+    <div class="sec-head">
+      <span class="eyebrow">Why we're different</span>
+      <h2>Most plans fail for the same three reasons</h2>
+      <p>They're generic, they're temporary, and there's nobody there when it gets hard.</p>
+    </div>
+    <div class="dtable">
+      <div class="drow head">
+        <div class="dcell q"></div>
+        <div class="dcell them">A typical diet plan or programme</div>
+        <div class="dcell us">Sankalp</div>
       </div>
+      <div class="drow">
+        <div class="dcell q">What it treats</div>
+        <div class="dcell them">The number on the report, or the weight on the scale.</div>
+        <div class="dcell us">The pattern that produced the number in the first place.</div>
+      </div>
+      <div class="drow">
+        <div class="dcell q">How wide it looks</div>
+        <div class="dcell them">Food alone — as if diet happens in a vacuum.</div>
+        <div class="dcell us">All five pillars, because they hold each other up.</div>
+      </div>
+      <div class="drow">
+        <div class="dcell q">How personal it is</div>
+        <div class="dcell them">The same chart, printed for everyone with your diagnosis.</div>
+        <div class="dcell us">Built from your assessment, your kitchen, your working hours.</div>
+      </div>
+      <div class="drow">
+        <div class="dcell q">What happens after</div>
+        <div class="dcell them">You get the plan and you're on your own with it.</div>
+        <div class="dcell us">A coach who checks in and changes the plan as you change.</div>
+      </div>
+      <div class="drow">
+        <div class="dcell q">Where your doctor fits</div>
+        <div class="dcell them">Ignored, or quietly positioned as the enemy.</div>
+        <div class="dcell us">Kept in the loop. We complement treatment, never replace it.</div>
+      </div>
+      <div class="drow">
+        <div class="dcell q">What it's built on</div>
+        <div class="dcell them">Whatever's trending — detoxes, cleanses, miracle cures.</div>
+        <div class="dcell us">Lifestyle medicine: India's traditional understanding of daily living, kept only where modern evidence agrees.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ YOUR COACH ══════════════════
+     This section is deliberately honest: no clients yet, no formal degree.
+     Do not add testimonials, client counts or success rates here until they
+     are real and permissioned. The trust here comes from the "won't do" list
+     and from naming the early stage plainly - that is the whole strategy. -->
+<section class="coach" id="coach">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Your coach</span>
+      <h2>Who you'll actually be working with</h2>
+      <p>Not a call centre, not a rota of junior consultants. Me.</p>
+    </div>
+
+    <div class="coach-intro">
+      <p class="said">I'm Akash. Before you trust me with your health, you should know exactly what I am — and what I'm not.</p>
+      <p><strong>I'm not a doctor.</strong> I don't hold a medical degree and I'll never pretend otherwise. I don't diagnose, I don't prescribe, and I don't touch anyone's medication. If what you're dealing with needs a physician, I'll tell you on the first call — and I'll keep telling you until you've seen one.</p>
+      <p>What I have is nine years inside this subject. It started in 2017, in college, with my own health and a question I couldn't put down: <em>why does everyone treat the symptom, and nobody ask what caused it?</em> That question turned into years of reading — clinical research, metabolic health, sleep science, the gut, and India's own long tradition of daily living, which got a great deal right long before the papers caught up.</p>
+      <p>Sankalp is what came out of that. A method, not a miracle: find which of the five pillars gave way, rebuild it in the order that actually works, and stay with the person while it changes.</p>
+      <p class="q"><strong>Sankalp is early, and I'd rather say so than dress it up.</strong> You won't find a wall of testimonials on this page — I'll put results here when they're real and the people behind them have said yes, and not a day before. What I can offer you in the meantime is the thing that quietly disappears as a practice grows: my full attention.</p>
+      <div class="coach-sig">
+        <span class="av" aria-hidden="true">AM</span>
+        <span>
+          <span class="sn">Akash Malviya</span>
+          <span class="sr">Founder &amp; coach, Sankalp · studying health since 2017</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="pledge">
+      <div class="pcard2 will">
+        <h3>What I will do</h3>
+        <ul>
+          <li>Take a full history across all five pillars before I suggest anything</li>
+          <li>Build your protocol myself, from your assessment — not from a template</li>
+          <li>Check in regularly, and change the plan when it isn't working</li>
+          <li>Explain the reasoning behind every change, so you can decide for yourself</li>
+          <li>Tell you plainly when something is outside what I can help with</li>
+        </ul>
+      </div>
+      <div class="pcard2 wont">
+        <h3>What I will never do</h3>
+        <ul>
+          <li>Stop, reduce or advise on your medication — that's your doctor's call alone</li>
+          <li>Promise to cure or reverse a condition</li>
+          <li>Sell you supplements, detoxes or cleanses</li>
+          <li>Take you on as a client if I don't believe I can help you</li>
+          <li>Ask you to believe in anything for it to work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cohort">
+      <h3>The founding group</h3>
+      <p>I'm taking on a small first group of clients, and working closely with them matters more to me right now than working with many. What that means for you:</p>
       <ul>
-        <li>Works alongside your doctor — never instead of one</li>
-        <li>Plain language you can read and act on in minutes</li>
-        <li>Personalised to your body, routine and problem</li>
-        <li>Small daily steps, not overwhelming lifestyle overhauls</li>
-        <li>We tell you when something needs a doctor, not us</li>
+        <li>You work directly with me — not with someone I've trained to sound like me</li>
+        <li>Far more of my time and attention than anyone will get once this grows</li>
+        <li>A say in how the programme is built, because it's still being shaped</li>
+        <li>Founding-member pricing, which won't be offered again</li>
       </ul>
+      <p>If that trade sounds fair to you, the call is the place to test it — no cost, and no pitch if I don't think I'm right for your case.</p>
+      <a href="https://wa.me/918359011231?text=Hi%20Akash%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call." target="_blank" rel="noopener" class="btn btn-primary">Book a free discovery call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FAQ ══════════════════ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>The things people ask before they call</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Will I have to stop my medicines?</summary>
+        <div class="fa"><strong>No — and please don't.</strong> We never stop, reduce or change anyone's medication. That decision belongs to your doctor and only your doctor. What we do is work on the lifestyle side so that when you go for your next review, your physician has better numbers to work with. Any change in dosage comes from them, based on those numbers.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long before I notice anything?</summary>
+        <div class="fa">Honestly, it depends on what we're fixing. <strong>Sleep, energy, bloating and mood usually shift within two to four weeks</strong> — those respond fast. <strong>Blood markers take longer — typically three to six months</strong> of consistent work, and they move at the pace your body decides, not the pace we'd like. Anyone promising faster than that is selling you something.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What actually happens on the discovery call?</summary>
+        <div class="fa">Thirty minutes, on the phone or WhatsApp. You talk, we listen — what's going on, what you've already tried, what you're hoping for. Then we tell you plainly whether we think we can help and what working together would look like. <strong>If we're not the right fit, we'll tell you that instead.</strong> No cost, no obligation.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is this Ayurveda? Is it a diet plan?</summary>
+        <div class="fa">Neither, exactly. It's <strong>lifestyle medicine</strong> — working on the daily behaviours that drive chronic conditions. We draw on India's traditional understanding of daily living, which got a great deal right about food, timing and rhythm, but we only keep what modern evidence supports. <strong>No detoxes, no cleanses, no miracle cures</strong>, and nothing you have to believe in for it to work.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is it online, or do I need to come in?</summary>
+        <div class="fa">Online. Assessment, protocol and check-ins all happen over call and WhatsApp, so it works wherever you are and fits around your job.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to give up everything I like eating?</summary>
+        <div class="fa">No, and plans that demand that are exactly why most people quit by week three. We build around what you already eat and what's actually cooked in your kitchen. <strong>Timing and sequencing often matter as much as the food itself</strong> — a lot of early progress comes from changing when you eat, not banning what you eat.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does it cost?</summary>
+        <div class="fa">We'll walk you through the programmes and pricing on the discovery call, once we know what you actually need — quoting before that would be guesswork. <strong>The call itself is free, and there's no pressure to sign up on it.</strong></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FINAL CTA ══════════════════ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-box">
+      <h2>Start with a conversation</h2>
+      <p>Thirty minutes, no cost, no obligation. Tell us what's going on and we'll tell you honestly whether we can help.</p>
+      <a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener" class="btn btn-primary">Book a free discovery call</a>
+      <p class="alt">Not ready to talk yet? <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener">Join our WhatsApp community</a></p>
     </div>
   </div>
 </section>
@@ -667,24 +918,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
     <div class="blog-grid">
       <a href="blog/yoga-and-pranayama-for-anxiety.html" class="bcard"><span class="tag">Stress &amp; anxiety</span><h3>Calm an Anxious Mind — Breathing &amp; Gentle Movement That Work</h3><p>Anxiety is a nervous system stuck "on". Learn the breathing exercises and gentle movement that switch it off — plus a simple 10-minute daily routine.</p><span class="more">Read more →</span></a>
       <a href="blog/ayurveda-for-sleep-insomnia.html" class="bcard"><span class="tag">Sleep</span><h3>Can't Sleep? Find the Cause — and the Natural Fixes That Help</h3><p>Different people can't sleep for different reasons. Find yours, and the warm, grounding evening habits that bring deep sleep back.</p><span class="more">Read more →</span></a>
-      <a href="blog/nadi-shodhana-alternate-nostril-breathing.html" class="bcard"><span class="tag">Breathing</span><h3>Alternate Nostril Breathing — Five Minutes to a Quieter Mind</h3><p>The gentlest balancing breath there is. Exactly how to do it, step by step — and the science of why it works.</p><span class="more">Read more →</span></a>
-      <a href="blog/sns-pns-how-your-nervous-system-controls-health.html" class="bcard"><span class="tag">How your body works</span><h3>Your Body Has an Accelerator and a Brake — Here's How to Use Them</h3><p>Modern science calls them the sympathetic and parasympathetic nervous systems. Understanding them explains most of your stress, sleep and digestion problems.</p><span class="more">Read more →</span></a>
-      <a href="blog/ashwagandha-the-ancient-herb-proven-by-modern-science.html" class="bcard"><span class="tag">Herbs, with evidence</span><h3>Ashwagandha — The Ancient Herb Proven by Modern Science</h3><p>3,000 years of traditional use, now backed by clinical trials. What the research actually says about stress, sleep and strength.</p><span class="more">Read more →</span></a>
-      <a href="blog/triphala-the-three-fruit-formula-backed-by-science.html" class="bcard"><span class="tag">Herbs, with evidence</span><h3>Triphala — The Three-Fruit Formula Backed by Science</h3><p>Three dried fruits, 2,000 years of use — and modern trials showing real benefits for gut and oral health.</p><span class="more">Read more →</span></a>
+      <a href="blog/sns-pns-how-your-nervous-system-controls-health.html" class="bcard"><span class="tag">How your body works</span><h3>Your Body Has an Accelerator and a Brake — Here's How to Use Them</h3><p>Understanding these two modes explains most of your stress, sleep and digestion problems — and what to do about them.</p><span class="more">Read more →</span></a>
     </div>
     <div class="cta-center"><a href="blog/" class="btn btn-ghost">Read all articles →</a></div>
-  </div>
-</section>
-
-<!-- ══════════════════ FINAL CTA ══════════════════ -->
-<section class="final">
-  <div class="wrap">
-    <div class="final-box">
-      <h2>Your journey starts here</h2>
-      <p>Five minutes of simple questions. You'll come away understanding your body better — and knowing exactly what to work on first.</p>
-      <a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="btn btn-primary">Begin your journey</a>
-      <p class="alt">Prefer to talk first? <a href="https://chat.whatsapp.com/KrM12p1vtUXF1ZQkssvBF3" target="_blank" rel="noopener">Join our WhatsApp community</a></p>
-    </div>
   </div>
 </section>
 
@@ -692,17 +928,20 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px}
   <div class="foot-inner">
     <a href="#top" class="brand" style="font-size:18px"><span class="mark" style="width:26px;height:26px"><svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus"><g class="petals"><path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p2" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/><path class="p p3" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p4" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b"/><path class="p p5" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/></g><circle class="seed" cx="256" cy="356" r="15" fill="#c2954e"/></svg></span>Sankalp</a>
     <div class="foot-links">
-      <a href="#roots">Ancient + modern</a>
+      <a href="#pillars">The five pillars</a>
+      <a href="#how">How it works</a>
+      <a href="#coach">Your coach</a>
       <a href="blog/">Blog</a>
-      <a href="https://app.sankalphealth.in/" target="_blank" rel="noopener">Begin your journey</a>
       <a href="for-doctors.html">For Doctors</a>
       <a href="privacy.html">Privacy</a>
+      <a href="https://wa.me/918359011231?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20with%20Sankalp." target="_blank" rel="noopener">Book a free call</a>
     </div>
     <p class="foot-copy">© 2026 Sankalp · sankalphealth.in</p>
   </div>
+  <p class="foot-disc">Sankalp provides lifestyle and wellness coaching. It is not a medical service and does not diagnose, treat or cure any disease. Our coaching is intended to complement — never replace — care from a registered medical practitioner. Never stop or alter prescribed medication without consulting your doctor. If you are experiencing a medical emergency, contact emergency services immediately.</p>
 </footer>
 
-<!-- ══════════════════ SCROLL / COUNTER JS ══════════════════ -->
+<!-- ══════════════════ PILLARS + REVEAL JS ══════════════════ -->
 <script>
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.addEventListener('click', function(){ document.querySelector('.nav-links').classList.remove('open'); });
@@ -710,65 +949,100 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
 
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function setFinal(el){ el.textContent = parseInt(el.dataset.to,10).toLocaleString('en-IN') + (el.dataset.suf||''); }
+
+  // ── stat counters ──
+  function statText(el, val){
+    return (el.dataset.pre||'') + val.toLocaleString('en-IN') + (el.dataset.suf||'');
+  }
+  function setFinal(el){ el.textContent = statText(el, parseInt(el.dataset.to,10)); }
   function countUp(el){
-    var to = parseInt(el.dataset.to,10), suf = el.dataset.suf||'', dur=1600, start=null;
-    function tick(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1), eased=1-Math.pow(1-p,3);
-      el.textContent = Math.round(to*eased).toLocaleString('en-IN')+suf; if(p<1) requestAnimationFrame(tick); }
+    var to = parseInt(el.dataset.to,10), dur = 1500, start = null;
+    function tick(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/dur, 1), eased = 1-Math.pow(1-p,3);
+      el.textContent = statText(el, Math.round(to*eased));
+      if(p < 1) requestAnimationFrame(tick);
+    }
     requestAnimationFrame(tick);
   }
+
+  // ── scroll reveal ──
   if(reduced || !('IntersectionObserver' in window)){
-    document.querySelectorAll('.stat-num').forEach(setFinal);
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.stat-num').forEach(setFinal);
   } else {
-    document.querySelectorAll('.pcard,.step,.plan-card,.bcard,.brow,.astep').forEach(function(el){
+    document.querySelectorAll('.pcard,.step,.ocard,.bcard,.cond-list span').forEach(function(el){
       el.classList.add('reveal');
       var i = Array.prototype.indexOf.call(el.parentNode.children, el);
-      el.style.transitionDelay = Math.min(i*90,450)+'ms';
+      el.style.transitionDelay = Math.min(i*70,420)+'ms';
     });
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(!e.isIntersecting) return;
         e.target.classList.add('in');
         if(e.target.classList.contains('stat-num')) countUp(e.target);
         io.unobserve(e.target); });
-    }, {threshold:0.2, rootMargin:'0px 0px -40px 0px'});
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal,.stat-num').forEach(function(el){ io.observe(el); });
   }
 
-  // ── Behavior report card ──
-  var DATA = {
-    fire:  {v:'neutral', badge:'Neutral', title:'Fine for you — even helpful.',
-            text:'You already run warm, so a cool glass is mildly soothing, especially in summer. It won’t throw you off.',
-            fix:'<b>Keep it</b> — just not ice-cold, and always after you’ve been awake a few minutes.'},
-    air:   {v:'wrong', badge:'Wrong for you', title:'It smothers your digestion before the day starts.',
-            text:'Your body already runs cold, and cold water on an empty stomach slows a digestion that’s sluggish first thing anyway — like pouring cold water on an engine you’re trying to start.',
-            fix:'<b>Switch to</b> warm water with a squeeze of lemon. You should feel digestion shift in 3–5 days.'},
-    earth: {v:'right', badge:'Right for you', title:'It wakes up a sluggish morning system.',
-            text:'Your mornings run slow and heavy, so a brisk cool glass gives your steady metabolism the nudge it needs to get moving.',
-            fix:'<b>Keep it</b> — cool, not iced. A pinch of ginger or honey helps even more.'}
+  // ── five pillars tabs ──
+  var PILLARS = {
+    nutrition: {
+      color:'var(--p-nutrition)',
+      title:'Nutrition — what you eat, and when you eat it',
+      lede:'Most people we meet already know roughly what healthy food is. What nobody told them is that timing, sequencing and how well they actually absorb a meal matter just as much as the meal itself.',
+      signs:['Energy crashes an hour or two after eating','Constant cravings, especially in the evening','Eating dinner late, then eating it heavy','Skipping breakfast, then overeating at night','Weight or sugar that won\'t move despite "eating clean"'],
+      fix:['Meal timing built around your working day','What to eat first in a meal, and why the order changes your sugar response','Food that\'s cooked in your kitchen, not an imported diet','Practical swaps instead of bans, so it survives past week three','Adjusting the plan as your markers move']
+    },
+    sleep: {
+      color:'var(--p-sleep)',
+      title:'Sleep — the pillar that decides how the other four go',
+      lede:'Sleep is where the body does its repairs. Short or broken sleep raises blood sugar, drives hunger the next day, and makes stress harder to handle — which is why we rarely fix anything else without fixing this first.',
+      signs:['Wired at midnight, exhausted at 7am','Falling asleep fine but waking at 2–3am','Needing your phone or a screen to fall asleep','Waking unrefreshed after a full eight hours','Depending on caffeine to get through the afternoon'],
+      fix:['Finding what is actually breaking your sleep — it\'s rarely one thing','An evening wind-down that fits a real household','Light, screens, caffeine and meal timing in the hours before bed','A consistent wake time, which matters more than a consistent bedtime','Rebuilding sleep without making you dependent on anything to get it']
+    },
+    movement: {
+      color:'var(--p-movement)',
+      title:'Movement — enough of it, at the right time',
+      lede:'This is not about the gym. Long unbroken sitting damages metabolic health on its own, and short movement placed at the right point in your day does more for your blood sugar than an hour of exercise placed badly.',
+      signs:['Sitting for six or more hours with almost no breaks','Stiffness, back or knee pain that\'s become normal','Getting winded on a flight of stairs','Starting an exercise routine and abandoning it every few weeks','Being active in bursts on weekends and sedentary all week'],
+      fix:['Movement dosed to your current capacity, not an ideal one','Short walks placed where they help most — usually after meals','Strength work scaled to your joints and your age','Breaking up long sitting during the working day','Building it so it survives a busy week, which is the real test']
+    },
+    gut: {
+      color:'var(--p-gut)',
+      title:'Gut health — where a surprising amount of this starts',
+      lede:'A struggling gut does not stay a gut problem. It drives inflammation, shapes your mood and focus through the gut–brain axis, and decides how much of your food you actually absorb. Fix the gut and other pillars start responding better.',
+      signs:['Bloating, gas or heaviness after most meals','Acidity or reflux you\'ve started treating as normal','Irregular or incomplete bowel movements','A coated tongue and heaviness on waking','Skin flare-ups and brain fog that track with what you ate'],
+      fix:['Finding which foods and which timings your gut is struggling with','Rebuilding digestive strength before adding anything else','Meal spacing — giving the gut room between meals to finish its work','Fibre, fermented food and hydration, introduced at a pace you tolerate','Flagging anything that needs a gastroenterologist rather than a coach']
+    },
+    emotional: {
+      color:'var(--p-emotional)',
+      title:'Emotional health — the pillar that quietly undoes the other four',
+      lede:'A body under constant stress holds onto weight, sleeps badly, digests poorly and stays inflamed — no matter how good the diet is. This is the pillar people skip, and the reason their perfectly reasonable plan stops working.',
+      signs:['A mind that won\'t switch off at night','Eating for comfort, then feeling worse about it','Irritability and a short fuse that isn\'t like you','Feeling permanently behind, even on a light day','Chest tightness, jaw clenching, shallow breathing you\'d stopped noticing'],
+      fix:['Naming the stress that\'s actually driving the physiology','Short daily breathing practice — the most reliable off-switch there is','Boundaries around work, screens and news that you can keep','Untangling emotional eating from actual hunger','Referring you to a mental health professional when that\'s what\'s needed']
+    }
   };
-  var ICONS = {
-    right:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>',
-    wrong:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
-    neutral:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>'
-  };
-  var verdict = document.getElementById('rverdict');
-  function render(body){
-    var d = DATA[body];
-    verdict.className = 'rverdict ' + d.v;
-    document.getElementById('rv-badge').innerHTML = ICONS[d.v] + ' ' + d.badge;
-    document.getElementById('rv-title').textContent = d.title;
-    document.getElementById('rv-text').textContent = d.text;
-    document.getElementById('rv-fix').innerHTML = d.fix;
+
+  var panel = document.getElementById('ppanel');
+  function fill(key){
+    var d = PILLARS[key];
+    if(!d) return;
+    panel.style.setProperty('--pc', d.color);
+    document.getElementById('pp-title').textContent = d.title;
+    document.getElementById('pp-lede').textContent = d.lede;
+    document.getElementById('pp-signs').innerHTML = d.signs.map(function(s){ return '<li>'+s+'</li>'; }).join('');
+    document.getElementById('pp-fix').innerHTML   = d.fix.map(function(s){ return '<li>'+s+'</li>'; }).join('');
   }
-  document.querySelectorAll('#rtoggle .rbtn').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('#rtoggle .rbtn').forEach(function(x){ x.classList.remove('on'); });
-      b.classList.add('on');
-      render(b.dataset.body);
+  var tabs = document.querySelectorAll('#ptabs .ptab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-selected','false'); });
+      t.classList.add('on'); t.setAttribute('aria-selected','true');
+      fill(t.dataset.p);
     });
   });
-  render('air');
+  fill('nutrition');
 })();
 </script>
 
@@ -796,8 +1070,13 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
   camera.position.set(0, 0, 5.0);
 
   // ── double helix: two strands + base-pair rungs + ambient dust ──
-  var HEIGHT = 3.4, RADIUS = 0.72, TURNS = 2.6;
-  var PER_STRAND = 640, RUNGS = 26, RUNG_PTS = 12, AMBIENT = 700;
+  // Geometry is tuned to sit INSIDE the decorative CSS rings (inset 15%/30%).
+  // Visible height at the origin is 2*camZ*tan(fov/2) ≈ 4.66 units, so HEIGHT
+  // must stay well under that or the helix escapes its circular frame.
+  // TURNS/HEIGHT is the "tightness" ratio — below ~1.0 it reads as a loose
+  // spiral rather than a double helix.
+  var HEIGHT = 2.8, RADIUS = 0.80, TURNS = 3.4;
+  var PER_STRAND = 640, RUNGS = 30, RUNG_PTS = 12, AMBIENT = 620;
   var COUNT = PER_STRAND * 2 + RUNGS * RUNG_PTS + AMBIENT;
   var positions = new Float32Array(COUNT * 3);
   var scales = new Float32Array(COUNT);
@@ -836,9 +1115,10 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
   }
   for(i = 0; i < AMBIENT; i++){
     ang = Math.random() * TWO_PI;
-    var rr = 0.9 + Math.random() * 1.1;
+    // kept close to the strands so stray motes don't scatter into the corners
+    var rr = 0.85 + Math.random() * 0.75;
     positions[idx*3]   = Math.cos(ang) * rr;
-    positions[idx*3+1] = (Math.random() - 0.5) * HEIGHT * 1.2;
+    positions[idx*3+1] = (Math.random() - 0.5) * HEIGHT * 1.05;
     positions[idx*3+2] = Math.sin(ang) * rr;
     scales[idx] = 0.2 + Math.random() * 0.4;
     rnds[idx]   = Math.random();
@@ -854,7 +1134,7 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
 
   var uniforms = {
     uTime:   { value: 0 },
-    uSize:   { value: 3.4 },
+    uSize:   { value: 3.9 },
     uPixelRatio: { value: 1 },
     uColorA: { value: new THREE.Color(0x137a58) }, // deep green
     uColorB: { value: new THREE.Color(0xc79637) }  // gold shimmer

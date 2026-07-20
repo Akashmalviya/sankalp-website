@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--
+  SOURCE TEMPLATE for public/images/og-default.png (1200x630).
+
+  This file is NOT published - it lives outside src/pages/ and public/ so Astro
+  never builds or serves it. It exists so the OG image can be regenerated when
+  the brand or positioning changes, instead of being reverse-engineered.
+
+  To regenerate:
+    npx astro build   (not required, this file is standalone)
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --hide-scrollbars \
+      --window-size=1200,630 --default-background-color=FFFFFFFF \
+      --screenshot=public/images/og-default.png \
+      --virtual-time-budget=4000 \
+      file:///ABSOLUTE/PATH/TO/tools/og-default.html
+
+  Keep the canvas exactly 1200x630. Facebook/LinkedIn/WhatsApp crop toward the
+  centre, so keep all text inside the middle ~1000x520.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --ink:#182420; --text:#3a4844; --muted:#66756f; --line:#e3eae6;
+    --green:#157a5b; --green-dark:#0e5c44; --gold:#b0894f;
+  }
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:'Inter',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(120% 90% at 100% -10%, rgba(217,184,119,.20), transparent 55%),
+      radial-gradient(100% 85% at -8% 108%, rgba(21,122,91,.14), transparent 58%),
+      linear-gradient(180deg,#ffffff 0%,#fbfdfc 58%,#f4f7f5 100%);
+    position:relative;
+  }
+  /* subtle dot field, same motif as the site hero */
+  .fx{
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(21,122,91,.07) 1px,transparent 1.5px);
+    background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(125% 100% at 50% 0%,#000 26%,transparent 72%);
+  }
+  .card{position:relative;text-align:center;padding:0 90px;max-width:1040px}
+
+  .brandrow{display:flex;align-items:center;justify-content:center;gap:13px;margin-bottom:34px}
+  .brandrow svg{width:44px;height:44px;display:block}
+  .brandrow .wm{font-family:'Fraunces',serif;font-size:33px;font-weight:600;color:var(--ink);letter-spacing:-.2px}
+
+  .eyebrow{
+    font-size:15px;font-weight:600;letter-spacing:3.4px;text-transform:uppercase;
+    color:var(--green);margin-bottom:24px;
+  }
+
+  h1{
+    font-family:'Fraunces',serif;font-weight:600;color:var(--ink);
+    font-size:62px;line-height:1.14;letter-spacing:-1.2px;margin-bottom:28px;
+  }
+  h1 em{font-style:italic;color:var(--green)}
+
+  .pillars{
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+    font-size:17.5px;font-weight:500;color:var(--text);margin-bottom:34px;
+  }
+  .pillars .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex:0 0 auto}
+
+  .rule{width:54px;height:2px;background:var(--gold);border-radius:2px;margin:0 auto 22px}
+  .url{font-size:15.5px;font-weight:600;letter-spacing:2.6px;color:var(--muted);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="fx"></div>
+<div class="card">
+
+  <div class="brandrow">
+    <svg viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus">
+      <g>
+        <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73" transform="rotate(-80 256 366)"/>
+        <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73" transform="rotate(80 256 366)"/>
+        <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b" transform="rotate(-42 256 366)"/>
+        <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#1f7d5b" transform="rotate(42 256 366)"/>
+        <path d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#0e5c44"/>
+      </g>
+      <circle cx="256" cy="356" r="15" fill="#c2954e"/>
+    </svg>
+    <span class="wm">Sankalp</span>
+  </div>
+
+  <div class="eyebrow">Lifestyle medicine, personalised</div>
+
+  <h1>Your diagnosis has a cause.<br>We find it — and <em>fix it</em>.</h1>
+
+  <div class="pillars">
+    <span>Nutrition</span><span class="dot"></span>
+    <span>Sleep</span><span class="dot"></span>
+    <span>Movement</span><span class="dot"></span>
+    <span>Gut</span><span class="dot"></span>
+    <span>Emotional health</span>
+  </div>
+
+  <div class="rule"></div>
+  <div class="url">sankalphealth.in</div>
+
+</div>
+</body>
+</html>
