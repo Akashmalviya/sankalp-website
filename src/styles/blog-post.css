@@ -5,9 +5,9 @@
 
 /* HERO */
 .blog-hero{
-  padding:56px 0 48px;
+  padding:100px 0 48px;
   text-align:center;
-  background:linear-gradient(180deg,#fbfdfc 0%,var(--bg) 100%);
+  background:var(--bg);
   border-bottom:1px solid var(--line);
 }
 .blog-hero-content{max-width:720px;margin:0 auto;padding:0 24px}

@@ -3,14 +3,22 @@ interface Props {
   /** relative path prefix to the site root — "" at root, "../" one level down (e.g. blog/*) */
   base?: string;
   /** which nav item to highlight as current */
-  active?: 'app' | 'blog' | 'for-doctors';
+  active?: 'app' | 'blog' | 'for-doctors' | 'for-coaches' | 'home' | 'your-coach';
 }
 const { base = '', active } = Astro.props;
+
+const isHome = active === 'home' || active === 'for-coaches';
+const isCoach = active === 'your-coach';
+const ctaHref = active === 'for-doctors'
+  ? 'mailto:hello@sankalphealth.in?subject=Healthcare%20professionals%20%C2%B7%20Sankalp'
+  : 'https://app.sankalphealth.in/';
+const ctaLabel = active === 'for-doctors' ? 'Talk to us' : 'Start free';
+const ctaExternal = ctaHref.startsWith('http');
 ---
-<nav>
-  <div class="nav-inner">
+<nav class="site-nav" aria-label="Primary">
+  <div class="nav-raft">
     <a href={`${base}index.html`} class="brand">
-      <span class="mark">
+      <span class="mark" aria-hidden="true">
         <svg class="lotus" viewBox="0 0 512 512" role="img" aria-label="Sankalp lotus">
           <g class="petals">
             <path class="p p1" d="M256 130 A150 150 0 0 1 256 366 A150 150 0 0 1 256 130 Z" fill="#3a9e73"/>
@@ -24,26 +32,49 @@ const { base = '', active } = Astro.props;
       </span>
       Sankalp
     </a>
-    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href={`${base}index.html#science`}>The science</a></li>
-      <li><a href={`${base}index.html#roots`}>Ancient + modern</a></li>
-      <li><a href={`${base}blog/`} class={active === 'blog' ? 'active' : undefined}>Blog</a></li>
-      <li><a href={`${base}for-doctors.html`} class={active === 'for-doctors' ? 'active' : undefined}>For Doctors</a></li>
-      <li><a href="https://app.sankalphealth.in/" target="_blank" rel="noopener" class="nav-cta">Talk to Us, Free</a></li>
-    </ul>
+    <div class="nav-trail">
+      <ul class="nav-links">
+        <li>
+          <a href={isHome ? '#story' : `${base}index.html#story`}>How it works</a>
+        </li>
+        <li>
+          <a href={isHome ? '#health-story' : `${base}index.html#health-story`}>Health story</a>
+        </li>
+        <li>
+          <a href={`${base}your-coach.html`} class={isCoach ? 'active' : undefined}>About</a>
+        </li>
+        <li>
+          <a href={`${base}blog/`} class={active === 'blog' ? 'active' : undefined}>Blog</a>
+        </li>
+      </ul>
+      <a
+        href={ctaHref}
+        class="nav-cta"
+        {...(ctaExternal ? { target: '_blank', rel: 'noopener' } : {})}
+      >{ctaLabel}</a>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </nav>
 
 <script>
   document.querySelectorAll('.nav-toggle').forEach((btn) => {
     btn.addEventListener('click', () => {
-      btn.parentElement?.querySelector('.nav-links')?.classList.toggle('open');
+      const raft = btn.closest('.nav-raft') || btn.parentElement;
+      const links = raft?.querySelector('.nav-links');
+      if (!links) return;
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
   document.querySelectorAll('.nav-links a').forEach((a) => {
     a.addEventListener('click', () => {
       a.closest('.nav-links')?.classList.remove('open');
+      document.querySelectorAll('.nav-toggle').forEach((btn) => {
+        btn.setAttribute('aria-expanded', 'false');
+      });
     });
   });
 </script>

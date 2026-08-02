@@ -1,0 +1,387 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const callHref =
+  'mailto:hello@sankalphealth.in?subject=Discovery%20call%20%C2%B7%20Sankalp';
+
+const willDo = [
+  'Take a full history across all five pillars before suggesting anything',
+  'Build your protocol myself, from your assessment, not from a template',
+  'Check in regularly, and change the plan when it is not working',
+  'Explain the reasoning behind every change, so you can decide for yourself',
+  'Tell you plainly when something is outside what I can help with',
+];
+
+const willNever = [
+  'Stop, reduce, or advise on your medication. That is your doctor’s call alone',
+  'Promise to cure or reverse a condition',
+  'Sell you supplements, detoxes, or cleanses',
+  'Take you on as a client if I do not believe I can help you',
+  'Ask you to believe in anything for it to work',
+];
+
+const founding = [
+  'You work directly with me, not someone trained to sound like me',
+  'Far more of my time and attention than anyone will get once this grows',
+  'A say in how the programme is built, because it is still being shaped',
+  'Founding-member pricing, which will not be offered again',
+];
+---
+<PageLayout
+  title="Your Coach · Akash Malviya · Sankalp"
+  description="Meet Akash Malviya, founder and coach at Sankalp. Not a call centre. A person who stays with you while the five pillars of your health are rebuilt."
+  path="/your-coach.html"
+  active="your-coach"
+>
+
+<div class="yc-band">
+  <section class="yc-hero">
+    <div class="wrap yc-narrow">
+      <p class="yc-kicker">Your coach</p>
+      <h1>Who you’ll actually be working with.</h1>
+      <p class="yc-lede">Not a call centre. Not a rota of junior consultants. Me.</p>
+    </div>
+  </section>
+
+  <section class="yc-intro">
+    <div class="wrap yc-narrow">
+      <p class="yc-lead">
+        I’m Akash. Before you trust me with your health, you should know exactly what I am, and what I’m not.
+      </p>
+
+      <p>
+        I’m not a doctor. I don’t hold a medical degree and I’ll never pretend otherwise. I don’t diagnose, I don’t prescribe, and I don’t touch anyone’s medication. If what you’re dealing with needs a physician, I’ll tell you on the first call, and I’ll keep telling you until you’ve seen one.
+      </p>
+
+      <p>
+        What I have is nine years inside this subject. It started in 2017, in college, with my own health and a question I couldn’t put down: why does everyone treat the symptom, and nobody ask what caused it?
+      </p>
+
+      <p>
+        That question turned into years of reading, clinical research, metabolic health, sleep science, the gut, and India’s own long tradition of daily living, which got a great deal right long before the papers caught up.
+      </p>
+
+      <p>
+        Sankalp is what came out of that. A method, not a miracle: find which of the five pillars gave way, rebuild it in the order that actually works, and stay with the person while it changes.
+      </p>
+
+      <p>
+        Sankalp is early, and I’d rather say so than dress it up. You won’t find a wall of testimonials here. I’ll put results here when they’re real and the people behind them have said yes. What I can offer you in the meantime is the thing that quietly disappears as a practice grows: my full attention.
+      </p>
+
+      <div class="yc-sign">
+        <span class="yc-avatar" aria-hidden="true">AM</span>
+        <div>
+          <p class="yc-name">Akash Malviya</p>
+          <p class="yc-role">Founder &amp; coach, Sankalp · studying health since 2017</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="yc-section yc-bounds">
+  <div class="wrap">
+    <div class="yc-split">
+      <div class="yc-col yc-col-do">
+        <h2>What I will do</h2>
+        <ul>
+          {willDo.map((item) => (
+            <li>
+              <span class="yc-mark yc-mark-yes" aria-hidden="true"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="yc-col yc-col-dont">
+        <h2>What I will never do</h2>
+        <ul>
+          {willNever.map((item) => (
+            <li>
+              <span class="yc-mark yc-mark-no" aria-hidden="true"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="yc-section yc-founding">
+  <div class="wrap yc-founding-wrap">
+    <p class="yc-kicker">Early access</p>
+    <h2>The founding group</h2>
+    <p class="yc-founding-lede">
+      I’m taking on a small first group of clients. Working closely with them matters more to me right now than working with many. What that means for you:
+    </p>
+    <ul class="yc-founding-list">
+      {founding.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+    <p class="yc-founding-close">
+      If that trade sounds fair to you, the call is the place to test it. No cost, and no pitch if I don’t think I’m right for your case.
+    </p>
+    <a href={callHref} class="btn btn-primary" data-cta="coach-call">Book a free discovery call</a>
+  </div>
+</section>
+
+</PageLayout>
+
+<style>
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .yc-narrow {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .yc-kicker {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  .yc-band {
+    background:
+      radial-gradient(ellipse 65% 40% at 12% 8%, rgba(21,122,91,.07), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 90% 20%, rgba(194,149,78,.08), transparent 50%),
+      linear-gradient(180deg, #f3efe6 0%, var(--bg) 70%);
+  }
+
+  .yc-hero {
+    padding: 120px 0 28px;
+    text-align: center;
+  }
+  .yc-hero h1 {
+    margin: 0 0 16px;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 600;
+    letter-spacing: -.4px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .yc-lede {
+    margin: 0 auto;
+    max-width: 28ch;
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .yc-intro {
+    padding: 28px 0 72px;
+  }
+  .yc-intro p {
+    margin: 0 0 22px;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .yc-lead {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.4vw, 24px) !important;
+    font-weight: 500;
+    line-height: 1.4 !important;
+    color: var(--ink) !important;
+  }
+
+  .yc-sign {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .yc-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--green-dark);
+    color: #fffdf9;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    flex-shrink: 0;
+  }
+  .yc-name {
+    margin: 0 0 2px !important;
+    font-family: 'Fraunces', serif;
+    font-size: 17px !important;
+    font-weight: 600;
+    color: var(--ink) !important;
+    line-height: 1.2 !important;
+  }
+  .yc-role {
+    margin: 0 !important;
+    font-size: 13.5px !important;
+    color: var(--muted) !important;
+    line-height: 1.4 !important;
+  }
+
+  .yc-section {
+    padding: clamp(56px, 8vw, 88px) 0;
+  }
+
+  .yc-bounds {
+    background: var(--bg-soft);
+  }
+  .yc-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .yc-col h2 {
+    margin: 0 0 22px;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .yc-col-do h2 { color: var(--green-dark); }
+  .yc-col-dont h2 { color: #8a4f3a; }
+  .yc-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .yc-col li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .yc-col li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .yc-mark {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .yc-mark-yes {
+    background: var(--green-soft);
+    border: 1px solid rgba(21,122,91,.25);
+  }
+  .yc-mark-yes::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    width: 5px;
+    height: 8px;
+    border: solid var(--green-dark);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .yc-mark-no {
+    background: rgba(212,145,122,.12);
+    border: 1px solid rgba(212,145,122,.35);
+  }
+  .yc-mark-no::before,
+  .yc-mark-no::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: 50%;
+    height: 1.5px;
+    background: #8a4f3a;
+  }
+  .yc-mark-no::before { transform: translateY(-50%) rotate(45deg); }
+  .yc-mark-no::after { transform: translateY(-50%) rotate(-45deg); }
+
+  .yc-founding {
+    background:
+      radial-gradient(ellipse 55% 40% at 50% 0%, rgba(194,149,78,.08), transparent 55%),
+      var(--bg);
+    text-align: center;
+  }
+  .yc-founding-wrap {
+    max-width: 640px;
+  }
+  .yc-founding h2 {
+    margin: 0 0 16px;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .yc-founding-lede,
+  .yc-founding-close {
+    margin: 0 auto 28px;
+    max-width: 48ch;
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .yc-founding-list {
+    list-style: none;
+    margin: 0 auto 28px;
+    padding: 0;
+    text-align: left;
+    max-width: 520px;
+  }
+  .yc-founding-list li {
+    position: relative;
+    padding: 14px 0 14px 28px;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .yc-founding-list li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .yc-founding-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .yc-founding .btn {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 760px) {
+    .yc-hero { padding-top: 108px; }
+    .yc-split {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-cta]').forEach((el) => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', { location: el.dataset.cta });
+      }
+    });
+  });
+</script>
